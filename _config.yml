@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : Planet Packing  # The title of the book. Will be placed in the left navbar.
+title                       : Exoplanets within Binary Systems  # The title of the book. Will be placed in the left navbar.
 author                      : Billy Quarles  # The author of the book
 copyright                   : "2023"  # Copyright year to be placed in the footer
 logo                        : ""  # A path to the book logo
@@ -50,7 +50,7 @@ launch_buttons:
   thebe: true  # Add a thebe button to pages (requires the repository to run on Binder)
 
 repository:
-  url: https://github.com/saturnaxis/PlanetPacking # The URL to your book's repository
+  url: https://github.com/saturnaxis/exoplanet-binary # The URL to your book's repository
   path_to_book: ""  # A path to your book's folder, relative to the repository root.
   branch: main  # Which branch of the repository should be used when creating links
 
@@ -65,7 +65,7 @@ html:
   #extra_footer              : "This page was created by <a href="http://www.atmos.albany.edu/facstaff/brose">Brian E. J. Rose</a> using <a href="https://jupyterbook.org">Jupyter Book</a>."  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  baseurl                   : "https://saturnaxis.github.io/PlanetPacking/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  baseurl                   : "https://saturnaxis.github.io/exoplanet-binary/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     hypothesis              : false
     utterances              : false
