@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introduction to the α Centauri System &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/intro-alpha-centauri';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-alpha-centauri.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. N-body Simulations" href="nbody-integration.html" />
+    <link rel="prev" title="Exoplanets within Binary Systems" href="../home.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Exoplanets within Binary Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/intro-alpha-centauri.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/intro-alpha-centauri.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/intro-alpha-centauri.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to the α Centauri System</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stellar-parameters">1.1. The stellar parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binary-orbit">1.2. The binary orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-orbit">1.2.1. What is an orbit?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">1.2.2. Initial conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-to-orbital-elements">1.2.3. Cartesian to orbital elements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-alpha-cen-ab-parameters">1.3. Using <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet-using-a-galilean-transformation">1.4. Adding a planet using a Galilean transformation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-the-centauri-system">
+<h1><span class="section-number">1. </span>Introduction to the α Centauri System<a class="headerlink" href="#introduction-to-the-centauri-system" title="Permalink to this heading">#</a></h1>
+<section id="the-stellar-parameters">
+<h2><span class="section-number">1.1. </span>The stellar parameters<a class="headerlink" href="#the-stellar-parameters" title="Permalink to this heading">#</a></h2>
+<p>The <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri system is a collection of three stars that are <span class="math notranslate nohighlight">\({\sim}4\ \rm ly\)</span> away from our Sun.  Two of the stars are Sunlike (<span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB), which means that they share a similar mass or luminosity to our Sun.  The third star (Proxima Centauri) is much cooler and smaller than our Sun.  The physical parameters (i.e., mass, luminosity, and radius in solar units) for <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB from <a class="reference external" href="https://www.aanda.org/articles/aa/full_html/2016/02/aa27859-15/aa27859-15.html">Pourbaix &amp; Boffin (2016)</a> (<span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB) are given in the table below:</p>
+<table class="table" id="param-table">
+<caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Parameters of <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri AB</span><a class="headerlink" href="#param-table" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameters</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\alpha\)</span> Cen A</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\alpha\)</span> Cen B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mass <span class="math notranslate nohighlight">\((M_\odot)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.105 \pm 0.0070\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.934 \pm 0.0061\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>luminosity <span class="math notranslate nohighlight">\((L_\odot)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.519 \pm 0.018\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.5002 \pm 0.016\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>radius <span class="math notranslate nohighlight">\((R_\odot)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.231 \pm 0.0036\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.868 \pm 0.0052\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mass and radius used here are from <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2016/02/aa27859-15.pdf">Pourbaix &amp; Boffin (2016)</a>, while the luminosity used is from <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2002/34/aaee242.pdf">Thévenin et al. (2002)</a>.  These values have been updated recently by <a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-3881/abfaff/pdf">Akeson et al. (2021)</a>, but the older values are retained for consistency with prior works.</p>
+</div>
+<p>Proxima Centauri is ignored in this JupyterBook because it is significantly less massive and has a close approach (periastron passage) of <span class="math notranslate nohighlight">\({\gtrsim} 3,500\ \rm AU\)</span> (<a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-3881/abfaff/pdf">Akeson et al. (2021)</a>), which implies that it likely has a negigible gravitational effect on the inner binary and any extant planets orbiting either star.</p>
+<p>These stars can be observed in the skies of the the southern hemisphere, where <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB appears as a single star to the naked eye.  <span class="math notranslate nohighlight">\(\beta\)</span> Centauri is some <span class="math notranslate nohighlight">\(4.5^\circ\)</span> to the west on the sky and Proxima Centauri lies about <span class="math notranslate nohighlight">\(2.2^\circ\)</span> to the southwest of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB.  Recall that the angular diameter of the full Moon is <span class="math notranslate nohighlight">\({\sim}0.5^\circ\)</span>, which means that Proxima lies <span class="math notranslate nohighlight">\({\sim}4\)</span> times the angular width of the Moon from <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB on the sky.</p>
+<figure class="align-default" id="sky-acen-fig">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Alpha%2C_Beta_and_Proxima_Centauri_%281%29.jpg/1280px-Alpha%2C_Beta_and_Proxima_Centauri_%281%29.jpg"><img alt="Alpha Cen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Alpha%2C_Beta_and_Proxima_Centauri_%281%29.jpg/1280px-Alpha%2C_Beta_and_Proxima_Centauri_%281%29.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">The two bright stars are (left) Alpha Centauri and (right) Beta Centauri, both binaries. The faint red star in the center of the red circle, to the lower left from the center point between Alpha and Beta, and southwest of Alpha, is Proxima Centauri, intensely red, smaller in size, weaker in brightness and a distant third element in a triple star system with the main close pair forming Alpha Centauri. Figure credit: <a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_Centauri">Wikipedia:Alpha_Centauri</a>; user:Skatebiker.</span><a class="headerlink" href="#sky-acen-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB system has been subject to many observation campaigns in the search for nearby exoplanets.  This has led to a few false positives (i.e., claimed detections that turned out spurious).  In contrast to most stars, <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB is <em>too</em> bright with an apparent magnitude of <span class="math notranslate nohighlight">\(V=0.01\)</span> (<span class="math notranslate nohighlight">\(\alpha\)</span> Cen A) and <span class="math notranslate nohighlight">\(V=+1.33\)</span> (<span class="math notranslate nohighlight">\(\alpha\)</span> Cen B).  Modern observational techniques use charge-coupled devices (CCDs) to record the light coming from a star through the telescope.  <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB tends to saturate (overexpose) the CCD, which it makes it very difficult to measure fluctuations in the light.</p>
+<p><a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-3881/aa9bea/pdf">Zhao et al. (2018)</a> demonstrated that any planets orbiting <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB must be <span class="math notranslate nohighlight">\(\lesssim 50\ M_\odot\)</span>, where <span class="math notranslate nohighlight">\(1\ M_\oplus\)</span> corresponds to the mass of the Earth, because otherwise such planets would have been detected after decades of observation.  This may acutally be a <em>good</em> thing, if we are searching for Earthlike exoplanets.</p>
+</section>
+<section id="the-binary-orbit">
+<h2><span class="section-number">1.2. </span>The binary orbit<a class="headerlink" href="#the-binary-orbit" title="Permalink to this heading">#</a></h2>
+<p>There are two ways to measure the motion of two orbiting bodies in space: astrometry and radial velocity.  Through astrometry, we measure the transverse motion that occurs <strong>perpendicular</strong> to our line of sight.  For example, if I draw a circle on a whiteboard, the movement of the marker tip moves perpendicular to your line of sight (assuming that the whiteboard is mounted on a wall).  Measurements using the radial velocity only capture the movement along your line of sight (i.e., in or out of the board).</p>
+<p>Clearly, neither of these techniques provides the whole picture.  Thus, it is common to use a combination of astrometry and radial velocity to determine the full orbit.</p>
+<section id="what-is-an-orbit">
+<h3><span class="section-number">1.2.1. </span>What is an orbit?<a class="headerlink" href="#what-is-an-orbit" title="Permalink to this heading">#</a></h3>
+<p>A bound orbit is defined by an ellipse using Kepler’s laws.  To draw an ellipse in a plane, we require 3 quantities:</p>
+<ol class="arabic simple">
+<li><p><strong>semimajor axis</strong> <span class="math notranslate nohighlight">\(a\)</span>,</p></li>
+<li><p><strong>eccentricity</strong> <span class="math notranslate nohighlight">\(e\)</span>, and</p></li>
+<li><p><strong>argument of pericenter</strong> <span class="math notranslate nohighlight">\(\omega\)</span>.</p></li>
+</ol>
+<p>The semimajor axis defines the size of the orbit (i.e., how big it is), where the eccentricity modifies the shape of the orbit (i.e., how squashed it is).  Together, these two quantities can make an ellipse.  However, the argument of pericenter determines how much the pericenter rotates relative to a reference axis.  Typically, we use the reference axis to be our line of sight.</p>
+<p>The distance <span class="math notranslate nohighlight">\(r\)</span> from star A to any point on an orbit is defined as</p>
+<div class="math notranslate nohighlight" id="equation-dist-eqn">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-dist-eqn" title="Permalink to this equation">#</a></span>\[r = \frac{a(1-e^2)}{1 + \cos{f}},\]</div>
+<p>where the <strong>true anomaly</strong> <span class="math notranslate nohighlight">\(f\)</span> measures the position along the orbit (relative to the argument of pericenter).  Two points are defined along the semimajor axis that denote the closest (pericenter, <span class="math notranslate nohighlight">\(q\)</span>) and farthest (apocenter, <span class="math notranslate nohighlight">\(Q\)</span>) point from the reference star (see Fig. <a class="reference internal" href="#orbit-ellipse"><span class="std std-numref">1.2</span></a>).  Mathematically, these are given as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-af67ebe4-7372-475b-9ac5-3eb3f91d43fb">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-af67ebe4-7372-475b-9ac5-3eb3f91d43fb" title="Permalink to this equation">#</a></span>\[\begin{align}
+q &amp;= a(1-e), \\
+Q &amp;= a(1+e). 
+\end{align}\]</div>
+<figure class="align-default" id="orbit-ellipse" style="width: 600px">
+<img alt="../_images/f7df06d2bd37eb31aaa83adb307953a79802739cbbaf73647d1117f5c1246412.png" src="../_images/f7df06d2bd37eb31aaa83adb307953a79802739cbbaf73647d1117f5c1246412.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Elliptical orbit <span class="math notranslate nohighlight">\((e=0.5)\)</span> with the reference star (orange star) at one focus.  The major axis (red dashed line) connects the apocenter (blue dot) to the pericenter, where the semimajor axis <span class="math notranslate nohighlight">\(a=1\ \rm AU\)</span>.  The orbit is tilted relative to the reference axis (<span class="math notranslate nohighlight">\(x\)</span>-axis) by <span class="math notranslate nohighlight">\(\omega = 45^\circ\)</span>.</span><a class="headerlink" href="#orbit-ellipse" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+<span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">:</span> <span class="s1">&#39;cm&#39;</span><span class="p">})</span>
+
+<span class="c1">#Assume the following:</span>
+<span class="n">semi</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1"># semimajor axis (in AU)</span>
+<span class="n">ecc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1">#eccentricity</span>
+<span class="n">omg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="c1">#argument of pericenter (converted to radians)</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="s1">&#39;x-large&#39;</span>
+
+<span class="k">def</span> <span class="nf">ellipse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">omega</span><span class="p">):</span>
+    <span class="c1">#function to define an ellipse</span>
+    <span class="c1">#semimajor axis a (in AU), eccentricity e (unitless)</span>
+    <span class="c1">#argument of pericenter omega (radians)</span>
+    <span class="n">f_step</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="n">f_step</span><span class="p">,</span><span class="n">f_step</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">+</span><span class="n">f</span><span class="p">),</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">+</span><span class="n">f</span><span class="p">)])</span> <span class="c1">#return x,y coordinates of ellipse</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ell</span> <span class="o">=</span> <span class="n">ellipse</span><span class="p">(</span><span class="n">semi</span><span class="p">,</span><span class="n">ecc</span><span class="p">,</span><span class="n">omg</span><span class="p">)</span>
+<span class="n">peri</span><span class="p">,</span> <span class="n">apo</span> <span class="o">=</span> <span class="n">semi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ecc</span><span class="p">),</span> <span class="n">semi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">ecc</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">ell</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">apo</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omg</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">peri</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omg</span><span class="p">)],[</span><span class="n">apo</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omg</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">peri</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omg</span><span class="p">)],</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">apo</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omg</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="n">apo</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omg</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">peri</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omg</span><span class="p">),</span><span class="n">peri</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omg</span><span class="p">),</span><span class="s1">&#39;c.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">arc_r</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">ang_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">arc_x</span><span class="p">,</span> <span class="n">arc_y</span> <span class="o">=</span> <span class="n">arc_r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang_rng</span><span class="p">),</span> <span class="n">arc_r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang_rng</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arc_x</span><span class="p">,</span><span class="n">arc_y</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;medium&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="s1">&#39;$q$&#39;</span><span class="p">,</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;medium&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.15</span><span class="p">,</span><span class="o">-</span><span class="mf">1.15</span><span class="p">,</span><span class="s1">&#39;$Q$&#39;</span><span class="p">,</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;medium&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">xlabels</span><span class="p">,</span> <span class="n">ylabels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span> 
+        <span class="n">xlabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">ylabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xlabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">ylabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span> 
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;orbit_fig&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7df06d2bd37eb31aaa83adb307953a79802739cbbaf73647d1117f5c1246412.png" src="../_images/f7df06d2bd37eb31aaa83adb307953a79802739cbbaf73647d1117f5c1246412.png" />
+</div>
+</details>
+</div>
+<p>Thus far, we’ve used 3 parameters to draw an ellipse that is perpendicular to our line of sight.  Note that a single point on the ellipse can be located using the true anomaly <span class="math notranslate nohighlight">\(f\)</span>.  However, the universe does not always provide “face-on” systems that are perpendicular to our line of sight.  But we can transform our picture to the one provided by the universe using the appropriate <a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.  Notice that the rotation by the argument of pericenter used the rotation about the <span class="math notranslate nohighlight">\(z\)</span>-axis.  The rotation matrices are:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3df2d8c-94ac-4b3f-862d-a5a74ac8e6fb">
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-c3df2d8c-94ac-4b3f-862d-a5a74ac8e6fb" title="Permalink to this equation">#</a></span>\[\begin{align}
+R_x(\theta) &amp;= \begin{pmatrix} 
+    1 &amp; 0 &amp; 0 \\ 
+    0 &amp; \cos{\theta} &amp; -\sin{\theta} \\ 
+    0 &amp; \sin{\theta} &amp; \cos{\theta} 
+    \end{pmatrix}, &amp;
+R_y(\theta) &amp;= \begin{pmatrix} 
+    \cos{\theta} &amp; 0 &amp; \sin{\theta} \\ 
+    0 &amp; 1 &amp; 0 \\  
+    -\sin{\theta} &amp; 0 &amp; \cos{\theta} 
+    \end{pmatrix}, &amp;
+R_z(\theta) &amp;= \begin{pmatrix} 
+    \cos{\theta} &amp; -\sin{\theta} &amp; 0 \\ 
+    \sin{\theta} &amp; \cos{\theta} &amp; 0 \\ 
+    0 &amp; 0 &amp; 1  
+    \end{pmatrix},
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> represents a given rotation angle and following a <a class="reference external" href="https://en.wikipedia.org/wiki/Right-hand_rule">right-hand rule</a>.  To rotate the argument of pericenter, we performed the following transformation: <span class="math notranslate nohighlight">\(\vec{x}^\prime = R_z(\omega)\vec{x}\)</span>, where <span class="math notranslate nohighlight">\(\vec{x} = \{r\cos{f},\ r\sin{f},\ 0\}\)</span>.  We rotated a vector (that initially pointed along the <span class="math notranslate nohighlight">\(x\)</span>-axis) counter-clockwise because our right hand curls that way if your thumb points in the <span class="math notranslate nohighlight">\(+z\)</span>.</p>
+<p>A rotation about the <span class="math notranslate nohighlight">\(x\)</span>-axis moves positive <span class="math notranslate nohighlight">\(y\)</span> side of the ellipse towards our line of sight, while the negative <span class="math notranslate nohighlight">\(y\)</span> side moves away (i.e., in the radial direction).  A transiting system would show a transverse motion along the <span class="math notranslate nohighlight">\(x\)</span>-axis, and a radial motion along the <span class="math notranslate nohighlight">\(z\)</span>-axis.  To get there, we need to apply the <span class="math notranslate nohighlight">\(R_x\)</span> matrix using the rotation angle <span class="math notranslate nohighlight">\(i\)</span>, which is called <strong>inclination</strong>. When <span class="math notranslate nohighlight">\(i=90^\circ\)</span>, then the motion is along our line of sight.</p>
+<p>The inclination (on the sky) for <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB is <span class="math notranslate nohighlight">\({\sim}79^\circ\)</span>, we’ll use this as an example of a non-face-on orbit.  Figure <a class="reference internal" href="#rotate-ell"><span class="std std-numref">1.3</span></a> illustrates how our view of an ellipse changes with respect to the inclination relative to the sky.</p>
+<figure class="align-default" id="rotate-ell" style="width: 600px">
+<img alt="../_images/f6a45969d64281a6973d52ec2543b61e19bd45e79f732072b54d4c4dfd1085df.png" src="../_images/f6a45969d64281a6973d52ec2543b61e19bd45e79f732072b54d4c4dfd1085df.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Elliptical orbit from Fig. <a class="reference internal" href="#orbit-ellipse"><span class="std std-numref">1.2</span></a> (red), but rotated with an inclination <span class="math notranslate nohighlight">\(i=79^\circ\)</span> (black).  The blue dots show the point transformation from one ellipse to the other.</span><a class="headerlink" href="#rotate-ell" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+<span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">:</span> <span class="s1">&#39;cm&#39;</span><span class="p">})</span>
+
+<span class="k">def</span> <span class="nf">Rotate_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">R_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Rotate_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">R_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Rotate_z</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">R_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_z</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_ellipse</span><span class="p">(</span><span class="n">rvec</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">true_f</span><span class="p">,</span><span class="n">inc</span><span class="p">):</span>
+    <span class="c1">#get points of an ellipse given radii (array), omega (constant), true anomaly f (array) and inclination (constant)</span>
+    <span class="n">ellipse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">rvec</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">rvec</span><span class="p">)):</span>
+        <span class="n">x</span>  <span class="o">=</span>  <span class="n">rvec</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>
+        <span class="n">xp</span> <span class="o">=</span> <span class="n">Rotate_z</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">omega</span><span class="p">)</span>
+        <span class="n">ellipse</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Rotate_x</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">inc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ellipse</span>
+
+<span class="c1">#Assume the following:</span>
+<span class="n">semi</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1"># semimajor axis (in AU)</span>
+<span class="n">ecc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1">#eccentricity</span>
+<span class="n">omg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="c1">#argument of pericenter (converted to radians)</span>
+<span class="n">incl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">79</span><span class="p">)</span> <span class="c1">#inclination on the sky (converted to radians)</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="s1">&#39;x-large&#39;</span>
+
+<span class="n">f_step</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="n">f_step</span><span class="p">,</span><span class="n">f_step</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">semi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ecc</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">ecc</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="n">r_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">r_vec</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">r_vec</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ell</span> <span class="o">=</span> <span class="n">get_ellipse</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="n">omg</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ell</span> <span class="o">=</span> <span class="n">get_ellipse</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="n">omg</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">incl</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">xlabels</span><span class="p">,</span> <span class="n">ylabels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span> 
+        <span class="n">xlabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">ylabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xlabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">ylabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;rotate_fig&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f6a45969d64281a6973d52ec2543b61e19bd45e79f732072b54d4c4dfd1085df.png" src="../_images/f6a45969d64281a6973d52ec2543b61e19bd45e79f732072b54d4c4dfd1085df.png" />
+</div>
+</details>
+</div>
+<p>The argument of pericenter <span class="math notranslate nohighlight">\(\omega\)</span> rotates the orbit around the <span class="math notranslate nohighlight">\(z\)</span>-axis, where Fig. <a class="reference internal" href="#rotate-ell"><span class="std std-numref">1.3</span></a> has two points (or <em>nodes</em>) that cross the <span class="math notranslate nohighlight">\(x\)</span>-axis.  If we define a reference plane where <span class="math notranslate nohighlight">\(z=0\)</span>, then the orbiting body appears to ascend (move from <span class="math notranslate nohighlight">\(-z\)</span> to <span class="math notranslate nohighlight">\(+z\)</span>) at one node and descend (move from <span class="math notranslate nohighlight">\(+z\)</span> to <span class="math notranslate nohighlight">\(-z\)</span>) as it moves through the node.  The <strong>longitude of ascending node</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> defines the former, where the latter is called the descending node.  The ascending node is defined from <span class="math notranslate nohighlight">\(0^\circ-359^\circ\)</span> and wraps around (e.g., <span class="math notranslate nohighlight">\(359^\circ + 1^\circ \rightarrow 0^\circ\)</span>).</p>
+<p>There is not particular reason the orbit should align with our reference direction (the <span class="math notranslate nohighlight">\(x\)</span>-axis).  Therefore, the ascending node rotates the orbit about the <span class="math notranslate nohighlight">\(z\)</span>-axis similarly to the rotation from the argument of pericenter (i.e., <span class="math notranslate nohighlight">\(R_z(\Omega)\)</span>).</p>
+<figure class="align-default" id="sky-orbit" style="width: 600px">
+<img alt="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" src="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Elliptical orbit from Fig. <a class="reference internal" href="#orbit-ellipse"><span class="std std-numref">1.2</span></a> (red), but rotated with an inclination <span class="math notranslate nohighlight">\(i=79^\circ\)</span> (black) or <span class="math notranslate nohighlight">\(i=90^\circ\)</span> (magenta).  The inclined orbits (black and magenta) are also rotated with <span class="math notranslate nohighlight">\(\Omega = 60\)</span>, to illustrate the changing of the ascending node. The blue dots show the point transformation from one ellipse to the other.</span><a class="headerlink" href="#sky-orbit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+<span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">:</span> <span class="s1">&#39;cm&#39;</span><span class="p">})</span>
+
+<span class="k">def</span> <span class="nf">Rotate_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">R_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Rotate_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">R_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Rotate_z</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">R_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_z</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_ellipse</span><span class="p">(</span><span class="n">rvec</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">true_f</span><span class="p">,</span><span class="n">inc</span><span class="p">,</span><span class="n">RA</span><span class="p">):</span>
+    <span class="c1">#get points of an ellipse given rvec (array), omega (constant), true anomaly f (array) and inclination (constant)</span>
+    <span class="n">ellipse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">rvec</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">rvec</span><span class="p">)):</span> 
+        <span class="n">xp</span> <span class="o">=</span> <span class="n">Rotate_z</span><span class="p">(</span><span class="n">rvec</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">omega</span><span class="p">)</span>
+        <span class="n">xp</span> <span class="o">=</span> <span class="n">Rotate_x</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">inc</span><span class="p">)</span>
+        <span class="n">ellipse</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Rotate_z</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">RA</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ellipse</span>
+
+<span class="c1">#Assume the following:</span>
+<span class="n">semi</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1"># semimajor axis (in AU)</span>
+<span class="n">ecc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1">#eccentricity</span>
+<span class="n">omg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="c1">#argument of pericenter (converted to radians)</span>
+<span class="n">incl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">79</span><span class="p">)</span> <span class="c1">#inclination on the sky (converted to radians)</span>
+<span class="n">RA_omg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="c1">#Right ascension of ascending node</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="s1">&#39;x-large&#39;</span>
+
+<span class="n">f_step</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="n">f_step</span><span class="p">,</span><span class="n">f_step</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">semi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ecc</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">ecc</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="n">r_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">r_vec</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">r_vec</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ell</span> <span class="o">=</span> <span class="n">get_ellipse</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="n">omg</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ell</span> <span class="o">=</span> <span class="n">get_ellipse</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="n">omg</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">RA_omg</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span>
+
+<span class="n">ell</span> <span class="o">=</span> <span class="n">get_ellipse</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="n">omg</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">incl</span><span class="p">,</span><span class="n">RA_omg</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ell</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span>
+
+<span class="n">arc_r</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">ang_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">arc_x</span><span class="p">,</span> <span class="n">arc_y</span> <span class="o">=</span> <span class="n">arc_r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang_rng</span><span class="p">),</span> <span class="n">arc_r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang_rng</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arc_x</span><span class="p">,</span><span class="n">arc_y</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#ax.arrow(0,0,ell[0,0],ell[0,1],width=0.005,head_width=0.05,color=&#39;k&#39;,length_includes_head=True)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="s1">&#39;$\Omega$&#39;</span><span class="p">,</span><span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;medium&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">xlabels</span><span class="p">,</span> <span class="n">ylabels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span> 
+        <span class="n">xlabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">ylabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xlabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">ylabels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;rotate_fig_RA&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.35355339 0.35355339 0.        ]
+[0.1767767  0.30618622 0.35355339]
+[0.11835361 0.3399168  0.34705762]
+</pre></div>
+</div>
+<img alt="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" src="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="initial-conditions">
+<h3><span class="section-number">1.2.2. </span>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this heading">#</a></h3>
+<p>A bound orbit is fully-defined by six parameters, which can be:</p>
+<ul class="simple">
+<li><p>orbital elements <span class="math notranslate nohighlight">\((a,\ e,\ i,\ \omega,\ \Omega,\ f)\)</span>, or</p></li>
+<li><p>Cartesian elements <span class="math notranslate nohighlight">\((x,\ y,\ z,\ \dot{x},\ \dot{y},\ \dot{z})\)</span>,</p></li>
+</ul>
+<p>where the velocities (e.g., <span class="math notranslate nohighlight">\(\dot{x}\)</span>) are represented using <em>dot</em> notation for the time derivative (i.e., <span class="math notranslate nohighlight">\(\dot{x} = v_x = dx/dt\)</span>).</p>
+<p>From the orbital elements, the semimajor axis <span class="math notranslate nohighlight">\(a\)</span> and eccentricity <span class="math notranslate nohighlight">\(e\)</span> define the size and shape, respectively, of an ellipse.  The next three elements (inclination <span class="math notranslate nohighlight">\(i\)</span>, argument of pericenter <span class="math notranslate nohighlight">\(\omega\)</span>, longitude of ascending node <span class="math notranslate nohighlight">\(\Omega\)</span>) rotate the ellipse relative to a reference plane and its normal vector (i.e., <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_angles">Euler angles</a>) as shown in Fig <a class="reference internal" href="#orbit-fig"><span class="std std-numref">1.5</span></a>.  The true anomaly <span class="math notranslate nohighlight">\(f\)</span> (or sometimes <span class="math notranslate nohighlight">\(\nu\)</span>) locates the instantaneous position of a body along an orbit.  For example, a body at its pericenter will have <span class="math notranslate nohighlight">\(f=0^\circ\)</span>, while <span class="math notranslate nohighlight">\(f=180^\circ\)</span> at its apocenter.</p>
+<figure class="align-default" id="orbit-fig">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Orbit1.svg/1137px-Orbit1.svg.png"><img alt="orbit" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Orbit1.svg/1137px-Orbit1.svg.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Diagram illustrating the rotational orbital elements: inclination <span class="math notranslate nohighlight">\(i\)</span>, argument of pericenter <span class="math notranslate nohighlight">\(\omega\)</span>, and longitude of ascending node <span class="math notranslate nohighlight">\(\Omega\)</span>.  The true anomaly <span class="math notranslate nohighlight">\(f\)</span> (or <span class="math notranslate nohighlight">\(\nu\)</span> in the diagram) locates the position of a body along the orbit. Figure credit: <a class="reference external" href="https://en.wikipedia.org/wiki/Kepler_orbit">Wikipedia:Kepler_orbit</a>; user:Lasunncty.</span><a class="headerlink" href="#orbit-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>On the other hand, the Cartesian elements define the orbit as points in Cartesian phase space (position and velocity).  In non-central body problems (e.g., the potential from a binary system), the definition using orbital elements can be ambiguous as there can be multiple <em>natural</em> references.  Therefore, it is sometimes easier to define the initial orbit within an hierarchical problem in Cartesian coordinates.</p>
+</section>
+<section id="cartesian-to-orbital-elements">
+<h3><span class="section-number">1.2.3. </span>Cartesian to orbital elements<a class="headerlink" href="#cartesian-to-orbital-elements" title="Permalink to this heading">#</a></h3>
+<p>Here is a brief overview to convert from Cartesian coordinates to orbital elements for a central body problem (i.e., single dominant mass <span class="math notranslate nohighlight">\(m_0\)</span> orbited by a much smaller mass <span class="math notranslate nohighlight">\(m_1\)</span>).  Let’s assume that a position <span class="math notranslate nohighlight">\(\vec{x} \{x,\ y,\ z\}\)</span> and velocity <span class="math notranslate nohighlight">\(\vec{v} = \{\dot{x},\ \dot{y},\ \dot{z}\}\)</span> exist to define the motion of <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(m_o\)</span>.  Then, we can define a two scalars for the distance <span class="math notranslate nohighlight">\(r\)</span> and speed <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dc68e002-3bcd-44bf-a665-23dd8c6b4b5b">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-dc68e002-3bcd-44bf-a665-23dd8c6b4b5b" title="Permalink to this equation">#</a></span>\[\begin{align}
+r^2 = x^2 + y^2 + z^2, \\
+v^2 = \dot{x}^2 + \dot{y}^2 + \dot{z}^2.
+\end{align}\]</div>
+<p>The angular momentum vector <span class="math notranslate nohighlight">\(\vec{p}\)</span> is defined using the cross product, or <span class="math notranslate nohighlight">\(\vec{p} = m\ (\vec{x} \times \vec{v})\)</span>.  However, we are interested in the specific angular momentum <span class="math notranslate nohighlight">\(\vec{h} = \vec{p}/m\)</span> because it better describes the angular momentum vector normal (i.e. perpendicular) to the orbital plane.  The <a class="reference external" href="https://tutorial.math.lamar.edu/classes/calcii/crossproduct.aspx">cross product</a> can be written in terms of components via:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-11f009a0-75ba-462d-9eaa-33db874addd7">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-11f009a0-75ba-462d-9eaa-33db874addd7" title="Permalink to this equation">#</a></span>\[\begin{align}
+\vec{h} &amp;= \det \begin{pmatrix} 
+\hat{\rm i} &amp; \hat{\rm j} &amp; \hat{\rm k} \\ 
+x &amp; y &amp; z \\ 
+\dot{x} &amp; \dot{y} &amp; \dot{z} 
+\end{pmatrix}, \\
+&amp; = \begin{vmatrix} y &amp; z \\ \dot{y} &amp; \dot{z} 
+     \end{vmatrix}\hat{\rm i}
+   -\begin{vmatrix} x &amp; z \\ \dot{x} &amp; \dot{z} 
+    \end{vmatrix}\hat{\rm j}
+   +\begin{vmatrix} x &amp; y \\ \dot{x} &amp; \dot{y} 
+    \end{vmatrix}\hat{\rm k}, \\
+&amp; = (y\dot{z}-z\dot{y})\hat{\rm i} + (z\dot{x} - x\dot{z})\hat{\rm j} + (x\dot{y}-y\dot{x})\hat{\rm k},\\
+ &amp;= h_x \hat{\rm i} + h_y \hat{\rm j}+ h_z \hat{\rm k},
+\end{align}\]</div>
+<p>where the magnitude of the specific angular momentum vector is given by <span class="math notranslate nohighlight">\(h^2 = h_x^2 + h_y^2 + h_z^2\)</span>. Assuming a <span class="math notranslate nohighlight">\(\vec{h}^\prime\)</span> that is normal to the reference plane (i.e., <span class="math notranslate nohighlight">\(\vec{h}^\prime = \{0,\ 0,\ h\}\)</span>), we can project (rotate) the <span class="math notranslate nohighlight">\(\vec{h}\)</span> to point perpendicular to the orbital planet by <span class="math notranslate nohighlight">\(\vec{h} = R_z(\Omega)R_x(i)\vec{h}^\prime\)</span>, or</p>
+<div class="amsmath math notranslate nohighlight" id="equation-215c8a2c-e501-4533-8ab2-9a0f1a7efc05">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-215c8a2c-e501-4533-8ab2-9a0f1a7efc05" title="Permalink to this equation">#</a></span>\[\begin{align}
+\begin{pmatrix}  h_x \\ h_y \\ h_z 
+\end{pmatrix}
+
+&amp;=R_z(\Omega) R_x(i) \begin{pmatrix} 
+  0 \\ 0 \\ h
+\end{pmatrix} 
+&amp;= \begin{pmatrix}
+  h\sin{i}\sin{\Omega} \\ 
+  -h\sin{i}\cos{\Omega} \\
+  h\cos{i}
+\end{pmatrix}.
+\end{align}\]</div>
+<p><strong>semimajor axis</strong></p>
+<p>The velocity of a body in a bound orbit can be expressed (using the <a class="reference external" href="https://en.wikipedia.org/wiki/Vis-viva_equation">vis viva equation</a>) in terms of its total energy, <span class="math notranslate nohighlight">\(E = T + V\)</span>, and the gravitational parameter <span class="math notranslate nohighlight">\(\mathcal{G}(m_o + m_1)\)</span>, which depends on Newton’s universal gravitational constant <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.  Consequently, we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6ebb9777-cd4b-4a7e-b4ec-6ff4fc1b63f5">
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-6ebb9777-cd4b-4a7e-b4ec-6ff4fc1b63f5" title="Permalink to this equation">#</a></span>\[\begin{align}
+v^2 = \mathcal{G}(m_o + m_1)\left(\frac{2}{r} - \frac{1}{a}\right),
+\end{align}\]</div>
+<p>which can be solved in terms of the semimajor axis <span class="math notranslate nohighlight">\(a\)</span> as:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-de8bd21d-5424-4e6b-bda0-2d8f993108d3">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-de8bd21d-5424-4e6b-bda0-2d8f993108d3" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{1}{a} &amp;= \frac{2}{r} - \frac{v^2}{\mathcal{G}(m_o+m_1)}.
+\end{align}\]</div>
+<p><strong>eccentricity</strong></p>
+<p>The specific angular momentum can be expressed as a scalar in terms of the orbital elements using the <em>vis viva equation</em> and Eq. <a class="reference internal" href="#equation-dist-eqn">(1.1)</a>.  Mathematically, this is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+h &amp;= vr, \\
+&amp;= r\sqrt{\mathcal{G}(m_o + m)\left(\frac{2}{r} - \frac{1}{a}\right)}, \\
+&amp;=\sqrt{\mathcal{G}(m_o + m)\left(2r - \frac{r^2}{a}\right)}, \\
+&amp;=\sqrt{\mathcal{G}(m_o + m)a\left(2\frac{1-e^2}{1+e\cos{f}} - \frac{(1-e^2)^2}{(1+e\cos{f})^2}\right)}.
+\end{align*}\]</div>
+<p>For a bound orbit the angular momentum is conserved, which means we are free to pick any value of <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(h\)</span> remains constant.  Choosing <span class="math notranslate nohighlight">\(f=0^\circ\)</span>, we get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-64b8d4f4-900e-4da9-b14c-a4e6d272cecf">
+<span class="eqno">(1.9)<a class="headerlink" href="#equation-64b8d4f4-900e-4da9-b14c-a4e6d272cecf" title="Permalink to this equation">#</a></span>\[\begin{align}
+h &amp;=\sqrt{\mathcal{G}(m_o + m)a\left(2(1-e) - (1-e)^2\right)}, \\
+&amp; = \sqrt{\mathcal{G}(m_o + m)a\left(1-e^2 \right)}.
+\end{align}\]</div>
+<p>With some algebra, we find an expression for the eccentricity as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-81ae4ffd-eb67-409e-8241-778048db437c">
+<span class="eqno">(1.10)<a class="headerlink" href="#equation-81ae4ffd-eb67-409e-8241-778048db437c" title="Permalink to this equation">#</a></span>\[\begin{align}
+e = \sqrt{1-\frac{h^2}{\mathcal{G}(m_o + m)a}},
+\end{align}\]</div>
+<p>which depends on the initial specific angular momentum <span class="math notranslate nohighlight">\(h\)</span> and semimajor axis <span class="math notranslate nohighlight">\(a\)</span>.  In solving this initial value problem, it is assumed that <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are both input parameters (i.e., chosen in advance) so that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(h\)</span> could be determined in sequence.</p>
+<p><strong>argument of pericenter</strong></p>
+<p>The argument of pericenter can be determined using vector identities (see <a class="reference external" href="https://ocw.mit.edu/courses/16-522-space-propulsion-spring-2015/6127948308ccbe73c1c44751e2509ae0_MIT16_522S15_Lecture5.pdf">MIT OpenCourseWare</a> for more details).  Let’s backup and use the cross product form of the specific angular momentum, <span class="math notranslate nohighlight">\(\vec{h} = \vec{x} \times \vec{v}\)</span>.  Angular momentum conservation means that <span class="math notranslate nohighlight">\(h = |\vec{h}|\)</span> is constant with time.  The time derivative is then equal to zero, <span class="math notranslate nohighlight">\(\dot{\vec{h}} = 0\)</span>.</p>
+<p>Recall the equation of motion for orbiting bodies</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2bfcf0a4-1c3a-42c5-83ea-8c0dbe55bcec">
+<span class="eqno">(1.11)<a class="headerlink" href="#equation-2bfcf0a4-1c3a-42c5-83ea-8c0dbe55bcec" title="Permalink to this equation">#</a></span>\[\begin{align}
+\dot{\vec{v}} + \frac{\mathcal{G}(m_o+m_1)\vec{r}}{r^3} = 0.
+\end{align}\]</div>
+<p>This means we can apply a cross product across all terms to get an expression in terms of <span class="math notranslate nohighlight">\(\vec{h}\)</span>, or</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8de4de64-9a51-4f2b-8ce1-06ebcf0ed86a">
+<span class="eqno">(1.12)<a class="headerlink" href="#equation-8de4de64-9a51-4f2b-8ce1-06ebcf0ed86a" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{d}{dt}\left(\vec{v} \times \vec{h}\right) + \frac{\mathcal{G}(m_o+m_1)}{r^3}\left(\vec{r} \times \vec{h}\right) = 0.
+\end{align}\]</div>
+<p>We can then use the vector identity <span class="math notranslate nohighlight">\(\vec{r} \times \vec{h} = \vec{r} \times (\vec{r} \times \vec{v}) = \vec{r}(\vec{r}\cdot \vec{v})-r^2\vec{v}\)</span> to get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1f1bb542-2b2b-4e70-be13-53f334851391">
+<span class="eqno">(1.13)<a class="headerlink" href="#equation-1f1bb542-2b2b-4e70-be13-53f334851391" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{d}{dt}\left(\vec{v} \times \vec{h}\right) + \mathcal{G}(m_o+m_1)\frac{d}{dt}\left(\frac{ \vec{r}}{r} \right) = 0.
+\end{align}\]</div>
+<p>This equation can be directly integrated to produce the <a class="reference external" href="https://en.wikipedia.org/wiki/Eccentricity_vector"><strong>eccentricity vector</strong></a>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7c482e0c-5e8e-487b-a1e9-8811da5fb82e">
+<span class="eqno">(1.14)<a class="headerlink" href="#equation-7c482e0c-5e8e-487b-a1e9-8811da5fb82e" title="Permalink to this equation">#</a></span>\[\begin{align}
+\mathcal{G}(m_o+m_1)\vec{e} &amp;= \vec{v} \times \vec{h} - \mathcal{G}(m_o+m_1)\frac{\vec{r}}{r}, \\
+\vec{e} &amp;= \frac{\vec{v} \times \vec{h}}{\mathcal{G}(m_o+m_1)} - \frac{\vec{r}}{r},
+\end{align}\]</div>
+<p>which is also a <a class="reference external" href="https://en.wikipedia.org/wiki/Laplace%E2%80%93Runge%E2%80%93Lenz_vector">Laplace-Runge-Lenz vector</a> and points towards the pericenter.  The eccentricity vector can be decomposed into components within the orbital plane that depend on the argument of pericenter <span class="math notranslate nohighlight">\(\omega\)</span> (or <span class="math notranslate nohighlight">\(\varpi\)</span>) as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-38130cad-57c2-47a5-b4fd-b5dee3cd0cd5">
+<span class="eqno">(1.15)<a class="headerlink" href="#equation-38130cad-57c2-47a5-b4fd-b5dee3cd0cd5" title="Permalink to this equation">#</a></span>\[\begin{align}
+e &amp;= \vec{e}\cdot \vec{e}, \\
+e_x &amp;= e\cos{\omega}, \\
+e_y &amp;= e\sin{\omega}.
+\end{align}\]</div>
+<p>Then the argument of pericenter can be determined through the appropriate <span class="math notranslate nohighlight">\(\arcsin,\ \arccos,\ \text{or } \arctan\)</span> functions.</p>
+<p><strong>orbital inclination</strong></p>
+<p>The orbital inclination is different from the observational (sky plane) inclination described earlier through the reference plane.  The orbital inclination is determined by a counter-clockwise rotation (about the <span class="math notranslate nohighlight">\(x\)</span>-axis) from the <span class="math notranslate nohighlight">\(y\)</span>- towards the <span class="math notranslate nohighlight">\(z\)</span>-axis following a right-hand rule.  Because we defined <span class="math notranslate nohighlight">\(\vec{h}\)</span> in a similar way, we can use <span class="math notranslate nohighlight">\(h_z\)</span> (and some algebra) to determine the orbital inclination as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2ab10b4b-109f-436a-88c9-b19548637853">
+<span class="eqno">(1.16)<a class="headerlink" href="#equation-2ab10b4b-109f-436a-88c9-b19548637853" title="Permalink to this equation">#</a></span>\[\begin{align}
+i = \cos^{-1}\left( \frac{h_z}{h}\right).
+\end{align}\]</div>
+<p><strong>longitude of ascending node</strong></p>
+<p>The <span class="math notranslate nohighlight">\(h_x\)</span> and <span class="math notranslate nohighlight">\(h_y\)</span> components can be used to determine the longitude of ascending node <span class="math notranslate nohighlight">\(\Omega\)</span>, once the orbital inclination is determined.  Then, we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f2fe54f6-b7e9-462c-95c5-5ab6e23527a5">
+<span class="eqno">(1.17)<a class="headerlink" href="#equation-f2fe54f6-b7e9-462c-95c5-5ab6e23527a5" title="Permalink to this equation">#</a></span>\[\begin{align}
+\sin{\Omega} = \frac{h_x}{h\sin{i}},\quad &amp;\text{and}&amp; \cos{\Omega} = \frac{-h_y}{h\sin{i}}.
+\end{align}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The longitude of ascending node is undefined for a coplanar orbit <span class="math notranslate nohighlight">\(i=0^\circ\)</span>, where a non-zero <span class="math notranslate nohighlight">\(\Omega\)</span> would be added to the argument of pericenter to create the “dogleg” angle <span class="math notranslate nohighlight">\(\varpi = \Omega + \omega\)</span>.</p>
+</div>
+<p><strong>true anomaly</strong></p>
+<p>The true anomaly can be determined using Eq. <a class="reference internal" href="#equation-dist-eqn">(1.1)</a> (and some algebra) to get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-907a8d18-6a8d-4e4f-bad2-62ec54f651d9">
+<span class="eqno">(1.18)<a class="headerlink" href="#equation-907a8d18-6a8d-4e4f-bad2-62ec54f651d9" title="Permalink to this equation">#</a></span>\[\begin{align}
+\cos{f} = \frac{1}{e}\left(\frac{a(1-e^2)}{r}-1 \right).
+\end{align}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The true anomaly is undefined in this way for circular orbits <span class="math notranslate nohighlight">\((e=0)\)</span>.  In that case, it can be defined through either <span class="math notranslate nohighlight">\(\sin{f} = y/r\)</span> or <span class="math notranslate nohighlight">\(\cos{f} = x/r\)</span>, where the <span class="math notranslate nohighlight">\(x-y\)</span> plane represents the reference plane.</p>
+</div>
+</section>
+</section>
+<section id="using-alpha-cen-ab-parameters">
+<h2><span class="section-number">1.3. </span>Using <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB parameters<a class="headerlink" href="#using-alpha-cen-ab-parameters" title="Permalink to this heading">#</a></h2>
+<p>The orbit of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB can be represented on the sky using its orbital elements.  These orbital elements are depend on the given epoch, where the elements determined by <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2016/02/aa27859-15.pdf">Pourbaix &amp; Boffin (2016)</a> are for a Julian Date for 1955.66.  Additionally, the semimajor axis is often provided in <em>arcseconds</em> <span class="math notranslate nohighlight">\((^{\prime\prime})\)</span>, which describes the <em>projected</em> semimajor axis on the sky.  To get the actual (non-projected) semimajor axis, we can use Newton’s version of Kepler’s third law.  The <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB system has been observed long enough to get an accurate orbital period <span class="math notranslate nohighlight">\(P = 79.91\pm 0.013\ \rm yr\)</span>.  Also using the total mass of the binary as <span class="math notranslate nohighlight">\(m_{\rm tot} = 2.105\ M_\odot\)</span>, we can obtain</p>
+<div class="amsmath math notranslate nohighlight" id="equation-313813a3-d2f4-41ff-ab88-25d6326e7760">
+<span class="eqno">(1.19)<a class="headerlink" href="#equation-313813a3-d2f4-41ff-ab88-25d6326e7760" title="Permalink to this equation">#</a></span>\[\begin{align}
+a = \left(P^2 m_{\rm tot}\right)^{1/3} = \left(79.91^2 \cdot 2.105 \right)^{1/3} = 23.78\ \rm AU.
+\end{align}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Our usage of Newton’s version of Kepler’s third law defines <span class="math notranslate nohighlight">\(\mathcal{G} = 4\pi^2\ {\rm \frac{AU^3}{M_\odot\ yr^2}}\)</span>.  As a result, we can use the natural units of <span class="math notranslate nohighlight">\(M_\odot\)</span>, <span class="math notranslate nohighlight">\(\rm AU\)</span>, and <span class="math notranslate nohighlight">\(\rm yr\)</span>, where the <span class="math notranslate nohighlight">\(4\pi^2\)</span> simply cancels.</p>
+</div>
+<table class="table" id="orbital-table">
+<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Orbital parameters of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB from <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2016/02/aa27859-15.pdf">Pourbaix &amp; Boffin (2016)</a></span><a class="headerlink" href="#orbital-table" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(a\ {\rm (AU)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(23.78\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(e\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.524\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(i\)</span> (sky)</p></td>
+<td><p><span class="math notranslate nohighlight">\(79.32^\circ\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\omega\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(232.3^\circ\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\Omega\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(204.75^\circ\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="adding-a-planet-using-a-galilean-transformation">
+<h2><span class="section-number">1.4. </span>Adding a planet using a Galilean transformation<a class="headerlink" href="#adding-a-planet-using-a-galilean-transformation" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../home.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exoplanets within Binary Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nbody-integration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>N-body Simulations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stellar-parameters">1.1. The stellar parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binary-orbit">1.2. The binary orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-orbit">1.2.1. What is an orbit?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">1.2.2. Initial conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-to-orbital-elements">1.2.3. Cartesian to orbital elements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-alpha-cen-ab-parameters">1.3. Using <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet-using-a-galilean-transformation">1.4. Adding a planet using a Galilean transformation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
