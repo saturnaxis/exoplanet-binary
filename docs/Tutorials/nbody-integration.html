@@ -404,16 +404,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-software">2.1. Available software</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-simulation-1-star-2-planets">2.2. A simple simulation (1 star + 2 planets)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-parameters">2.3. Simulation parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-alpha-cen-ab">2.4. Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet">2.5. Adding a planet</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-coordinates">2.5.1. Jacobi coordinates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barycentric-coordinates">2.5.2. Barycentric coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-simulation-1-star-2-planets">2.2. A simple simulation (1 star + 2 planets)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-a-basic-rebound-simulation">2.2.1. Structure of a (basic) Rebound simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-simulation">2.2.2. Saving a simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-a-simulation">2.2.3. Plotting a simulation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-simulation">2.6. Saving a simulation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-a-simulation">2.7. Plotting a simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-alpha-cen-ab">2.3. Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet">2.4. Adding a planet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-coordinates">2.4.1. Jacobi coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barycentric-coordinates">2.4.2. Barycentric coordinates</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -427,32 +429,189 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="n-body-simulations">
 <h1><span class="section-number">2. </span>N-body Simulations<a class="headerlink" href="#n-body-simulations" title="Permalink to this heading">#</a></h1>
+<p>Solving orbital problems (even a two-body problem) can be a tricky business.  Historically, the Kepler problem is difficult due to its transcendental nature.  See <a class="reference external" href="https://academic.oup.com/mnras/article/396/3/1737/1747180">Pál (2009)</a> for an overview of solving the Kepler problem analytically.  This section is dedicated to modern techniques of numerically solving the orbital problems, which contain an <span class="math notranslate nohighlight">\(N\)</span> number of bodies.</p>
 <section id="available-software">
 <h2><span class="section-number">2.1. </span>Available software<a class="headerlink" href="#available-software" title="Permalink to this heading">#</a></h2>
+<p>Here is a listing of some software packages available.  Each package may have its particular advantages (e.g., low memory overhead, speed, GPU/CPU), but this section will mostly demonstrate usage of the <a class="reference external" href="https://rebound.readthedocs.io/en/latest/">Rebound</a> package.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://rebound.readthedocs.io/en/latest/">Rebound</a></p></li>
+<li><p><a class="reference external" href="https://bitbucket.org/sigrimm/genga/src/master/">Genga</a> (GPU code)</p></li>
+<li><p><a class="reference external" href="https://github.com/smirik/mercury">Mercury6</a>; <a class="reference external" href="https://github.com/rsmullen/mercury6_binary">Mercury6_bin</a> (binary star version)</p></li>
+<li><p><a class="reference external" href="https://www.boulder.swri.edu/~hal/swift.html">Swift</a></p></li>
+<li><p><a class="reference external" href="https://janus.astro.umd.edu/HNBody/">HNbody</a></p></li>
+<li><p><a class="reference external" href="https://people.ast.cam.ac.uk/~sverre/web/pages/nbody.htm">Nbody6</a>; <a class="reference external" href="https://github.com/nbodyx/Nbody6ppGPU">Nbody6++GPU</a></p></li>
+<li><p><a class="reference external" href="https://github.com/drons/nbody">nbody</a></p></li>
+<li><p><a class="reference external" href="https://wwwmpa.mpa-garching.mpg.de/gadget/">Gadget2</a></p></li>
+<li><p><a class="reference external" href="https://www.physics.rutgers.edu/galaxy/">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://www.sns.ias.edu/~starlab/index.html">Starlab</a></p></li>
+<li><p><a class="reference external" href="https://amuse.readthedocs.io/en/latest/index.html">AMUSE</a></p></li>
+</ul>
 </section>
 <section id="a-simple-simulation-1-star-2-planets">
 <h2><span class="section-number">2.2. </span>A simple simulation (1 star + 2 planets)<a class="headerlink" href="#a-simple-simulation-1-star-2-planets" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="simulation-parameters">
-<h2><span class="section-number">2.3. </span>Simulation parameters<a class="headerlink" href="#simulation-parameters" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="simulating-alpha-cen-ab">
-<h2><span class="section-number">2.4. </span>Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB<a class="headerlink" href="#simulating-alpha-cen-ab" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="adding-a-planet">
-<h2><span class="section-number">2.5. </span>Adding a planet<a class="headerlink" href="#adding-a-planet" title="Permalink to this heading">#</a></h2>
-<section id="jacobi-coordinates">
-<h3><span class="section-number">2.5.1. </span>Jacobi coordinates<a class="headerlink" href="#jacobi-coordinates" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="barycentric-coordinates">
-<h3><span class="section-number">2.5.2. </span>Barycentric coordinates<a class="headerlink" href="#barycentric-coordinates" title="Permalink to this heading">#</a></h3>
-</section>
+<p>Below is a guide to setting up a simple simulation using <a class="reference external" href="https://rebound.readthedocs.io/en/latest/">Rebound</a>.  <a class="reference external" href="https://research.google.com/colaboratory/">Google Colab</a> is a convenient tool to test out code in <a class="reference external" href="https://www.python.org/">python</a>, which is conveniently linked if you inspect the dropdown options on the rocketship at the top of this notebook.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Google Colab is loaded with commonly used (basic) libraries and modules (e.g., <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">scipy</span></code>).  However to include external packages like <code class="docutils literal notranslate"><span class="pre">Rebound</span></code>, you will need to install it first.  This is accomplished by running <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">rebound</span></code> in a code cell at the very beginning.</p>
+</div>
+<section id="structure-of-a-basic-rebound-simulation">
+<h3><span class="section-number">2.2.1. </span>Structure of a (basic) Rebound simulation<a class="headerlink" href="#structure-of-a-basic-rebound-simulation" title="Permalink to this heading">#</a></h3>
+<p>A simulation in rebound consists of</p>
+<ol class="arabic simple">
+<li><p>importing the <code class="docutils literal notranslate"><span class="pre">rebound</span></code> library</p></li>
+<li><p>creating a <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> instance,</p></li>
+<li><p>defining the simulation parameters (e.g., integrator, timestep, units)</p></li>
+<li><p>adding particles</p></li>
+<li><p>adjusting the coordinate system</p></li>
+<li><p>(optional) loading a simulation archive</p></li>
+<li><p>running the simulation</p></li>
+</ol>
+<p>A <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> instance allows you to reference functions and parameters linked to a given simulation.  Consider a <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> as the trunk of a tree, where functions and parameters are the branches.  As a result, you can reference a given simulation parameter using the <em>dot</em> notation that is a part of python, C, and other programming languages.  For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>illustrates how an instance of a <code class="docutils literal notranslate"><span class="pre">function</span></code> from a <code class="docutils literal notranslate"><span class="pre">library</span></code> can be initialized and stored into an <code class="docutils literal notranslate"><span class="pre">object</span></code> that can be referenced later.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> has some default parameters that are initialized unless you tell it otherwise.  Here are some of those defaults:</p>
+<ul class="simple">
+<li><p>integrator is the <code class="docutils literal notranslate"><span class="pre">IAS15</span></code> adaptive timestep algorithm,</p></li>
+<li><p><a class="reference external" href="https://rebound.readthedocs.io/en/latest/units/">units</a> defined using <span class="math notranslate nohighlight">\(G=1\)</span> (i.e., <code class="docutils literal notranslate"><span class="pre">AU</span></code>, <code class="docutils literal notranslate"><span class="pre">Msun</span></code>, <span class="math notranslate nohighlight">\(\rm yr/2 \pi\)</span>),</p></li>
+<li><p>timestep <code class="docutils literal notranslate"><span class="pre">dt</span></code> is <span class="math notranslate nohighlight">\(0.001\ \rm [yr/2 \pi]\)</span>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exact_finish_time</span></code> is set to <span class="math notranslate nohighlight">\(1\)</span>, which means that the final timestep will be adjusted accordingly.</p></li>
+</ul>
+<p>Below is an example simulation that creates an instance and sets up some of the simulation parameters.  Our sample simulation will ultimately evaluate a 2 planet system consisting of Earth-mass planets orbiting a Sunlike star with orbital periods of <span class="math notranslate nohighlight">\(9\)</span> and <span class="math notranslate nohighlight">\(15\)</span> days.  The simulation uses the <code class="docutils literal notranslate"><span class="pre">whfast</span></code> integrator, which is a more efficient method for some problems (see <a class="reference external" href="https://rebound.readthedocs.io/en/latest/ipython_examples/AdvWHFast/">advanced whfast</a> for more details).  By default, the particles are added using Jacobi coordinates, where the <code class="docutils literal notranslate"><span class="pre">move_to_com()</span></code> function will convert to barycentric coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s1">&#39;whfast&#39;</span> <span class="c1">#using the WHfast algorithm </span>
+<span class="n">sim</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;days&#39;</span><span class="p">,</span> <span class="s1">&#39;AU&#39;</span><span class="p">,</span> <span class="s1">&#39;Msun&#39;</span><span class="p">)</span> <span class="c1">#changed the time to days</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1">#steps of 0.01 days (unit inherited from above)</span>
+
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#add a Sunlike star</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mf">3e-5</span><span class="p">,</span><span class="n">P</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span> <span class="c1">#add planet with orbital period P = 9 days; circular orbit</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mf">3e-5</span><span class="p">,</span><span class="n">P</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1">#add planet with orbital period P = 15 days; circular orbit</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span> <span class="c1">#convert to barycentric</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Rebound</span></code> has some functions that interface with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (see <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib documentation</a> for details), which is a library for creating high quality figures and plots.  This method of visualization is useful to give you a idea of the system setup, or at a specific point in time.  In the code below, it plots the host star (represented by a star) and each planet (dots).  The <span class="math notranslate nohighlight">\(x-y\)</span> plane gives a top-down view of the system with units of AU along each axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">op</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">OrbitPlot</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d763325e41af37fe165bd2edcc790c3ccfc39c161443d295b50b89f4e504a0ab.png" src="../_images/d763325e41af37fe165bd2edcc790c3ccfc39c161443d295b50b89f4e504a0ab.png" />
+</div>
+</div>
 </section>
 <section id="saving-a-simulation">
-<h2><span class="section-number">2.6. </span>Saving a simulation<a class="headerlink" href="#saving-a-simulation" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.2.2. </span>Saving a simulation<a class="headerlink" href="#saving-a-simulation" title="Permalink to this heading">#</a></h3>
+<p>We can create a <a class="reference external" href="https://rebound.readthedocs.io/en/latest/simulationarchive/">simulation archive</a> to store samples of the system as it evolves.  The <code class="docutils literal notranslate"><span class="pre">automateSimulationArchive</span></code> function allows us to specify a file name to store the samples, frequency for which to take samples (in time units given by sim.units), and whether to overwrite the previous file as a boolean.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replacing the <code class="docutils literal notranslate"><span class="pre">interval</span></code> argument with <code class="docutils literal notranslate"><span class="pre">step</span></code> is in general more reliable. The reason is that the number of timesteps is an integer value whereas the time is a floating point number. If you run long simulations, you might encounter issues with finite floating point precision. This only affects very high accuracy simulation where you want to make sure the outputs occur exactly at the right timestep.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;archive.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#9/20 = 0.45 days (or 20 samples per orbit of inner planet)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">#integrate the orbits for 1000 periods of the inner planet; this takes a few (~3-4) minutes</span>
+</pre></div>
+</div>
+<p>The simulation archive stores each sample similar to a python list, where each object in the list is itself a simulation.  Therefore, we can access the data file “archive.bin” iteratively by creating an instance of <code class="docutils literal notranslate"><span class="pre">SimulationArchive</span></code> (see <a class="reference external" href="https://rebound.readthedocs.io/en/latest/ipython_examples/SimulationArchive/">SimulationArchive examples</a> for details).  We can then probe the simulation archive object <code class="docutils literal notranslate"><span class="pre">sa</span></code> using the dot convention for variables.  Upon inspection, we find that the time of the first and last snapshots are 0 and 9000 days, respectively.  The number of snapshots should be <span class="math notranslate nohighlight">\(1+20/9 \cdot 9000\ \rm days = 20,001\ \rm days\)</span> including the initial snapshot at <span class="math notranslate nohighlight">\(t=0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="s2">&quot;archive.bin&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of snapshots: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time of first and last snapshot: </span><span class="si">%.1f</span><span class="s2">, </span><span class="si">%.1f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">tmin</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">tmax</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of snapshots: 20001
+Time of first and last snapshot: 0.0, 9000.0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="plotting-a-simulation">
-<h2><span class="section-number">2.7. </span>Plotting a simulation<a class="headerlink" href="#plotting-a-simulation" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.2.3. </span>Plotting a simulation<a class="headerlink" href="#plotting-a-simulation" title="Permalink to this heading">#</a></h3>
+<p>To plot a simulation, we can use samples from the <code class="docutils literal notranslate"><span class="pre">SimulationArchive</span></code> and create a visualization through <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.  The example below walks through the basic setup of creating a plot, where there are many ways to customize the appearance (see <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib documentation</a> for more details).</p>
+<p>First, we need to access the functions within the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library and more specificially, those in the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> sublibrary.  In python, this is done through the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and we can denote a reference label <code class="docutils literal notranslate"><span class="pre">plt</span></code>,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>so that we can more easily reference the functions without using the full path to the function.</p>
+<p>The simulation above considers two planets, where we can designate data points for each planet by color: inner (black) and outer (red).  Also we know that there will be three particles (star, inner planet, outer planet) and the <code class="docutils literal notranslate"><span class="pre">ps</span></code> list holds objects representing each body at each snapshot in time.  Therefore, it would be convenient to iterate through the colors following the same counting scheme as we iterate through the particles (i.e., particle index <span class="math notranslate nohighlight">\(i = \{0,\ 1,\ 2\}\)</span>).  Let’s define a color list as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where this list skips the position zero (using an empty string <code class="docutils literal notranslate"><span class="pre">''</span></code>) for the host star, assigns <code class="docutils literal notranslate"><span class="pre">'k'</span></code> (black) in the first position, and <code class="docutils literal notranslate"><span class="pre">'r'</span></code> (red) in the final position.  A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that iterates through the particles will begin at <span class="math notranslate nohighlight">\(0\)</span> and continue non-inclusively until it reaches <span class="math notranslate nohighlight">\(3\)</span> (i.e., only evaluating <span class="math notranslate nohighlight">\(i = \{0,\ 1,\ 2\}\)</span>).</p>
+<p>Then, a <code class="docutils literal notranslate"><span class="pre">figure</span></code> instance is created using the <code class="docutils literal notranslate"><span class="pre">plt</span></code> label.  Arguments of the <code class="docutils literal notranslate"><span class="pre">figure</span></code> can include the:</p>
+<ul class="simple">
+<li><p>size of the figure; <code class="docutils literal notranslate"><span class="pre">figsize=(w,h)</span></code> with the width <code class="docutils literal notranslate"><span class="pre">w</span></code> and height <code class="docutils literal notranslate"><span class="pre">h</span></code> measured in <em>inches</em>,</p></li>
+<li><p>resolution of the figure in <em>dots per inch</em> <code class="docutils literal notranslate"><span class="pre">dpi</span></code>; the default is <span class="math notranslate nohighlight">\(75\)</span>, but it is often better to use <span class="math notranslate nohighlight">\(150\)</span>.</p></li>
+</ul>
+<p>Following the <code class="docutils literal notranslate"><span class="pre">figure</span></code> is the creation of a reference axis <code class="docutils literal notranslate"><span class="pre">ax</span></code> by using the function <code class="docutils literal notranslate"><span class="pre">add_subplot</span></code>.  This function creates a <em>canvas</em> for which to add our points and requires information concerning the number of rows <span class="math notranslate nohighlight">\(r\)</span>, columns <span class="math notranslate nohighlight">\(c\)</span>, and the index <span class="math notranslate nohighlight">\(i\)</span> of the subplot.  Together these instances are</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">h=w=5</span></code>, <code class="docutils literal notranslate"><span class="pre">dpi=150</span></code>, and <code class="docutils literal notranslate"><span class="pre">rci=111</span></code>.</p>
+<p>The simulation archive is sampled using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that iterates through each snapshot, while a second <code class="docutils literal notranslate"><span class="pre">for</span></code> loop iterates through the particles.  Within the second <code class="docutils literal notranslate"><span class="pre">for</span></code> loop dots are plotted onto the axis <code class="docutils literal notranslate"><span class="pre">ax</span></code> with a marker <code class="docutils literal notranslate"><span class="pre">'.'</span></code> (dot) and markersize <code class="docutils literal notranslate"><span class="pre">ms=4</span></code>.  Note that we expect ~20 equally spaced positions for the inner planet (due to our output sampling) and a continuous curve for the outer planet.  In python, this code is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">)):</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="c1">#iterate through each snapshot in sa</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simpify the referencing</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="p">)):</span> <span class="c1">#iterate through each of the particles, skipping the host star </span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>To make the resulting plot easier to read later, we can add labels to the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-axis as strings and denote the point size of the font in <code class="docutils literal notranslate"><span class="pre">fontsize</span></code>.  The final line should contain a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end to prevent extra output.  The code for this customization is given by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Altogether, we can combine these statements into one code as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">)):</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="c1">#iterate through each snapshot in sa</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simpify the referencing</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="p">)):</span> <span class="c1">#iterate through each of the particles, skipping the host star </span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/896658a3130d4047f3cf1994264fa47c65d56ff1e871a8313807dcc8d7598a51.png" src="../_images/896658a3130d4047f3cf1994264fa47c65d56ff1e871a8313807dcc8d7598a51.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="simulating-alpha-cen-ab">
+<h2><span class="section-number">2.3. </span>Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB<a class="headerlink" href="#simulating-alpha-cen-ab" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="adding-a-planet">
+<h2><span class="section-number">2.4. </span>Adding a planet<a class="headerlink" href="#adding-a-planet" title="Permalink to this heading">#</a></h2>
+<section id="jacobi-coordinates">
+<h3><span class="section-number">2.4.1. </span>Jacobi coordinates<a class="headerlink" href="#jacobi-coordinates" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="barycentric-coordinates">
+<h3><span class="section-number">2.4.2. </span>Barycentric coordinates<a class="headerlink" href="#barycentric-coordinates" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -524,16 +683,18 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-software">2.1. Available software</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-simulation-1-star-2-planets">2.2. A simple simulation (1 star + 2 planets)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-parameters">2.3. Simulation parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-alpha-cen-ab">2.4. Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet">2.5. Adding a planet</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-coordinates">2.5.1. Jacobi coordinates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barycentric-coordinates">2.5.2. Barycentric coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-simulation-1-star-2-planets">2.2. A simple simulation (1 star + 2 planets)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-a-basic-rebound-simulation">2.2.1. Structure of a (basic) Rebound simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-simulation">2.2.2. Saving a simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-a-simulation">2.2.3. Plotting a simulation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-simulation">2.6. Saving a simulation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-a-simulation">2.7. Plotting a simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-alpha-cen-ab">2.3. Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet">2.4. Adding a planet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-coordinates">2.4.1. Jacobi coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barycentric-coordinates">2.4.2. Barycentric coordinates</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
