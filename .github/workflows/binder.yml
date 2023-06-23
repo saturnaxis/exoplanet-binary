@@ -11,6 +11,6 @@ jobs:
     - name: update jupyter dependencies with repo2docker
       uses: machine-learning-apps/repo2docker-action@master
       with:
-        DOCKER_USERNAME: ${{ saturnaxis }}
-        DOCKER_PASSWORD: ${{ dckr_pat_YP9a3hgYuM2Q3HtaivY7AL3jRT0 }}
+        DOCKER_USERNAME: ${saturnaxis}
+        DOCKER_PASSWORD: ${dckr_pat_YP9a3hgYuM2Q3HtaivY7AL3jRT0}
         MYBINDERORG_CACHE: true
