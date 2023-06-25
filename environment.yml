@@ -4,6 +4,14 @@ name: book-render
 channels:
   - conda-forge
 dependencies:
-  - python
-  - jupyter-book  # needed to rebuild the book from source
+- python>=3.6
+- jupyter-book  # needed to rebuild the book from source
+- numpy>=1.17
+- matplotlib>=3.1.2
+- pandas>=0.25.3
+- scipy>=1.3.2
+- jupyter>=1.0
+- sympy>=1.4
+- pip:
+  # not available on conda, so use pip
   - rebound
