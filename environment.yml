@@ -4,8 +4,6 @@ name: book-render
 channels:
   - conda-forge
 dependencies:
+  - python
   - jupyter-book  # needed to rebuild the book from source
-  - numpy
-  - scipy
-  - matplotlib
   - rebound
