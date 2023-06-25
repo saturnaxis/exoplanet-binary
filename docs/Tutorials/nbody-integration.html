@@ -412,8 +412,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-alpha-cen-ab">2.3. Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet">2.4. Adding a planet</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-coordinates">2.4.1. Jacobi coordinates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barycentric-coordinates">2.4.2. Barycentric coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation">2.4.1. Example simulation</a></li>
 </ul>
 </li>
 </ul>
@@ -635,6 +634,7 @@ Time of first and last snapshot: 0.0, 9000.0
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;y*&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">xy_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
@@ -651,17 +651,143 @@ Time of first and last snapshot: 0.0, 9000.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/770ea0ea922d9be5bbf71017dfb2473479c8db7c39c0c0d581bc04161e81239c.png" src="../_images/770ea0ea922d9be5bbf71017dfb2473479c8db7c39c0c0d581bc04161e81239c.png" />
+<img alt="../_images/8bfe43e93aec457d048cde11e607d92eac8e4f6b2e0c3a5b3bbd4db618c349aa.png" src="../_images/8bfe43e93aec457d048cde11e607d92eac8e4f6b2e0c3a5b3bbd4db618c349aa.png" />
 </div>
 </div>
 </section>
 <section id="adding-a-planet">
 <h2><span class="section-number">2.4. </span>Adding a planet<a class="headerlink" href="#adding-a-planet" title="Permalink to this heading">#</a></h2>
-<section id="jacobi-coordinates">
-<h3><span class="section-number">2.4.1. </span>Jacobi coordinates<a class="headerlink" href="#jacobi-coordinates" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="barycentric-coordinates">
-<h3><span class="section-number">2.4.2. </span>Barycentric coordinates<a class="headerlink" href="#barycentric-coordinates" title="Permalink to this heading">#</a></h3>
+<p>In <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB, we can add a planet orbiting either star (S-Type) or both stars (P-Type).  In <code class="docutils literal notranslate"><span class="pre">rebound</span></code> particles are added in the order given in your python code and using Jacobi coordinates by default.  As a result there can be some ambiguity between a planet orbiting star B (S-Type) and a circumbinary planet orbiting both stars (P-Type).  To resolve this, the following convention forces the planet into S-Type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_host</span><span class="p">)</span> <span class="c1">#add the host star mass (could be either A or B)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m_pl</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_pl</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_pl</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c1">#add the planet using either orbital elements or Cartesian coordinates relative to the host star</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_sec</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c1">#add the secondary star relative to the host star (i.e., like a big planet)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>where the adding the secondary star first forces the planet into P-Type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_host</span><span class="p">)</span> <span class="c1">#add the host star mass (could be either A or B)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_sec</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c1">#add the secondary star relative to the host star</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m_pl</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_pl</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_pl</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c1">#add the planet using either orbital elements or Cartesian coordinates relative to the center of mass</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a argument in the <code class="docutils literal notranslate"><span class="pre">add</span></code> function called <code class="docutils literal notranslate"><span class="pre">primary</span></code>, which redirects the action to add the particle relative to the primary object (see <a class="reference external" href="https://rebound.readthedocs.io/en/latest/addingparticles/#adding-particles-manually">here</a> for more details).  This could be an option to add S-Type planets orbiting <em>both</em> stars, where a change in reference would not work.</p>
+</div>
+<section id="example-simulation">
+<h3><span class="section-number">2.4.1. </span>Example simulation<a class="headerlink" href="#example-simulation" title="Permalink to this heading">#</a></h3>
+<p>As an example, let’s add an Earth-like planet on a circular, coplanar orbit around <span class="math notranslate nohighlight">\(\alpha\)</span> Cen A with a semimajor axis <span class="math notranslate nohighlight">\(a_{\rm pl} = 1\ \rm AU\)</span>.  In the code below: we add</p>
+<ul class="simple">
+<li><p>some global variables for the planet,</p></li>
+<li><p>the particle in an appropriate order, and</p></li>
+<li><p>update the indices for plotting (i.e., 0 = star A, 1 = planet, 2 = star B).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.inset_locator</span> <span class="kn">import</span> <span class="n">inset_axes</span>
+
+<span class="n">M_A</span> <span class="o">=</span> <span class="mf">1.133</span> <span class="c1">#mass of star A in solar masses</span>
+<span class="n">M_B</span> <span class="o">=</span> <span class="mf">0.972</span> <span class="c1">#mass of star B in solar masses</span>
+<span class="n">a_bin</span> <span class="o">=</span> <span class="mf">23.78</span> <span class="c1">#semimajor axis in AU</span>
+<span class="n">e_bin</span> <span class="o">=</span> <span class="mf">0.524</span> <span class="c1">#eccentricity</span>
+<span class="n">omg_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">77.05</span><span class="p">)</span> <span class="c1">#pericenter of binary converted to radians</span>
+<span class="n">MA_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">209.6901</span><span class="p">)</span> <span class="c1">#mean anomaly of binary @ JD 2452276</span>
+<span class="n">T_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a_bin</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">M_A</span><span class="o">+</span><span class="n">M_B</span><span class="p">))</span> <span class="c1">#period of the binary in years</span>
+
+<span class="n">M_pl</span> <span class="o">=</span> <span class="mf">3.0035e-6</span> <span class="c1">#mass of Earth in solar masses</span>
+<span class="n">a_pl</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1">#semimajor axis in AU</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s1">&#39;whfast&#39;</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span><span class="s1">&#39;Msun&#39;</span><span class="p">,</span><span class="s1">&#39;AU&#39;</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span> 
+
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_A</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_pl</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_pl</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> <span class="c1">#i=Omega=0 by default</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>  <span class="c1">#convert to center of mass coordinates</span>
+
+<span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">T_bin</span><span class="p">)</span>
+
+<span class="c1">#plot the simulation</span>
+<span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;y*&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">xy_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">xy_pl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">)):</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="c1">#iterate through each snapshot in sa</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simpify the referencing</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">move_to_hel</span><span class="p">()</span> <span class="c1">#shift to astrocentric coordinates</span>
+    <span class="n">xy_bin</span><span class="p">[</span><span class="n">s</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+    <span class="n">xy_pl</span><span class="p">[</span><span class="n">s</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_bin</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_bin</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_bin</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_bin</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r*&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_pl</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_pl</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_pl</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_pl</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1a77637aeeb50dd2150ff247c90404a4735a53e6f91f983fc59c493e45b6b0dc.png" src="../_images/1a77637aeeb50dd2150ff247c90404a4735a53e6f91f983fc59c493e45b6b0dc.png" />
+</div>
+</div>
+<p>Due to the difference in scale between the planetary and binary orbits, it is difficult to visualize both at the same time.  The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library has an important function called <code class="docutils literal notranslate"><span class="pre">inset_axes</span></code> that generates a separate (child) axis relative to a different (parent) axis.  This allows us to zoom in on the planetary orbit within the inset.  The code below demonstrates the necessary modifications for an inset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.inset_locator</span> <span class="kn">import</span> <span class="n">inset_axes</span>
+
+<span class="c1">#plot the simulation</span>
+<span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">axins</span> <span class="o">=</span> <span class="n">inset_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;50%&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.7</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="mf">.5</span><span class="p">),</span> <span class="n">bbox_transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">axins</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;y*&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">axins</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;y*&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">xy_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">xy_pl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">)):</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="c1">#iterate through each snapshot in sa</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simpify the referencing</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">move_to_hel</span><span class="p">()</span> <span class="c1">#shift to astrocentric coordinates</span>
+    <span class="n">xy_bin</span><span class="p">[</span><span class="n">s</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+    <span class="n">xy_pl</span><span class="p">[</span><span class="n">s</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_bin</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_bin</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_bin</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_bin</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r*&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_pl</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_pl</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_pl</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_pl</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">axins</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_pl</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_pl</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axins</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_pl</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy_pl</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">axins</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.05</span><span class="p">)</span>
+<span class="n">axins</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.05</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01c3d069b21fa939a1b4f068b872bb9dd4415d2e6812325858741e1d624a6632.png" src="../_images/01c3d069b21fa939a1b4f068b872bb9dd4415d2e6812325858741e1d624a6632.png" />
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -742,8 +868,7 @@ Time of first and last snapshot: 0.0, 9000.0
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-alpha-cen-ab">2.3. Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-planet">2.4. Adding a planet</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-coordinates">2.4.1. Jacobi coordinates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barycentric-coordinates">2.4.2. Barycentric coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation">2.4.1. Example simulation</a></li>
 </ul>
 </li>
 </ul>
