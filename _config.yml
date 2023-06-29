@@ -69,7 +69,9 @@ html:
   comments:
     hypothesis              : false
     utterances              : false
+
 sphinx:
   extra_extensions:
     - sphinx_exercise
     - sphinx_inline_tabs
+
