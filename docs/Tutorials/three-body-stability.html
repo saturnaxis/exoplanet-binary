@@ -73,6 +73,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/three-body-stability';</script>
     <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/three-body-stability.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -404,11 +406,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-overview">3.1. Historical overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard">3.2. The old standard</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumbinary-planets">3.3. Stability for circumbinary planets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation">3.3.1. A sample simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-kepler-16b">3.3.1. A sample simulation (Kepler-16b)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumstellar-planets">3.4. Stability for circumstellar planets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.4.1. A sample simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-gamma-cephei-ab">3.4.1. A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)</a></li>
 </ul>
 </li>
 </ul>
@@ -426,20 +428,32 @@ document.write(`
 <h1><span class="section-number">3. </span>Three-body Stability<a class="headerlink" href="#three-body-stability" title="Permalink to this heading">#</a></h1>
 <section id="historical-overview">
 <h2><span class="section-number">3.1. </span>Historical overview<a class="headerlink" href="#historical-overview" title="Permalink to this heading">#</a></h2>
+<p>The three-body problem (<a class="reference external" href="https://en.wikipedia.org/wiki/Three-body_problem"><strong>TBP</strong></a>) was developed and studied by Isaac Newton is his pioneering work, <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica">the Principia</a>.  In Newton’s formulation, a solution to the TBP would analytically (exactly) describe the motion of the Moon under the influence of gravity from both the Earth and the Sun.  However, this problem would not be solved by Newton (or anyone).</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Oscar_II">King Oscar II</a> commemorated his birthday in 1889 with a contest, where he invited the top scholars to attempt solutions to the TBP.  It was a French mathematician, <a class="reference external" href="https://en.wikipedia.org/wiki/Henri_Poincar%C3%A9">Henri Poincare</a>, at the University of Paris who “won” the contest.  Poincare showed that the TBP could not be solved due to an insufficient number of constants of motion (11) relative to the 18 equations of motion that generally define the problem.  In other words, the TBP is non-integrable does not have an unambiguous solution in terms of algebraic and transcendental functions.</p>
+<p>Poincare showed that no solution to the general TBP exists, but some particular solutions do exist.  These solutions can have several requirements that are subsumed into the numenclature.  For example, the <a class="reference external" href="https://farside.ph.utexas.edu/teaching/celestial/Celestial/node80.html">circular-restricted TBP</a> requires that the one body is much less massive than the other two (i.e., restricted <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(m_3 \ll m_1\)</span> and <span class="math notranslate nohighlight">\(m_3 \ll m_2\)</span>) and the two more massive bodies orbit one another on circular orbits.</p>
+<p>Other solutions require central configurations, such as those proposed by Euler (<a class="reference external" href="https://en.wikipedia.org/wiki/Euler%27s_three-body_problem">collinear</a>) and Lagrange (<a class="reference external" href="https://en.wikipedia.org/wiki/Three-body_problem#Special-case_solutions">equilateral triangle</a>).  In 2013, physicists at the Insitute of Physics in Belgrade discovered 13 new families in the equal-mass, zero angular momentum TBP (see their <a class="reference external" href="http://three-body.ipb.ac.rs/">gallery</a>).</p>
+<p>Instead of searching for analytical solutions, others have used numerical approximations (or computational solutions) to solve the problem.  Although less elegant, such techniques are generally more practical because investigators can explore wide swathes of potenatial parameter space using modern parallel computing.</p>
+<p>This guide will focus on numerical approaches for the case of a planet orbiting a pair of binary stars.  In this case, the planet is (at most) a Jupiter-mass body and naturally requires the restricted TBP because the two primary bodies are stellar masses (<span class="math notranslate nohighlight">\(m_2&gt;0.08\ M_\odot\)</span>; <span class="math notranslate nohighlight">\(m_1 \ge m_2\)</span>).  In 1982, Rudolf Dvorak defined three potential configurations of planets in binary systems: S-Type, P-Type, or T-Type (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).</p>
+<figure class="align-default" id="planet-configs">
+<a class="reference internal image-reference" href="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369"><img alt="planet configurations" src="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Possible configurations of exoplanets in binary star systems (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982OAWMN.191..423D/abstract">Dvorak 1982</a>).  The planet can orbit either star (S-Type), both stars, (P-Type), or along the orbit of the secondary as a Trojan (T-Type). Figure credit: <a class="reference external" href="https://www.astronomy.com/science/can-solar-systems-exist-in-a-binary-star-system/">Astronomy: Roen Kelly</a>.</span><a class="headerlink" href="#planet-configs" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="the-old-standard">
 <h2><span class="section-number">3.2. </span>The old standard<a class="headerlink" href="#the-old-standard" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="stability-for-circumbinary-planets">
 <h2><span class="section-number">3.3. </span>Stability for circumbinary planets<a class="headerlink" href="#stability-for-circumbinary-planets" title="Permalink to this heading">#</a></h2>
-<section id="a-sample-simulation">
-<h3><span class="section-number">3.3.1. </span>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Permalink to this heading">#</a></h3>
+<section id="a-sample-simulation-kepler-16b">
+<h3><span class="section-number">3.3.1. </span>A sample simulation (Kepler-16b)<a class="headerlink" href="#a-sample-simulation-kepler-16b" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 <section id="stability-for-circumstellar-planets">
 <h2><span class="section-number">3.4. </span>Stability for circumstellar planets<a class="headerlink" href="#stability-for-circumstellar-planets" title="Permalink to this heading">#</a></h2>
-<section id="id1">
-<h3><span class="section-number">3.4.1. </span>A sample simulation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="a-sample-simulation-gamma-cephei-ab">
+<h3><span class="section-number">3.4.1. </span>A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)<a class="headerlink" href="#a-sample-simulation-gamma-cephei-ab" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 </section>
@@ -514,11 +528,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-overview">3.1. Historical overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard">3.2. The old standard</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumbinary-planets">3.3. Stability for circumbinary planets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation">3.3.1. A sample simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-kepler-16b">3.3.1. A sample simulation (Kepler-16b)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumstellar-planets">3.4. Stability for circumstellar planets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.4.1. A sample simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-gamma-cephei-ab">3.4.1. A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)</a></li>
 </ul>
 </li>
 </ul>
