@@ -415,6 +415,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation">2.4.1. Example simulation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.5. References</a></li>
 </ul>
             </nav>
         </div>
@@ -602,7 +603,7 @@ Time of first and last snapshot: 0.0, 9000.0
 </section>
 <section id="simulating-alpha-cen-ab">
 <h2><span class="section-number">2.3. </span>Simulating <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB<a class="headerlink" href="#simulating-alpha-cen-ab" title="Permalink to this heading">#</a></h2>
-<p>To simulate the orbit of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB, we need to use the known orbital parameters.  The stellar masses and orbital elements are given in <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-alpha-centauri.html">Introduction to the <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri System</a>, but we’ll use the binary orbital plane as a reference so that <span class="math notranslate nohighlight">\(i = \Omega = 0^\circ\)</span> and <span class="math notranslate nohighlight">\(\omega = 77.05^\circ = (232.3^\circ + 204.75^\circ) \mod 360^\circ\)</span>.  Additionally, we need to specifiy a starting position using true anomaly <span class="math notranslate nohighlight">\(f\)</span> or mean anomaly <em>MA</em>.  <a class="reference external" href="https://iopscience.iop.org/article/10.3847/0004-6256/151/5/111/pdf">Quarles &amp; Lissauer (2016)</a> calculated the binary mean anomaly for Julian date (JD) 2452276, which is <span class="math notranslate nohighlight">\(209.6901^\circ\)</span> and we’ll use it here.</p>
+<p>To simulate the orbit of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB, we need to use the known orbital parameters.  The stellar masses and orbital elements are given in <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-alpha-centauri.html">Introduction to the <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri System</a>, but we’ll use the binary orbital plane as a reference so that <span class="math notranslate nohighlight">\(i = \Omega = 0^\circ\)</span> and <span class="math notranslate nohighlight">\(\omega = 77.05^\circ = (232.3^\circ + 204.75^\circ) \mod 360^\circ\)</span>.  Additionally, we need to specifiy a starting position using true anomaly <span class="math notranslate nohighlight">\(f\)</span> or mean anomaly <em>MA</em>.  <a class="reference external" href="https://iopscience.iop.org/article/10.3847/0004-6256/151/5/111/pdf">Quarles &amp; Lissauer (2016)</a> calculated the binary mean anomaly for Julian date (JD) 2452276, which is <span class="math notranslate nohighlight">\(209.6901^\circ\)</span> and we’ll use it here (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016AJ....151..111Q/abstract">Quarles &amp; Lissauer 2016</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span> 
@@ -790,6 +791,12 @@ Time of first and last snapshot: 0.0, 9000.0
 </div>
 </section>
 </section>
+<section id="references">
+<h2><span class="section-number">2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016AJ....151..111Q/abstract">Quarles &amp; Lissauer (2016)</a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -871,6 +878,7 @@ Time of first and last snapshot: 0.0, 9000.0
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation">2.4.1. Example simulation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.5. References</a></li>
 </ul>
   </nav></div>
 
