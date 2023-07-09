@@ -404,12 +404,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-overview">3.1. Historical overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard">3.2. The old standard</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumbinary-planets">3.3. Stability for circumbinary planets</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard-holman-wiegert-1999">3.2. The old standard (Holman &amp; Wiegert 1999)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-p-type-circumbinary-planets">3.3. Stability for (P-Type) circumbinary planets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-kepler-16b">3.3.1. A sample simulation (Kepler-16b)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumstellar-planets">3.4. Stability for circumstellar planets</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-s-type-circumstellar-planets">3.4. Stability for (S-Type) circumstellar planets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-gamma-cephei-ab">3.4.1. A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)</a></li>
 </ul>
 </li>
@@ -441,17 +441,45 @@ document.write(`
 </figcaption>
 </figure>
 </section>
-<section id="the-old-standard">
-<h2><span class="section-number">3.2. </span>The old standard<a class="headerlink" href="#the-old-standard" title="Permalink to this heading">#</a></h2>
+<section id="the-old-standard-holman-wiegert-1999">
+<h2><span class="section-number">3.2. </span>The old standard (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a>)<a class="headerlink" href="#the-old-standard-holman-wiegert-1999" title="Permalink to this heading">#</a></h2>
+<p>From <span class="math notranslate nohighlight">\({\sim}1980-2000\)</span>, the growth of computational power allowed researchers to better understand the motion of three bodies.  In the 1980s, most numerical simulations were limited to <span class="math notranslate nohighlight">\({\sim}10^3\ T_{\rm bin}\)</span> (scaled by the binary orbital period <span class="math notranslate nohighlight">\(T_{\rm bin}\)</span>) in simulation time due to the excessive wall time required for the computations.  Many researchers turned to dynamical indicators of chaos (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1980Mecc...15....9B/abstract">Benettin et al. 1980</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1992AJ....104.1230L/abstract">Lecar et al. 1992</a>,  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993CeMDA..56..409S/abstract">Smith &amp; Szebehely 1993</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1997CeMDA..67...41F/abstract">Froeschle et al. 1997</a>) to identify <em>possible routes</em> to unstable orbits.</p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986A%26A...167..379D/abstract">Dvorak (1986)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1988A%26A...191..385R/abstract">Rabl &amp; Dvorak (1988)</a> showed that there is a transition between regular (periodic), quasi-periodic, and chaotic orbits for planets in binaries.  Unstable (or unbound) orbits are non-periodic, which can overlap in type with chaotic orbits.  There are chaotic orbits that remain bound to the system.  Therefore, chaos <strong>does not</strong> imply instability.</p>
+<p>Orbital chaos is a sensitivity to initial conditions, which means that starting the planet or binary at slightly different positions can result in a drastically different orbital behavior.  Starting the planet a degree ahead (or behind) in its orbit through its initial mean (or true) anomaly means that the planet will feel a slightly different net force initially.  This slight difference in net force can speed up (or slow down) the planet and lead to an increase in its orbital eccentricity.  The secondary star can</p>
+<ul class="simple">
+<li><p>“pump” the planet’s orbital eccentricity through exchanges of angular momentum, or</p></li>
+<li><p>scatter the planet (change in planetary semimajor axis) through exchanges of orbital energy.</p></li>
+</ul>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> focused on the potential to scatter a single planet.  They performed numerical simulations with the following assumptions:</p>
+<ol class="arabic simple">
+<li><p>The planet does not influence the orbit of the host binary (i.e., a test (zero-mass) particle).</p></li>
+<li><p>The planet begins on a circular, coplanar orbit (relative to the host binary).</p></li>
+<li><p>The planet and binary orbits can be scaled hierarchically, where the initial planetary semimajor axis ratio is <span class="math notranslate nohighlight">\(\rho = a_p/a_{\rm bin}\)</span>.</p></li>
+<li><p>The binary masses are scaled by the mass ratio <span class="math notranslate nohighlight">\(\mu = m_2/(m_1+m_2)\)</span>, where <span class="math notranslate nohighlight">\(m_1\ge m_2\)</span>.</p></li>
+<li><p>A critical semimajor axis <span class="math notranslate nohighlight">\(a_c\)</span> exists for the planet where planets with</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a_p \leq a_c\)</span> are bound for <span class="math notranslate nohighlight">\(10^4\)</span> binary orbits (i.e., scaled by <span class="math notranslate nohighlight">\(T_{\rm bin}\)</span>) and</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_p &gt; a_c\)</span> are unbound within a time <span class="math notranslate nohighlight">\(t&lt;10^4\ T_{\rm bin}\)</span>.</p></li>
+</ul>
+</li>
+<li><p>The planetary and binary orbits are initially aligned <span class="math notranslate nohighlight">\((\omega_p = \omega_{\rm bin})\)</span>, where the binary begins at either periastron <span class="math notranslate nohighlight">\((f_{\rm bin} = 0^\circ)\)</span> or apastron <span class="math notranslate nohighlight">\((f_{\rm bin} = 180^\circ)\)</span>.</p></li>
+</ol>
+<p>These are not bad assumptions considering the computing power and knowledge of planetary systems during the late 1990s.  For a given mass ratio <span class="math notranslate nohighlight">\(\mu\)</span>, and binary eccentricity <span class="math notranslate nohighlight">\(e_{\rm bin}\)</span>, an initial condition <span class="math notranslate nohighlight">\((\rho,\ f_p)\)</span> is evaluated.  The semimajor axis ratio range differs for S-Type <span class="math notranslate nohighlight">\((0.02\leq \rho \leq 0.5)\)</span> and P-Type <span class="math notranslate nohighlight">\((1\leq \rho \leq 5)\)</span> (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).  But eight equidistant values of the planetary true anomaly (<span class="math notranslate nohighlight">\(f_p = 0^\circ - 315^\circ;\ 45^\circ\)</span> increments) are used.</p>
+<figure class="align-default" id="planet-ics">
+<a class="reference internal image-reference" href="../_images/HW_Table1.png"><img alt="HW Table 1" src="../_images/HW_Table1.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Initial conditions used in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for both S-Type and P-Type planets.</span><a class="headerlink" href="#planet-ics" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
-<section id="stability-for-circumbinary-planets">
-<h2><span class="section-number">3.3. </span>Stability for circumbinary planets<a class="headerlink" href="#stability-for-circumbinary-planets" title="Permalink to this heading">#</a></h2>
+<section id="stability-for-p-type-circumbinary-planets">
+<h2><span class="section-number">3.3. </span>Stability for (P-Type) circumbinary planets<a class="headerlink" href="#stability-for-p-type-circumbinary-planets" title="Permalink to this heading">#</a></h2>
 <section id="a-sample-simulation-kepler-16b">
 <h3><span class="section-number">3.3.1. </span>A sample simulation (Kepler-16b)<a class="headerlink" href="#a-sample-simulation-kepler-16b" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
-<section id="stability-for-circumstellar-planets">
-<h2><span class="section-number">3.4. </span>Stability for circumstellar planets<a class="headerlink" href="#stability-for-circumstellar-planets" title="Permalink to this heading">#</a></h2>
+<section id="stability-for-s-type-circumstellar-planets">
+<h2><span class="section-number">3.4. </span>Stability for (S-Type) circumstellar planets<a class="headerlink" href="#stability-for-s-type-circumstellar-planets" title="Permalink to this heading">#</a></h2>
 <section id="a-sample-simulation-gamma-cephei-ab">
 <h3><span class="section-number">3.4.1. </span>A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)<a class="headerlink" href="#a-sample-simulation-gamma-cephei-ab" title="Permalink to this heading">#</a></h3>
 </section>
@@ -526,12 +554,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-overview">3.1. Historical overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard">3.2. The old standard</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumbinary-planets">3.3. Stability for circumbinary planets</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard-holman-wiegert-1999">3.2. The old standard (Holman &amp; Wiegert 1999)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-p-type-circumbinary-planets">3.3. Stability for (P-Type) circumbinary planets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-kepler-16b">3.3.1. A sample simulation (Kepler-16b)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-circumstellar-planets">3.4. Stability for circumstellar planets</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-s-type-circumstellar-planets">3.4. Stability for (S-Type) circumstellar planets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-gamma-cephei-ab">3.4.1. A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)</a></li>
 </ul>
 </li>
