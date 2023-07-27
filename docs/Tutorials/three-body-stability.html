@@ -485,23 +485,21 @@ document.write(`
 </ul>
 <p>Table <a class="reference internal" href="#stability-grid1"><span class="std std-numref">3.4</span></a> shows the results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets, where the <span class="math notranslate nohighlight">\(&quot;+&quot;\)</span> symbols denote stable (i.e., no scatters or escapes).</p>
 <figure class="align-default" id="stability-grid1">
-<a class="reference internal image-reference" href="../_images/HW_Table2.png"><img alt="HW Table 2" src="../_images/HW_Table2.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW_Table2.png"><img alt="HW Table 2" src="../_images/HW_Table2.png" style="width: 500px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Planet survival results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Table <a class="reference internal" href="#stability-grid2"><span class="std std-numref">3.5</span></a> shows data that has been reduced, where each cell in the table represents the critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> determined through a smaller grid similar to Table <a class="reference internal" href="#stability-grid1"><span class="std std-numref">3.4</span></a>.</p>
 <figure class="align-default" id="stability-grid2">
-<a class="reference internal image-reference" href="../_images/HW_Table3.png"><img alt="HW Table 3" src="../_images/HW_Table3.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW_Table3.png"><img alt="HW Table 3" src="../_images/HW_Table3.png" style="width: 500px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>From Table <a class="reference internal" href="#stability-grid2"><span class="std std-numref">3.5</span></a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> perform a least-squares fit given the trial function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70a1f8f4-aa36-4a9d-b251-d5a345aa54f1">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-70a1f8f4-aa36-4a9d-b251-d5a345aa54f1" title="Permalink to this equation">#</a></span>\[\begin{align}
-\rho_{\rm cr} = c_1 + c_2\mu + c_3e_{\rm bin} + c_4\mu e_{\rm bin} + c_5 e_{\rm bin}^2 + c_6 \mu e_{\rm bin}^2.
-\end{align}\]</div>
+<div class="math notranslate nohighlight" id="equation-hw-formula">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-hw-formula" title="Permalink to this equation">#</a></span>\[\rho_{\rm cr} = c_1 + c_2\mu + c_3e_{\rm bin} + c_4\mu e_{\rm bin} + c_5 e_{\rm bin}^2 + c_6 \mu e_{\rm bin}^2.\]</div>
 <p>The least-squares fitting procedure identifies values of <span class="math notranslate nohighlight">\(c_1-c_6\)</span> that minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span> (e.g., the residuals or cost function).</p>
 <p>The above procedure has merits in that it will accurately reproduce the critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> for other parts of the <span class="math notranslate nohighlight">\((\mu,\ e_{\rm bin})\)</span> parameter space through an easy-to-use polynomial.  However, larger discrepancies appear when extrapolating to broad regimes of mass ration <span class="math notranslate nohighlight">\(\mu\)</span> (e.g., <span class="math notranslate nohighlight">\(\mu \leq 0.1\)</span> and <span class="math notranslate nohighlight">\(\mu \geq 0.9\)</span>).  There can be significant differences if the planetary orbit is misaligned with the host binary, which is expected from disk observations in binaries (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2006A%26A...446..201M/abstract">Monin et al. (2006)</a>).</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a> addresses these issues in two ways:</p>
@@ -509,6 +507,48 @@ document.write(`
 <li><p>expand the simulations to cover a wider range in <span class="math notranslate nohighlight">\(\mu\)</span> and increase the grid resolution,</p></li>
 <li><p>evaluate the simulations for a range of planet inclinations.</p></li>
 </ol>
+<p>Figure <a class="reference internal" href="#stability-grid3"><span class="std std-numref">3.6</span></a> illustrates the results of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a>, where the color-code represents <span class="math notranslate nohighlight">\(\rho_{cr}\)</span> and each panel assumes a different initial inclination for the planet.</p>
+<figure class="align-default" id="stability-grid3">
+<a class="reference internal image-reference" href="../_images/Q20_Fig7.png"><img alt="Q20 Fig 7" src="../_images/Q20_Fig7.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The above parameter spaces can also be fit using the same trial function (Eq. <a class="reference internal" href="#equation-hw-formula">(3.1)</a>), but the data underlying the above figure is available in a GitHub repo <a class="reference external" href="https://github.com/saturnaxis/ThreeBody_Stability">saturnaxis:ThreeBody_Stability</a>.  Using the data file for the coplanar case and interp2D, one can easily identify <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/ThreeBody_Stability/master/a_crit_Incl%5B0%5D.txt&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mf">0.001</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),[</span><span class="mf">0.999</span><span class="p">]))</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.81</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">zi</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">Z</span><span class="p">,(</span><span class="n">xi</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span><span class="n">yi</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]),</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">astab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rho_cr = 0.12
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="stability-for-p-type-circumbinary-planets">
 <h2><span class="section-number">3.3. </span>Stability for (P-Type) circumbinary planets<a class="headerlink" href="#stability-for-p-type-circumbinary-planets" title="Permalink to this heading">#</a></h2>
