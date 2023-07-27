@@ -404,7 +404,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-overview">3.1. Historical overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard-holman-wiegert-1999">3.2. The old standard (Holman &amp; Wiegert 1999)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-standard-holman-wiegert-1999">3.2. Updating the standard (Holman &amp; Wiegert 1999)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-p-type-circumbinary-planets">3.3. Stability for (P-Type) circumbinary planets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-kepler-16b">3.3.1. A sample simulation (Kepler-16b)</a></li>
 </ul>
@@ -441,8 +441,8 @@ document.write(`
 </figcaption>
 </figure>
 </section>
-<section id="the-old-standard-holman-wiegert-1999">
-<h2><span class="section-number">3.2. </span>The old standard (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a>)<a class="headerlink" href="#the-old-standard-holman-wiegert-1999" title="Permalink to this heading">#</a></h2>
+<section id="updating-the-standard-holman-wiegert-1999">
+<h2><span class="section-number">3.2. </span>Updating the standard (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a>)<a class="headerlink" href="#updating-the-standard-holman-wiegert-1999" title="Permalink to this heading">#</a></h2>
 <p>From <span class="math notranslate nohighlight">\({\sim}1980-2000\)</span>, the growth of computational power allowed researchers to better understand the motion of three bodies.  In the 1980s, most numerical simulations were limited to <span class="math notranslate nohighlight">\({\sim}10^3\ T_{\rm bin}\)</span> (scaled by the binary orbital period <span class="math notranslate nohighlight">\(T_{\rm bin}\)</span>) in simulation time due to the excessive wall time required for the computations.  Many researchers turned to dynamical indicators of chaos (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1980Mecc...15....9B/abstract">Benettin et al. 1980</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1992AJ....104.1230L/abstract">Lecar et al. 1992</a>,  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993CeMDA..56..409S/abstract">Smith &amp; Szebehely 1993</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1997CeMDA..67...41F/abstract">Froeschle et al. 1997</a>) to identify <em>possible routes</em> to unstable orbits.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986A%26A...167..379D/abstract">Dvorak (1986)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1988A%26A...191..385R/abstract">Rabl &amp; Dvorak (1988)</a> showed that there is a transition between regular (periodic), quasi-periodic, and chaotic orbits for planets in binaries.  Unstable (or unbound) orbits are non-periodic, which can overlap in type with chaotic orbits.  There are chaotic orbits that remain bound to the system.  Therefore, chaos <strong>does not</strong> imply instability.</p>
 <p>Orbital chaos is a sensitivity to initial conditions, which means that starting the planet or binary at slightly different positions can result in a drastically different orbital behavior.  Starting the planet a degree ahead (or behind) in its orbit through its initial mean (or true) anomaly means that the planet will feel a slightly different net force initially.  This slight difference in net force can speed up (or slow down) the planet and lead to an increase in its orbital eccentricity.  The secondary star can</p>
@@ -464,7 +464,7 @@ document.write(`
 </li>
 <li><p>The planetary and binary orbits are initially aligned <span class="math notranslate nohighlight">\((\omega_p = \omega_{\rm bin})\)</span>, where the binary begins at either periastron <span class="math notranslate nohighlight">\((f_{\rm bin} = 0^\circ)\)</span> or apastron <span class="math notranslate nohighlight">\((f_{\rm bin} = 180^\circ)\)</span>.</p></li>
 </ol>
-<p>These are not bad assumptions considering the computing power and knowledge of planetary systems during the late 1990s.  For a given mass ratio <span class="math notranslate nohighlight">\(\mu\)</span>, and binary eccentricity <span class="math notranslate nohighlight">\(e_{\rm bin}\)</span>, an initial condition <span class="math notranslate nohighlight">\((\rho,\ f_p)\)</span> is evaluated.  The semimajor axis ratio range differs for S-Type <span class="math notranslate nohighlight">\((0.02\leq \rho \leq 0.5)\)</span> and P-Type <span class="math notranslate nohighlight">\((1\leq \rho \leq 5)\)</span> (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).  But eight equidistant values of the planetary true anomaly (<span class="math notranslate nohighlight">\(f_p = 0^\circ - 315^\circ;\ 45^\circ\)</span> increments) are used.</p>
+<p>These are not bad assumptions considering the computing power and knowledge of planetary systems during the late 1990s.  For a given mass ratio <span class="math notranslate nohighlight">\(\mu\)</span>, and binary eccentricity <span class="math notranslate nohighlight">\(e_{\rm bin}\)</span>, an initial condition <span class="math notranslate nohighlight">\((\rho,\ f_p)\)</span> is evaluated.  The semimajor axis ratio range differs for S-Type <span class="math notranslate nohighlight">\((0.02\leq \rho \leq 0.5)\)</span> and P-Type <span class="math notranslate nohighlight">\((1\leq \rho \leq 5)\)</span> (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).  But eight equidistant values of the planetary true anomaly (<span class="math notranslate nohighlight">\(f_p = 0^\circ - 315^\circ;\ 45^\circ\)</span> increments) are used.  <em>Note that the planetary mean anomaly <span class="math notranslate nohighlight">\(M\)</span> and true anomaly <span class="math notranslate nohighlight">\(f\)</span> are interchangeable for <strong>circular</strong> orbits.</em></p>
 <figure class="align-default" id="planet-ics">
 <a class="reference internal image-reference" href="../_images/HW_Table1.png"><img alt="HW Table 1" src="../_images/HW_Table1.png" style="width: 400px;" /></a>
 <figcaption>
@@ -478,6 +478,37 @@ document.write(`
 <p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A 4D parameter space abstracted into two nested 2D grids.</span><a class="headerlink" href="#param-grid" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>The results of each nested grid can be summarized by identifying a critical semimajor axis ratio <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> for a given <span class="math notranslate nohighlight">\((\mu,\ e_{\rm bin})\)</span> combination.  The critical semimajor axis ratio <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> is defined as the boundary between stable and unstable initial conditions <span class="math notranslate nohighlight">\((\rho,\ f_p)\)</span>:</p>
+<ul class="simple">
+<li><p>one side of the boundary has a planet that survives the full simulation time for all values of <span class="math notranslate nohighlight">\(f_p\)</span></p></li>
+<li><p>the other side has simulations that terminate early due to close approaches (i.e., scatters) with either star or an escape from the system.</p></li>
+</ul>
+<p>Table <a class="reference internal" href="#stability-grid1"><span class="std std-numref">3.4</span></a> shows the results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets, where the <span class="math notranslate nohighlight">\(&quot;+&quot;\)</span> symbols denote stable (i.e., no scatters or escapes).</p>
+<figure class="align-default" id="stability-grid1">
+<a class="reference internal image-reference" href="../_images/HW_Table2.png"><img alt="HW Table 2" src="../_images/HW_Table2.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Planet survival results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Table <a class="reference internal" href="#stability-grid2"><span class="std std-numref">3.5</span></a> shows data that has been reduced, where each cell in the table represents the critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> determined through a smaller grid similar to Table <a class="reference internal" href="#stability-grid1"><span class="std std-numref">3.4</span></a>.</p>
+<figure class="align-default" id="stability-grid2">
+<a class="reference internal image-reference" href="../_images/HW_Table3.png"><img alt="HW Table 3" src="../_images/HW_Table3.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From Table <a class="reference internal" href="#stability-grid2"><span class="std std-numref">3.5</span></a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> perform a least-squares fit given the trial function:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-70a1f8f4-aa36-4a9d-b251-d5a345aa54f1">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-70a1f8f4-aa36-4a9d-b251-d5a345aa54f1" title="Permalink to this equation">#</a></span>\[\begin{align}
+\rho_{\rm cr} = c_1 + c_2\mu + c_3e_{\rm bin} + c_4\mu e_{\rm bin} + c_5 e_{\rm bin}^2 + c_6 \mu e_{\rm bin}^2.
+\end{align}\]</div>
+<p>The least-squares fitting procedure identifies values of <span class="math notranslate nohighlight">\(c_1-c_6\)</span> that minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span> (e.g., the residuals or cost function).</p>
+<p>The above procedure has merits in that it will accurately reproduce the critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> for other parts of the <span class="math notranslate nohighlight">\((\mu,\ e_{\rm bin})\)</span> parameter space through an easy-to-use polynomial.  However, larger discrepancies appear when extrapolating to broad regimes of mass ration <span class="math notranslate nohighlight">\(\mu\)</span> (e.g., <span class="math notranslate nohighlight">\(\mu \leq 0.1\)</span> and <span class="math notranslate nohighlight">\(\mu \geq 0.9\)</span>).  There can be significant differences if the planetary orbit is misaligned with the host binary, which is expected from disk observations in binaries (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2006A%26A...446..201M/abstract">Monin et al. (2006)</a>).</p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a> addresses these issues in two ways:</p>
+<ol class="arabic simple">
+<li><p>expand the simulations to cover a wider range in <span class="math notranslate nohighlight">\(\mu\)</span> and increase the grid resolution,</p></li>
+<li><p>evaluate the simulations for a range of planet inclinations.</p></li>
+</ol>
 </section>
 <section id="stability-for-p-type-circumbinary-planets">
 <h2><span class="section-number">3.3. </span>Stability for (P-Type) circumbinary planets<a class="headerlink" href="#stability-for-p-type-circumbinary-planets" title="Permalink to this heading">#</a></h2>
@@ -561,7 +592,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-overview">3.1. Historical overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-standard-holman-wiegert-1999">3.2. The old standard (Holman &amp; Wiegert 1999)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-standard-holman-wiegert-1999">3.2. Updating the standard (Holman &amp; Wiegert 1999)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-for-p-type-circumbinary-planets">3.3. Stability for (P-Type) circumbinary planets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-kepler-16b">3.3.1. A sample simulation (Kepler-16b)</a></li>
 </ul>
