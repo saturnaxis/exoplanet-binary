@@ -454,8 +454,8 @@ document.write(`
 <ol class="arabic simple">
 <li><p>The planet does not influence the orbit of the host binary (i.e., a test (zero-mass) particle).</p></li>
 <li><p>The planet begins on a circular, coplanar orbit (relative to the host binary).</p></li>
-<li><p>The planet and binary orbits can be scaled hierarchically, where the initial planetary semimajor axis ratio is <span class="math notranslate nohighlight">\(\rho = a_p/a_{\rm bin}\)</span>.</p></li>
-<li><p>The binary masses are scaled by the mass ratio <span class="math notranslate nohighlight">\(\mu = m_2/(m_1+m_2)\)</span>, where <span class="math notranslate nohighlight">\(m_1\ge m_2\)</span>.</p></li>
+<li><p>The planet and binary orbits can be scaled hierarchically, where the initial planetary <strong>semimajor axis ratio</strong> is <span class="math notranslate nohighlight">\(\rho = a_p/a_{\rm bin}\)</span>.</p></li>
+<li><p>The binary masses are scaled by the <strong>mass ratio</strong> <span class="math notranslate nohighlight">\(\mu = m_2/(m_1+m_2)\)</span>, where <span class="math notranslate nohighlight">\(m_1\ge m_2\)</span>.</p></li>
 <li><p>A critical semimajor axis <span class="math notranslate nohighlight">\(a_c\)</span> exists for the planet where planets with</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a_p \leq a_c\)</span> are bound for <span class="math notranslate nohighlight">\(10^4\)</span> binary orbits (i.e., scaled by <span class="math notranslate nohighlight">\(T_{\rm bin}\)</span>) and</p></li>
@@ -520,12 +520,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
-<span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.5</span>
 
-<span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/ThreeBody_Stability/master/a_crit_Incl%5B0%5D.txt&quot;</span>
+<span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/ThreeBody_Stability/master/a_crit_Incl[0].txt&quot;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
@@ -539,12 +538,46 @@ document.write(`
 <span class="n">f</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 
 <span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">astab</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For mu = </span><span class="si">%1.2f</span><span class="s2">, e_bin = </span><span class="si">%1.2f</span><span class="s2">, the critical semimajor axis ratio rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">ebin</span><span class="p">,</span><span class="n">astab</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rho_cr = 0.12
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu = 0.50, e_bin = 0.50, the critical semimajor axis ratio rho_cr = 0.12
+</pre></div>
+</div>
+</div>
+</div>
+<p>A nearly identical procedure can be applied to determine the critical semimajor axis ratio for P-Type planets using the GitHub repo <a class="reference external" href="https://github.com/saturnaxis/CBP_stability">saturnaxis:CBP_stability</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.2937</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.2937</span><span class="p">)</span>  <span class="c1">#converting from q --&gt; mu  Doyle et al. (2011)</span>
+<span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.15944</span>
+
+<span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/CBP_stability/master/a_crit.txt&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mf">0.001</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),[</span><span class="mf">0.999</span><span class="p">]))</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.81</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">zi</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">Z</span><span class="p">,(</span><span class="n">xi</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span><span class="n">yi</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]),</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For mu = </span><span class="si">%1.2f</span><span class="s2">, e_bin = </span><span class="si">%1.2f</span><span class="s2">, the critical semimajor axis ratio rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">ebin</span><span class="p">,</span><span class="n">astab</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu = 0.23, e_bin = 0.16, the critical semimajor axis ratio rho_cr = 2.70
 </pre></div>
 </div>
 </div>
@@ -554,6 +587,96 @@ document.write(`
 <h2><span class="section-number">3.3. </span>Stability for (P-Type) circumbinary planets<a class="headerlink" href="#stability-for-p-type-circumbinary-planets" title="Permalink to this heading">#</a></h2>
 <section id="a-sample-simulation-kepler-16b">
 <h3><span class="section-number">3.3.1. </span>A sample simulation (Kepler-16b)<a class="headerlink" href="#a-sample-simulation-kepler-16b" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">M_J</span> <span class="o">=</span> <span class="mf">9.54e-4</span> <span class="c1">#Jupiter mass in Msun</span>
+
+<span class="c1">#Kepler-16 parameters from Doyle et al. (2011)</span>
+<span class="n">M_A</span> <span class="o">=</span> <span class="mf">0.6897</span> <span class="c1">#mass of star A in Msun</span>
+<span class="n">M_B</span> <span class="o">=</span> <span class="mf">0.20255</span> <span class="c1">#mass of star B in Msun</span>
+<span class="n">a_bin</span> <span class="o">=</span> <span class="mf">0.22431</span> <span class="c1">#binary semimajor axis in AU</span>
+<span class="n">T_bin</span> <span class="o">=</span> <span class="mf">41.079220</span><span class="o">/</span><span class="mf">365.25</span> <span class="c1">#binary orbital period in yr</span>
+<span class="n">e_bin</span> <span class="o">=</span> <span class="mf">0.15944</span> <span class="c1">#binary eccentricity</span>
+<span class="n">inc_bin</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">#np.radians(90.30401) #binary inclination on the sky plane</span>
+<span class="n">omg_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">263.464</span><span class="p">)</span> <span class="c1">#binary argument of periapse</span>
+<span class="n">RA_bin</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#binary longitude of nodes</span>
+<span class="n">MA_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">92.352</span><span class="p">)</span> <span class="o">-</span> <span class="n">omg_bin</span> <span class="c1">#binary mean anomaly from mean longitude</span>
+
+<span class="n">M_p</span> <span class="o">=</span> <span class="mf">0.333</span><span class="o">*</span><span class="n">M_J</span>
+<span class="n">a_p</span> <span class="o">=</span> <span class="mf">0.7048</span> <span class="c1">#planet semimajor axis in AU</span>
+<span class="n">T_p</span> <span class="o">=</span> <span class="mf">228.776</span><span class="o">/</span><span class="mf">365.25</span> <span class="c1">#planetary orbital period in yr</span>
+<span class="n">e_p</span> <span class="o">=</span> <span class="mf">0.0069</span> 
+<span class="n">inc_p</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">#np.radians(90.0322) #planetary inclination on the sky plane</span>
+<span class="n">omg_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">318</span><span class="p">)</span> <span class="c1">#planetary argument of periapse</span>
+<span class="n">RA_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">0.003</span><span class="p">)</span> <span class="c1"># planetary longitude of nodes</span>
+<span class="n">MA_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">106.51</span><span class="p">)</span> <span class="o">-</span> <span class="n">omg_p</span> <span class="c1">#planetary mean anomaly from mean longitude</span>
+
+<span class="k">def</span> <span class="nf">simulation</span><span class="p">(</span><span class="n">tscale</span><span class="p">):</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s1">&#39;ias15&#39;</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;AU&#39;</span><span class="p">,</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span><span class="s1">&#39;Msun&#39;</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.025</span><span class="o">*</span><span class="n">T_bin</span>
+
+    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_A</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> 
+    <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_p</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_p</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_p</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_p</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_p</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_p</span><span class="p">)</span>
+
+    <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;Kepler16.bin&quot;</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
+
+<span class="n">simulation</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+
+<span class="k">def</span> <span class="nf">Rot_x</span><span class="p">(</span><span class="n">ang</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang</span><span class="p">)]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rot</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#plot the simulation</span>
+<span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="s2">&quot;Kepler16.bin&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;kx&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">xy_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">)):</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="c1">#iterate through each snapshot in sa</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simplify the referencing</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span> <span class="c1">#shift to center-of-mass coordinates</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="p">)):</span>
+        <span class="n">Cart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ps</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
+        <span class="n">rot_xy</span> <span class="o">=</span> <span class="n">Rot_x</span><span class="p">(</span><span class="o">-</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">Cart</span><span class="p">)</span>
+        <span class="n">xy_coords</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">rot_xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+        <span class="n">xy_coords</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rot_xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>   
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_coords</span><span class="p">[:,</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">],</span><span class="n">xy_coords</span><span class="p">[:,</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">],</span><span class="n">xy_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">p</span><span class="p">],</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/559db7d54d52abd5bc6c5b92ffb6ac561ee45a4d65fce4786fa35ae1c6b66835.png" src="../_images/559db7d54d52abd5bc6c5b92ffb6ac561ee45a4d65fce4786fa35ae1c6b66835.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="stability-for-s-type-circumstellar-planets">
