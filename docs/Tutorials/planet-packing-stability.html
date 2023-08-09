@@ -404,7 +404,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-lifetimes-as-a-constraint-on-stability">4.1. Stellar lifetimes as a constraint on stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-a-planetary-system-using-the-hill-radius">4.2. Scaling a planetary system using the Hill Radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-a-planetary-system-using-the-hill-radius">4.2. Scaling a planetary system using the Hill Radius</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-lagrange-points-to-the-hill-radius">4.2.1. From Lagrange points to the Hill radius</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-hill-radii-and-scaling">4.2.2. Mutual Hill radii and scaling</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-golden-ratio-to-debias-the-initial-orbital-phase">4.3. The Golden ratio to debias the initial orbital phase</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation">4.4. A sample simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">4.5. References</a></li>
@@ -448,18 +452,20 @@ allowfullscreen></iframe>
 </div></section>
 <section id="scaling-a-planetary-system-using-the-hill-radius">
 <h2><span class="section-number">4.2. </span>Scaling a planetary system using the Hill Radius<a class="headerlink" href="#scaling-a-planetary-system-using-the-hill-radius" title="Permalink to this heading">#</a></h2>
+<section id="from-lagrange-points-to-the-hill-radius">
+<h3><span class="section-number">4.2.1. </span>From Lagrange points to the Hill radius<a class="headerlink" href="#from-lagrange-points-to-the-hill-radius" title="Permalink to this heading">#</a></h3>
 <p>In the three-body problem, the relative gravitational influence on a third body can be determined in which there are five special locations called the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_point">Lagrange points</a>.  These points define extrema in the gravitational potential, where the <strong>net</strong> gravitational force on the third body vanishes.  Additionally, they correspond to high and low topological levels of pseudopotential <span class="math notranslate nohighlight">\(U\)</span>.  This pseudopotential exists within a rotated reference frame, where two massive bodies appear at fixed locations and a third body reacts to the presence of the massive primaries.</p>
 <p>Consider two massive primaries lying along the <span class="math notranslate nohighlight">\(x\)</span>-axis of a reference coordinate system with the center of mass (barycenter) at the origin.  Since the barycenter lies at the origin, then the center of mass can be determined using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5230b9a4-c780-4200-8a3a-47b3e76f4a67">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-5230b9a4-c780-4200-8a3a-47b3e76f4a67" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f6711792-89d2-46ba-94ae-7f99dad4b122">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-f6711792-89d2-46ba-94ae-7f99dad4b122" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp;= m_o x_o + m_1 x_1, \qquad {\rm where}\ m_o &gt; m_1;\\
 a_{\rm bin} &amp;= |x_o| + |x_1|, \\
 x_o &amp;= -\frac{m_1}{m_o+m_1}a_{\rm bin}, \\
 x_o &amp;= -\mu a_{\rm bin}, \quad {\rm and}\quad x_1 = (1-\mu)a_{\rm bin}.
 \end{align}\]</div>
 <p>Two intermediate constants: the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span> and mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> are introduced to simplify the notation, but they also provide a convenient means to scale the problem.  The above analysis can be extended into two dimensions using the pseudopotential <span class="math notranslate nohighlight">\(U\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9284dbae-1487-464e-8b60-36fede114790">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-9284dbae-1487-464e-8b60-36fede114790" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-293b19be-2b23-4f42-bf5e-539358dde0f2">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-293b19be-2b23-4f42-bf5e-539358dde0f2" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(x,y) &amp; = \frac{1-\mu}{r_o} + \frac{\mu}{r_1} + \frac{n^2}{2}\left(x^2+y^2\right), \\
 r_o &amp;= \sqrt{(x+\mu)^2 + y^2}, \\
 r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
@@ -470,8 +476,8 @@ r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
 <p>The coordinates in the pseudopotential are also scaled by the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>.  In these coordinates, the mean motion <span class="math notranslate nohighlight">\(n = 1\)</span>.  If you want to express everything in non-scaled coordinates, the <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\((1-\mu)\)</span> need to be replaced with <span class="math notranslate nohighlight">\(x_o\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, respectively.</p>
 </div>
 <p>Taking the partial derivatives of the pseudopotential <span class="math notranslate nohighlight">\(U\)</span> leads to deriving the forces within the rotated coordinate system (i.e., <span class="math notranslate nohighlight">\(F = -\nabla U\)</span>).  Integrating the full equations of motion derived from the pseudopotential leads to the <a class="reference external" href="https://en.wikipedia.org/wiki/Jacobi_integral">Jacobi Integral</a> and the associated constant of motion, the Jacobi constant <span class="math notranslate nohighlight">\(C_J\)</span>.  The Jacobi constant is given mathematically as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-950aa3e2-4219-4be0-a327-f74eacc92e35">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-950aa3e2-4219-4be0-a327-f74eacc92e35" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-96fb9780-4f6f-4b29-b461-13fdb32e2b99">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-96fb9780-4f6f-4b29-b461-13fdb32e2b99" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_J = 2U - v^2,
 \end{align}\]</div>
 <p>which is similar in appearance to an energy relation.  It is not because we are considering the restricted problem (<span class="math notranslate nohighlight">\(m_2\ll m_1 &lt; m_o\)</span>), where energy and angular momentum aren’t conserved.</p>
@@ -617,16 +623,14 @@ C_J = 2U - v^2,
 </div>
 </div>
 <p>The appearance of the contours change with the mass ratio, which can be seen below if we consider the Sun-Earth system instead.  The inset panel zooms in on the region around the Earth and is scaled using the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  The Hill radius is defined using the mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> and the binary separation <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1470b3b-c171-407c-9c55-4e8db673de93">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-c1470b3b-c171-407c-9c55-4e8db673de93" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0e27e026-c398-4948-b49a-3e483b8933e5">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-0e27e026-c398-4948-b49a-3e483b8933e5" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_H = a_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}.
 \end{align}\]</div>
 <p>Note that this definition is the result of an <em>approximation</em> that assumes circular orbits, where an additional term <span class="math notranslate nohighlight">\((1-e_{\rm bin})\)</span> would be necessary if the binary orbit were elliptical.  The definition effectively becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85a0940b-3b3f-4e83-bd5e-2cf4c8ed77c4">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-85a0940b-3b3f-4e83-bd5e-2cf4c8ed77c4" title="Permalink to this equation">#</a></span>\[\begin{align}
-R_H &amp;\approx q_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}, \\
-q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).
-\end{align}\]</div>
+<div class="math notranslate nohighlight" id="equation-min-rh">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-min-rh" title="Permalink to this equation">#</a></span>\[\begin{split}R_H &amp;\approx q_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}, \\
+q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
@@ -706,7 +710,97 @@ q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).
 <img alt="../_images/a1256c8d58cedf9a07a35b7543ef871279bc4d3b53c6af37af90590addeacde5.png" src="../_images/a1256c8d58cedf9a07a35b7543ef871279bc4d3b53c6af37af90590addeacde5.png" />
 </div>
 </div>
-<p>The squashing in the vertical (see panel inset) is even more obvious in this regime.</p>
+<p>The squashing in the vertical (see panel inset) is even more obvious in this regime.  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a> shows using numerical simulations that the orbital stability of satellites are limited to <span class="math notranslate nohighlight">\({\sim}0.4\ R_H\)</span> for a host planet on a circular orbit.  The stability decreases as the host planet’s orbit is more eccentric, as we may naively expect from Eqn. <a class="reference internal" href="#equation-min-rh">(4.5)</a>.  The orbital stability formula for prograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a>) and retrograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021AJ....162...58Q/abstract">Quarles et al. (2021)</a>) are:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b353a960-120f-4028-87ca-d91fc6a06614">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-b353a960-120f-4028-87ca-d91fc6a06614" title="Permalink to this equation">#</a></span>\[\begin{align}
+a_{\rm crit}(R_H) &amp;= 0.4061(1 - 1.1257e_p), \qquad &amp;{\rm (prograde)} \\
+a_{\rm crit}(R_H) &amp;= 0.668(1 - 1.236e_p). \qquad &amp;{\rm (retrograde)}
+\end{align}\]</div>
+<p>The above formula demonstrate that <em>general</em> expressions for orbital stability are possible that <strong>scale</strong> with the observationally measurable parameters.  Typical observations can determine the <strong>semimajor axis</strong> through either photometric modeling or analysis using the measured radial velocity curve.  If the system is favorable (i.e., edge on), then the <strong>masses</strong> can also be determined and with many more observations, the eccentricity can be estimated.  The Hill radius directly depends on the semimajor axis and masses, <span class="math notranslate nohighlight">\(R_H = a_{\rm bin}(\mu/3)^{1/3}\)</span>.</p>
+</section>
+<section id="mutual-hill-radii-and-scaling">
+<h3><span class="section-number">4.2.2. </span>Mutual Hill radii and scaling<a class="headerlink" href="#mutual-hill-radii-and-scaling" title="Permalink to this heading">#</a></h3>
+<p>The Hill radius is strictly defined for a three body system, but can the idea be expanded to include systems of multiple planets.  One of the first papers to investigate this idea with a specific application comes from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>.  There were previous works  in the 1980s that use <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_topology">algebraic topology</a> to characterize orbits using their energy and angular momentum (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982CeMec..26..311M/abstract">Marchal &amp; Bozis (1982)</a>).  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> wanted to apply the earlier works towards the problem of two nearby planets orbiting a single star.</p>
+<p>This first section is following the notation given in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>, but we should be bound by notation.  If you review the literature that stems from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>, you’ll find that there isn’t a consistent notation that everyone agrees to use anyway.</p>
+<p>The central body (i.e., host star) has a mass <span class="math notranslate nohighlight">\(m_3\)</span>, which is orbited by two planets on concentric orbits with masses <span class="math notranslate nohighlight">\(m_1\)</span> (inner orbit) and <span class="math notranslate nohighlight">\(m_2\)</span> (outer orbit).  The semimajor axis of the inner orbit <span class="math notranslate nohighlight">\(a_1 = 1\)</span>.  If you scale the problem by this inner orbit, it will also be equal to unity while the outer orbit <span class="math notranslate nohighlight">\(a_2\)</span> will be some (real) multiple of the inner orbit (e.g., <span class="math notranslate nohighlight">\(a_2 = 1.5 a_1\)</span>).  The planets begin with a differential initial longitude of <span class="math notranslate nohighlight">\(180^\circ\)</span> (<span class="math notranslate nohighlight">\(\delta f = f_2 - f_1 = 180^\circ\)</span>).</p>
+<figure class="align-default" id="gladman-setup">
+<a class="reference internal image-reference" href="../_images/Gladman_Fig01.png"><img alt="Gladman setup" src="../_images/Gladman_Fig01.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Initial setup used to define the initial separation <span class="math notranslate nohighlight">\(\Delta\)</span> (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>).</span><a class="headerlink" href="#gladman-setup" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Figure <a class="reference internal" href="#gladman-setup"><span class="std std-numref">4.1</span></a> illustrates that we can then parametrize the initial separation of orbits using <span class="math notranslate nohighlight">\(\Delta = a_2 - a_1\)</span>, or <span class="math notranslate nohighlight">\(a_2 = 1 + \Delta\)</span> in normalized units.  Through another transformation, the separation <span class="math notranslate nohighlight">\(\Delta\)</span> can be written in terms of Hill’s coordinates (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986CeMec..38...67H/abstract">Henon &amp; Petit (1986)</a>), which scale with the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  If we normalize with respect to the Hill radius, then we define</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ff2405ae-b6ed-49f0-8e77-bac41f62c7be">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-ff2405ae-b6ed-49f0-8e77-bac41f62c7be" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Delta_H &amp;= \frac{a_2 - a_1}{R_H}.
+\end{align}\]</div>
+<p>The above expression appears straightforward if you assume that <span class="math notranslate nohighlight">\(R_H\)</span> describes the Hill radius of <span class="math notranslate nohighlight">\(m_1\)</span>.  Then <span class="math notranslate nohighlight">\(\Delta_H\)</span> is describing the separation between the two orbits <strong>in units of <span class="math notranslate nohighlight">\(R_H\)</span></strong>.  However, it’s not as clear once you expand to more than two planets or if you want to vary the planetary masses.</p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> does show a critical value of <span class="math notranslate nohighlight">\(\mathbf{\Delta_H = 2\sqrt{3}}\)</span> for two planets on <em>initially circular</em> orbits.  This is not a bad assumption if you consider arguments from planet formation where it is expected that the planetary eccentricity could be significantly damped due to drag forces within the protoplanetary disk resulting in near circular orbits.</p>
+<p>A few years later, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996Icar..119..261C/abstract">Chambers et al. (1996)</a> take a slightly different approach by defining the mutual Hill radius.  The mutual Hill radius uses the total mass interior to the <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet’s orbit <span class="math notranslate nohighlight">\(M_j\)</span> and the average semimajor axis of the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> and <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet.  Mathematically, this is expressed as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eb5c81e6-814b-4de2-a99d-7425d696dd52">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-eb5c81e6-814b-4de2-a99d-7425d696dd52" title="Permalink to this equation">#</a></span>\[\begin{align}
+R_{H_{j,j+1}} &amp;= \frac{a_j + a_{j+1}}{2} \left[ \frac{m_j+m_{j+1}}{3M_j} \right]^{1/3}, \\
+M_j &amp;= \sum_{j=1}^j m_j.
+\end{align}\]</div>
+<p>When using this formalism to setup a planetary system, the value for <span class="math notranslate nohighlight">\(a_{j+1}\)</span> is not known <em>a priori</em>.  It can be written explicitly in terms of <span class="math notranslate nohighlight">\(a_{\rm j}\)</span>, the masses (<span class="math notranslate nohighlight">\(m_j\)</span>, <span class="math notranslate nohighlight">\(m_{j+1}\)</span>, <span class="math notranslate nohighlight">\(M_j\)</span>), and <span class="math notranslate nohighlight">\(\Delta_H\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The symbol representing the Hill spacing <span class="math notranslate nohighlight">\(\Delta_H\)</span> varies among different authors, where <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ApJ...807...44P/abstract">Pu &amp; Wu (2015)</a> use <span class="math notranslate nohighlight">\(K\)</span> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> use <span class="math notranslate nohighlight">\(\beta\)</span>.  For consistency here, <span class="math notranslate nohighlight">\(\Delta_H\)</span> is used.</p>
+</div>
+<p>The explicit formula to define <span class="math notranslate nohighlight">\(a_k\)</span>, the semimajor axis of the <span class="math notranslate nohighlight">\(k^{\rm th}\)</span> planet, is given as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-46f34797-e187-49a3-934a-42af85b91761">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-46f34797-e187-49a3-934a-42af85b91761" title="Permalink to this equation">#</a></span>\[\begin{align}
+a_k &amp;= a_j \left[\frac{1+\Delta_H X}{1-\Delta_H X} \right]^{k-j}, \\
+X &amp;= \frac{1}{2}\left(\frac{m_j+m_{k}}{3M_j} \right)^{1/3},
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k&gt;j\)</span> and are both integers (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017Icar..293...52O/abstract">Obertas et al. 2017</a>).  This general formula can be applied for <span class="math notranslate nohighlight">\(k = j + 1\)</span> to obtain a recursive formula as well.</p>
+<p>The python code demonstrates the setup from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> using an inner Jupiter-mass planet and outer Earth-mass planet separated by <span class="math notranslate nohighlight">\(5\ R_{H_{1,2}}\)</span>, mutual Hill radii.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">M_star</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#central mass in M_sun</span>
+<span class="n">m_1</span> <span class="o">=</span> <span class="mf">9.54e-4</span> <span class="c1">#Jupiter mass in M_sun</span>
+<span class="n">m_2</span> <span class="o">=</span> <span class="mf">3.0035e-6</span> <span class="c1">#Earth mass in M_sun</span>
+
+<span class="n">a_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#inner orbit in normalized units (1 AU)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">((</span><span class="n">m_1</span><span class="o">+</span><span class="n">m_2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">M_star</span><span class="o">+</span><span class="n">m_1</span><span class="p">)))</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+<span class="n">delta_H</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">calc_orbit</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">omg</span><span class="p">):</span>
+    <span class="c1">#calculate Cartesian orbit given a, e, omega</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span> 
+    <span class="n">r</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omg</span><span class="o">+</span><span class="n">f</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omg</span><span class="o">+</span><span class="n">f</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">get_semi</span><span class="p">(</span><span class="n">delta_H</span><span class="p">,</span><span class="n">a_j</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
+    <span class="c1">#calculate a_k given a_j</span>
+    <span class="k">return</span> <span class="n">a_j</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">delta_H</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">delta_H</span><span class="o">*</span><span class="n">X</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">j</span><span class="p">)</span>
+
+<span class="n">a_2</span> <span class="o">=</span> <span class="n">get_semi</span><span class="p">(</span><span class="n">delta_H</span><span class="p">,</span><span class="n">a_1</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_1</span><span class="p">,</span><span class="n">y_1</span> <span class="o">=</span> <span class="n">calc_orbit</span><span class="p">(</span><span class="n">a_1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x_2</span><span class="p">,</span><span class="n">y_2</span> <span class="o">=</span> <span class="n">calc_orbit</span><span class="p">(</span><span class="n">a_2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span><span class="n">y_1</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y_1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;c.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_2</span><span class="p">,</span><span class="n">y_2</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y_2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X (AU)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y (AU)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cd6fbf9c393de0ea78a3680845ffcd4c57400e58143ba7c6342deecc2ade05af.png" src="../_images/cd6fbf9c393de0ea78a3680845ffcd4c57400e58143ba7c6342deecc2ade05af.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="the-golden-ratio-to-debias-the-initial-orbital-phase">
 <h2><span class="section-number">4.3. </span>The Golden ratio to debias the initial orbital phase<a class="headerlink" href="#the-golden-ratio-to-debias-the-initial-orbital-phase" title="Permalink to this heading">#</a></h2>
@@ -718,11 +812,21 @@ q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).
 <h2><span class="section-number">4.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://iopscience.iop.org/article/10.1086/507521/pdf">Barnes &amp; Greenberg (2006)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996Icar..119..261C/abstract">Chambers et al. (1996)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a></p></li>
 <li><p><a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4357/acac1e">Hayashi et al. (2023)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986CeMec..38...67H/abstract">Henon &amp; Petit (1986)</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1997A%26A...317L..75L/abstract">Laskar (1997)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982CeMec..26..311M/abstract">Marchal &amp; Bozis (1982)</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2011ApJ...742L..22N/abstract">Nesvorny (2011)</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018NatAs...2..878N/abstract">Nesvorny et al. (2018)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017Icar..293...52O/abstract">Obertas et al. 2017</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ApJ...807...44P/abstract">Pu &amp; Wu (2015)</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019AJ....157...67Q/abstract">Quarles &amp; Kaib (2019)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021AJ....162...58Q/abstract">Quarles et al. (2021)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a></p></li>
 </ul>
 </section>
 </section>
@@ -795,7 +899,11 @@ q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-lifetimes-as-a-constraint-on-stability">4.1. Stellar lifetimes as a constraint on stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-a-planetary-system-using-the-hill-radius">4.2. Scaling a planetary system using the Hill Radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-a-planetary-system-using-the-hill-radius">4.2. Scaling a planetary system using the Hill Radius</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-lagrange-points-to-the-hill-radius">4.2.1. From Lagrange points to the Hill radius</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-hill-radii-and-scaling">4.2.2. Mutual Hill radii and scaling</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-golden-ratio-to-debias-the-initial-orbital-phase">4.3. The Golden ratio to debias the initial orbital phase</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation">4.4. A sample simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">4.5. References</a></li>
