@@ -456,16 +456,16 @@ allowfullscreen></iframe>
 <h3><span class="section-number">4.2.1. </span>From Lagrange points to the Hill radius<a class="headerlink" href="#from-lagrange-points-to-the-hill-radius" title="Permalink to this heading">#</a></h3>
 <p>In the three-body problem, the relative gravitational influence on a third body can be determined in which there are five special locations called the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_point">Lagrange points</a>.  These points define extrema in the gravitational potential, where the <strong>net</strong> gravitational force on the third body vanishes.  Additionally, they correspond to high and low topological levels of pseudopotential <span class="math notranslate nohighlight">\(U\)</span>.  This pseudopotential exists within a rotated reference frame, where two massive bodies appear at fixed locations and a third body reacts to the presence of the massive primaries.</p>
 <p>Consider two massive primaries lying along the <span class="math notranslate nohighlight">\(x\)</span>-axis of a reference coordinate system with the center of mass (barycenter) at the origin.  Since the barycenter lies at the origin, then the center of mass can be determined using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e939e1c8-8002-41d8-9681-8a351aa7dfda">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-e939e1c8-8002-41d8-9681-8a351aa7dfda" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f5f842b4-c188-4585-8613-79b5198e3e66">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-f5f842b4-c188-4585-8613-79b5198e3e66" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp;= m_o x_o + m_1 x_1, \qquad {\rm where}\ m_o &gt; m_1;\\
 a_{\rm bin} &amp;= |x_o| + |x_1|, \\
 x_o &amp;= -\frac{m_1}{m_o+m_1}a_{\rm bin}, \\
 x_o &amp;= -\mu a_{\rm bin}, \quad {\rm and}\quad x_1 = (1-\mu)a_{\rm bin}.
 \end{align}\]</div>
 <p>Two intermediate constants: the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span> and mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> are introduced to simplify the notation, but they also provide a convenient means to scale the problem.  The above analysis can be extended into two dimensions using the pseudopotential <span class="math notranslate nohighlight">\(U\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd7af1fa-75de-414f-b7c8-8003c80841fb">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-dd7af1fa-75de-414f-b7c8-8003c80841fb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4b41b69a-6b46-496a-a6b0-ad787b976a3d">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-4b41b69a-6b46-496a-a6b0-ad787b976a3d" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(x,y) &amp; = \frac{1-\mu}{r_o} + \frac{\mu}{r_1} + \frac{n^2}{2}\left(x^2+y^2\right), \\
 r_o &amp;= \sqrt{(x+\mu)^2 + y^2}, \\
 r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
@@ -476,8 +476,8 @@ r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
 <p>The coordinates in the pseudopotential are also scaled by the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>.  In these coordinates, the mean motion <span class="math notranslate nohighlight">\(n = 1\)</span>.  If you want to express everything in non-scaled coordinates, the <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\((1-\mu)\)</span> need to be replaced with <span class="math notranslate nohighlight">\(x_o\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, respectively.</p>
 </div>
 <p>Taking the partial derivatives of the pseudopotential <span class="math notranslate nohighlight">\(U\)</span> leads to deriving the forces within the rotated coordinate system (i.e., <span class="math notranslate nohighlight">\(F = -\nabla U\)</span>).  Integrating the full equations of motion derived from the pseudopotential leads to the <a class="reference external" href="https://en.wikipedia.org/wiki/Jacobi_integral">Jacobi Integral</a> and the associated constant of motion, the Jacobi constant <span class="math notranslate nohighlight">\(C_J\)</span>.  The Jacobi constant is given mathematically as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1bbd787c-3b63-41d1-9873-15dd5d00e6ee">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-1bbd787c-3b63-41d1-9873-15dd5d00e6ee" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-79b00c28-6466-48ca-8185-4b3f5b9a1d2f">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-79b00c28-6466-48ca-8185-4b3f5b9a1d2f" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_J = 2U - v^2,
 \end{align}\]</div>
 <p>which is similar in appearance to an energy relation.  It is not because we are considering the restricted problem (<span class="math notranslate nohighlight">\(m_2\ll m_1 &lt; m_o\)</span>), where energy and angular momentum aren’t conserved.</p>
@@ -623,8 +623,8 @@ C_J = 2U - v^2,
 </div>
 </div>
 <p>The appearance of the contours change with the mass ratio, which can be seen below if we consider the Sun-Earth system instead.  The inset panel zooms in on the region around the Earth and is scaled using the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  The Hill radius is defined using the mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> and the binary separation <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9acf2ad-24cf-4f38-9e31-f9dabc8640fe">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-d9acf2ad-24cf-4f38-9e31-f9dabc8640fe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d4aaef92-6119-4b67-ab46-00dd9a8aa81f">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-d4aaef92-6119-4b67-ab46-00dd9a8aa81f" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_H = a_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}.
 \end{align}\]</div>
 <p>Note that this definition is the result of an <em>approximation</em> that assumes circular orbits, where an additional term <span class="math notranslate nohighlight">\((1-e_{\rm bin})\)</span> would be necessary if the binary orbit were elliptical.  The definition effectively becomes</p>
@@ -711,8 +711,8 @@ q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).\end{split}\]</div>
 </div>
 </div>
 <p>The squashing in the vertical (see panel inset) is even more obvious in this regime.  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a> shows using numerical simulations that the orbital stability of satellites are limited to <span class="math notranslate nohighlight">\({\sim}0.4\ R_H\)</span> for a host planet on a circular orbit.  The stability decreases as the host planet’s orbit is more eccentric, as we may naively expect from Eqn. <a class="reference internal" href="#equation-min-rh">(4.5)</a>.  The orbital stability formula for prograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a>) and retrograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021AJ....162...58Q/abstract">Quarles et al. (2021)</a>) are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d19bf7bb-de11-4555-afee-4bf315852036">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-d19bf7bb-de11-4555-afee-4bf315852036" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1f1a4f6f-cfb9-4a65-9082-517a9d204b31">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-1f1a4f6f-cfb9-4a65-9082-517a9d204b31" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_{\rm crit}(R_H) &amp;= 0.4061(1 - 1.1257e_p), \qquad &amp;{\rm (prograde)} \\
 a_{\rm crit}(R_H) &amp;= 0.668(1 - 1.236e_p). \qquad &amp;{\rm (retrograde)}
 \end{align}\]</div>
@@ -730,15 +730,15 @@ a_{\rm crit}(R_H) &amp;= 0.668(1 - 1.236e_p). \qquad &amp;{\rm (retrograde)}
 </figcaption>
 </figure>
 <p>Figure <a class="reference internal" href="#gladman-setup"><span class="std std-numref">4.1</span></a> illustrates that we can then parametrize the initial separation of orbits using <span class="math notranslate nohighlight">\(\Delta = a_2 - a_1\)</span>, or <span class="math notranslate nohighlight">\(a_2 = 1 + \Delta\)</span> in normalized units.  Through another transformation, the separation <span class="math notranslate nohighlight">\(\Delta\)</span> can be written in terms of Hill’s coordinates (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986CeMec..38...67H/abstract">Henon &amp; Petit (1986)</a>), which scale with the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  If we normalize with respect to the Hill radius, then we define</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5351e91-775d-4ca1-b990-e691a78b17a1">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-b5351e91-775d-4ca1-b990-e691a78b17a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ae51c9bb-f58e-464d-85cc-8845bede4fdc">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-ae51c9bb-f58e-464d-85cc-8845bede4fdc" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Delta_H &amp;= \frac{a_2 - a_1}{R_H}.
 \end{align}\]</div>
 <p>The above expression appears straightforward if you assume that <span class="math notranslate nohighlight">\(R_H\)</span> describes the Hill radius of <span class="math notranslate nohighlight">\(m_1\)</span>.  Then <span class="math notranslate nohighlight">\(\Delta_H\)</span> is describing the separation between the two orbits <strong>in units of <span class="math notranslate nohighlight">\(R_H\)</span></strong>.  However, it’s not as clear once you expand to more than two planets or if you want to vary the planetary masses.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> does show a critical value of <span class="math notranslate nohighlight">\(\mathbf{\Delta_H = 2\sqrt{3}}\)</span> for two planets on <em>initially circular</em> orbits.  This is not a bad assumption if you consider arguments from planet formation where it is expected that the planetary eccentricity could be significantly damped due to drag forces within the protoplanetary disk resulting in near circular orbits.</p>
 <p>A few years later, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996Icar..119..261C/abstract">Chambers et al. (1996)</a> take a slightly different approach by defining the mutual Hill radius.  The mutual Hill radius uses the total mass interior to the <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet’s orbit <span class="math notranslate nohighlight">\(M_j\)</span> and the average semimajor axis of the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> and <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet.  Mathematically, this is expressed as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-05aa05f0-d458-49f9-8d6e-efd51f049eb9">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-05aa05f0-d458-49f9-8d6e-efd51f049eb9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b98538c0-7946-4249-bb20-4897329ac781">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-b98538c0-7946-4249-bb20-4897329ac781" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_{H_{j,j+1}} &amp;= \frac{a_j + a_{j+1}}{2} \left[ \frac{m_j+m_{j+1}}{3M_j} \right]^{1/3}, \\
 M_j &amp;= \sum_{j=1}^j m_j.
 \end{align}\]</div>
@@ -748,8 +748,8 @@ M_j &amp;= \sum_{j=1}^j m_j.
 <p>The symbol representing the Hill spacing <span class="math notranslate nohighlight">\(\Delta_H\)</span> varies among different authors, where <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ApJ...807...44P/abstract">Pu &amp; Wu (2015)</a> use <span class="math notranslate nohighlight">\(K\)</span> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> use <span class="math notranslate nohighlight">\(\beta\)</span>.  For consistency here, <span class="math notranslate nohighlight">\(\Delta_H\)</span> is used.</p>
 </div>
 <p>The explicit formula to define <span class="math notranslate nohighlight">\(a_k\)</span>, the semimajor axis of the <span class="math notranslate nohighlight">\(k^{\rm th}\)</span> planet, is given as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89a5e7de-a04a-42d1-91d6-46e9446d8883">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-89a5e7de-a04a-42d1-91d6-46e9446d8883" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d61dae19-7a42-468a-a806-ae4077896abf">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-d61dae19-7a42-468a-a806-ae4077896abf" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_k &amp;= a_j \left[\frac{1+\Delta_H X}{1-\Delta_H X} \right]^{k-j}, \\
 X &amp;= \frac{1}{2}\left(\frac{m_j+m_{k}}{3M_j} \right)^{1/3},
 \end{align}\]</div>
@@ -831,16 +831,16 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 </div>
-<p>Since our goal is to avoid orbital resonances (i.e., rational numbers), we must seek out an irrational number.  The most irrational number is the <a class="reference external" href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a> <span class="math notranslate nohighlight">\(\varphi\)</span>, which can ironically be represented by a ratios:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46e38f85-30a2-41a2-898f-0f4150383e62">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-46e38f85-30a2-41a2-898f-0f4150383e62" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Since our goal is to avoid orbital resonances (i.e., rational numbers), we must seek out an irrational number.  The most irrational number is the <a class="reference external" href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a> <span class="math notranslate nohighlight">\(\varphi\)</span>, which can ironically be represented by ratios:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2afcc511-9580-4144-96c3-8798f7f3f936">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-2afcc511-9580-4144-96c3-8798f7f3f936" title="Permalink to this equation">#</a></span>\[\begin{align}
 \varphi = \frac{1 + \sqrt{5}}{2} = 1.618033988749\ldots, \\
 \varphi^{-1} = \varphi - 1 = 0.618033988749\ldots,
 \end{align}\]</div>
 <p>and can be related to <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>.</p>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018AJ....155..130Q/abstract">Quarles &amp; Lissauer (2018)</a> use the Golden ratio to initialize the orbits of multiple planet systems.  This is done simply by taking integer multiples of <span class="math notranslate nohighlight">\(\phi\)</span> to define the initial mean/true anomaly of each planet.  Mathematically, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b634d3e-f7ae-4af0-a28f-c2496f607d3a">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-2b634d3e-f7ae-4af0-a28f-c2496f607d3a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018AJ....155..130Q/abstract">Quarles &amp; Lissauer (2018)</a> use the golden ratio to initialize the orbits of multiple planet systems.  This is done simply by taking integer multiples of <span class="math notranslate nohighlight">\(\phi\)</span> to define the initial mean/true anomaly of each planet.  Mathematically, we get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a5d926a-5808-4036-993f-664d8211e006">
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-0a5d926a-5808-4036-993f-664d8211e006" title="Permalink to this equation">#</a></span>\[\begin{align}
 f_n = (n\varphi \cdot 360^\circ) \mod 360^\circ,\ \qquad (n\geq 1)
 \end{align}\]</div>
 <p>where the <span class="math notranslate nohighlight">\({\rm mod}\)</span> operator refers to the <a class="reference external" href="https://en.wikipedia.org/wiki/Modulo">modulo</a> that returns the remainder to keep the result within the bounds of <span class="math notranslate nohighlight">\(0-360^\circ\)</span>.  To convert the above scheme into radians, simply replace <span class="math notranslate nohighlight">\(360^\circ\)</span> with <span class="math notranslate nohighlight">\(2\pi\)</span>.</p>
