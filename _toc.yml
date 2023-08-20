@@ -4,6 +4,10 @@
 format: jb-book
 root: home
 parts:
+- caption: Preamble
+  chapters:
+  - file: Preamble/who-for
+  - file: Preamble/cite-reuse
 - caption: Tutorials
   numbered: true
   chapters:
