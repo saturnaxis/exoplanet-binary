@@ -439,20 +439,20 @@ document.write(`
 </figcaption>
 </figure>
 <p>The mass on the left is displaced by a distance <span class="math notranslate nohighlight">\(x_1\)</span> to the right.  It’s left spring will apply a force to bring it back to the equilibrium, but the middle spring will compress along with the rightmost spring.  The compression of the middle and right spring will apply a force on the other mass on the right.  Because the masses are connected, there will be a similar set of forces acting on the mass on the right.  Altogether the forces on the left and right mass are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-394fddab-3049-435d-8d84-b828e5f966ac">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-394fddab-3049-435d-8d84-b828e5f966ac" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8a327bb3-9f1c-497b-86af-0696fd97abf0">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-8a327bb3-9f1c-497b-86af-0696fd97abf0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{F}_{\rm left} &amp;= -kx_1 + \kappa(x_2-x_1) = m\ddot{x}_1, \\
 \mathbf{F}_{\rm right} &amp;= -kx_2 + \kappa(x_1-x_2) = m\ddot{x}_2.
 \end{align}\]</div>
 <p>Notice that each of these equations have a part that we expect from an isolated spring and a part that describes the interaction via the connecting spring with spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.  Furthermore, the interaction on the left mass is equal and opposite to the interaction force on the right mass.  The above equations can be rearranged to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4bf3ea9d-75b4-408e-b77a-b8ddcf99001c">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-4bf3ea9d-75b4-408e-b77a-b8ddcf99001c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cdd98e0f-ebbe-4f82-8442-1aa5b224c63d">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-cdd98e0f-ebbe-4f82-8442-1aa5b224c63d" title="Permalink to this equation">#</a></span>\[\begin{align}
  m \ddot{x}_1 &amp;= -(\kappa + k)x_1 + \kappa x_2, \\
  m \ddot{x}_2 &amp;= \kappa x_1 - (\kappa + k)x_2,
 \end{align}\]</div>
 <p>or in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af0084f1-31e5-46ed-94ed-720a0b46a277">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-af0084f1-31e5-46ed-94ed-720a0b46a277" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2bdf225f-891c-414d-80e4-10362aaa4097">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-2bdf225f-891c-414d-80e4-10362aaa4097" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{pmatrix} 
 m\ddot{x}_1 \\ m\ddot{x}_2 
 \end{pmatrix} &amp;= 
@@ -464,14 +464,14 @@ x_1 \\ x_2
 \end{pmatrix}.
 \end{align}\]</div>
 <p>Let’s use the following trial functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f67d4d06-aef2-4890-a63e-6675516c3b8b">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-f67d4d06-aef2-4890-a63e-6675516c3b8b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9200187d-2bb6-4bf1-b7c8-899b85497557">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-9200187d-2bb6-4bf1-b7c8-899b85497557" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1 e^{i\omega t}, \\
 x_2(t) &amp;= B_2 e^{i\omega t},
 \end{align}\]</div>
 <p>based on our prior knowledge concerning the isolated springs.  Upon substitution, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-400a0fe8-bc13-4232-9f09-8081bee89939">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-400a0fe8-bc13-4232-9f09-8081bee89939" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6812a037-2333-4342-b29f-39a57c83a61d">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-6812a037-2333-4342-b29f-39a57c83a61d" title="Permalink to this equation">#</a></span>\[\begin{align}
 -m\omega^2\begin{pmatrix} 
 B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix} &amp;= 
@@ -483,8 +483,8 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix},
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be7b77dd-f04c-4930-999f-b757058205d8">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-be7b77dd-f04c-4930-999f-b757058205d8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d03420f4-0957-4fd2-9ca9-c015459f8a69">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-d03420f4-0957-4fd2-9ca9-c015459f8a69" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 
 (\kappa + k) - m\omega^2 &amp; -\kappa \\ -\kappa &amp; (\kappa + k) - m\omega^2
 \end{bmatrix} 
@@ -496,38 +496,59 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix}.
 \end{align}\]</div>
 <p>The trivial solution is <span class="math notranslate nohighlight">\(B_1 = B_2 = 0\)</span>.  But the non-trivial solution is solved via the characteristic equation (or determinant) via:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-166adc2e-6fa8-49ab-949b-d68089c97277">
-<span class="eqno">(5.7)<a class="headerlink" href="#equation-166adc2e-6fa8-49ab-949b-d68089c97277" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-790671de-598c-4630-abc5-8e87d67592b0">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-790671de-598c-4630-abc5-8e87d67592b0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[(\kappa + k) - m\omega^2\right]^2 - \kappa^2 &amp;= 0, \\
 (m\omega^2)^2 - 2m(\kappa + k)\omega^2 + (\kappa + k)^2 - \kappa^2 &amp;= 0, \\
 x^2 -2(\kappa+k)x + 2\kappa k + k^2 &amp; = 0,
 \end{align}\]</div>
 <p>which has solutions via the quadratic equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7097d9b-dcf7-461c-8493-2e26c39f4c3b">
-<span class="eqno">(5.8)<a class="headerlink" href="#equation-a7097d9b-dcf7-461c-8493-2e26c39f4c3b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1c8c9be7-91ca-44a5-9d1d-90a47a5c3f40">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-1c8c9be7-91ca-44a5-9d1d-90a47a5c3f40" title="Permalink to this equation">#</a></span>\[\begin{align}
 x &amp;= (\kappa + k) \pm \frac{1}{2}\sqrt{4(\kappa + k)^2 - 4(2\kappa k + k^2)}, \\
 m\omega^2 &amp;= (\kappa + k) \pm \kappa, \\
 \omega &amp;= \pm \sqrt{\frac{(\kappa + k) \pm \kappa}{m}}.
 \end{align}\]</div>
 <p>Each root (from the quadratic equation) permits a separate eigenfrequency:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64db1bcd-ec47-48d7-8aa3-7d79107674e0">
-<span class="eqno">(5.9)<a class="headerlink" href="#equation-64db1bcd-ec47-48d7-8aa3-7d79107674e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e24ed3d2-692e-4d56-bb5d-036a754defaa">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-e24ed3d2-692e-4d56-bb5d-036a754defaa" title="Permalink to this equation">#</a></span>\[\begin{align}
 \omega_1 = \pm \sqrt{\frac{2\kappa + k}{m}}, \qquad&amp; \text{and} \qquad&amp;
 \omega_2 = \pm \sqrt{\frac{k}{m}}.
 \end{align}\]</div>
 <p>To determine the coefficients <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span>, we substitute the eigenfrequencies (<span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>) back into the characteristic equation to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53e788b2-fa8e-4f98-b096-cad1b2f11bcf">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-53e788b2-fa8e-4f98-b096-cad1b2f11bcf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1ae6f8bb-67e3-45c8-8e95-f40eb7d3f604">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-1ae6f8bb-67e3-45c8-8e95-f40eb7d3f604" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[ k + \kappa - (k + 2\kappa) \right]B_1 - \kappa B_2 &amp;= -\kappa (B_1 + B_2) = 0,&amp;\ (\text{for } \omega_1;\  B_1 = -B_2) \\
 \left( k+ \kappa - k\right)B_1 - \kappa B_2 &amp;= \kappa (B_1 - B_2) = 0.&amp;  (\text{for } \omega_2;\  B_1 = B_2)
 \end{align}\]</div>
 <p>The most general solution of the coupled harmonic oscillator problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ec5594a-9ac7-4a3d-aac9-f1ea901a1ac1">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-3ec5594a-9ac7-4a3d-aac9-f1ea901a1ac1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fe6e5e22-e608-4b56-8a10-43702a42573c">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-fe6e5e22-e608-4b56-8a10-43702a42573c" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1^+ e^{+i\omega_1 t} + B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}, \\
 x_2(t) &amp;= -B_1^+ e^{+i\omega_1 t} - B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}.
 \end{align}\]</div>
-<p>Depending on initial and boundary conditions, Euler’s equation could be used to transform the above into a linear combination of <span class="math notranslate nohighlight">\(\sin\)</span> and <span class="math notranslate nohighlight">\(\cos\)</span> functions.  For more details, see the <a class="reference external" href="https://scholar.harvard.edu/files/schwartz/files/lecture3-coupled-oscillators.pdf">lecture</a> by Matthew Schwartz at Harvard.</p>
+<p>Depending on initial and boundary conditions, Euler’s equation could be used to transform the above into a linear combination of <span class="math notranslate nohighlight">\(\sin\)</span> and <span class="math notranslate nohighlight">\(\cos\)</span> functions.  For more details, see the <a class="reference external" href="https://scholar.harvard.edu/files/schwartz/files/lecture3-coupled-oscillators.pdf">lecture</a> by Matthew Schwartz at Harvard or <a class="reference external" href="https://phys.libretexts.org/Courses/University_of_California_Davis/UCD%3A_Physics_9HA__Classical_Mechanics/8%3A_Small_Oscillations/8.4%3A_Coupled_Oscillators_and_Normal_Modes">libretexts</a> by Tom Weideman at UC Davis, or lectures on YouTube from Jeffery Chasnov (see below).</p>
+<div align="center">
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/-pXnfzQfupE"
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+</div>
+<div align="center">
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/cU4b1vI-J2k"
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+</div>
+<div align="center">
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/xtFUMtHjzAE"
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+</div>
 </section>
 <section id="impact-of-forced-eccentricity">
 <h2><span class="section-number">5.2. </span>Impact of forced eccentricity<a class="headerlink" href="#impact-of-forced-eccentricity" title="Permalink to this heading">#</a></h2>
