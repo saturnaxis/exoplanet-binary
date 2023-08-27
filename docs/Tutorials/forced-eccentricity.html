@@ -73,6 +73,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/forced-eccentricity';</script>
     <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/forced-eccentricity.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -163,7 +165,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
@@ -418,8 +425,109 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="free-and-forced-eccentricity">
 <h1><span class="section-number">5. </span>Free and Forced Eccentricity<a class="headerlink" href="#free-and-forced-eccentricity" title="Permalink to this heading">#</a></h1>
+<p>Planets can experience a small but coherent forcing over time, which is referred to as a <strong>secular perturbation</strong>.  This type of forcing is reminiscent of perturbations of a harmonic oscillator or pendulum.</p>
+<p>Consider a pendulum (or swing) that oscillates back and forth.  If the perturbation (even if small) is timed when the pendulum reaches its maximum height and along the natural direction of motion, then the overall amplitude of the oscillation will increase over time because the pendulum is receiving a coherent boost along the direction of motion.</p>
+<p>This is in contrast to the pendulum receiving a boost randomly along and against the direction of motion. If the direction and magnitude of the kicks are truly random, then the boost in each direction should cancel out on average resulting in no growth in the oscillation amplitude.</p>
+<p>The components of free and forced eccentricity are described mathematically using concepts of forced and free oscillations of harmonic oscillators that are connected together.  This is similar to the problem of a <a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/hbase/oscdr.html">damped, driven oscillator</a>, which has a linear combination of a steady-state and transient solution.  The steady-state solution maps to the forced eccentricity, where the transient solution is the free eccentricity.  The following section reviews the physics of coupled oscillations.</p>
 <section id="a-review-of-coupled-oscillations">
 <h2><span class="section-number">5.1. </span>A review of coupled oscillations<a class="headerlink" href="#a-review-of-coupled-oscillations" title="Permalink to this heading">#</a></h2>
+<p>Consider two masses on a <em>frictionless</em> plane, where each mass is connected by a spring (with a spring constant <span class="math notranslate nohighlight">\(k\)</span>) to a wall.  Each spring experiences a force according to Hooke’s law (e.g., <span class="math notranslate nohighlight">\(F = -kx\)</span>).  Additionally, the two springs are connected <em>to one another</em> by another spring with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.</p>
+<figure class="align-default" id="coupled-masses">
+<a class="reference internal image-reference" href="../_images/coupled_masses.png"><img alt="coupled masses" src="../_images/coupled_masses.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Two identical masses attached to their respective wall with a spring with a spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The masses are coupled by another spring (with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>) and slide on a frictionless plane.</span><a class="headerlink" href="#coupled-masses" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The mass on the left is displaced by a distance <span class="math notranslate nohighlight">\(x_1\)</span> to the right.  It’s left spring will apply a force to bring it back to the equilibrium, but the middle spring will compress along with the rightmost spring.  The compression of the middle and right spring will apply a force on the other mass on the right.  Because the masses are connected, there will be a similar set of forces acting on the mass on the right.  Altogether the forces on the left and right mass are:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-394fddab-3049-435d-8d84-b828e5f966ac">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-394fddab-3049-435d-8d84-b828e5f966ac" title="Permalink to this equation">#</a></span>\[\begin{align}
+\mathbf{F}_{\rm left} &amp;= -kx_1 + \kappa(x_2-x_1) = m\ddot{x}_1, \\
+\mathbf{F}_{\rm right} &amp;= -kx_2 + \kappa(x_1-x_2) = m\ddot{x}_2.
+\end{align}\]</div>
+<p>Notice that each of these equations have a part that we expect from an isolated spring and a part that describes the interaction via the connecting spring with spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.  Furthermore, the interaction on the left mass is equal and opposite to the interaction force on the right mass.  The above equations can be rearranged to get:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4bf3ea9d-75b4-408e-b77a-b8ddcf99001c">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-4bf3ea9d-75b4-408e-b77a-b8ddcf99001c" title="Permalink to this equation">#</a></span>\[\begin{align}
+ m \ddot{x}_1 &amp;= -(\kappa + k)x_1 + \kappa x_2, \\
+ m \ddot{x}_2 &amp;= \kappa x_1 - (\kappa + k)x_2,
+\end{align}\]</div>
+<p>or in matrix form as:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-af0084f1-31e5-46ed-94ed-720a0b46a277">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-af0084f1-31e5-46ed-94ed-720a0b46a277" title="Permalink to this equation">#</a></span>\[\begin{align}
+\begin{pmatrix} 
+m\ddot{x}_1 \\ m\ddot{x}_2 
+\end{pmatrix} &amp;= 
+\begin{bmatrix} 
+-(\kappa + k) &amp; \kappa \\ \kappa &amp; -(\kappa + k) 
+\end{bmatrix} 
+\begin{pmatrix}
+x_1 \\ x_2 
+\end{pmatrix}.
+\end{align}\]</div>
+<p>Let’s use the following trial functions:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f67d4d06-aef2-4890-a63e-6675516c3b8b">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-f67d4d06-aef2-4890-a63e-6675516c3b8b" title="Permalink to this equation">#</a></span>\[\begin{align}
+x_1(t) &amp;= B_1 e^{i\omega t}, \\
+x_2(t) &amp;= B_2 e^{i\omega t},
+\end{align}\]</div>
+<p>based on our prior knowledge concerning the isolated springs.  Upon substitution, we get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-400a0fe8-bc13-4232-9f09-8081bee89939">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-400a0fe8-bc13-4232-9f09-8081bee89939" title="Permalink to this equation">#</a></span>\[\begin{align}
+-m\omega^2\begin{pmatrix} 
+B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
+\end{pmatrix} &amp;= 
+\begin{bmatrix} 
+-(\kappa + k) &amp; \kappa \\ \kappa &amp; -(\kappa + k) 
+\end{bmatrix} 
+\begin{pmatrix}
+B_1 e^{i\omega t} \\ B_2 e^{i\omega t} 
+\end{pmatrix},
+\end{align}\]</div>
+<p>or</p>
+<div class="amsmath math notranslate nohighlight" id="equation-be7b77dd-f04c-4930-999f-b757058205d8">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-be7b77dd-f04c-4930-999f-b757058205d8" title="Permalink to this equation">#</a></span>\[\begin{align}
+\begin{bmatrix} 
+(\kappa + k) - m\omega^2 &amp; -\kappa \\ -\kappa &amp; (\kappa + k) - m\omega^2
+\end{bmatrix} 
+\begin{pmatrix}
+B_1 e^{i\omega t} \\ B_2 e^{i\omega t} 
+\end{pmatrix} &amp;=
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix}.
+\end{align}\]</div>
+<p>The trivial solution is <span class="math notranslate nohighlight">\(B_1 = B_2 = 0\)</span>.  But the non-trivial solution is solved via the characteristic equation (or determinant) via:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-166adc2e-6fa8-49ab-949b-d68089c97277">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-166adc2e-6fa8-49ab-949b-d68089c97277" title="Permalink to this equation">#</a></span>\[\begin{align}
+\left[(\kappa + k) - m\omega^2\right]^2 - \kappa^2 &amp;= 0, \\
+(m\omega^2)^2 - 2m(\kappa + k)\omega^2 + (\kappa + k)^2 - \kappa^2 &amp;= 0, \\
+x^2 -2(\kappa+k)x + 2\kappa k + k^2 &amp; = 0,
+\end{align}\]</div>
+<p>which has solutions via the quadratic equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a7097d9b-dcf7-461c-8493-2e26c39f4c3b">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-a7097d9b-dcf7-461c-8493-2e26c39f4c3b" title="Permalink to this equation">#</a></span>\[\begin{align}
+x &amp;= (\kappa + k) \pm \frac{1}{2}\sqrt{4(\kappa + k)^2 - 4(2\kappa k + k^2)}, \\
+m\omega^2 &amp;= (\kappa + k) \pm \kappa, \\
+\omega &amp;= \pm \sqrt{\frac{(\kappa + k) \pm \kappa}{m}}.
+\end{align}\]</div>
+<p>Each root (from the quadratic equation) permits a separate eigenfrequency:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-64db1bcd-ec47-48d7-8aa3-7d79107674e0">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-64db1bcd-ec47-48d7-8aa3-7d79107674e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+\omega_1 = \pm \sqrt{\frac{2\kappa + k}{m}}, \qquad&amp; \text{and} \qquad&amp;
+\omega_2 = \pm \sqrt{\frac{k}{m}}.
+\end{align}\]</div>
+<p>To determine the coefficients <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span>, we substitute the eigenfrequencies (<span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>) back into the characteristic equation to get:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-53e788b2-fa8e-4f98-b096-cad1b2f11bcf">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-53e788b2-fa8e-4f98-b096-cad1b2f11bcf" title="Permalink to this equation">#</a></span>\[\begin{align}
+\left[ k + \kappa - (k + 2\kappa) \right]B_1 - \kappa B_2 &amp;= -\kappa (B_1 + B_2) = 0,&amp;\ (\text{for } \omega_1;\  B_1 = -B_2) \\
+\left( k+ \kappa - k\right)B_1 - \kappa B_2 &amp;= \kappa (B_1 - B_2) = 0.&amp;  (\text{for } \omega_2;\  B_1 = B_2)
+\end{align}\]</div>
+<p>The most general solution of the coupled harmonic oscillator problem is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3ec5594a-9ac7-4a3d-aac9-f1ea901a1ac1">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-3ec5594a-9ac7-4a3d-aac9-f1ea901a1ac1" title="Permalink to this equation">#</a></span>\[\begin{align}
+x_1(t) &amp;= B_1^+ e^{+i\omega_1 t} + B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}, \\
+x_2(t) &amp;= -B_1^+ e^{+i\omega_1 t} - B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}.
+\end{align}\]</div>
+<p>Depending on initial and boundary conditions, Euler’s equation could be used to transform the above into a linear combination of <span class="math notranslate nohighlight">\(\sin\)</span> and <span class="math notranslate nohighlight">\(\cos\)</span> functions.  For more details, see the <a class="reference external" href="https://scholar.harvard.edu/files/schwartz/files/lecture3-coupled-oscillators.pdf">lecture</a> by Matthew Schwartz at Harvard.</p>
 </section>
 <section id="impact-of-forced-eccentricity">
 <h2><span class="section-number">5.2. </span>Impact of forced eccentricity<a class="headerlink" href="#impact-of-forced-eccentricity" title="Permalink to this heading">#</a></h2>
