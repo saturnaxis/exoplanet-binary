@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. N-body Simulations &#8212; Exoplanets within Binary Systems</title>
   
@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mycss.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
@@ -50,6 +50,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -512,7 +513,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f7fe13cfefba84526a253f99f413c68ba027d693e591e2688a68ed9e78dbb47a.png" src="../_images/f7fe13cfefba84526a253f99f413c68ba027d693e591e2688a68ed9e78dbb47a.png" />
+<img alt="../_images/68a5c6dc8aa4e77007909ca228e7848dd9cf2c7bcce71c48360548f5cc0f889c.png" src="../_images/68a5c6dc8aa4e77007909ca228e7848dd9cf2c7bcce71c48360548f5cc0f889c.png" />
 </div>
 </div>
 </section>
@@ -610,7 +611,7 @@ Time of first and last snapshot: 0.0, 9000.0
   warnings.warn(message, RuntimeWarning)
 </pre></div>
 </div>
-<img alt="../_images/f5b93137a28c263ec3c514e55529ca9d180d2c4c159ae3a4461de8ab694b1149.png" src="../_images/f5b93137a28c263ec3c514e55529ca9d180d2c4c159ae3a4461de8ab694b1149.png" />
+<img alt="../_images/6456a2a2a282993d023d83bcc8fb7ead1492db8c497cae20e358945d820811e5.png" src="../_images/6456a2a2a282993d023d83bcc8fb7ead1492db8c497cae20e358945d820811e5.png" />
 </div>
 </div>
 </section>
@@ -666,7 +667,7 @@ Time of first and last snapshot: 0.0, 9000.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b6e71891b526cb9fd2f9e4ea19e84b5a11522fb5bc8b69224679063dad5ee7fe.png" src="../_images/b6e71891b526cb9fd2f9e4ea19e84b5a11522fb5bc8b69224679063dad5ee7fe.png" />
+<img alt="../_images/13a332ad1f0a5b31f652a2159b17690b271c9c0640334d7c570c829db84ff562.png" src="../_images/13a332ad1f0a5b31f652a2159b17690b271c9c0640334d7c570c829db84ff562.png" />
 </div>
 </div>
 </section>
@@ -703,7 +704,6 @@ Time of first and last snapshot: 0.0, 9000.0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span> 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.inset_locator</span> <span class="kn">import</span> <span class="n">inset_axes</span>
 
 <span class="n">M_A</span> <span class="o">=</span> <span class="mf">1.133</span> <span class="c1">#mass of star A in solar masses</span>
 <span class="n">M_B</span> <span class="o">=</span> <span class="mf">0.972</span> <span class="c1">#mass of star B in solar masses</span>
@@ -756,7 +756,7 @@ Time of first and last snapshot: 0.0, 9000.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1a88fb4e6899f634e769d59ef4def8cb3aa91710b0e7119a2c939982febdf159.png" src="../_images/1a88fb4e6899f634e769d59ef4def8cb3aa91710b0e7119a2c939982febdf159.png" />
+<img alt="../_images/92c2dcc086f6ee2f76027fa11f746faf8d43399335dbf51484e4cff4679dd105.png" src="../_images/92c2dcc086f6ee2f76027fa11f746faf8d43399335dbf51484e4cff4679dd105.png" />
 </div>
 </div>
 <p>Due to the difference in scale between the planetary and binary orbits, it is difficult to visualize both at the same time.  The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library has an important function called <code class="docutils literal notranslate"><span class="pre">inset_axes</span></code> that generates a separate (child) axis relative to a different (parent) axis.  This allows us to zoom in on the planetary orbit within the inset.  The code below demonstrates the necessary modifications for an inset.</p>
@@ -779,7 +779,7 @@ Time of first and last snapshot: 0.0, 9000.0
 <span class="n">xy_pl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sa</span><span class="p">)):</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="c1">#iterate through each snapshot in sa</span>
-    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simpify the referencing</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span> <span class="c1">#intermediate object to simplify the referencing</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">move_to_hel</span><span class="p">()</span> <span class="c1">#shift to astrocentric coordinates</span>
     <span class="n">xy_bin</span><span class="p">[</span><span class="n">s</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
     <span class="n">xy_pl</span><span class="p">[</span><span class="n">s</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">ps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
@@ -793,65 +793,13 @@ Time of first and last snapshot: 0.0, 9000.0
 <span class="n">axins</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.05</span><span class="p">)</span>
 <span class="n">axins</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.05</span><span class="p">)</span>
 
-
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (AU)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">File ~/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py:340,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">338</span>     <span class="k">pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">340</span>     <span class="k">return</span> <span class="n">printer</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span> <span class="c1"># Finally look for special method names</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/lib/python3.9/site-packages/IPython/core/pylabtools.py:152,</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, base64, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="kn">from</span> <span class="nn">matplotlib.backend_bases</span> <span class="kn">import</span> <span class="n">FigureCanvasBase</span>
-<span class="g g-Whitespace">    </span><span class="mi">150</span>     <span class="n">FigureCanvasBase</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">152</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bytes_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;svg&#39;</span><span class="p">:</span>
-
-<span class="nn">File ~/anaconda3/lib/python3.9/site-packages/matplotlib/backend_bases.py:2353,</span> in <span class="ni">FigureCanvasBase.print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2350</span>         <span class="n">bbox_inches</span> <span class="o">=</span> <span class="n">bbox_inches</span><span class="o">.</span><span class="n">padded</span><span class="p">(</span><span class="n">pad_inches</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2352</span>     <span class="c1"># call adjust_bbox to save only the given area</span>
-<span class="ne">-&gt; </span><span class="mi">2353</span>     <span class="n">restore_bbox</span> <span class="o">=</span> <span class="n">_tight_bbox</span><span class="o">.</span><span class="n">adjust_bbox</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2354</span>         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fixed_dpi</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2356</span>     <span class="n">_bbox_inches_restore</span> <span class="o">=</span> <span class="p">(</span><span class="n">bbox_inches</span><span class="p">,</span> <span class="n">restore_bbox</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2357</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File ~/anaconda3/lib/python3.9/site-packages/matplotlib/_tight_bbox.py:28,</span> in <span class="ni">adjust_bbox</span><span class="nt">(fig, bbox_inches, fixed_dpi)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">locator</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_axes_locator</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">if</span> <span class="n">locator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">ax</span><span class="o">.</span><span class="n">apply_aspect</span><span class="p">(</span><span class="n">locator</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">locator_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">current_pos</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">(</span><span class="n">original</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">frozen</span><span class="p">()</span>
-
-<span class="nn">File ~/anaconda3/lib/python3.9/site-packages/mpl_toolkits/axes_grid1/inset_locator.py:73,</span> in <span class="ni">AnchoredLocatorBase.__call__</span><span class="nt">(self, ax, renderer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="n">ax</span>
-<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_offset</span><span class="p">(</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">bbox_canvas</span> <span class="o">=</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/lib/python3.9/site-packages/matplotlib/offsetbox.py:399,</span> in <span class="ni">OffsetBox.get_window_extent</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="k">def</span> <span class="nf">get_window_extent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="c1"># docstring inherited</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>     <span class="k">if</span> <span class="n">renderer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">399</span>         <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">_get_renderer</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="k">try</span><span class="p">:</span>  <span class="c1"># Some subclasses redefine get_offset to take no args.</span>
-
-<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;_get_renderer&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 750x750 with 2 Axes&gt;
-</pre></div>
-</div>
+<img alt="../_images/2f2f5cd3d7cad2596c05bc54ab6bb99d5be9f78f334915e90ec6c08332090451.png" src="../_images/2f2f5cd3d7cad2596c05bc54ab6bb99d5be9f78f334915e90ec6c08332090451.png" />
 </div>
 </div>
 </section>
@@ -916,7 +864,7 @@ Time of first and last snapshot: 0.0, 9000.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/88903bbef491b0d1800dcda3a8850370ce735c9d64b945cee2b8149151e73437.png" src="../_images/88903bbef491b0d1800dcda3a8850370ce735c9d64b945cee2b8149151e73437.png" />
+<img alt="../_images/8aaba6c18d6da59719e8d7f438558e33a1df4ada01dd28432a3a19c0b2c6fd31.png" src="../_images/8aaba6c18d6da59719e8d7f438558e33a1df4ada01dd28432a3a19c0b2c6fd31.png" />
 </div>
 </div>
 <p>After creating the stack of images, we can use <code class="docutils literal notranslate"><span class="pre">imagemagick</span></code> to convert it into an animated gif using <code class="docutils literal notranslate"><span class="pre">convert</span></code>.  The subprograms from <code class="docutils literal notranslate"><span class="pre">imagemagick</span></code> are not installed by default within Google Colab.  To install it, simply create a python cell with the following <code class="docutils literal notranslate"><span class="pre">!apt</span> <span class="pre">install</span> <span class="pre">imagemagick</span></code> to install <code class="docutils literal notranslate"><span class="pre">imagemagick</span></code> from an open source linux repository.</p>

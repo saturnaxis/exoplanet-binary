@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. Free and Forced Eccentricity &#8212; Exoplanets within Binary Systems</title>
   
@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mycss.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
@@ -50,6 +50,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -439,20 +440,20 @@ document.write(`
 </figcaption>
 </figure>
 <p>The mass on the left is displaced by a distance <span class="math notranslate nohighlight">\(x_1\)</span> to the right.  It’s left spring will apply a force to bring it back to the equilibrium, but the middle spring will compress along with the rightmost spring.  The compression of the middle and right spring will apply a force on the other mass on the right.  Because the masses are connected, there will be a similar set of forces acting on the mass on the right.  Altogether the forces on the left and right mass are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b688ba82-25ad-46b4-bc0b-a2503805c733">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-b688ba82-25ad-46b4-bc0b-a2503805c733" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d618a101-9b6f-4298-84d7-7cce0d192186">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-d618a101-9b6f-4298-84d7-7cce0d192186" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{F}_{\rm left} &amp;= -kx_1 + \kappa(x_2-x_1) = m\ddot{x}_1, \\
 \mathbf{F}_{\rm right} &amp;= -kx_2 + \kappa(x_1-x_2) = m\ddot{x}_2.
 \end{align}\]</div>
 <p>Notice that each of these equations have a part that we expect from an isolated spring and a part that describes the interaction via the connecting spring with spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.  Furthermore, the interaction on the left mass is equal and opposite to the interaction force on the right mass.  The above equations can be rearranged to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d66c61f7-caa9-43db-857e-73a999ae36aa">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-d66c61f7-caa9-43db-857e-73a999ae36aa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de1590e3-a008-4527-930f-45d11385adb6">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-de1590e3-a008-4527-930f-45d11385adb6" title="Permalink to this equation">#</a></span>\[\begin{align}
  m \ddot{x}_1 &amp;= -(\kappa + k)x_1 + \kappa x_2, \\
  m \ddot{x}_2 &amp;= \kappa x_1 - (\kappa + k)x_2,
 \end{align}\]</div>
 <p>or in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29a2f596-a795-47ce-ad24-0c11476d0965">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-29a2f596-a795-47ce-ad24-0c11476d0965" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5cd7d0e2-df6b-47da-af8c-a6ae5eb090ec">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-5cd7d0e2-df6b-47da-af8c-a6ae5eb090ec" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{pmatrix} 
 m\ddot{x}_1 \\ m\ddot{x}_2 
 \end{pmatrix} &amp;= 
@@ -464,14 +465,14 @@ x_1 \\ x_2
 \end{pmatrix}.
 \end{align}\]</div>
 <p>Let’s use the following trial functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83265287-141f-4b09-8042-ab17e0a18116">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-83265287-141f-4b09-8042-ab17e0a18116" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a400d304-33b1-465f-a9ea-2055b407544e">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-a400d304-33b1-465f-a9ea-2055b407544e" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1 e^{i\omega t}, \\
 x_2(t) &amp;= B_2 e^{i\omega t},
 \end{align}\]</div>
 <p>based on our prior knowledge concerning the isolated springs.  Upon substitution, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cb470f3-46fe-46ec-a566-745627ebe28c">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-5cb470f3-46fe-46ec-a566-745627ebe28c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-597af753-2c1d-45a4-9c98-e29725bd7d4d">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-597af753-2c1d-45a4-9c98-e29725bd7d4d" title="Permalink to this equation">#</a></span>\[\begin{align}
 -m\omega^2\begin{pmatrix} 
 B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix} &amp;= 
@@ -483,8 +484,8 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix},
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cfc8de18-cef5-445d-b7c4-429a8f9af43d">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-cfc8de18-cef5-445d-b7c4-429a8f9af43d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd84ad5f-f0cd-46ca-982e-6ff70d862119">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-fd84ad5f-f0cd-46ca-982e-6ff70d862119" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 
 (\kappa + k) - m\omega^2 &amp; -\kappa \\ -\kappa &amp; (\kappa + k) - m\omega^2
 \end{bmatrix} 
@@ -496,34 +497,34 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix}.
 \end{align}\]</div>
 <p>The trivial solution is <span class="math notranslate nohighlight">\(B_1 = B_2 = 0\)</span>.  But the non-trivial solution is solved via the characteristic equation (or determinant) via:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fbb4ed5d-bb1a-48b2-84ea-45c4054ad3be">
-<span class="eqno">(5.7)<a class="headerlink" href="#equation-fbb4ed5d-bb1a-48b2-84ea-45c4054ad3be" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e1373815-0841-48bb-85b0-b467f3d1afb2">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-e1373815-0841-48bb-85b0-b467f3d1afb2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[(\kappa + k) - m\omega^2\right]^2 - \kappa^2 &amp;= 0, \\
 (m\omega^2)^2 - 2m(\kappa + k)\omega^2 + (\kappa + k)^2 - \kappa^2 &amp;= 0, \\
 x^2 -2(\kappa+k)x + 2\kappa k + k^2 &amp; = 0,
 \end{align}\]</div>
 <p>which has solutions via the quadratic equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e85d188c-ba28-43ba-b61a-807f75a9b4f6">
-<span class="eqno">(5.8)<a class="headerlink" href="#equation-e85d188c-ba28-43ba-b61a-807f75a9b4f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2e4d8c54-4a38-4fb5-956c-939bab1e9c12">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-2e4d8c54-4a38-4fb5-956c-939bab1e9c12" title="Permalink to this equation">#</a></span>\[\begin{align}
 x &amp;= (\kappa + k) \pm \frac{1}{2}\sqrt{4(\kappa + k)^2 - 4(2\kappa k + k^2)}, \\
 m\omega^2 &amp;= (\kappa + k) \pm \kappa, \\
 \omega &amp;= \pm \sqrt{\frac{(\kappa + k) \pm \kappa}{m}}.
 \end{align}\]</div>
 <p>Each root (from the quadratic equation) permits a separate eigenfrequency:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec0c0071-3984-449f-be7a-14b35c5fd2de">
-<span class="eqno">(5.9)<a class="headerlink" href="#equation-ec0c0071-3984-449f-be7a-14b35c5fd2de" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b6551efe-c44b-4ea0-a36c-23ed6bc5ade8">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-b6551efe-c44b-4ea0-a36c-23ed6bc5ade8" title="Permalink to this equation">#</a></span>\[\begin{align}
 \omega_1 = \pm \sqrt{\frac{2\kappa + k}{m}}, \qquad&amp; \text{and} \qquad&amp;
 \omega_2 = \pm \sqrt{\frac{k}{m}}.
 \end{align}\]</div>
 <p>To determine the coefficients <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span>, we substitute the eigenfrequencies (<span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>) back into the characteristic equation to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66a7770c-ba06-48b7-a7da-18fccedcca5b">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-66a7770c-ba06-48b7-a7da-18fccedcca5b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c568ef60-9fc5-4734-994a-c077e58eac85">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-c568ef60-9fc5-4734-994a-c077e58eac85" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[ k + \kappa - (k + 2\kappa) \right]B_1 - \kappa B_2 &amp;= -\kappa (B_1 + B_2) = 0,&amp;\ (\text{for } \omega_1;\  B_1 = -B_2) \\
 \left( k+ \kappa - k\right)B_1 - \kappa B_2 &amp;= \kappa (B_1 - B_2) = 0.&amp;  (\text{for } \omega_2;\  B_1 = B_2)
 \end{align}\]</div>
 <p>The most general solution of the coupled harmonic oscillator problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab60f7a8-167c-4334-a243-bbb388e8514d">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-ab60f7a8-167c-4334-a243-bbb388e8514d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-568fd360-3589-4c9f-952e-291810c6ee92">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-568fd360-3589-4c9f-952e-291810c6ee92" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1^+ e^{+i\omega_1 t} + B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}, \\
 x_2(t) &amp;= -B_1^+ e^{+i\omega_1 t} - B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}.
 \end{align}\]</div>
