@@ -1,0 +1,1359 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Tutorial: Creating Light Curves from MAST Archival Data &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20b57f81" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/Archival_data_tutorial';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/Archival_data_tutorial.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="9. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ" href="Tutorial_AIJ_LightCurve.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Exoplanets within Binary Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_AIJ_LightCurve.html">9. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/Archival_data_tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/Archival_data_tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/Archival_data_tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial: Creating Light Curves from MAST Archival Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-mast-and-lightkurve">10.1. 1. Introduction to MAST and Lightkurve</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mast">10.1.1. What is MAST?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-lightkurve">10.1.2. What is Lightkurve?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">10.2. 2. Setting up Your Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">10.3. 3. Searching for Data on MAST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">10.4. 4. Understanding Data Products and Downloading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">10.5. 5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stitching-multiple-sectors-quarters">10.5.1. Stitching Multiple Sectors/Quarters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">10.5.2. Data Cleaning with Quality Flags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">10.5.3. Normalization and Detrending</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-target-pixel-files-tpfs-custom-photometry">10.6. 6. Working with Target Pixel Files (TPFs) - Custom Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-aperture-mask">10.6.1. Creating a Custom Aperture Mask</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">10.6.2. Performing Aperture Photometry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-a-transit">10.7. 7. Example: Finding a Transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">10.8. 8. Saving Your Reduced Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">10.9. 9. Conclusion and Further Steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-creating-light-curves-from-mast-archival-data">
+<h1><span class="section-number">10. </span>Tutorial: Creating Light Curves from MAST Archival Data<a class="headerlink" href="#tutorial-creating-light-curves-from-mast-archival-data" title="Link to this heading">#</a></h1>
+<p>This tutorial will guide you through the process of finding, downloading, and reducing data from the Mikulski Archive for Space Telescopes (MAST) to create science-ready light curves. We’ll primarily use the <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> Python package, a powerful tool for working with space telescope data like TESS, Kepler, and K2.</p>
+<p><strong>Goal:</strong> By the end of this tutorial, you’ll be able to search for space telescope data, download it, perform basic reduction steps (like cleaning and normalization), and generate a light curve ready for analysis (e.g., searching for exoplanet transits or stellar variability).</p>
+<p><strong>Environment:</strong> This notebook is designed to work well in online Python IDEs like Google Colab or MS Visual Studio Code with a Python kernel.</p>
+<section id="introduction-to-mast-and-lightkurve">
+<h2><span class="section-number">10.1. </span>1. Introduction to MAST and Lightkurve<a class="headerlink" href="#introduction-to-mast-and-lightkurve" title="Link to this heading">#</a></h2>
+<section id="what-is-mast">
+<h3><span class="section-number">10.1.1. </span>What is MAST?<a class="headerlink" href="#what-is-mast" title="Link to this heading">#</a></h3>
+<p>The <strong>Mikulski Archive for Space Telescopes (MAST)</strong> is NASA’s primary archive for optical and ultraviolet astronomical data, with a strong focus on exoplanet-finding missions. It hosts data from missions like:</p>
+<ul class="simple">
+<li><p><strong>TESS (Transiting Exoplanet Survey Satellite):</strong> Currently surveying most of the sky for nearby transiting exoplanets.</p></li>
+<li><p><strong>Kepler/K2:</strong> Famous for discovering thousands of exoplanets using the transit method.</p></li>
+<li><p>Hubble Space Telescope (HST), GALEX, and others.</p></li>
+</ul>
+<p>You can explore MAST visually via its portal: <a class="reference external" href="https://mast.stsci.edu">https://mast.stsci.edu</a></p>
+</section>
+<section id="what-is-lightkurve">
+<h3><span class="section-number">10.1.2. </span>What is Lightkurve?<a class="headerlink" href="#what-is-lightkurve" title="Link to this heading">#</a></h3>
+<p><strong>Lightkurve</strong> is an open-source Python package designed to simplify the analysis of time-series astronomical data, especially from NASA’s TESS, Kepler, and K2 missions. It provides tools for searching, downloading, processing, and plotting light curves and target pixel files (TPFs).</p>
+<p>Official documentation: <a class="reference external" href="https://docs.lightkurve.org">https://docs.lightkurve.org</a></p>
+</section>
+</section>
+<section id="setting-up-your-python-environment">
+<h2><span class="section-number">10.2. </span>2. Setting up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Link to this heading">#</a></h2>
+<p>To use <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, you’ll need Python and several packages including <code class="docutils literal notranslate"><span class="pre">astropy</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. The easiest way to install <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and its dependencies is using <code class="docutils literal notranslate"><span class="pre">pip</span></code>. If you are in an environment like Google Colab, this command will install it into your current session.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>lightkurve
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lightkurve in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (2.4.1)
+Requirement already satisfied: astropy&gt;=5.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (5.1)
+Requirement already satisfied: astroquery&gt;=0.3.10 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.4.6)
+Requirement already satisfied: beautifulsoup4&gt;=4.6.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (4.12.2)
+Requirement already satisfied: bokeh&gt;=2.0.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (3.2.1)
+Requirement already satisfied: fbpca&gt;=1.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.0)
+Requirement already satisfied: matplotlib&gt;=3.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (3.7.2)
+Requirement already satisfied: memoization&gt;=0.3.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.4.0)
+Requirement already satisfied: numpy&gt;=1.18 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.24.3)
+Requirement already satisfied: oktopus&gt;=0.1.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.1.2)
+Requirement already satisfied: pandas&gt;=1.1.4 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (2.0.3)
+Requirement already satisfied: patsy&gt;=0.5.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.5.3)
+Requirement already satisfied: requests&gt;=2.22.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (2.31.0)
+Requirement already satisfied: scikit-learn&gt;=0.24.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm&gt;=4.25.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (4.65.0)
+Requirement already satisfied: uncertainties&gt;=3.1.4 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (3.1.7)
+Requirement already satisfied: urllib3&gt;=1.23 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.26.18)
+Requirement already satisfied: pyerfa&gt;=2.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astropy&gt;=5.0-&gt;lightkurve) (2.0.0)
+Requirement already satisfied: PyYAML&gt;=3.13 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astropy&gt;=5.0-&gt;lightkurve) (6.0)
+Requirement already satisfied: packaging&gt;=19.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astropy&gt;=5.0-&gt;lightkurve) (23.2)
+Requirement already satisfied: html5lib&gt;=0.999 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.1)
+Requirement already satisfied: keyring&gt;=4.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (23.13.1)
+Requirement already satisfied: pyvo&gt;=1.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.4.2)
+Requirement already satisfied: soupsieve&gt;1.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from beautifulsoup4&gt;=4.6.0-&gt;lightkurve) (2.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Jinja2&gt;=2.9 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (3.1.2)
+Requirement already satisfied: contourpy&gt;=1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (1.0.5)
+Requirement already satisfied: pillow&gt;=7.1.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (9.4.0)
+Requirement already satisfied: tornado&gt;=5.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (6.3.2)
+Requirement already satisfied: xyzservices&gt;=2021.09.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (2022.9.0)
+Requirement already satisfied: cycler&gt;=0.10 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (4.25.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (1.4.4)
+Requirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (3.0.9)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (2.8.2)
+Requirement already satisfied: scipy in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.11.1)
+Requirement already satisfied: autograd in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.6.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2023.3.post1)
+Requirement already satisfied: tzdata&gt;=2022.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2023.3)
+Requirement already satisfied: six in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from patsy&gt;=0.5.0-&gt;lightkurve) (1.16.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from requests&gt;=2.22.0-&gt;lightkurve) (2023.11.17)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: joblib&gt;=1.1.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (1.2.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (2.2.0)
+Requirement already satisfied: future in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from uncertainties&gt;=3.1.4-&gt;lightkurve) (0.18.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: webencodings in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from html5lib&gt;=0.999-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (0.5.1)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from Jinja2&gt;=2.9-&gt;bokeh&gt;=2.0.0-&gt;lightkurve) (2.1.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jaraco.classes in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (3.2.1)
+Requirement already satisfied: importlib-metadata&gt;=4.11.4 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (6.0.0)
+Requirement already satisfied: SecretStorage&gt;=3.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (3.3.1)
+Requirement already satisfied: jeepney&gt;=0.4.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (0.7.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=0.5 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from importlib-metadata&gt;=4.11.4-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (3.11.0)
+Requirement already satisfied: cryptography&gt;=2.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from SecretStorage&gt;=3.2-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (41.0.3)
+Requirement already satisfied: more-itertools in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from jaraco.classes-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (8.12.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.12 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from cryptography&gt;=2.0-&gt;SecretStorage&gt;=3.2-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (1.15.1)
+Requirement already satisfied: pycparser in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.0-&gt;SecretStorage&gt;=3.2-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (2.21)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s import <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and other useful packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lightkurve</span> <span class="k">as</span> <span class="nn">lk</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># This ensures plots appear inline in Jupyter notebooks</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="searching-for-data-on-mast">
+<h2><span class="section-number">10.3. </span>3. Searching for Data on MAST<a class="headerlink" href="#searching-for-data-on-mast" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> allows you to search for data programmatically. You can search by target name, mission-specific ID (like TIC for TESS, KIC for Kepler, EPIC for K2), or coordinates.</p>
+<p>Let’s search for data for the star <strong>π Mensae (pi Men)</strong>, a bright star known to host exoplanets, observed by TESS. Its TESS Input Catalog (TIC) ID is 261136679.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_star</span> <span class="o">=</span> <span class="s2">&quot;pi Men&quot;</span>
+<span class="c1"># You can also use target_star = &quot;TIC 261136679&quot;</span>
+<span class="c1"># Or for Kepler: target_star = &quot;KIC 8462852&quot; (Boyajian&#39;s Star)</span>
+<span class="c1"># Or for K2: target_star = &quot;EPIC 201367065&quot;</span>
+
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">)</span>
+<span class="n">search_result</span> <span class="c1"># Display the search results as a table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">SearchResult containing 84 data products.
+
+<table id="table131163382769104">
+<thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
+<thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
+<tr><td>0</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>1</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>2</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>3</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tasoc'>TASOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>4</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/gsfc-eleanor-lite'>GSFC-ELEANOR-LITE</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>5</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tasoc'>TASOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>6</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tasoc'>TASOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>7</td><td>TESS Sector 04</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>8</td><td>TESS Sector 04</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>74</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>75</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>76</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>77</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>78</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>79</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>80</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>81</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>82</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>83</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+</table>
+Length = 84 rows</div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">search_result</span></code> object is a table listing all available light curve products for your target. It includes information like the mission, sector/quarter/campaign, author (pipeline), and an observation ID.</p>
+<p>You can filter these results. For example, if you only want TESS data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_tess</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="s2">&quot;TESS&quot;</span><span class="p">)</span>
+<span class="n">search_tess</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">SearchResult containing 84 data products.
+
+<table id="table131163385401680">
+<thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
+<thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
+<tr><td>0</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>1</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>2</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>3</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tasoc'>TASOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>4</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/gsfc-eleanor-lite'>GSFC-ELEANOR-LITE</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>5</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tasoc'>TASOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>6</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tasoc'>TASOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>7</td><td>TESS Sector 04</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>8</td><td>TESS Sector 04</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>74</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>75</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>76</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>77</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>78</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>79</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>80</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>81</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>82</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>83</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://archive.stsci.edu/hlsp/qlp'>QLP</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+</table>
+Length = 84 rows</div></div>
+</div>
+<p>You can also search for Target Pixel Files (TPFs), which contain the raw pixel data around your target. This is useful if you want to perform custom photometry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_tpf_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_targetpixelfile</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="s2">&quot;TESS&quot;</span><span class="p">)</span>
+<span class="n">search_tpf_result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">SearchResult containing 55 data products.
+
+<table id="table131163383191376">
+<thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
+<thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
+<tr><td>0</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>1</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>2</td><td>TESS Sector 04</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>3</td><td>TESS Sector 04</td><td>2018</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>4</td><td>TESS Sector 08</td><td>2019</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>5</td><td>TESS Sector 08</td><td>2019</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>6</td><td>TESS Sector 11</td><td>2019</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>7</td><td>TESS Sector 11</td><td>2019</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>1800</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>8</td><td>TESS Sector 12</td><td>2019</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>45</td><td>TESS Sector 67</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>46</td><td>TESS Sector 67</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>47</td><td>TESS Sector 67</td><td>2023</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>48</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>49</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>50</td><td>TESS Sector 68</td><td>2023</td><td><a href='https://archive.stsci.edu/hlsp/tess-spoc'>TESS-SPOC</a></td><td>200</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>51</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>52</td><td>TESS Sector 88</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>53</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>20</td><td>261136679</td><td>0.0</td></tr>
+<tr><td>54</td><td>TESS Sector 89</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
+</table>
+Length = 55 rows</div></div>
+</div>
+</section>
+<section id="understanding-data-products-and-downloading-data">
+<h2><span class="section-number">10.4. </span>4. Understanding Data Products and Downloading Data<a class="headerlink" href="#understanding-data-products-and-downloading-data" title="Link to this heading">#</a></h2>
+<p>MAST provides several types of data products:</p>
+<ul class="simple">
+<li><p><strong>Light Curve Files (LCFs):</strong> These files contain pre-processed light curves. For TESS and Kepler, common flux types include:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAP_FLUX</span></code> (Simple Aperture Photometry): Sum of flux in an optimal aperture. Can be affected by instrument systematics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> (Pre-search Data Conditioning SAP Flux): SAP flux corrected for instrumental systematics. This is usually the best starting point for transit searches or stellar variability studies.</p></li>
+</ul>
+</li>
+<li><p><strong>Target Pixel Files (TPFs):</strong> These files contain the time-series of images (pixel data) centered on the target star. You can use TPFs to define your own photometric aperture and extract a light curve.</p></li>
+</ul>
+<p>Let’s download the available TESS light curves for π Mensae. The <code class="docutils literal notranslate"><span class="pre">download_all()</span></code> method can be used on a search result to get all matching datasets. You can also download specific datasets by indexing the search result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download all TESS light curves for pi Men processed by the SPOC pipeline</span>
+<span class="c1"># We select the SPOC pipeline products as they are typically the most robust for TESS</span>
+<span class="n">lc_collection</span> <span class="o">=</span> <span class="n">search_tess</span><span class="p">[</span><span class="n">search_tess</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="s2">&quot;SPOC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">download_all</span><span class="p">()</span>
+<span class="n">lc_collection</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LightCurveCollection of 36 objects:
+    0: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=1 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    1: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=4 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    2: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=8 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    3: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=11 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    4: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=12 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    5: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=13 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    6: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=27 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    7: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=27 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    8: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=28 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    9: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=28 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    10: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=31 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    11: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=31 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    12: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=34 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    13: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=34 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    14: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=38 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    15: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=38 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    16: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=39 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    17: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=39 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    18: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=61 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    19: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=61 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    20: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=62 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    21: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=62 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    22: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=64 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    23: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=64 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    24: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=65 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    25: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=65 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    26: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=66 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    27: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=66 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    28: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=67 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    29: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=67 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    30: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=68 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    31: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=68 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    32: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=88 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    33: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=88 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    34: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=89 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+    35: &lt;TessLightCurve LABEL=&quot;TIC 261136679&quot; SECTOR=89 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">lc_collection</span></code> is a <code class="docutils literal notranslate"><span class="pre">LightCurveCollection</span></code> object, which is a list of <code class="docutils literal notranslate"><span class="pre">LightCurve</span></code> objects. Let’s inspect the first light curve in the collection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lc_collection</span><span class="p">:</span>
+    <span class="n">lc0</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lc0</span><span class="p">)</span>
+    <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No light curves found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2"> with the specified criteria.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       time             flux         flux_err       timecorr    ... mom_centr2_err   pos_corr1      pos_corr2   
+                    electron / s   electron / s        d        ...      pix            pix            pix      
+------------------ -------------- -------------- -------------- ... -------------- -------------- --------------
+1325.2969604950604  1.4641956e+06  1.3036719e+02  1.2319778e-03 ...  1.3968609e-04  9.0913408e-02 -7.2966635e-02
+1325.2983493645327  1.4643365e+06  1.3035809e+02  1.2319590e-03 ...  1.3961994e-04  6.2022530e-02 -1.0871942e-01
+ 1325.299738234005  1.4643485e+06  1.3035931e+02  1.2319401e-03 ...  1.3959571e-04  6.1673984e-02 -1.1394957e-01
+ 1325.301127103477  1.4643674e+06  1.3035008e+02  1.2319213e-03 ...  1.3958366e-04  6.0909923e-02 -1.2573890e-01
+1325.3025159730657  1.4642560e+06  1.3034836e+02  1.2319025e-03 ...  1.3952980e-04  5.3837594e-02 -1.2532526e-01
+ 1325.303904842538  1.4644681e+06  1.3035623e+02  1.2318837e-03 ...  1.3949080e-04  5.2977830e-02 -1.2562653e-01
+1325.3052937121265  1.4643586e+06  1.3035381e+02  1.2318649e-03 ...  1.3951714e-04  5.7222184e-02 -1.3051888e-01
+1325.3066825815986  1.4643564e+06  1.3035527e+02  1.2318461e-03 ...  1.3955019e-04  5.5443291e-02 -1.2712292e-01
+1325.3080714511873  1.4645452e+06  1.3035765e+02  1.2318273e-03 ...  1.3950600e-04  5.1877767e-02 -1.2947108e-01
+               ...            ...            ...            ... ...            ...            ...            ...
+1353.1645661947705  1.4646795e+06  1.3039951e+02  7.9329044e-04 ...  1.3953059e-04  5.5579260e-02 -1.1038263e-02
+1353.1659550506233  1.4649392e+06  1.3041254e+02  7.9325796e-04 ...  1.3956340e-04  6.0031198e-02 -1.2474478e-02
+ 1353.167343906477  1.4646214e+06  1.3039377e+02  7.9322548e-04 ...  1.3951116e-04  5.7689309e-02 -9.8480135e-03
+1353.1687327622717  1.4647834e+06  1.3040990e+02  7.9319294e-04 ...  1.3958018e-04  6.3572161e-02 -1.4975319e-02
+ 1353.170121618124  1.4644656e+06  1.3038603e+02  7.9316046e-04 ...  1.3954782e-04  5.4697301e-02 -3.3739604e-02
+1353.1715104739196  1.4647081e+06  1.3039996e+02  7.9312793e-04 ...  1.3949537e-04  5.7749905e-02 -1.5640877e-02
+1353.1728993297734  1.4646606e+06  1.3040236e+02  7.9309545e-04 ...  1.3958884e-04  6.7496188e-02 -1.1539744e-02
+1353.1742881855687  1.4648560e+06  1.3041582e+02  7.9306291e-04 ...  1.3948027e-04  6.1896853e-02  3.0782772e-03
+1353.1756770414217  1.4646049e+06  1.3039998e+02  7.9303043e-04 ...  1.3953699e-04  5.2571520e-02 -3.2142449e-02
+1353.1770658972157  1.4646141e+06  1.3040526e+02  7.9299789e-04 ...  1.3951387e-04  6.2483948e-02 -7.1828649e-04
+Length = 18279 rows
+</pre></div>
+</div>
+<img alt="../_images/d3dd8168c745c020ac3d4ae7d710eed9db263b9f5bdecc672a76855679890a93.png" src="../_images/d3dd8168c745c020ac3d4ae7d710eed9db263b9f5bdecc672a76855679890a93.png" />
+</div>
+</div>
+<p>The plot shows time on the x-axis and flux (usually <code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> by default for <code class="docutils literal notranslate"><span class="pre">lk.LightCurve</span></code> objects from SPOC) on the y-axis. You can specify which flux column to plot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lc_collection</span><span class="p">:</span>
+    <span class="c1"># lc0.plot(column=&#39;sap_flux&#39;, label=&#39;SAP Flux&#39;)</span>
+    <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;pdcsap_flux&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PDCSAP Flux&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e5dc600e58fae16d2c9bbe4fc2e66601834db4abd1c05d2a979c22ccb6479779.png" src="../_images/e5dc600e58fae16d2c9bbe4fc2e66601834db4abd1c05d2a979c22ccb6479779.png" />
+</div>
+</div>
+</section>
+<section id="working-with-light-curve-files-lcfs">
+<h2><span class="section-number">10.5. </span>5. Working with Light Curve Files (LCFs)<a class="headerlink" href="#working-with-light-curve-files-lcfs" title="Link to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">LightCurve</span></code> object has several useful attributes and methods.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.time</span></code>: Time values (often in BJD - Barycentric Julian Date).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.flux</span></code>: Flux values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.flux_err</span></code>: Errors on flux values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.quality</span></code>: Quality flags indicating potential issues with data points.</p></li>
+</ul>
+<section id="stitching-multiple-sectors-quarters">
+<h3><span class="section-number">10.5.1. </span>Stitching Multiple Sectors/Quarters<a class="headerlink" href="#stitching-multiple-sectors-quarters" title="Link to this heading">#</a></h3>
+<p>If your target was observed in multiple TESS sectors or Kepler quarters, <code class="docutils literal notranslate"><span class="pre">lc_collection.stitch()</span></code> can combine them. It’s often a good idea to normalize each segment before stitching to handle brightness offsets between them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
+    <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
+    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="o">.</span><span class="n">stitch</span><span class="p">(</span><span class="n">corrector_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">lc</span><span class="p">:</span> <span class="n">lc</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span>
+<span class="k">elif</span> <span class="n">lc_collection</span><span class="p">:</span> <span class="c1"># Only one sector/quarter</span>
+    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No light curves to stitch.&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;stitched_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">stitched_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">stitched_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Stitched &amp; Normalized Light Curve&quot;</span><span class="p">);</span>
+<span class="k">elif</span> <span class="n">lc_collection</span> <span class="ow">and</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Fallback if stitching failed or only one LC</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plotting first downloaded light curve (normalized and NaNs removed).&quot;</span><span class="p">)</span>
+    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span> <span class="c1"># Ensure stitched_lc exists for next steps</span>
+    <span class="n">stitched_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Single Sector Normalized Light Curve&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="o">.</span><span class="n">stitch</span><span class="p">(</span><span class="n">corrector_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">lc</span><span class="p">:</span> <span class="n">lc</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">elif</span> <span class="n">lc_collection</span><span class="p">:</span> <span class="c1"># Only one sector/quarter</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/lightkurve/collections.py:197,</span> in <span class="ni">LightCurveCollection.stitch</span><span class="nt">(self, corrector_func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span> <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>  <span class="c1"># ignore &quot;already normalized&quot; message</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;.*already.*&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">197</span>     <span class="n">lcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">corrector_func</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span> <span class="k">for</span> <span class="n">lc</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span> <span class="c1"># Address issue #954: ignore incompatible columns with the same name</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span> <span class="n">columns_to_remove</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/lightkurve/collections.py:197,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span> <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>  <span class="c1"># ignore &quot;already normalized&quot; message</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;.*already.*&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">197</span>     <span class="n">lcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">corrector_func</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span> <span class="k">for</span> <span class="n">lc</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span> <span class="c1"># Address issue #954: ignore incompatible columns with the same name</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span> <span class="n">columns_to_remove</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="nn">Cell In[9], line 4,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(lc)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="o">.</span><span class="n">stitch</span><span class="p">(</span><span class="n">corrector_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">lc</span><span class="p">:</span> <span class="n">lc</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">elif</span> <span class="n">lc_collection</span><span class="p">:</span> <span class="c1"># Only one sector/quarter</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/lightkurve/lightcurve.py:1123,</span> in <span class="ni">LightCurve.normalize</span><span class="nt">(self, unit)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1087</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Returns a normalized version of the light curve.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1088</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1089</span><span class="sd"> The normalized light curve is obtained by dividing the ``flux`` and</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1120</span><span class="sd">     from zero.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1121</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1122</span> <span class="n">validate_method</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;unscaled&quot;</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">,</span> <span class="s2">&quot;ppt&quot;</span><span class="p">,</span> <span class="s2">&quot;ppm&quot;</span><span class="p">])</span>
+<span class="ne">-&gt; </span><span class="mi">1123</span> <span class="n">median_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1124</span> <span class="n">std_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span> <span class="c1"># If the median flux is within half a standard deviation from zero, the</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span> <span class="c1"># light curve is likely zero-centered and normalization makes no sense.</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">nanmedian</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/units/quantity.py:1683,</span> in <span class="ni">Quantity.__array_function__</span><span class="nt">(self, function, types, args, kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="c1"># A function should be in one of the following sets or dicts:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="c1"># 1. SUBCLASS_SAFE_FUNCTIONS (set), if the numpy implementation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="c1">#    supports Quantity; we pass on to ndarray.__array_function__.</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1680</span> <span class="c1"># function is in none of the above, we simply call the numpy</span>
+<span class="g g-Whitespace">   </span><span class="mi">1681</span> <span class="c1"># implementation.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span> <span class="k">if</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">SUBCLASS_SAFE_FUNCTIONS</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1683</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__array_function__</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span> <span class="k">elif</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">FUNCTION_HELPERS</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1686</span>     <span class="n">function_helper</span> <span class="o">=</span> <span class="n">FUNCTION_HELPERS</span><span class="p">[</span><span class="n">function</span><span class="p">]</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/utils/masked/core.py:830,</span> in <span class="ni">MaskedNDArray.__array_function__</span><span class="nt">(self, function, types, args, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">828</span> <span class="n">dispatched_function</span> <span class="o">=</span> <span class="n">DISPATCHED_FUNCTIONS</span><span class="p">[</span><span class="n">function</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">829</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">830</span>     <span class="n">dispatched_result</span> <span class="o">=</span> <span class="n">dispatched_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">831</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_not_implemented_or_raise</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/utils/masked/function_helpers.py:973,</span> in <span class="ni">masked_nanfunc.&lt;locals&gt;.nanfunc</span><span class="nt">(a, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span>     <span class="k">if</span> <span class="n">fill_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>         <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">973</span> <span class="k">return</span> <span class="n">np_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">median</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/units/quantity.py:1683,</span> in <span class="ni">Quantity.__array_function__</span><span class="nt">(self, function, types, args, kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="c1"># A function should be in one of the following sets or dicts:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="c1"># 1. SUBCLASS_SAFE_FUNCTIONS (set), if the numpy implementation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="c1">#    supports Quantity; we pass on to ndarray.__array_function__.</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1680</span> <span class="c1"># function is in none of the above, we simply call the numpy</span>
+<span class="g g-Whitespace">   </span><span class="mi">1681</span> <span class="c1"># implementation.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span> <span class="k">if</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">SUBCLASS_SAFE_FUNCTIONS</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1683</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__array_function__</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span> <span class="k">elif</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">FUNCTION_HELPERS</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1686</span>     <span class="n">function_helper</span> <span class="o">=</span> <span class="n">FUNCTION_HELPERS</span><span class="p">[</span><span class="n">function</span><span class="p">]</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/utils/masked/core.py:830,</span> in <span class="ni">MaskedNDArray.__array_function__</span><span class="nt">(self, function, types, args, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">828</span> <span class="n">dispatched_function</span> <span class="o">=</span> <span class="n">DISPATCHED_FUNCTIONS</span><span class="p">[</span><span class="n">function</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">829</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">830</span>     <span class="n">dispatched_result</span> <span class="o">=</span> <span class="n">dispatched_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">831</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_not_implemented_or_raise</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/utils/masked/function_helpers.py:580,</span> in <span class="ni">median</span><span class="nt">(a, axis, out, overwrite_input, keepdims)</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Masked</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">580</span> <span class="n">r</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">function_base</span><span class="o">.</span><span class="n">_ureduce</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">a</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">_masked_median</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">overwrite_input</span><span class="o">=</span><span class="n">overwrite_input</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span> <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">if</span> <span class="n">keepdims</span> <span class="k">else</span> <span class="n">r</span><span class="p">)</span> <span class="k">if</span> <span class="n">out</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">out</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/units/quantity.py:1181,</span> in <span class="ni">Quantity.__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span> <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isscalar</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1181</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span>             <span class="s2">&quot;&#39;</span><span class="si">{cls}</span><span class="s2">&#39; object with a scalar value is not iterable&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span>             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1185</span>     <span class="c1"># Otherwise return a generator</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="k">def</span> <span class="nf">quantity_iter</span><span class="p">():</span>
+
+<span class="ne">TypeError</span>: &#39;MaskedQuantity&#39; object with a scalar value is not iterable
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-cleaning-with-quality-flags">
+<h3><span class="section-number">10.5.2. </span>Data Cleaning with Quality Flags<a class="headerlink" href="#data-cleaning-with-quality-flags" title="Link to this heading">#</a></h3>
+<p>Space telescope data often have quality flags indicating issues like cosmic ray hits, spacecraft manoeuvres, or bad pixels. <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> attempts to handle standard quality masking when loading data (especially for <code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> which often has NaNs where corrections failed).</p>
+<p>We’ve already used <code class="docutils literal notranslate"><span class="pre">remove_nans()</span></code> which is crucial for <code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code>. Another common step is sigma clipping for remaining outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;stitched_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">stitched_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Remove outliers using sigma clipping</span>
+    <span class="c1"># This removes points that are more than, e.g., 5 standard deviations from the median</span>
+    <span class="c1"># It&#39;s often better to do this after some initial detrending if strong systematics are present.</span>
+    <span class="n">cleaned_lc</span> <span class="o">=</span> <span class="n">stitched_lc</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points before sigma clipping: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stitched_lc</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points after sigma clipping: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cleaned_lc</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">cleaned_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cleaned &amp; Clipped Light Curve&quot;</span><span class="p">);</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stitched light curve not available for cleaning.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stitched light curve not available for cleaning.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalization-and-detrending">
+<h3><span class="section-number">10.5.3. </span>Normalization and Detrending<a class="headerlink" href="#normalization-and-detrending" title="Link to this heading">#</a></h3>
+<p><strong>Normalization</strong> typically means dividing the flux by its median (or mean) value, so the baseline flux is around 1.0. This is useful for comparing depths of transits or variability.
+<strong>Detrending</strong> aims to remove instrumental systematics or stellar activity trends that are not of primary interest (e.g., if you’re looking for transits, you might want to remove long-term stellar variability).</p>
+<p><code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> offers several detrending methods. A common one is <code class="docutils literal notranslate"><span class="pre">flatten()</span></code>, which applies a Savitzky-Golay filter to remove low-frequency variations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;cleaned_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">cleaned_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Our cleaned_lc is already normalized from the stitching step.</span>
+    <span class="c1"># If you started with a raw light curve: normalized_lc = raw_lc.normalize()</span>
+
+    <span class="c1"># Detrending with flatten</span>
+    <span class="c1"># window_length should be chosen carefully: odd number, typically several times larger than the event of interest (e.g., transit duration)</span>
+    <span class="c1"># but smaller than long-term trends you want to remove.</span>
+    <span class="c1"># For TESS 2-minute cadence data of π Mensae c (P ~ 6.27 days, transit duration ~3.2 hours):</span>
+    <span class="c1"># Transit duration in points: (3.2 hours * 60 min/hour) / 2 min/point = ~96 points.</span>
+    <span class="c1"># A window_length of e.g. 5 * 96 + 1 = 481 (must be odd) might be a starting point.</span>
+    <span class="c1"># This needs to be tuned based on the specific light curve and science goal.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">flat_lc</span> <span class="o">=</span> <span class="n">cleaned_lc</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">481</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">flat_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Flattened Light Curve&quot;</span><span class="p">);</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error during flatten: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. The light curve might be too short or have issues.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the cleaned (but not flattened) light curve for subsequent steps.&quot;</span><span class="p">)</span>
+        <span class="n">flat_lc</span> <span class="o">=</span> <span class="n">cleaned_lc</span> <span class="c1"># Fallback to unflattened if flatten fails</span>
+        <span class="n">flat_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cleaned (Unflattened) Light Curve&quot;</span><span class="p">);</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaned light curve not available for detrending.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaned light curve not available for detrending.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="working-with-target-pixel-files-tpfs-custom-photometry">
+<h2><span class="section-number">10.6. </span>6. Working with Target Pixel Files (TPFs) - Custom Photometry<a class="headerlink" href="#working-with-target-pixel-files-tpfs-custom-photometry" title="Link to this heading">#</a></h2>
+<p>If pre-processed light curves are not suitable (e.g., due to contamination from nearby stars, or if you want to experiment with different apertures), you can create your own light curve from TPF data.</p>
+<p>First, download a TPF. Let’s use the <code class="docutils literal notranslate"><span class="pre">search_tpf_result</span></code> from earlier and download one TPF for π Mensae.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll select the first TPF from the TESS SPOC pipeline results</span>
+<span class="n">tpf_search_spoc</span> <span class="o">=</span> <span class="n">search_tpf_result</span><span class="p">[(</span><span class="n">search_tpf_result</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="s2">&quot;SPOC&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">search_tpf_result</span><span class="o">.</span><span class="n">mission</span> <span class="o">==</span> <span class="s2">&quot;TESS&quot;</span><span class="p">)]</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tpf_search_spoc</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tpf_search_spoc</span><span class="p">)</span><span class="si">}</span><span class="s2"> TPFs. Downloading the first one.&quot;</span><span class="p">)</span>
+    <span class="n">tpf</span> <span class="o">=</span> <span class="n">tpf_search_spoc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+    <span class="n">tpf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="c1"># Plot the first frame of the TPF</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No TPFs found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2"> from TESS SPOC pipeline.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No TPFs found for pi Men from TESS SPOC pipeline.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The plot shows the pixel data. The red outline is the default pipeline aperture. You can define your own aperture interactively (in a Jupyter Notebook session by enabling <code class="docutils literal notranslate"><span class="pre">tpf.interact()</span></code>) or by creating a boolean mask programmatically.</p>
+<section id="creating-a-custom-aperture-mask">
+<h3><span class="section-number">10.6.1. </span>Creating a Custom Aperture Mask<a class="headerlink" href="#creating-a-custom-aperture-mask" title="Link to this heading">#</a></h3>
+<p>Let’s try to define a simple circular aperture or use a threshold mask. For this example, we’ll use the pipeline’s default aperture, which is often a good choice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;tpf&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">tpf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Using the pipeline-defined aperture mask</span>
+    <span class="n">pipeline_aperture</span> <span class="o">=</span> <span class="n">tpf</span><span class="o">.</span><span class="n">pipeline_mask</span>
+    <span class="n">tpf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aperture_mask</span><span class="o">=</span><span class="n">pipeline_aperture</span><span class="p">,</span> <span class="n">mask_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pipeline aperture mask sum (pixels): </span><span class="si">{</span><span class="n">pipeline_aperture</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># To create a custom threshold mask (alternative):</span>
+    <span class="c1"># custom_aperture = tpf.create_threshold_mask(threshold=5) # threshold in sigma above median</span>
+    <span class="c1"># tpf.plot(aperture_mask=custom_aperture, mask_color=&#39;blue&#39;);</span>
+    <span class="c1"># print(f&quot;Custom threshold aperture mask sum (pixels): {custom_aperture.sum()}&quot;)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TPF not available for aperture definition.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TPF not available for aperture definition.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="performing-aperture-photometry">
+<h3><span class="section-number">10.6.2. </span>Performing Aperture Photometry<a class="headerlink" href="#performing-aperture-photometry" title="Link to this heading">#</a></h3>
+<p>Once you have an aperture mask, you can extract the light curve using the <code class="docutils literal notranslate"><span class="pre">to_lightcurve()</span></code> method. This method will sum the flux within the aperture for each cadence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;tpf&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">tpf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;pipeline_aperture&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">pipeline_aperture</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">custom_lc_from_tpf</span> <span class="o">=</span> <span class="n">tpf</span><span class="o">.</span><span class="n">to_lightcurve</span><span class="p">(</span><span class="n">aperture_mask</span><span class="o">=</span><span class="n">pipeline_aperture</span><span class="p">)</span>
+    <span class="n">custom_lc_from_tpf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Light Curve from TPF (Pipeline Aperture)&quot;</span><span class="p">);</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TPF or suitable aperture mask not available for custom photometry.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TPF or suitable aperture mask not available for custom photometry.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This custom light curve is essentially a SAP (Simple Aperture Photometry) light curve. It will likely contain systematics from the instrument and spacecraft. You would then need to perform systematic correction (e.g., using <code class="docutils literal notranslate"><span class="pre">Regressors</span></code> in <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, or methods like CBV, PLD if you delve deeper). For simplicity, we’ll skip advanced custom systematic correction here and revert to using the PDCSAP flux from earlier (<code class="docutils literal notranslate"><span class="pre">flat_lc</span></code>) for the transit search example, as it has already undergone some systematic correction.</p>
+</section>
+</section>
+<section id="example-finding-a-transit">
+<h2><span class="section-number">10.7. </span>7. Example: Finding a Transit<a class="headerlink" href="#example-finding-a-transit" title="Link to this heading">#</a></h2>
+<p>Let’s take our flattened light curve (<code class="docutils literal notranslate"><span class="pre">flat_lc</span></code>) derived from the pre-processed PDCSAP data and see if we can spot the known transit of π Mensae c (Period ~6.27 days, Duration ~3.2 hours).</p>
+<p>First, let’s phase-fold the light curve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;flat_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">flat_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">flat_lc</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># Known parameters for pi Men c (from NASA Exoplanet Archive or literature)</span>
+    <span class="n">period_pi_men_c</span> <span class="o">=</span> <span class="mf">6.26835</span> <span class="c1"># days</span>
+    <span class="n">t0_pi_men_c</span> <span class="o">=</span> <span class="mf">2458353.4626</span> <span class="c1"># BJD, example epoch of transit center</span>
+
+    <span class="c1"># Phase fold the light curve</span>
+    <span class="n">folded_lc</span> <span class="o">=</span> <span class="n">flat_lc</span><span class="o">.</span><span class="n">fold</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="n">period_pi_men_c</span><span class="p">,</span> <span class="n">epoch_time</span><span class="o">=</span><span class="n">t0_pi_men_c</span><span class="p">)</span>
+    <span class="n">folded_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Folded on P=</span><span class="si">{</span><span class="n">period_pi_men_c</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> d&quot;</span><span class="p">);</span>
+
+    <span class="c1"># To see the transit more clearly, you might want to bin the folded data</span>
+    <span class="n">binned_folded_lc</span> <span class="o">=</span> <span class="n">folded_lc</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="n">time_bin_size</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span> <span class="c1"># Bin size in phase units (e.g., 0.005 is 1/200th of the period)</span>
+    <span class="n">binned_folded_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Binned &amp; Folded (P=</span><span class="si">{</span><span class="n">period_pi_men_c</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> d)&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="c1"># Zoom in on the transit at phase 0</span>
+    <span class="c1"># Pi Men c transit depth is ~550 ppm = 0.00055 in normalized flux</span>
+    <span class="c1"># So, out-of-transit is 1.0, in-transit minimum is ~1.0 - 0.00055 = 0.99945</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.9990</span><span class="p">,</span> <span class="mf">1.0010</span><span class="p">)</span> <span class="c1"># Adjust y-limits based on expected transit depth</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase-folded light curve of </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flattened light curve not available or is empty for folding.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flattened light curve not available or is empty for folding.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This plot should show the characteristic dip of an exoplanet transit around phase 0, assuming the period, T0, and detrending were appropriate. The depth of π Men c is very small (~550 ppm or 0.055%), so it requires good quality data and careful processing. You might need to adjust <code class="docutils literal notranslate"><span class="pre">window_length</span></code> in <code class="docutils literal notranslate"><span class="pre">flatten</span></code> or try other detrending to see it clearly, or it may be more apparent in certain TESS sectors than others.</p>
+</section>
+<section id="saving-your-reduced-light-curve">
+<h2><span class="section-number">10.8. </span>8. Saving Your Reduced Light Curve<a class="headerlink" href="#saving-your-reduced-light-curve" title="Link to this heading">#</a></h2>
+<p>Once you have a processed light curve that you’re happy with (e.g., <code class="docutils literal notranslate"><span class="pre">flat_lc</span></code> or <code class="docutils literal notranslate"><span class="pre">folded_lc</span></code>), you can save it to a file. Common formats include CSV or FITS.</p>
+<p><strong>Note for Google Colab users:</strong> Files saved this way will be stored in the temporary Colab environment. To save them permanently, you’ll need to download them to your local machine or mount your Google Drive and save them there. You can find downloaded files in the file browser panel in Colab (usually on the left sidebar) and right-click to download.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;flat_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">flat_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">flat_lc</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># Save the time-series (flattened) light curve as CSV</span>
+    <span class="c1"># Using .to_pandas() to select specific columns and then .to_csv()</span>
+    <span class="n">output_filename_csv</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target_star</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_flat_lightcurve.csv&quot;</span>
+    <span class="n">flat_lc</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_filename_csv</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flattened light curve saved as: </span><span class="si">{</span><span class="n">output_filename_csv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># Display the first few lines by reading it back (optional)</span>
+    <span class="c1"># import pandas as pd</span>
+    <span class="c1"># print(pd.read_csv(output_filename_csv).head())</span>
+
+    <span class="c1"># Save as FITS (Lightkurve&#39;s default format includes more metadata)</span>
+    <span class="n">output_filename_fits</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target_star</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_flat_lightcurve.fits&quot;</span>
+    <span class="n">flat_lc</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_filename_fits</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flattened light curve saved as: </span><span class="si">{</span><span class="n">output_filename_fits</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># If using Google Colab and want to trigger a download for the CSV:</span>
+    <span class="c1"># from google.colab import files</span>
+    <span class="c1"># files.download(output_filename_csv)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No processed light curve to save.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No processed light curve to save.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion-and-further-steps">
+<h2><span class="section-number">10.9. </span>9. Conclusion and Further Steps<a class="headerlink" href="#conclusion-and-further-steps" title="Link to this heading">#</a></h2>
+<p>Congratulations! You’ve learned the basics of:</p>
+<ul class="simple">
+<li><p>Searching for data from space telescopes like TESS and Kepler using <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>.</p></li>
+<li><p>Understanding the difference between Light Curve Files (LCFs) and Target Pixel Files (TPFs).</p></li>
+<li><p>Downloading and plotting light curves.</p></li>
+<li><p>Performing essential data reduction steps: cleaning, normalization, and detrending.</p></li>
+<li><p>Extracting a custom light curve from TPF data (basic aperture photometry).</p></li>
+<li><p>Phase-folding a light curve to look for periodic signals like exoplanet transits.</p></li>
+<li><p>Saving your processed light curve, with considerations for online IDEs.</p></li>
+</ul>
+<p><strong>Further Steps for Your Research:</strong></p>
+<ul class="simple">
+<li><p><strong>Advanced Detrending:</strong> Explore more sophisticated detrending techniques (e.g., Gaussian Processes, Cotrending Basis Vectors - CBVs, Pixel Level Decorrelation - PLD) if simple methods are insufficient.</p></li>
+<li><p><strong>Period Finding:</strong> If the period of a signal is unknown, use period-finding algorithms (e.g., Box Least Squares for transits, Lomb-Scargle periodogram for stellar oscillations) available in <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> or <code class="docutils literal notranslate"><span class="pre">astropy.timeseries</span></code>.</p></li>
+<li><p><strong>Transit Modeling:</strong> If you find a transit, you can model its shape to determine planetary parameters (radius, inclination, etc.) using packages like <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code>, <code class="docutils literal notranslate"><span class="pre">batman</span></code>, or <code class="docutils literal notranslate"><span class="pre">PyTransit</span></code>.</p></li>
+<li><p><strong>Systematics Mitigation:</strong> Deep dive into understanding and mitigating instrumental systematics specific to the mission you are working with.</p></li>
+<li><p><strong>Consult Documentation:</strong> The <a class="reference external" href="https://docs.lightkurve.org">Lightkurve documentation</a> is an excellent resource with many tutorials and API references.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tutorial_AIJ_LightCurve.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-mast-and-lightkurve">10.1. 1. Introduction to MAST and Lightkurve</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mast">10.1.1. What is MAST?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-lightkurve">10.1.2. What is Lightkurve?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">10.2. 2. Setting up Your Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">10.3. 3. Searching for Data on MAST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">10.4. 4. Understanding Data Products and Downloading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">10.5. 5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stitching-multiple-sectors-quarters">10.5.1. Stitching Multiple Sectors/Quarters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">10.5.2. Data Cleaning with Quality Flags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">10.5.3. Normalization and Detrending</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-target-pixel-files-tpfs-custom-photometry">10.6. 6. Working with Target Pixel Files (TPFs) - Custom Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-aperture-mask">10.6.1. Creating a Custom Aperture Mask</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">10.6.2. Performing Aperture Photometry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-a-transit">10.7. 7. Example: Finding a Transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">10.8. 8. Saving Your Reduced Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">10.9. 9. Conclusion and Further Steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

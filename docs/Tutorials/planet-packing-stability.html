@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,52 +14,50 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mycss.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -68,12 +65,16 @@
                 gtag('js', new Date());
                 gtag('config', 'G-8VDVRMR2BH');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/planet-packing-stability';</script>
@@ -91,19 +92,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -125,12 +130,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -145,6 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../home.html">
@@ -153,10 +169,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Exoplanets within Binary Systems</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -171,16 +199,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="current nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Planet Packing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
 </ul>
 
     </div>
@@ -196,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -205,14 +242,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -237,14 +274,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/planet-packing-stability.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -255,14 +292,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/planet-packing-stability.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -369,26 +406,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -427,10 +466,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="planet-packing">
-<h1><span class="section-number">4. </span>Planet Packing<a class="headerlink" href="#planet-packing" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Planet Packing<a class="headerlink" href="#planet-packing" title="Link to this heading">#</a></h1>
 <p>Gravity is a long-range force/effect that attracts all bodies with mass to each other.  If one considers two masses (<span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>) on nearby orbits around a central body <span class="math notranslate nohighlight">\((m_o;\ m_1\ll m_o\ \&amp;\ m_2\ll m_o)\)</span>, then it is expected that each mass will <strong>perturb</strong> the other mass’ orbit causing it to either speed up or slow down a little.  However, if one body is substantially more massive or close enough, then the lower mass body can be scattered to a wide/eccentric orbit or escape the central body altogether.  Through numerical experiments involving scattering, it leads to a seemingly simple question:</p>
 <ul class="simple">
 <li><p>How close can two (or more) planets be separated such that scattering does not occur?</p></li>
@@ -443,7 +482,7 @@ document.write(`
 <li><p>Will our choice of initial orbital elements bias the potential outcomes?  If so, how to overcome this bias?</p></li>
 </ol>
 <section id="stellar-lifetimes-as-a-constraint-on-stability">
-<h2><span class="section-number">4.1. </span>Stellar lifetimes as a constraint on stability<a class="headerlink" href="#stellar-lifetimes-as-a-constraint-on-stability" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Stellar lifetimes as a constraint on stability<a class="headerlink" href="#stellar-lifetimes-as-a-constraint-on-stability" title="Link to this heading">#</a></h2>
 <p>Orbital stability often goes undefined, even though it can have multiple meanings.  Typically, it implies that a mass will remain on a <em>bound</em> orbit indefinitely (i.e., <strong>Lagrange stability</strong>; see <a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4357/acac1e">Hayashi et al. (2023)</a> or <a class="reference external" href="https://iopscience.iop.org/article/10.1086/507521/pdf">Barnes &amp; Greenberg (2006)</a>).  Using <em>indefinitely</em> as a timescale is not practical.  Scattering events can also transport a mass to a wider orbit without fully expelling the mass from the system.  To address the potential for scattering events, please review <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/three-body-stability.html#updating-the-standard-stability-formulae">updating the standard stability formulae</a> in the previous section.  Otherwise, we look to natural constraints on time to arrive at a more practical definition for stability.</p>
 <p>One natural constraint on the timescale for stability is the lifetime of the system.  To judge the lifetime of a system, we can look to astrophysics and the lifetimes of stars.  Consider the stability of the Solar System, where we might define it to be stable if <em>the planets remain on bound orbits for <span class="math notranslate nohighlight">\({\sim}10\ {\rm Gyr}\)</span></em>, or the main-sequence lifetime of a typical <span class="math notranslate nohighlight">\(\rm G2V\)</span> star.  Even this definition has problems because the planet Mercury has a some probability of undergoing an instability (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Natur.459..817L/abstract">Laskar &amp; Gastineau (2009)</a>) within the remainder of the Sun’s main-sequence lifetime.</p>
 <p><strong>If Mercury is expelled from the Solar System, does that make the <em>whole</em> system unstable?</strong></p>
@@ -457,21 +496,21 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 </div></section>
 <section id="scaling-a-planetary-system-using-the-hill-radius">
-<h2><span class="section-number">4.2. </span>Scaling a planetary system using the Hill Radius<a class="headerlink" href="#scaling-a-planetary-system-using-the-hill-radius" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Scaling a planetary system using the Hill Radius<a class="headerlink" href="#scaling-a-planetary-system-using-the-hill-radius" title="Link to this heading">#</a></h2>
 <section id="from-lagrange-points-to-the-hill-radius">
-<h3><span class="section-number">4.2.1. </span>From Lagrange points to the Hill radius<a class="headerlink" href="#from-lagrange-points-to-the-hill-radius" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>From Lagrange points to the Hill radius<a class="headerlink" href="#from-lagrange-points-to-the-hill-radius" title="Link to this heading">#</a></h3>
 <p>In the three-body problem, the relative gravitational influence on a third body can be determined in which there are five special locations called the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_point">Lagrange points</a>.  These points define extrema in the gravitational potential, where the <strong>net</strong> gravitational force on the third body vanishes.  Additionally, they correspond to high and low topological levels of pseudopotential <span class="math notranslate nohighlight">\(U\)</span>.  This pseudopotential exists within a rotated reference frame, where two massive bodies appear at fixed locations and a third body reacts to the presence of the massive primaries.</p>
 <p>Consider two massive primaries lying along the <span class="math notranslate nohighlight">\(x\)</span>-axis of a reference coordinate system with the center of mass (barycenter) at the origin.  Since the barycenter lies at the origin, then the center of mass can be determined using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf3f0668-33bc-40a9-9ee6-ff51b8b9b7a3">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-cf3f0668-33bc-40a9-9ee6-ff51b8b9b7a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-878112d5-1fcb-4d72-b141-90d922833feb">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-878112d5-1fcb-4d72-b141-90d922833feb" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp;= m_o x_o + m_1 x_1, \qquad {\rm where}\ m_o &gt; m_1;\\
 a_{\rm bin} &amp;= |x_o| + |x_1|, \\
 x_o &amp;= -\frac{m_1}{m_o+m_1}a_{\rm bin}, \\
 x_o &amp;= -\mu a_{\rm bin}, \quad {\rm and}\quad x_1 = (1-\mu)a_{\rm bin}.
 \end{align}\]</div>
 <p>Two intermediate constants: the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span> and mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> are introduced to simplify the notation, but they also provide a convenient means to scale the problem.  The above analysis can be extended into two dimensions using the pseudopotential <span class="math notranslate nohighlight">\(U\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc983442-016a-4e83-b164-61d0c8b5880a">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-cc983442-016a-4e83-b164-61d0c8b5880a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b331ee09-d7eb-45ec-bb3c-e621474b2624">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-b331ee09-d7eb-45ec-bb3c-e621474b2624" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(x,y) &amp; = \frac{1-\mu}{r_o} + \frac{\mu}{r_1} + \frac{n^2}{2}\left(x^2+y^2\right), \\
 r_o &amp;= \sqrt{(x+\mu)^2 + y^2}, \\
 r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
@@ -482,8 +521,8 @@ r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
 <p>The coordinates in the pseudopotential are also scaled by the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>.  In these coordinates, the mean motion <span class="math notranslate nohighlight">\(n = 1\)</span>.  If you want to express everything in non-scaled coordinates, the <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\((1-\mu)\)</span> need to be replaced with <span class="math notranslate nohighlight">\(x_o\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, respectively.</p>
 </div>
 <p>Taking the partial derivatives of the pseudopotential <span class="math notranslate nohighlight">\(U\)</span> leads to deriving the forces within the rotated coordinate system (i.e., <span class="math notranslate nohighlight">\(F = -\nabla U\)</span>).  Integrating the full equations of motion derived from the pseudopotential leads to the <a class="reference external" href="https://en.wikipedia.org/wiki/Jacobi_integral">Jacobi Integral</a> and the associated constant of motion, the Jacobi constant <span class="math notranslate nohighlight">\(C_J\)</span>.  The Jacobi constant is given mathematically as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-81f173e9-343a-4213-80ee-f6b73c099e03">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-81f173e9-343a-4213-80ee-f6b73c099e03" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa2b0801-ded9-4248-b717-860686ce4b76">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-fa2b0801-ded9-4248-b717-860686ce4b76" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_J = 2U - v^2,
 \end{align}\]</div>
 <p>which is similar in appearance to an energy relation.  It is not because we are considering the restricted problem (<span class="math notranslate nohighlight">\(m_2\ll m_1 &lt; m_o\)</span>), where energy and angular momentum aren’t conserved.</p>
@@ -629,13 +668,13 @@ C_J = 2U - v^2,
 </div>
 </div>
 <p>The appearance of the contours change with the mass ratio, which can be seen below if we consider the Sun-Earth system instead.  The inset panel zooms in on the region around the Earth and is scaled using the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  The Hill radius is defined using the mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> and the binary separation <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-943cfa51-c00e-4e7d-b9aa-f85455317f60">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-943cfa51-c00e-4e7d-b9aa-f85455317f60" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c50a1e04-a086-48da-94db-e19a70789c2a">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-c50a1e04-a086-48da-94db-e19a70789c2a" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_H = a_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}.
 \end{align}\]</div>
 <p>Note that this definition is the result of an <em>approximation</em> that assumes circular orbits, where an additional term <span class="math notranslate nohighlight">\((1-e_{\rm bin})\)</span> would be necessary if the binary orbit were elliptical.  The definition effectively becomes</p>
 <div class="math notranslate nohighlight" id="equation-min-rh">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-min-rh" title="Permalink to this equation">#</a></span>\[\begin{split}R_H &amp;\approx q_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}, \\
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-min-rh" title="Link to this equation">#</a></span>\[\begin{split}R_H &amp;\approx q_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}, \\
 q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -717,34 +756,35 @@ q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).\end{split}\]</div>
 </div>
 </div>
 <p>The squashing in the vertical (see panel inset) is even more obvious in this regime.  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a> shows using numerical simulations that the orbital stability of satellites are limited to <span class="math notranslate nohighlight">\({\sim}0.4\ R_H\)</span> for a host planet on a circular orbit.  The stability decreases as the host planet’s orbit is more eccentric, as we may naively expect from Eqn. <a class="reference internal" href="#equation-min-rh">(4.5)</a>.  The orbital stability formula for prograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a>) and retrograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021AJ....162...58Q/abstract">Quarles et al. (2021)</a>) are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f68b05c-ccd7-4a13-89ce-eb0b7a59b775">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-4f68b05c-ccd7-4a13-89ce-eb0b7a59b775" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ad0f08f6-56a0-4d5f-bb97-05b5d078d2c2">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-ad0f08f6-56a0-4d5f-bb97-05b5d078d2c2" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_{\rm crit}(R_H) &amp;= 0.4061(1 - 1.1257e_p), \qquad &amp;{\rm (prograde)} \\
 a_{\rm crit}(R_H) &amp;= 0.668(1 - 1.236e_p). \qquad &amp;{\rm (retrograde)}
 \end{align}\]</div>
 <p>The above formula demonstrate that <em>general</em> expressions for orbital stability are possible that <strong>scale</strong> with the observationally measurable parameters.  Typical observations can determine the <strong>semimajor axis</strong> through either photometric modeling or analysis using the measured radial velocity curve.  If the system is favorable (i.e., edge on), then the <strong>masses</strong> can also be determined and with many more observations, the eccentricity can be estimated.  The Hill radius directly depends on the semimajor axis and masses, <span class="math notranslate nohighlight">\(R_H = a_{\rm bin}(\mu/3)^{1/3}\)</span>.</p>
 </section>
 <section id="mutual-hill-radius-and-scaling">
-<h3><span class="section-number">4.2.2. </span>Mutual Hill radius and scaling<a class="headerlink" href="#mutual-hill-radius-and-scaling" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Mutual Hill radius and scaling<a class="headerlink" href="#mutual-hill-radius-and-scaling" title="Link to this heading">#</a></h3>
 <p>The Hill radius is strictly defined for a three body system, but can the idea be expanded to include systems of multiple planets.  One of the first papers to investigate this idea with a specific application comes from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>.  There were previous works  in the 1980s that use <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_topology">algebraic topology</a> to characterize orbits using their energy and angular momentum (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982CeMec..26..311M/abstract">Marchal &amp; Bozis (1982)</a>).  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> wanted to apply the earlier works towards the problem of two nearby planets orbiting a single star.</p>
 <p>This first section is following the notation given in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>, but we should be bound by notation.  If you review the literature that stems from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>, you’ll find that there isn’t a consistent notation that everyone agrees to use anyway.</p>
 <p>The central body (i.e., host star) has a mass <span class="math notranslate nohighlight">\(m_3\)</span>, which is orbited by two planets on concentric orbits with masses <span class="math notranslate nohighlight">\(m_1\)</span> (inner orbit) and <span class="math notranslate nohighlight">\(m_2\)</span> (outer orbit).  The semimajor axis of the inner orbit <span class="math notranslate nohighlight">\(a_1 = 1\)</span>.  If you scale the problem by this inner orbit, it will also be equal to unity while the outer orbit <span class="math notranslate nohighlight">\(a_2\)</span> will be some (real) multiple of the inner orbit (e.g., <span class="math notranslate nohighlight">\(a_2 = 1.5 a_1\)</span>).  The planets begin with a differential initial longitude of <span class="math notranslate nohighlight">\(180^\circ\)</span> (<span class="math notranslate nohighlight">\(\delta f = f_2 - f_1 = 180^\circ\)</span>).</p>
 <figure class="align-default" id="gladman-setup">
-<a class="reference internal image-reference" href="../_images/Gladman_Fig01.png"><img alt="Gladman setup" src="../_images/Gladman_Fig01.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/Gladman_Fig01.png"><img alt="Gladman setup" src="../_images/Gladman_Fig01.png" style="width: 400px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Initial setup used to define the initial separation <span class="math notranslate nohighlight">\(\Delta\)</span> (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>).</span><a class="headerlink" href="#gladman-setup" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Initial setup used to define the initial separation <span class="math notranslate nohighlight">\(\Delta\)</span> (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a>).</span><a class="headerlink" href="#gladman-setup" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Figure <a class="reference internal" href="#gladman-setup"><span class="std std-numref">4.1</span></a> illustrates that we can then parametrize the initial separation of orbits using <span class="math notranslate nohighlight">\(\Delta = a_2 - a_1\)</span>, or <span class="math notranslate nohighlight">\(a_2 = 1 + \Delta\)</span> in normalized units.  Through another transformation, the separation <span class="math notranslate nohighlight">\(\Delta\)</span> can be written in terms of Hill’s coordinates (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986CeMec..38...67H/abstract">Henon &amp; Petit (1986)</a>), which scale with the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  If we normalize with respect to the Hill radius, then we define</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a28950d2-685d-47c1-bec1-529e3d096ae2">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-a28950d2-685d-47c1-bec1-529e3d096ae2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-159c55b0-8b3f-4111-b147-e9a7ff7a644d">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-159c55b0-8b3f-4111-b147-e9a7ff7a644d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Delta_H &amp;= \frac{a_2 - a_1}{R_H}.
 \end{align}\]</div>
 <p>The above expression appears straightforward if you assume that <span class="math notranslate nohighlight">\(R_H\)</span> describes the Hill radius of <span class="math notranslate nohighlight">\(m_1\)</span>.  Then <span class="math notranslate nohighlight">\(\Delta_H\)</span> is describing the separation between the two orbits <strong>in units of <span class="math notranslate nohighlight">\(R_H\)</span></strong>.  However, it’s not as clear once you expand to more than two planets or if you want to vary the planetary masses.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> does show a critical value of <span class="math notranslate nohighlight">\(\mathbf{\Delta_H = 2\sqrt{3}}\)</span> for two planets on <em>initially circular</em> orbits.  This is not a bad assumption if you consider arguments from planet formation where it is expected that the planetary eccentricity could be significantly damped due to drag forces within the protoplanetary disk resulting in near circular orbits.</p>
 <p>A few years later, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996Icar..119..261C/abstract">Chambers et al. (1996)</a> take a slightly different approach by defining the mutual Hill radius.  The mutual Hill radius uses the total mass interior to the <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet’s orbit <span class="math notranslate nohighlight">\(M_j\)</span> and the average semimajor axis of the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> and <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet.  Mathematically, this is expressed as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da875853-49b5-4e48-a6c4-6315aabf2b0d">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-da875853-49b5-4e48-a6c4-6315aabf2b0d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c3b1c6ea-0fa0-415b-8fa8-dc84274e114b">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-c3b1c6ea-0fa0-415b-8fa8-dc84274e114b" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_{H_{j,j+1}} &amp;= \frac{a_j + a_{j+1}}{2} \left[ \frac{m_j+m_{j+1}}{3M_j} \right]^{1/3}, \\
 M_j &amp;= \sum_{j=1}^j m_j.
 \end{align}\]</div>
@@ -754,8 +794,8 @@ M_j &amp;= \sum_{j=1}^j m_j.
 <p>The symbol representing the Hill spacing <span class="math notranslate nohighlight">\(\Delta_H\)</span> varies among different authors, where <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ApJ...807...44P/abstract">Pu &amp; Wu (2015)</a> use <span class="math notranslate nohighlight">\(K\)</span> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> use <span class="math notranslate nohighlight">\(\beta\)</span>.  For consistency here, <span class="math notranslate nohighlight">\(\Delta_H\)</span> is used.</p>
 </div>
 <p>The explicit formula to define <span class="math notranslate nohighlight">\(a_k\)</span>, the semimajor axis of the <span class="math notranslate nohighlight">\(k^{\rm th}\)</span> planet, is given as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90f63b22-2f42-4474-a840-11d15f1e0709">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-90f63b22-2f42-4474-a840-11d15f1e0709" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-85403987-a428-4341-bd8e-0b5da89e635e">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-85403987-a428-4341-bd8e-0b5da89e635e" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_k &amp;= a_j \left[\frac{1+\Delta_H X}{1-\Delta_H X} \right]^{k-j}, \\
 X &amp;= \frac{1}{2}\left(\frac{m_j+m_{k}}{3M_j} \right)^{1/3},
 \end{align}\]</div>
@@ -809,7 +849,7 @@ X &amp;= \frac{1}{2}\left(\frac{m_j+m_{k}}{3M_j} \right)^{1/3},
 </section>
 </section>
 <section id="the-golden-ratio-to-debias-the-initial-orbital-phase">
-<h2><span class="section-number">4.3. </span>The Golden ratio to debias the initial orbital phase<a class="headerlink" href="#the-golden-ratio-to-debias-the-initial-orbital-phase" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>The Golden ratio to debias the initial orbital phase<a class="headerlink" href="#the-golden-ratio-to-debias-the-initial-orbital-phase" title="Link to this heading">#</a></h2>
 <p>The setup from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> starts the two planets at opposition.  This is not a completely arbitrary choice for the initial phase of the orbits.  There are two processes at play over the first few orbits: <strong>a)</strong> interplanetary perturbation through gravity and <strong>b)</strong> differences in mean motion.</p>
 <p>Suppose we started both planets from circular orbits with the same true anomaly <span class="math notranslate nohighlight">\(f=0^\circ\)</span> (i.e., <strong>opposition</strong>).  The inner planet would begin its orbit not with the single dominant force from the host star, but with a significant perturbation from the outer planet (due to the close <em>relative</em> proximity).  The force from the host star is still larger due to the stellar mass, but the outer planet is leveraging its closer proximity to make up for its much lower mass.  We could start the planets a slightly different true anomalies to account for this initial bias in forcing, where the mitigation of this bias appears to be achieved at <strong>conjunction</strong> (i.e., differential true anomaly <span class="math notranslate nohighlight">\(\Delta f = 180^\circ\)</span>).</p>
 <p>The above argument is only half of the story.  From <a class="reference external" href="https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion">Kepler’s third law</a> of planetary motion, the orbital period of a planet with a square proportionally with the planetary semimajor axis cubed (<span class="math notranslate nohighlight">\(T_p^2 \propto a_p^3\)</span>).  The mean motion <span class="math notranslate nohighlight">\(n\)</span> is simply converting the orbital period into an orbital frequency (e.g., <span class="math notranslate nohighlight">\(n = 2\pi/T_p\)</span>).  Each planet orbits with a different frequency, where more distant planets have a lower frequency.</p>
@@ -838,25 +878,25 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 </div>
 <p>Since our goal is to avoid orbital resonances (i.e., rational numbers), we must seek out an irrational number.  The most irrational number is the <a class="reference external" href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a> <span class="math notranslate nohighlight">\(\varphi\)</span>, which can ironically be represented by ratios:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59e86e5a-9e24-4cc0-ab11-370e269a8ab8">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-59e86e5a-9e24-4cc0-ab11-370e269a8ab8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-73e13c99-63af-4c02-ad32-5cc01775e6c1">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-73e13c99-63af-4c02-ad32-5cc01775e6c1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \varphi = \frac{1 + \sqrt{5}}{2} = 1.618033988749\ldots, \\
 \varphi^{-1} = \varphi - 1 = 0.618033988749\ldots,
 \end{align}\]</div>
 <p>and can be related to <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018AJ....155..130Q/abstract">Quarles &amp; Lissauer (2018)</a> use the golden ratio to initialize the orbits of multiple planet systems.  This is done simply by taking integer multiples of <span class="math notranslate nohighlight">\(\phi\)</span> to define the initial mean/true anomaly for the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> planet.  Mathematically, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12a0c8a4-396c-49a1-802d-7cd867cc7d51">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-12a0c8a4-396c-49a1-802d-7cd867cc7d51" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-96cdcf80-52f6-4155-a71f-0420243ca794">
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-96cdcf80-52f6-4155-a71f-0420243ca794" title="Permalink to this equation">#</a></span>\[\begin{align}
 f_j = (j\varphi \cdot 360^\circ) \mod 360^\circ,\ \qquad (j\geq 1)
 \end{align}\]</div>
 <p>where the <span class="math notranslate nohighlight">\({\rm mod}\)</span> operator refers to the <a class="reference external" href="https://en.wikipedia.org/wiki/Modulo">modulo</a> that returns the remainder to keep the result within the bounds of <span class="math notranslate nohighlight">\(0-360^\circ\)</span>.  To convert the above scheme into radians, simply replace <span class="math notranslate nohighlight">\(360^\circ\)</span> with <span class="math notranslate nohighlight">\(2\pi\)</span>.</p>
 </section>
 <section id="a-sample-simulation">
-<h2><span class="section-number">4.4. </span>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Link to this heading">#</a></h2>
 <p>Let’s create a Solar System analog that contains a solar-mass star, Jupiter-mass planet, and 3 Earth-mass planets.  The Jupiter-mass planet is an analog to Jupiter in our Solar System, where it has a semimajor axis <span class="math notranslate nohighlight">\((a_J = 5.2\ AU)\)</span> and eccentricity <span class="math notranslate nohighlight">\((e_J \approx 0.05)\)</span> similar to Jupiter’s current orbit.  The three Earth-mass planets will be added using our rules described above for planet packing (i.e., initially spaced using their mutual Hill radius and arranged using the golden ratio) and beginning on circular orbits.</p>
 <p>The first Earth-mass planet begins at <span class="math notranslate nohighlight">\(1\ {\rm AU}\)</span>, and the other two planets have initial semimajor axes that have <span class="math notranslate nohighlight">\(\Delta_H = 10\)</span>.  This could be calculated by-hand, but we create a function (<code class="docutils literal notranslate"><span class="pre">get_semi</span></code>) below given the indices of the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> and <span class="math notranslate nohighlight">\(k^{\rm th}\)</span> planets, which makes it light work.  As a result, we have <span class="math notranslate nohighlight">\(a_j\)</span> for each planet as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8d80f56-38fa-4f90-87dd-05079ce367a7">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-e8d80f56-38fa-4f90-87dd-05079ce367a7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-96168796-3244-4047-bcac-3b3b15d9cc73">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-96168796-3244-4047-bcac-3b3b15d9cc73" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_1 &amp;= 1\ {\rm AU}, \\
 a_2 &amp;= 1.1345\ {\rm AU}, \\
 a_3 &amp;= 1.2871\ {\rm AU}, \\
@@ -1040,7 +1080,7 @@ a_4 &amp;= 5.2\ {\rm AU}.
 </div>
 </section>
 <section id="references">
-<h2><span class="section-number">4.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://iopscience.iop.org/article/10.1086/507521/pdf">Barnes &amp; Greenberg (2006)</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996Icar..119..261C/abstract">Chambers et al. (1996)</a></p></li>
@@ -1090,11 +1130,10 @@ a_4 &amp;= 5.2\ {\rm AU}.
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="three-body-stability.html"
@@ -1114,10 +1153,7 @@ a_4 &amp;= 5.2\ {\rm AU}.
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1125,6 +1161,7 @@ a_4 &amp;= 5.2\ {\rm AU}.
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1162,9 +1199,10 @@ By Billy Quarles
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1188,8 +1226,8 @@ By Billy Quarles
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

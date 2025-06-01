@@ -8,15 +8,24 @@ parts:
   chapters:
   - file: Preamble/who-for
   - file: Preamble/cite-reuse
-- caption: Tutorials
+- caption: Introduction
   numbered: true
   chapters:
   - file: Tutorials/intro-alpha-centauri.ipynb
   - file: Tutorials/nbody-integration.ipynb
   - file: Tutorials/three-body-stability.ipynb
+- caption: Applications
+  numbered: true
+  chapters:
   - file: Tutorials/planet-packing-stability.ipynb
   - file: Tutorials/forced-eccentricity.ipynb
   - file: Tutorials/obliquity-evolution.ipynb
   - file: Tutorials/intro-climlab.ipynb
   - file: Tutorials/intro-genga.ipynb
+- caption: Observations
+  numbered: true
+  chapters:
+  - file: Tutorials/research-log.ipynb
+  - file: Tutorials/AIJ-lightcurve.ipynb
+  - file: Tutorials/archival-data.ipynb
 

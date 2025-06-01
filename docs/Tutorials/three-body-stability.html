@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,52 +14,50 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mycss.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -68,12 +65,16 @@
                 gtag('js', new Date());
                 gtag('config', 'G-8VDVRMR2BH');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/three-body-stability';</script>
@@ -91,19 +92,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -125,12 +130,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -145,6 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../home.html">
@@ -153,10 +169,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Exoplanets within Binary Systems</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -171,16 +199,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
 </ul>
 
     </div>
@@ -196,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -205,14 +242,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -237,14 +274,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/three-body-stability.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -255,14 +292,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/three-body-stability.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -369,26 +406,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -426,12 +465,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="three-body-stability">
-<h1><span class="section-number">3. </span>Three-body Stability<a class="headerlink" href="#three-body-stability" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Three-body Stability<a class="headerlink" href="#three-body-stability" title="Link to this heading">#</a></h1>
 <section id="historical-overview">
-<h2><span class="section-number">3.1. </span>Historical overview<a class="headerlink" href="#historical-overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Historical overview<a class="headerlink" href="#historical-overview" title="Link to this heading">#</a></h2>
 <p>The three-body problem (<a class="reference external" href="https://en.wikipedia.org/wiki/Three-body_problem"><strong>TBP</strong></a>) was developed and studied by Isaac Newton is his pioneering work, <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica">the Principia</a>.  In Newton’s formulation, a solution to the TBP would analytically (exactly) describe the motion of the Moon under the influence of gravity from both the Earth and the Sun.  However, this problem would not be solved by Newton (or anyone).</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Oscar_II">King Oscar II</a> commemorated his birthday in 1889 with a contest, where he invited the top scholars to attempt solutions to the TBP.  It was a French mathematician, <a class="reference external" href="https://en.wikipedia.org/wiki/Henri_Poincar%C3%A9">Henri Poincare</a>, at the University of Paris who “won” the contest.  Poincare showed that the TBP could not be solved due to an insufficient number of constants of motion (11) relative to the 18 equations of motion that generally define the problem.  In other words, the TBP is non-integrable does not have an unambiguous solution in terms of algebraic and transcendental functions.</p>
 <p>Poincare showed that no solution to the general TBP exists, but some particular solutions do exist.  These solutions can have several requirements that are subsumed into the nomenclature.  For example, the <a class="reference external" href="https://farside.ph.utexas.edu/teaching/celestial/Celestial/node80.html">circular-restricted TBP</a> requires that the one body is much less massive than the other two (i.e., restricted <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(m_3 \ll m_1\)</span> and <span class="math notranslate nohighlight">\(m_3 \ll m_2\)</span>) and the two more massive bodies orbit one another on circular orbits.</p>
@@ -439,14 +478,15 @@ document.write(`
 <p>Instead of searching for analytical solutions, others have used numerical approximations (or computational solutions) to solve the problem.  Although less elegant, such techniques are generally more practical because investigators can explore wide swathes of potential parameter space using modern parallel computing.</p>
 <p>This guide will focus on numerical approaches for the case of a planet orbiting a pair of binary stars.  In this case, the planet is (at most) a Jupiter-mass body and naturally requires the restricted TBP because the two primary bodies are stellar masses (<span class="math notranslate nohighlight">\(m_2&gt;0.08\ M_\odot\)</span>; <span class="math notranslate nohighlight">\(m_1 \ge m_2\)</span>).  In 1982, Rudolf Dvorak defined three potential configurations of planets in binary systems: S-Type, P-Type, or T-Type (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).</p>
 <figure class="align-default" id="planet-configs">
-<a class="reference internal image-reference" href="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369"><img alt="planet configurations" src="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369"><img alt="planet configurations" src="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Possible configurations of exoplanets in binary star systems (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982OAWMN.191..423D/abstract">Dvorak 1982</a>).  The planet can orbit either star (S-Type), both stars, (P-Type), or along the orbit of the secondary as a Trojan (T-Type). Figure credit: <a class="reference external" href="https://www.astronomy.com/science/can-solar-systems-exist-in-a-binary-star-system/">Astronomy: Roen Kelly</a>.</span><a class="headerlink" href="#planet-configs" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Possible configurations of exoplanets in binary star systems (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982OAWMN.191..423D/abstract">Dvorak 1982</a>).  The planet can orbit either star (S-Type), both stars, (P-Type), or along the orbit of the secondary as a Trojan (T-Type). Figure credit: <a class="reference external" href="https://www.astronomy.com/science/can-solar-systems-exist-in-a-binary-star-system/">Astronomy: Roen Kelly</a>.</span><a class="headerlink" href="#planet-configs" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="updating-the-standard-stability-formulae">
-<h2><span class="section-number">3.2. </span>Updating the standard stability formulae<a class="headerlink" href="#updating-the-standard-stability-formulae" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Updating the standard stability formulae<a class="headerlink" href="#updating-the-standard-stability-formulae" title="Link to this heading">#</a></h2>
 <p>From <span class="math notranslate nohighlight">\({\sim}1980-2000\)</span>, the growth of computational power allowed researchers to better understand the motion of three bodies.  In the 1980s, most numerical simulations were limited to <span class="math notranslate nohighlight">\({\sim}10^3\ T_{\rm bin}\)</span> (scaled by the binary orbital period <span class="math notranslate nohighlight">\(T_{\rm bin}\)</span>) in simulation time due to the excessive wall time required for the computations.  Many researchers turned to dynamical indicators of chaos (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1980Mecc...15....9B/abstract">Benettin et al. (1980)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1992AJ....104.1230L/abstract">Lecar et al. (1992)</a>,  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993CeMDA..56..409S/abstract">Smith &amp; Szebehely (1993)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1997CeMDA..67...41F/abstract">Froeschle et al. (1997)</a>) to identify <em>possible routes</em> to unstable orbits.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986A%26A...167..379D/abstract">Dvorak (1986)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1988A%26A...191..385R/abstract">Rabl &amp; Dvorak (1988)</a> showed that there is a transition between regular (periodic), quasi-periodic, and chaotic orbits for planets in binaries.  Unstable (or unbound) orbits are non-periodic, which can overlap in type with chaotic orbits.  There are chaotic orbits that remain bound to the system.  Therefore, chaos <strong>does not</strong> imply instability.</p>
 <p>Orbital chaos is a sensitivity to initial conditions, which means that starting the planet or binary at slightly different positions can result in a drastically different orbital behavior.  Starting the planet a degree ahead (or behind) in its orbit through its initial mean (or true) anomaly means that the planet will feel a slightly different net force initially.  This slight difference in net force can speed up (or slow down) the planet and lead to an increase in its orbital eccentricity.  The secondary star can</p>
@@ -470,16 +510,18 @@ document.write(`
 </ol>
 <p>These are not bad assumptions considering the computing power and knowledge of planetary systems during the late 1990s.  For a given mass ratio <span class="math notranslate nohighlight">\(\mu\)</span>, and binary eccentricity <span class="math notranslate nohighlight">\(e_{\rm bin}\)</span>, an initial condition <span class="math notranslate nohighlight">\((\rho,\ f_p)\)</span> is evaluated.  The semimajor axis ratio range differs for S-Type <span class="math notranslate nohighlight">\((0.02\leq \rho \leq 0.5)\)</span> and P-Type <span class="math notranslate nohighlight">\((1\leq \rho \leq 5)\)</span> (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).  But eight equidistant values of the planetary true anomaly (<span class="math notranslate nohighlight">\(f_p = 0^\circ - 315^\circ;\ 45^\circ\)</span> increments) are used.  <em>Note that the planetary mean anomaly <span class="math notranslate nohighlight">\(M\)</span> and true anomaly <span class="math notranslate nohighlight">\(f\)</span> are interchangeable for <strong>circular</strong> orbits.</em></p>
 <figure class="align-default" id="planet-ics">
-<a class="reference internal image-reference" href="../_images/HW_Table1.png"><img alt="HW Table 1" src="../_images/HW_Table1.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW_Table1.png"><img alt="HW Table 1" src="../_images/HW_Table1.png" style="width: 400px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Initial conditions used in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for both S-Type and P-Type planets.</span><a class="headerlink" href="#planet-ics" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Initial conditions used in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for both S-Type and P-Type planets.</span><a class="headerlink" href="#planet-ics" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This is a 4D space, where two dimensions <span class="math notranslate nohighlight">\((\mu\ \&amp;\ e_{\rm bin})\)</span> depend on the host binary, while the other two dimensions <span class="math notranslate nohighlight">\((\rho\ \&amp;\ f_p)\)</span> depend on the planet’s initial position.  It can be easier to conceptualize traversing this space through a 2D grid within another 2D grid as shown in Figure <a class="reference internal" href="#param-grid"><span class="std std-numref">3.3</span></a>.</p>
 <figure class="align-default" id="param-grid">
-<a class="reference internal image-reference" href="../_images/HW_4dim.png"><img alt="HW dimensions" src="../_images/HW_4dim.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW_4dim.png"><img alt="HW dimensions" src="../_images/HW_4dim.png" style="width: 400px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A 4D parameter space abstracted into two nested 2D grids.</span><a class="headerlink" href="#param-grid" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A 4D parameter space abstracted into two nested 2D grids.</span><a class="headerlink" href="#param-grid" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The results of each nested grid can be summarized by identifying a critical semimajor axis ratio <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> for a given <span class="math notranslate nohighlight">\((\mu,\ e_{\rm bin})\)</span> combination.  The critical semimajor axis ratio <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> is defined as the boundary between stable and unstable initial conditions <span class="math notranslate nohighlight">\((\rho,\ f_p)\)</span>:</p>
@@ -489,21 +531,23 @@ document.write(`
 </ul>
 <p>Table <a class="reference internal" href="#stability-grid1"><span class="std std-numref">3.4</span></a> shows the results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for S-Type planets, where the <span class="math notranslate nohighlight">\(&quot;+&quot;\)</span> symbols denote stable (i.e., no scatters or escapes).</p>
 <figure class="align-default" id="stability-grid1">
-<a class="reference internal image-reference" href="../_images/HW_Table2.png"><img alt="HW Table 2" src="../_images/HW_Table2.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW_Table2.png"><img alt="HW Table 2" src="../_images/HW_Table2.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Planet survival results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Planet survival results for <span class="math notranslate nohighlight">\(\mu = e_{\rm bin} = 0.5\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Table <a class="reference internal" href="#stability-grid2"><span class="std std-numref">3.5</span></a> shows data that has been reduced, where each cell in the table represents the critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> determined through a smaller grid similar to Table <a class="reference internal" href="#stability-grid1"><span class="std std-numref">3.4</span></a>.</p>
 <figure class="align-default" id="stability-grid2">
-<a class="reference internal image-reference" href="../_images/HW_Table3.png"><img alt="HW Table 3" src="../_images/HW_Table3.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW_Table3.png"><img alt="HW Table 3" src="../_images/HW_Table3.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert (1999)</a> for S-Type planets.</span><a class="headerlink" href="#stability-grid2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>From Table <a class="reference internal" href="#stability-grid2"><span class="std std-numref">3.5</span></a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999AJ....117..621H/abstract">Holman &amp; Wiegert 1999</a> perform a least-squares fit given the trial function:</p>
 <div class="math notranslate nohighlight" id="equation-hw-formula">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-hw-formula" title="Permalink to this equation">#</a></span>\[\rho_{\rm cr} = c_1 + c_2\mu + c_3e_{\rm bin} + c_4\mu e_{\rm bin} + c_5 e_{\rm bin}^2 + c_6 \mu e_{\rm bin}^2.\]</div>
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-hw-formula" title="Link to this equation">#</a></span>\[\rho_{\rm cr} = c_1 + c_2\mu + c_3e_{\rm bin} + c_4\mu e_{\rm bin} + c_5 e_{\rm bin}^2 + c_6 \mu e_{\rm bin}^2.\]</div>
 <p>The least-squares fitting procedure identifies values of <span class="math notranslate nohighlight">\(c_1-c_6\)</span> that minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span> (e.g., the residuals or cost function).</p>
 <p>The above procedure has merits in that it will accurately reproduce the critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> for other parts of the <span class="math notranslate nohighlight">\((\mu,\ e_{\rm bin})\)</span> parameter space through an easy-to-use polynomial.  However, larger discrepancies appear when extrapolating to broad regimes of mass ration <span class="math notranslate nohighlight">\(\mu\)</span> (e.g., <span class="math notranslate nohighlight">\(\mu \leq 0.1\)</span> and <span class="math notranslate nohighlight">\(\mu \geq 0.9\)</span>).  There can be significant differences if the planetary orbit is misaligned with the host binary, which is expected from disk observations in binaries (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2006A%26A...446..201M/abstract">Monin et al. (2006)</a>).</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a> addresses these issues in two ways:</p>
@@ -513,9 +557,10 @@ document.write(`
 </ol>
 <p>Figure <a class="reference internal" href="#stability-grid3"><span class="std std-numref">3.6</span></a> illustrates the results of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a>, where the color-code represents <span class="math notranslate nohighlight">\(\rho_{cr}\)</span> and each panel assumes a different initial inclination for the planet.</p>
 <figure class="align-default" id="stability-grid3">
-<a class="reference internal image-reference" href="../_images/Q20_Fig7.png"><img alt="Q20 Fig 7" src="../_images/Q20_Fig7.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/Q20_Fig7.png"><img alt="Q20 Fig 7" src="../_images/Q20_Fig7.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> (color-coded) from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a> for S-Type planets.  Each panel illustrates how the value of <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> changes with planetary inclination.</span><a class="headerlink" href="#stability-grid3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Planetary critical semimajor axis <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> (color-coded) from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...80Q/abstract">Quarles et al. (2020)</a> for S-Type planets.  Each panel illustrates how the value of <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span> changes with planetary inclination.</span><a class="headerlink" href="#stability-grid3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The above parameter spaces can also be fit using the same trial function (Eq. <a class="reference internal" href="#equation-hw-formula">(3.1)</a>), but the data underlying the above figure is available in a GitHub repo <a class="reference external" href="https://github.com/saturnaxis/ThreeBody_Stability">saturnaxis:ThreeBody_Stability</a>.  Using the data file for the coplanar case and `interp2D``, one can easily identify <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span>.</p>
@@ -588,7 +633,7 @@ document.write(`
 </div>
 </section>
 <section id="stability-for-planets-in-binary-systems">
-<h2><span class="section-number">3.3. </span>Stability for planets in binary systems<a class="headerlink" href="#stability-for-planets-in-binary-systems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Stability for planets in binary systems<a class="headerlink" href="#stability-for-planets-in-binary-systems" title="Link to this heading">#</a></h2>
 <p>Determining the stability for a P-Type or S-Type planet requires asking a few questions:</p>
 <ol class="arabic simple">
 <li><p>Does the planet remain in orbit around the central binary?</p>
@@ -606,7 +651,7 @@ document.write(`
 </ol>
 <p>Below are a few numerical experiments for a known circumbinary planet, Kepler-16b (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2011Sci...333.1602D/abstract">Doyle et al. (2011)</a>).</p>
 <section id="a-sample-simulation-kepler-16b">
-<h3><span class="section-number">3.3.1. </span>A sample simulation (Kepler-16b)<a class="headerlink" href="#a-sample-simulation-kepler-16b" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>A sample simulation (Kepler-16b)<a class="headerlink" href="#a-sample-simulation-kepler-16b" title="Link to this heading">#</a></h3>
 <p>To start exploring the dynamics of Kepler-16b (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2011Sci...333.1602D/abstract">Doyle et al. (2011)</a>), we create a simulation in <strong>rebound</strong> using the parameters from the discovery paper.  To customize the simulation, we define</p>
 <ul class="simple">
 <li><p>tscale: the number of years that we want to run the simulation.</p></li>
@@ -800,7 +845,7 @@ document.write(`
 <p>The bottom row represents similar panels, but using the planetary inclination <span class="math notranslate nohighlight">\(i_p\)</span> and longitude of ascending node <span class="math notranslate nohighlight">\(\Omega_p\)</span>. The planetary orbit appears to couple tightly with the binary orbit.  Naively, this would suggest that the system will continue to transit indefinitely.  However, we must consider that the inclination shown here is the <strong>mutual inclination</strong> and if the binary orbital plane tilts relative to our line-of-sight, then the planetary orbit will also tilt along with it.  As a result, our ability to view Kepler-16b transiting its host star is temporary and will only occur when the alignment is just right (e.g., the transit of Venus or Mercury across our Sun).  More broadly, the circumbinary planet community has dubbed this ability to transit as <em>transitability</em> (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.449..781M/abstract">Martin &amp; Triaud (2015)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.465.3235M/abstract">Martin (2017)</a> for more details).</p>
 </section>
 <section id="a-sample-simulation-gamma-cephei-ab">
-<h3><span class="section-number">3.3.2. </span>A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)<a class="headerlink" href="#a-sample-simulation-gamma-cephei-ab" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>A sample simulation (<span class="math notranslate nohighlight">\(\gamma\)</span> Cephei Ab)<a class="headerlink" href="#a-sample-simulation-gamma-cephei-ab" title="Link to this heading">#</a></h3>
 <p>A similar analysis can be performed for an S-Type planet, which orbits only one of the two stars in the binary system.  Such planets typically orbit <span class="math notranslate nohighlight">\({\sim}1-2\ {\rm AU}\)</span> from their host star, while the binary separation is <span class="math notranslate nohighlight">\({\gtrsim}20\ {\rm AU}\)</span>.  One of the first S-Type planets discovered is in <span class="math notranslate nohighlight">\(\gamma\)</span> Cephei AB (e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1988ApJ...331..902C/abstract">Campbell et al. (1988)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003ApJ...599.1383H/abstract">Hatzes et al. (2003)</a>).  This example uses parameters from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022AJ....164..177H/abstract">Huang &amp; Ji (2022)</a>, who refit the system using astrometric data from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2011A%26A...527A.140R/abstract">Reffert &amp; Quirrenbach (2011)</a>.</p>
 <p>To start exploring the dynamics of <span class="math notranslate nohighlight">\(\gamma\)</span> Cep Ab (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022AJ....164..177H/abstract">Huang &amp; Ji (2022)</a>), we create a simulation in <strong>rebound</strong> using the parameters from this paper.  To customize the simulation, we define</p>
 <ul class="simple">
@@ -1009,7 +1054,7 @@ document.write(`
 </section>
 </section>
 <section id="references">
-<h2><span class="section-number">3.4. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1980Mecc...15....9B/abstract">Benettin et al. (1980)</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1988ApJ...331..902C/abstract">Campbell et al. (1988)</a></p></li>
@@ -1058,11 +1103,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="nbody-integration.html"
@@ -1082,10 +1126,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1093,6 +1134,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1129,9 +1171,10 @@ By Billy Quarles
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1155,8 +1198,8 @@ By Billy Quarles
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

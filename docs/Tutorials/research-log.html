@@ -1,0 +1,1054 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown) &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/research-log';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/research-log.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ" href="AIJ-lightcurve.html" />
+    <link rel="prev" title="8. GPU-accelerated planet formation" href="intro-genga.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Exoplanets within Binary Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/research-log.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/research-log.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/research-log.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Effective Research Logging (Using Jupyter Notebooks & Markdown)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. 1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-a-good-log-entry">9.2. 2. What Makes a Good Log Entry?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-using-jupyter-notebooks-for-your-research-log">9.3. 3. Method 1: Using Jupyter Notebooks for Your Research Log</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-markdown-cell-for-a-log-entry">9.3.1. Example Markdown Cell for a Log Entry:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-telescope-settings-planning-for-lco-0-4m-telescope">9.3.2. 2. Remote Telescope Settings Planning (for LCO 0.4m telescope)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-observations">9.4. Results &amp; Observations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-encountered-solutions">9.5. Problems Encountered &amp; Solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-learnings">9.6. New Learnings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">9.7. Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-using-markdown-files-for-your-research-log">9.8. 4. Method 2: Using Markdown Files for Your Research Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-spotlight-what-to-record">9.9. 5. Content Spotlight: What to Record</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-learnings">9.9.1. <strong>Daily Learnings:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-telescope-observations">9.9.2. <strong>Remote Telescope Observations:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-snippets-outputs">9.9.3. <strong>Code Snippets &amp; Outputs:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-solutions">9.9.4. <strong>Problems &amp; Solutions:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-research-log-with-the-cloud">9.10. 6. Syncing Your Research Log with the Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-google-colab-and-google-drive-primarily-for-jupyter-notebooks">9.10.1. <strong>Option A: Google Colab and Google Drive (primarily for Jupyter Notebooks)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-github-for-jupyter-notebooks-or-markdown-files">9.10.2. <strong>Option B: GitHub (for Jupyter Notebooks or Markdown files)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-maintaining-an-effective-log">9.11. 7. Tips for Maintaining an Effective Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9.12. 8. Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="effective-research-logging-using-jupyter-notebooks-markdown">
+<h1><span class="section-number">9. </span>Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)<a class="headerlink" href="#effective-research-logging-using-jupyter-notebooks-markdown" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">9.1. </span>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>One of the most valuable skills you can develop during your research experience is maintaining a thorough and consistent research log.</p>
+<p><strong>What is a research log?</strong>
+A research log (or lab notebook) is a detailed, chronological record of your research activities. It documents your hypotheses, experiments, observations, data, code, analysis steps, interpretations, new learnings, and even your thought processes.</p>
+<p><strong>Why is it crucial for you?</strong></p>
+<ul class="simple">
+<li><p><strong>Reproducibility:</strong> Allows you or others to replicate your work. This is a cornerstone of scientific research.</p></li>
+<li><p><strong>Memory Aid:</strong> You’ll do and learn a lot! Your log will help you remember details weeks or months later.</p></li>
+<li><p><strong>Paper Writing:</strong> When it’s time to write your final report or a publication, your log will be an invaluable source of information for the methods, results, and discussion sections.</p></li>
+<li><p><strong>Progress Tracking:</strong> Helps you and your mentor see your progress and identify areas where you might be stuck.</p></li>
+<li><p><strong>Troubleshooting:</strong> Documenting problems and how you solved them saves time if they recur.</p></li>
+<li><p><strong>Efficiency:</strong> Prevents you from repeating mistakes or forgetting useful commands/settings.</p></li>
+</ul>
+<p><strong>Overview of Tools:</strong>
+We’ll focus on two excellent digital tools for research logging:</p>
+<ul class="simple">
+<li><p><strong>Jupyter Notebooks:</strong> Ideal for integrating narrative text, live code (e.g., Python), equations (LaTeX), visualizations, and other rich media.</p></li>
+<li><p><strong>Markdown Files:</strong> Lightweight, plain text files that are easy to write, version control, and convert to other formats.</p></li>
+</ul>
+<p>Both can be effectively synced with cloud storage for backup and accessibility.</p>
+</section>
+<section id="what-makes-a-good-log-entry">
+<h2><span class="section-number">9.2. </span>2. What Makes a Good Log Entry?<a class="headerlink" href="#what-makes-a-good-log-entry" title="Link to this heading">#</a></h2>
+<p>While the exact format can be personalized, a good log entry is generally:</p>
+<ul class="simple">
+<li><p><strong>Dated:</strong> Always start with the date of the entry. For any specific events, observations, or data timestamps recorded <em>within</em> the entry, <strong>always use Coordinated Universal Time (UTC)</strong>. This is the standard in astronomy to avoid ambiguity.</p></li>
+<li><p><strong>Descriptive:</strong> Clearly explain what you did, why, and what happened.</p></li>
+<li><p><strong>Organized:</strong> Use headings, lists, and formatting to make it readable.</p></li>
+<li><p><strong>Detailed enough:</strong> Include specifics like software versions, exact commands, code snippets, parameter settings, and filenames.</p></li>
+<li><p><strong>Honest:</strong> Record what actually happened, including errors, unexpected results, and failed attempts. This is part of research!</p></li>
+</ul>
+<p><strong>Key Components of a Typical Daily/Task-Based Entry:</strong></p>
+<ul class="simple">
+<li><p><strong>Date of Log Entry:</strong> <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> (This can be your local date when you are writing the log).</p></li>
+<li><p><strong>Title/Objective(s) for the day/task:</strong> What did you plan to achieve?</p></li>
+<li><p><strong>Activities &amp; Methodology:</strong></p>
+<ul>
+<li><p>What steps did you take?</p></li>
+<li><p>What code did you write or run? (Include snippets)</p></li>
+<li><p>What commands did you use? (e.g., terminal, LaTeX)</p></li>
+<li><p>For observations: telescope, instrument, settings, conditions. <strong>All observation times must be in UTC.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Results &amp; Observations:</strong></p>
+<ul>
+<li><p>What were the outcomes?</p></li>
+<li><p>Include key figures, plots (can be embedded or referenced), or data summaries.</p></li>
+<li><p>Any data timestamps (e.g., “Data received at <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span> <span class="pre">HH:MM:SS</span> <span class="pre">UTC</span></code>”) should be in UTC.</p></li>
+</ul>
+</li>
+<li><p><strong>Problems Encountered &amp; Solutions:</strong></p>
+<ul>
+<li><p>Any errors, bugs, or challenges?</p></li>
+<li><p>How did you try to solve them? What worked?</p></li>
+</ul>
+</li>
+<li><p><strong>New Learnings/Discoveries:</strong></p>
+<ul>
+<li><p>New commands, functions, concepts (Python, LaTeX, bash, software features).</p></li>
+<li><p>Interesting insights from data.</p></li>
+</ul>
+</li>
+<li><p><strong>Next Steps/To-Dos:</strong></p>
+<ul>
+<li><p>What’s planned for the next session?</p></li>
+<li><p>Any pending questions for your mentor?</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="method-1-using-jupyter-notebooks-for-your-research-log">
+<h2><span class="section-number">9.3. </span>3. Method 1: Using Jupyter Notebooks for Your Research Log<a class="headerlink" href="#method-1-using-jupyter-notebooks-for-your-research-log" title="Link to this heading">#</a></h2>
+<p>Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files) allow you to create and share documents that contain live code, equations, visualizations, and narrative text.</p>
+<ul class="simple">
+<li><p><strong>Pros:</strong></p>
+<ul>
+<li><p>Interactive code execution (Python, R, Julia, etc.) directly in your log.</p></li>
+<li><p>Inline plots and images make results easy to see in context.</p></li>
+<li><p>Rich text formatting using Markdown cells.</p></li>
+<li><p>Can be a single, comprehensive file for an entry or a running log.</p></li>
+</ul>
+</li>
+<li><p><strong>Cons:</strong></p>
+<ul>
+<li><p>Files can become large if they contain many high-resolution images or large datasets directly.</p></li>
+<li><p>Version control diffs for <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files can be less clean than for plain text, though tools are improving.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Setting Up:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Organization:</strong></p>
+<ul class="simple">
+<li><p><strong>Option A (Recommended for simplicity):</strong> One notebook per day.</p>
+<ul>
+<li><p>Filename: <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD_Log.ipynb</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">2025-06-01_Log.ipynb</span></code>)</p></li>
+</ul>
+</li>
+<li><p><strong>Option B:</strong> One notebook per week, with daily entries separated by Markdown headers.</p>
+<ul>
+<li><p>Filename: <code class="docutils literal notranslate"><span class="pre">YYYY-WW_Log.ipynb</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">2025-W22_Log.ipynb</span></code>)</p></li>
+</ul>
+</li>
+<li><p><strong>Option C:</strong> One notebook per major project/task.</p></li>
+</ul>
+</li>
+<li><p><strong>Content:</strong></p>
+<ul class="simple">
+<li><p>Use <strong>Markdown cells</strong> for your narrative: objectives, descriptions, interpretations, learnings, etc.</p></li>
+<li><p>Use <strong>Code cells</strong> for Python scripts, data analysis steps, generating plots, or even just to “store” command-line snippets (you can prefix shell commands with <code class="docutils literal notranslate"><span class="pre">!</span></code>).</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example Entry Structure within a Jupyter Notebook (using Markdown and Code cells):</strong></p>
+<p><em>(This example shows how you’d structure it using a mix of Markdown for text and showing code as text within Markdown, or as runnable code in a Code cell if you were actually demonstrating code execution related to logging, which is less common for the log’s narrative itself.)</em></p>
+<section id="example-markdown-cell-for-a-log-entry">
+<h3><span class="section-number">9.3.1. </span>Example Markdown Cell for a Log Entry:<a class="headerlink" href="#example-markdown-cell-for-a-log-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Log Entry: 2025-06-01</span>
+
+<span class="gu">## Objective(s)</span>
+<span class="k">*</span><span class="w"> </span>Familiarize myself with <span class="sb">`lightkurve`</span> for TESS data.
+<span class="k">*</span><span class="w"> </span>Download and plot a light curve for star X.
+<span class="k">*</span><span class="w"> </span>Record remote telescope settings for upcoming observation of star Y (scheduled for <span class="sb">`2025-06-03 ~04:00 UTC`</span>).
+
+<span class="gu">## Activities &amp; Methodology</span>
+
+<span class="gu">### 1. Lightkurve Exploration</span>
+Installed <span class="sb">`lightkurve`</span> using <span class="sb">`pip install lightkurve`</span>.
+Worked through the basic tutorial on searching and downloading data.
+
+<span class="gs">**Code Snippet (Python example of what I ran):**</span>
+```python
+<span class="gh"># import lightkurve as lk</span>
+<span class="gh"># search_result = lk.search_lightcurve(&quot;KIC 8462852&quot;, mission=&quot;Kepler&quot;)</span>
+<span class="gh"># lc = search_result[0].download() # Data has time in BJD_TDB (UTC-based)</span>
+<span class="gh"># lc.plot()</span>
+</pre></div>
+</div>
+<p><em>(Self-note: The plot appeared inline showing the light curve.)</em></p>
+</section>
+<section id="remote-telescope-settings-planning-for-lco-0-4m-telescope">
+<h3><span class="section-number">9.3.2. </span>2. Remote Telescope Settings Planning (for LCO 0.4m telescope)<a class="headerlink" href="#remote-telescope-settings-planning-for-lco-0-4m-telescope" title="Link to this heading">#</a></h3>
+<p>Target: Star Y (RA: hh:mm:ss.s, Dec: dd:mm:ss.s)
+Proposed Observation Window Start: <code class="docutils literal notranslate"><span class="pre">2025-06-03</span> <span class="pre">03:30:00</span> <span class="pre">UTC</span></code>
+Filter sequence: V, B, R
+Exposure times:</p>
+<ul class="simple">
+<li><p>V: 60s x 3</p></li>
+<li><p>B: 90s x 3</p></li>
+<li><p>R: 45s x 3
+Binning: 1x1
+Readout Speed: Standard
+Focus offset: Check recent autofocus, otherwise 0.</p></li>
+</ul>
+</section>
+</section>
+<section id="results-observations">
+<h2><span class="section-number">9.4. </span>Results &amp; Observations<a class="headerlink" href="#results-observations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Successfully plotted Kepler light curve for KIC 8462852. Timestamps in BJD are UTC-based.</p></li>
+<li><p>Telescope settings for Star Y documented for submission to LCO portal.</p></li>
+</ul>
+</section>
+<section id="problems-encountered-solutions">
+<h2><span class="section-number">9.5. </span>Problems Encountered &amp; Solutions<a class="headerlink" href="#problems-encountered-solutions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initially forgot to import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> for a custom plot tweak, got <code class="docutils literal notranslate"><span class="pre">NameError</span></code>. Added <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> in my analysis script.</p></li>
+</ul>
+</section>
+<section id="new-learnings">
+<h2><span class="section-number">9.6. </span>New Learnings<a class="headerlink" href="#new-learnings" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Python/Lightkurve:</strong> <code class="docutils literal notranslate"><span class="pre">lk.search_lightcurve()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">SearchResult</span></code> object. <code class="docutils literal notranslate"><span class="pre">lc.download()</span></code> fetches the data. <code class="docutils literal notranslate"><span class="pre">lc.plot()</span></code> is a quick way to visualize. <strong>Kepler/TESS times are typically in BJD or BKJD, which are UTC-based.</strong></p></li>
+<li><p><strong>Remote Observing:</strong> Realized I need to check the airmass and moon phase for Star Y for the planned <code class="docutils literal notranslate"><span class="pre">~03:30</span> <span class="pre">UTC</span></code> start time.</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2><span class="section-number">9.7. </span>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Submit observation request for Star Y (target window <code class="docutils literal notranslate"><span class="pre">2025-06-03</span> <span class="pre">03:30-05:00</span> <span class="pre">UTC</span></code>).</p></li>
+<li><p>Explore <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> functions for cleaning TESS light curves.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="method-2-using-markdown-files-for-your-research-log">
+<h2><span class="section-number">9.8. </span>4. Method 2: Using Markdown Files for Your Research Log<a class="headerlink" href="#method-2-using-markdown-files-for-your-research-log" title="Link to this heading">#</a></h2>
+<p>Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code> files) is a lightweight markup language with plain-text formatting syntax. It’s widely used for README files, documentation, and note-taking.</p>
+<ul class="simple">
+<li><p><strong>Pros:</strong></p>
+<ul>
+<li><p>Very lightweight and fast to open/edit.</p></li>
+<li><p>Plain text makes it excellent for version control systems like Git (easy to see changes).</p></li>
+<li><p>Highly portable – can be opened by almost any text editor.</p></li>
+<li><p>Many editors (like VS Code, Typora, Obsidian) offer live previews.</p></li>
+</ul>
+</li>
+<li><p><strong>Cons:</strong></p>
+<ul>
+<li><p>Code is not directly executable within the log file itself (it’s just text).</p></li>
+<li><p>Plots and images are typically external files linked in the Markdown (though some advanced Markdown flavors/editors can embed).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Setting Up:</strong></p>
+<ol class="arabic">
+<li><p><strong>Organization:</strong> Similar to Jupyter Notebooks, create files per day, week, or task.</p>
+<ul class="simple">
+<li><p>Filename: <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD_Log.md</span></code> or <code class="docutils literal notranslate"><span class="pre">ProjectX_Log.md</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Editor:</strong> Use any plain text editor. VS Code is highly recommended as it has excellent Markdown support (syntax highlighting, live preview).</p></li>
+<li><p><strong>Markdown Syntax:</strong> Familiarize yourself with basic Markdown:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Heading</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Heading</span> <span class="pre">2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*italic*</span></code> or <code class="docutils literal notranslate"><span class="pre">_italic_</span></code>, <code class="docutils literal notranslate"><span class="pre">**bold**</span></code> or <code class="docutils literal notranslate"><span class="pre">__bold__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">Unordered</span> <span class="pre">list</span> <span class="pre">item</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">Unordered</span> <span class="pre">list</span> <span class="pre">item</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">Ordered</span> <span class="pre">list</span> <span class="pre">item</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`inline</span> <span class="pre">code`</span></code></p></li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code block</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Link</span> <span class="pre">text](URL)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">![Alt</span> <span class="pre">text</span> <span class="pre">for</span> <span class="pre">image](path/to/image.png)</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example Entry Structure within a Markdown File:</strong>
+The content would be identical to the Jupyter Notebook example’s Markdown cell, typed directly into the <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. For plots, you might save the plot as an image file (e.g., <code class="docutils literal notranslate"><span class="pre">starX_lightcurve.png</span></code>) and then link it:</p>
+<p><code class="docutils literal notranslate"><span class="pre">![Light</span> <span class="pre">curve</span> <span class="pre">of</span> <span class="pre">Star</span> <span class="pre">X](figures/2025-06-01_starX_lightcurve.png)</span></code></p>
+<p><em>(Ensure any time axes on plots are also clearly labeled, preferably in a UTC-based system like JD or BJD).</em></p>
+</section>
+<section id="content-spotlight-what-to-record">
+<h2><span class="section-number">9.9. </span>5. Content Spotlight: What to Record<a class="headerlink" href="#content-spotlight-what-to-record" title="Link to this heading">#</a></h2>
+<p>Be specific! Future You will thank you. <strong>Remember to use UTC for all event and data timestamps.</strong></p>
+<section id="daily-learnings">
+<h3><span class="section-number">9.9.1. </span><strong>Daily Learnings:</strong><a class="headerlink" href="#daily-learnings" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Python/Packages (e.g., Matplotlib, NumPy, Astropy, Pandas, Lightkurve):</strong></p>
+<ul>
+<li><p>“Learned <code class="docutils literal notranslate"><span class="pre">plt.xlabel('Time</span> <span class="pre">(BJD_TDB)')</span></code> to add x-axis label. BJD_TDB is UTC-based.”</p></li>
+<li><p>“Used <code class="docutils literal notranslate"><span class="pre">numpy.loadtxt('data.txt',</span> <span class="pre">skiprows=1)</span></code> to load data. Noted that timestamps in file are MJD (UTC).”</p></li>
+</ul>
+</li>
+<li><p><strong>LaTeX:</strong></p>
+<ul>
+<li><p>“Found <code class="docutils literal notranslate"><span class="pre">\\usepackage{amsmath}</span></code> is needed for <code class="docutils literal notranslate"><span class="pre">\\align</span></code> environment.”</p></li>
+</ul>
+</li>
+<li><p><strong>Unix/Terminal Commands:</strong></p>
+<ul>
+<li><p>“Used <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lrt</span></code> to list files by modification time, newest last.”</p></li>
+<li><p>“Transferred file from remote server: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">myuser&#64;remote.edu:/path/to/data.fits</span> <span class="pre">.</span></code> File creation time on server was <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span> <span class="pre">HH:MM:SS</span> <span class="pre">UTC</span></code>.”</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="remote-telescope-observations">
+<h3><span class="section-number">9.9.2. </span><strong>Remote Telescope Observations:</strong><a class="headerlink" href="#remote-telescope-observations" title="Link to this heading">#</a></h3>
+<p>This is critical for reproducibility and understanding your data. <strong>All times MUST be in UTC.</strong></p>
+<ul class="simple">
+<li><p><strong>Date &amp; Time of Observation (UTC Start to End):</strong> e.g., <code class="docutils literal notranslate"><span class="pre">2025-06-15</span> <span class="pre">03:45:00</span> <span class="pre">UTC</span></code> to <code class="docutils literal notranslate"><span class="pre">2025-06-15</span> <span class="pre">04:30:00</span> <span class="pre">UTC</span></code></p></li>
+<li><p><strong>Telescope Used:</strong> e.g., <code class="docutils literal notranslate"><span class="pre">LCO</span> <span class="pre">0.4m</span> <span class="pre">Faulkes</span> <span class="pre">Telescope</span> <span class="pre">North</span> <span class="pre">(fl03)</span></code></p></li>
+<li><p><strong>Target Name &amp; Coordinates:</strong> <code class="docutils literal notranslate"><span class="pre">NGC</span> <span class="pre">6946,</span> <span class="pre">RA:</span> <span class="pre">20:34:52.3,</span> <span class="pre">Dec:</span> <span class="pre">+60:09:14</span></code></p></li>
+<li><p><strong>Proposal ID / Program Name:</strong> (If applicable)</p></li>
+<li><p><strong>Instrument Settings:</strong></p>
+<ul>
+<li><p><strong>Filter(s) used:</strong> <code class="docutils literal notranslate"><span class="pre">Sloan</span> <span class="pre">g',</span> <span class="pre">Sloan</span> <span class="pre">r',</span> <span class="pre">Sloan</span> <span class="pre">i'</span></code></p></li>
+<li><p><strong>Exposure Time(s):</strong> <code class="docutils literal notranslate"><span class="pre">g':</span> <span class="pre">120s,</span> <span class="pre">r':</span> <span class="pre">90s,</span> <span class="pre">i':</span> <span class="pre">90s</span></code></p></li>
+<li><p><strong>Number of Exposures per filter:</strong> <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">each</span></code></p></li>
+<li><p><strong>Binning:</strong> <code class="docutils literal notranslate"><span class="pre">1x1</span></code> (or <code class="docutils literal notranslate"><span class="pre">2x2</span></code>)</p></li>
+<li><p><strong>Readout Mode/Speed:</strong> <code class="docutils literal notranslate"><span class="pre">Standard</span> <span class="pre">/</span> <span class="pre">1MHz</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Observing Conditions (if known/logged by system):</strong></p>
+<ul>
+<li><p><strong>Seeing:</strong> <code class="docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">arcsec</span> <span class="pre">FWHM</span></code> (noted at <code class="docutils literal notranslate"><span class="pre">~04:00</span> <span class="pre">UTC</span></code>)</p></li>
+<li><p><strong>Airmass at start/end:</strong> <code class="docutils literal notranslate"><span class="pre">1.2</span> <span class="pre">-&gt;</span> <span class="pre">1.1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Software Used for Request/Observation:</strong> <code class="docutils literal notranslate"><span class="pre">LCO</span> <span class="pre">Portal</span></code>, <code class="docutils literal notranslate"><span class="pre">TOM</span> <span class="pre">Toolkit</span> <span class="pre">vX.Y</span></code></p></li>
+<li><p><strong>Commands/Scripts Used:</strong> <code class="docutils literal notranslate"><span class="pre">Submitted</span> <span class="pre">via</span> <span class="pre">LCO</span> <span class="pre">API</span> <span class="pre">script:</span> <span class="pre">observe_ngc6946.py</span> <span class="pre">on</span> <span class="pre">2025-06-14</span> <span class="pre">22:15:00</span> <span class="pre">UTC</span></code></p></li>
+<li><p><strong>Raw Data Filenames &amp; Storage Location (on server/archive):</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">e.g.,</span> <span class="pre">fl03.20250615.0034.fits,</span> <span class="pre">...</span></code> (FITS headers will contain UTC timestamps)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Downloaded</span> <span class="pre">to</span> <span class="pre">/project/data/raw/YYYY-MM-DD/</span> <span class="pre">at</span> <span class="pre">2025-06-15</span> <span class="pre">08:00:00</span> <span class="pre">UTC</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Calibration Frames Used/Requested:</strong> <code class="docutils literal notranslate"><span class="pre">Standard</span> <span class="pre">set</span> <span class="pre">of</span> <span class="pre">bias,</span> <span class="pre">darks,</span> <span class="pre">flats</span> <span class="pre">for</span> <span class="pre">night</span> <span class="pre">of</span> <span class="pre">2025-06-15</span> <span class="pre">(UTC).</span></code></p></li>
+</ul>
+</section>
+<section id="code-snippets-outputs">
+<h3><span class="section-number">9.9.3. </span><strong>Code Snippets &amp; Outputs:</strong><a class="headerlink" href="#code-snippets-outputs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Don’t paste huge scripts, but include the relevant function or loop.</p></li>
+<li><p>Describe key outputs or embed/link plots. “The resulting scatter plot (see <code class="docutils literal notranslate"><span class="pre">scatter_correlation.png</span></code>) showed a positive trend. Data points timestamped in BJD_TDB.”</p></li>
+</ul>
+</section>
+<section id="problems-solutions">
+<h3><span class="section-number">9.9.4. </span><strong>Problems &amp; Solutions:</strong><a class="headerlink" href="#problems-solutions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>“My Python script kept crashing with <code class="docutils literal notranslate"><span class="pre">MemoryError</span></code>. Realized I was loading too many full FITS images at once. Modified to process them one by one. This occurred while processing data from <code class="docutils literal notranslate"><span class="pre">2025-06-10</span> <span class="pre">UTC</span></code>.”</p></li>
+<li><p>“Remote telescope observation on <code class="docutils literal notranslate"><span class="pre">2025-06-12</span> <span class="pre">UTC</span></code> failed due to ‘target too close to meridian limit’. Rescheduled for <code class="docutils literal notranslate"><span class="pre">2025-06-13</span> <span class="pre">05:00</span> <span class="pre">UTC</span></code>.”</p></li>
+</ul>
+</section>
+</section>
+<section id="syncing-your-research-log-with-the-cloud">
+<h2><span class="section-number">9.10. </span>6. Syncing Your Research Log with the Cloud<a class="headerlink" href="#syncing-your-research-log-with-the-cloud" title="Link to this heading">#</a></h2>
+<p>Keeping your log synced to the cloud is vital for backup, accessibility from multiple devices, and easy sharing with your mentor.</p>
+<section id="option-a-google-colab-and-google-drive-primarily-for-jupyter-notebooks">
+<h3><span class="section-number">9.10.1. </span><strong>Option A: Google Colab and Google Drive (primarily for Jupyter Notebooks)</strong><a class="headerlink" href="#option-a-google-colab-and-google-drive-primarily-for-jupyter-notebooks" title="Link to this heading">#</a></h3>
+<p>Google Colaboratory (Colab) is a free Jupyter Notebook environment that runs in the cloud and integrates seamlessly with Google Drive.</p>
+<ol class="arabic simple">
+<li><p><strong>Working in Colab:</strong></p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://colab.research.google.com">colab.research.google.com</a>.</p></li>
+<li><p>You can create new notebooks (<code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">notebook</span></code>) or open existing ones from Google Drive, GitHub, or by uploading.</p></li>
+</ul>
+</li>
+<li><p><strong>Automatic Saving to Google Drive:</strong></p>
+<ul class="simple">
+<li><p>By default, Colab notebooks you create or modify are saved to a folder called <code class="docutils literal notranslate"><span class="pre">Colab</span> <span class="pre">Notebooks</span></code> in your Google Drive.</p></li>
+</ul>
+</li>
+<li><p><strong>Organization:</strong></p>
+<ul class="simple">
+<li><p>Create a dedicated folder in your Google Drive for your project (e.g., <code class="docutils literal notranslate"><span class="pre">Summer_2025</span></code>).</p></li>
+<li><p>Inside that, create a subfolder for your research log (e.g., <code class="docutils literal notranslate"><span class="pre">Research_Log</span></code>).</p></li>
+<li><p>Move your log notebooks (<code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD_Log.ipynb</span></code>) into this folder.</p></li>
+</ul>
+</li>
+<li><p><strong>Accessibility:</strong> Access your log from any computer with internet access by logging into your Google account.</p></li>
+<li><p><strong>Sharing:</strong> You can easily share individual notebooks or the entire folder with your mentor for feedback using Google Drive’s sharing options (granting “Viewer” or “Commenter” access is usually best for logs).</p></li>
+</ol>
+</section>
+<section id="option-b-github-for-jupyter-notebooks-or-markdown-files">
+<h3><span class="section-number">9.10.2. </span><strong>Option B: GitHub (for Jupyter Notebooks or Markdown files)</strong><a class="headerlink" href="#option-b-github-for-jupyter-notebooks-or-markdown-files" title="Link to this heading">#</a></h3>
+<p>GitHub is a platform for version control and collaboration using Git. It’s excellent for tracking changes, reverting to previous versions, and collaborating.</p>
+<ol class="arabic">
+<li><p><strong>Why GitHub for a log?</strong></p>
+<ul class="simple">
+<li><p><strong>Version Control:</strong> Every commit is a snapshot. You can see how your work evolved and revert changes if needed.</p></li>
+<li><p><strong>Backup:</strong> Your log is stored remotely.</p></li>
+<li><p><strong>Industry Standard:</strong> Familiarity with Git/GitHub is a valuable skill.</p></li>
+</ul>
+</li>
+<li><p><strong>Setup:</strong></p>
+<ul class="simple">
+<li><p>Create a GitHub account if you don’t have one.</p></li>
+<li><p>Create a new <strong>private repository</strong> for your research log (e.g., <code class="docutils literal notranslate"><span class="pre">research-log</span></code>). A private repo ensures only you (and anyone you explicitly invite) can see it.</p></li>
+</ul>
+</li>
+<li><p><strong>Basic Git Workflow (from your computer’s terminal/Git client):</strong></p>
+<ul>
+<li><p><strong>Clone the repository (do this once):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>https://github.com/YourUsername/research-log.git<span class="o">](</span>https://github.com/YourUsername/research-log.git<span class="o">)</span>
+<span class="nb">cd</span><span class="w"> </span>research-log
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create/Add your log file:</strong>
+Place your <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD_Log.ipynb</span></code> or <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD_Log.md</span></code> file into this cloned directory.</p></li>
+<li><p><strong>Stage your changes (add files to be committed):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>YYYY-MM-DD_Log.ipynb<span class="w">  </span><span class="c1"># Add a specific file</span>
+<span class="c1"># OR</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                     </span><span class="c1"># Add all new/modified files in the current directory</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Commit your changes (save a snapshot):</strong>
+Write a meaningful commit message.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Log entry for YYYY-MM-DD: explored lightkurve, planned telescope settings (UTC)&quot;</span>
+<span class="c1"># For longer messages, just `git commit` will open a text editor</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Push your changes to GitHub (upload):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w">   </span><span class="c1"># Or &#39;master&#39; if that&#39;s your default branch name</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Frequency:</strong> Aim to <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">commit</span></code>, and <code class="docutils literal notranslate"><span class="pre">push</span></code> your log at the end of each day or significant work session.</p></li>
+<li><p><strong>Viewing History:</strong> You can see your commit history on your GitHub repository page.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> (Optional but good practice for Jupyter Notebooks):</strong>
+Jupyter Notebooks create checkpoint files. You might not want to track these. Create a file named <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> in your repository’s root directory with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Jupyter Notebook checkpoints</span>
+<span class="o">.</span><span class="n">ipynb_checkpoints</span><span class="o">/</span>
+<span class="n">__pycache__</span><span class="o">/</span>
+<span class="o">*.</span><span class="n">pyc</span>
+</pre></div>
+</div>
+<p>Commit this <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file to your repository.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="tips-for-maintaining-an-effective-log">
+<h2><span class="section-number">9.11. </span>7. Tips for Maintaining an Effective Log<a class="headerlink" href="#tips-for-maintaining-an-effective-log" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Be Consistent:</strong> Make it a daily habit, even if it’s just a few notes. It’s harder to reconstruct things later.</p></li>
+<li><p><strong>Write for Your Future Self:</strong> Imagine you’re reading this log six months or a year from now. Will it make sense? Provide enough context.</p></li>
+<li><p><strong>Don’t Strive for Perfection:</strong> It’s a log, not a polished paper. Clarity and completeness are more important than beautiful prose.</p></li>
+<li><p><strong>Record Failures Too:</strong> “Attempted X, but it failed because of Y. Realized Z.” This is valuable learning!</p></li>
+<li><p><strong>Use Templates:</strong> If you find yourself writing the same sections every day, create a simple template in a blank notebook or Markdown file and copy it for new entries.</p></li>
+<li><p><strong>Cross-Reference:</strong> If an entry builds on a previous one, link to it or mention the date.</p></li>
+<li><p><strong>Use UTC for Time-Sensitive Information:</strong> Reinforce this habit for all astronomical data, observations, and event logging.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2><span class="section-number">9.12. </span>8. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Your research log is more than just a requirement; it’s one of your most powerful research tools. A well-maintained log will significantly reduce stress when writing reports, help you learn more effectively, and provide a valuable record of your accomplishments.</p>
+<p>Choose the tool (Jupyter Notebook or Markdown) and syncing method (Google Drive or GitHub) that works best for you, and commit to using it regularly. Your future self will be grateful!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro-genga.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>GPU-accelerated planet formation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="AIJ-lightcurve.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. 1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-a-good-log-entry">9.2. 2. What Makes a Good Log Entry?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-using-jupyter-notebooks-for-your-research-log">9.3. 3. Method 1: Using Jupyter Notebooks for Your Research Log</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-markdown-cell-for-a-log-entry">9.3.1. Example Markdown Cell for a Log Entry:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-telescope-settings-planning-for-lco-0-4m-telescope">9.3.2. 2. Remote Telescope Settings Planning (for LCO 0.4m telescope)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-observations">9.4. Results &amp; Observations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-encountered-solutions">9.5. Problems Encountered &amp; Solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-learnings">9.6. New Learnings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">9.7. Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-using-markdown-files-for-your-research-log">9.8. 4. Method 2: Using Markdown Files for Your Research Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-spotlight-what-to-record">9.9. 5. Content Spotlight: What to Record</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-learnings">9.9.1. <strong>Daily Learnings:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-telescope-observations">9.9.2. <strong>Remote Telescope Observations:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-snippets-outputs">9.9.3. <strong>Code Snippets &amp; Outputs:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-solutions">9.9.4. <strong>Problems &amp; Solutions:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-research-log-with-the-cloud">9.10. 6. Syncing Your Research Log with the Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-google-colab-and-google-drive-primarily-for-jupyter-notebooks">9.10.1. <strong>Option A: Google Colab and Google Drive (primarily for Jupyter Notebooks)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-github-for-jupyter-notebooks-or-markdown-files">9.10.2. <strong>Option B: GitHub (for Jupyter Notebooks or Markdown files)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-maintaining-an-effective-log">9.11. 7. Tips for Maintaining an Effective Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9.12. 8. Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

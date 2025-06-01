@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,52 +14,50 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mycss.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -68,12 +65,16 @@
                 gtag('js', new Date());
                 gtag('config', 'G-8VDVRMR2BH');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/forced-eccentricity';</script>
@@ -91,19 +92,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -125,12 +130,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -145,6 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../home.html">
@@ -153,10 +169,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Exoplanets within Binary Systems</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -171,16 +199,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="current nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
 </ul>
 
     </div>
@@ -196,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -205,14 +242,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -237,14 +274,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/forced-eccentricity.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -255,14 +292,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/forced-eccentricity.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -369,26 +406,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -422,38 +461,39 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="free-and-forced-eccentricity">
-<h1><span class="section-number">5. </span>Free and Forced Eccentricity<a class="headerlink" href="#free-and-forced-eccentricity" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Free and Forced Eccentricity<a class="headerlink" href="#free-and-forced-eccentricity" title="Link to this heading">#</a></h1>
 <p>Planets can experience a small but coherent forcing over time, which is referred to as a <strong>secular perturbation</strong>.  This type of forcing is reminiscent of perturbations of a harmonic oscillator or pendulum.</p>
 <p>Consider a pendulum (or swing) that oscillates back and forth.  If the perturbation (even if small) is timed when the pendulum reaches its maximum height and along the natural direction of motion, then the overall amplitude of the oscillation will increase over time because the pendulum is receiving a coherent boost along the direction of motion.</p>
 <p>This is in contrast to the pendulum receiving a boost randomly along and against the direction of motion. If the direction and magnitude of the kicks are truly random, then the boost in each direction should cancel out on average resulting in no growth in the oscillation amplitude.</p>
 <p>The components of free and forced eccentricity are described mathematically using concepts of forced and free oscillations of harmonic oscillators that are connected together.  This is similar to the problem of a <a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/hbase/oscdr.html">damped, driven oscillator</a>, which has a linear combination of a steady-state and transient solution.  The steady-state solution maps to the forced eccentricity, where the transient solution is the free eccentricity.  The following section reviews the physics of coupled oscillations.</p>
 <section id="a-review-of-coupled-oscillations">
-<h2><span class="section-number">5.1. </span>A review of coupled oscillations<a class="headerlink" href="#a-review-of-coupled-oscillations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>A review of coupled oscillations<a class="headerlink" href="#a-review-of-coupled-oscillations" title="Link to this heading">#</a></h2>
 <p>Consider two masses on a <em>frictionless</em> plane, where each mass is connected by a spring (with a spring constant <span class="math notranslate nohighlight">\(k\)</span>) to a wall.  Each spring experiences a force according to Hooke’s law (e.g., <span class="math notranslate nohighlight">\(F = -kx\)</span>).  Additionally, the two springs are connected <em>to one another</em> by another spring with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.</p>
 <figure class="align-default" id="coupled-masses">
-<a class="reference internal image-reference" href="../_images/coupled_masses.png"><img alt="coupled masses" src="../_images/coupled_masses.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/coupled_masses.png"><img alt="coupled masses" src="../_images/coupled_masses.png" style="width: 400px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Two identical masses attached to their respective wall with a spring with a spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The masses are coupled by another spring (with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>) and slide on a frictionless plane.</span><a class="headerlink" href="#coupled-masses" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Two identical masses attached to their respective wall with a spring with a spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The masses are coupled by another spring (with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>) and slide on a frictionless plane.</span><a class="headerlink" href="#coupled-masses" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The mass on the left is displaced by a distance <span class="math notranslate nohighlight">\(x_1\)</span> to the right.  It’s left spring will apply a force to bring it back to the equilibrium, but the middle spring will compress along with the rightmost spring.  The compression of the middle and right spring will apply a force on the other mass on the right.  Because the masses are connected, there will be a similar set of forces acting on the mass on the right.  Altogether the forces on the left and right mass are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d618a101-9b6f-4298-84d7-7cce0d192186">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-d618a101-9b6f-4298-84d7-7cce0d192186" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d051b216-7dc9-4b97-80a9-076b08615f43">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-d051b216-7dc9-4b97-80a9-076b08615f43" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{F}_{\rm left} &amp;= -kx_1 + \kappa(x_2-x_1) = m\ddot{x}_1, \\
 \mathbf{F}_{\rm right} &amp;= -kx_2 + \kappa(x_1-x_2) = m\ddot{x}_2.
 \end{align}\]</div>
 <p>Notice that each of these equations have a part that we expect from an isolated spring and a part that describes the interaction via the connecting spring with spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.  Furthermore, the interaction on the left mass is equal and opposite to the interaction force on the right mass.  The above equations can be rearranged to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de1590e3-a008-4527-930f-45d11385adb6">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-de1590e3-a008-4527-930f-45d11385adb6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5a71bfa6-f28b-466a-b093-0bd93b1842cf">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-5a71bfa6-f28b-466a-b093-0bd93b1842cf" title="Permalink to this equation">#</a></span>\[\begin{align}
  m \ddot{x}_1 &amp;= -(\kappa + k)x_1 + \kappa x_2, \\
  m \ddot{x}_2 &amp;= \kappa x_1 - (\kappa + k)x_2,
 \end{align}\]</div>
 <p>or in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cd7d0e2-df6b-47da-af8c-a6ae5eb090ec">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-5cd7d0e2-df6b-47da-af8c-a6ae5eb090ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a52ac0a-8ed7-4f1e-8770-a149ea45af5f">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-3a52ac0a-8ed7-4f1e-8770-a149ea45af5f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{pmatrix} 
 m\ddot{x}_1 \\ m\ddot{x}_2 
 \end{pmatrix} &amp;= 
@@ -465,14 +505,14 @@ x_1 \\ x_2
 \end{pmatrix}.
 \end{align}\]</div>
 <p>Let’s use the following trial functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a400d304-33b1-465f-a9ea-2055b407544e">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-a400d304-33b1-465f-a9ea-2055b407544e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b96f0143-855e-464b-90d4-ed42302eff73">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-b96f0143-855e-464b-90d4-ed42302eff73" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1 e^{i\omega t}, \\
 x_2(t) &amp;= B_2 e^{i\omega t},
 \end{align}\]</div>
 <p>based on our prior knowledge concerning the isolated springs.  Upon substitution, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-597af753-2c1d-45a4-9c98-e29725bd7d4d">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-597af753-2c1d-45a4-9c98-e29725bd7d4d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cbd5c2cc-e564-4684-b8c3-b815e081d348">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-cbd5c2cc-e564-4684-b8c3-b815e081d348" title="Permalink to this equation">#</a></span>\[\begin{align}
 -m\omega^2\begin{pmatrix} 
 B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix} &amp;= 
@@ -484,8 +524,8 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix},
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd84ad5f-f0cd-46ca-982e-6ff70d862119">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-fd84ad5f-f0cd-46ca-982e-6ff70d862119" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-90a85cff-08a5-482f-9375-617e8df7e5e3">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-90a85cff-08a5-482f-9375-617e8df7e5e3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 
 (\kappa + k) - m\omega^2 &amp; -\kappa \\ -\kappa &amp; (\kappa + k) - m\omega^2
 \end{bmatrix} 
@@ -497,34 +537,34 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix}.
 \end{align}\]</div>
 <p>The trivial solution is <span class="math notranslate nohighlight">\(B_1 = B_2 = 0\)</span>.  But the non-trivial solution is solved via the characteristic equation (or determinant) via:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e1373815-0841-48bb-85b0-b467f3d1afb2">
-<span class="eqno">(5.7)<a class="headerlink" href="#equation-e1373815-0841-48bb-85b0-b467f3d1afb2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0af565f3-b517-412d-8178-c8d68053751b">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-0af565f3-b517-412d-8178-c8d68053751b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[(\kappa + k) - m\omega^2\right]^2 - \kappa^2 &amp;= 0, \\
 (m\omega^2)^2 - 2m(\kappa + k)\omega^2 + (\kappa + k)^2 - \kappa^2 &amp;= 0, \\
 x^2 -2(\kappa+k)x + 2\kappa k + k^2 &amp; = 0,
 \end{align}\]</div>
 <p>which has solutions via the quadratic equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e4d8c54-4a38-4fb5-956c-939bab1e9c12">
-<span class="eqno">(5.8)<a class="headerlink" href="#equation-2e4d8c54-4a38-4fb5-956c-939bab1e9c12" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c1bc5f20-60fc-4517-90e3-335cae599bab">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-c1bc5f20-60fc-4517-90e3-335cae599bab" title="Permalink to this equation">#</a></span>\[\begin{align}
 x &amp;= (\kappa + k) \pm \frac{1}{2}\sqrt{4(\kappa + k)^2 - 4(2\kappa k + k^2)}, \\
 m\omega^2 &amp;= (\kappa + k) \pm \kappa, \\
 \omega &amp;= \pm \sqrt{\frac{(\kappa + k) \pm \kappa}{m}}.
 \end{align}\]</div>
 <p>Each root (from the quadratic equation) permits a separate eigenfrequency:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6551efe-c44b-4ea0-a36c-23ed6bc5ade8">
-<span class="eqno">(5.9)<a class="headerlink" href="#equation-b6551efe-c44b-4ea0-a36c-23ed6bc5ade8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c7c435d7-df1f-4d49-87d4-4f9b16dfde7f">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-c7c435d7-df1f-4d49-87d4-4f9b16dfde7f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \omega_1 = \pm \sqrt{\frac{2\kappa + k}{m}}, \qquad&amp; \text{and} \qquad&amp;
 \omega_2 = \pm \sqrt{\frac{k}{m}}.
 \end{align}\]</div>
 <p>To determine the coefficients <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span>, we substitute the eigenfrequencies (<span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>) back into the characteristic equation to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c568ef60-9fc5-4734-994a-c077e58eac85">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-c568ef60-9fc5-4734-994a-c077e58eac85" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aea461f8-36c2-4426-a653-0b4490b1dd93">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-aea461f8-36c2-4426-a653-0b4490b1dd93" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[ k + \kappa - (k + 2\kappa) \right]B_1 - \kappa B_2 &amp;= -\kappa (B_1 + B_2) = 0,&amp;\ (\text{for } \omega_1;\  B_1 = -B_2) \\
 \left( k+ \kappa - k\right)B_1 - \kappa B_2 &amp;= \kappa (B_1 - B_2) = 0.&amp;  (\text{for } \omega_2;\  B_1 = B_2)
 \end{align}\]</div>
 <p>The most general solution of the coupled harmonic oscillator problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-568fd360-3589-4c9f-952e-291810c6ee92">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-568fd360-3589-4c9f-952e-291810c6ee92" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4017871f-6598-446e-96c1-97fd4ecad01c">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-4017871f-6598-446e-96c1-97fd4ecad01c" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1^+ e^{+i\omega_1 t} + B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}, \\
 x_2(t) &amp;= -B_1^+ e^{+i\omega_1 t} - B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}.
 \end{align}\]</div>
@@ -552,13 +592,13 @@ allowfullscreen></iframe>
 </div>
 </section>
 <section id="impact-of-forced-eccentricity">
-<h2><span class="section-number">5.2. </span>Impact of forced eccentricity<a class="headerlink" href="#impact-of-forced-eccentricity" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Impact of forced eccentricity<a class="headerlink" href="#impact-of-forced-eccentricity" title="Link to this heading">#</a></h2>
 </section>
 <section id="minimizing-the-forced-eccentricity">
-<h2><span class="section-number">5.3. </span>Minimizing the forced eccentricity<a class="headerlink" href="#minimizing-the-forced-eccentricity" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Minimizing the forced eccentricity<a class="headerlink" href="#minimizing-the-forced-eccentricity" title="Link to this heading">#</a></h2>
 </section>
 <section id="a-sample-simulation">
-<h2><span class="section-number">5.4. </span>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -587,11 +627,10 @@ allowfullscreen></iframe>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="planet-packing-stability.html"
@@ -611,10 +650,7 @@ allowfullscreen></iframe>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -622,6 +658,7 @@ allowfullscreen></iframe>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -654,9 +691,10 @@ By Billy Quarles
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -680,8 +718,8 @@ By Billy Quarles
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
