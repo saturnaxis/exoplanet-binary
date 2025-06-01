@@ -729,10 +729,10 @@ The content would be identical to the Jupyter Notebook example’s Markdown cell
 <h3><span class="section-number">9.5.2. </span><strong>Remote Telescope Observations:</strong><a class="headerlink" href="#remote-telescope-observations" title="Link to this heading">#</a></h3>
 <p>This is critical for reproducibility and understanding your data. <strong>All times MUST be in UTC.</strong></p>
 <ul class="simple">
-<li><p><em>Date &amp; Time of Observation (UTC Start to End):</em>- e.g., <code class="docutils literal notranslate"><span class="pre">2025-06-15</span> <span class="pre">03:45:00</span> <span class="pre">UTC</span></code> to <code class="docutils literal notranslate"><span class="pre">2025-06-15</span> <span class="pre">04:30:00</span> <span class="pre">UTC</span></code></p></li>
-<li><p><em>Telescope Used:</em>- e.g., <code class="docutils literal notranslate"><span class="pre">LCO</span> <span class="pre">0.4m</span> <span class="pre">Faulkes</span> <span class="pre">Telescope</span> <span class="pre">North</span> <span class="pre">(fl03)</span></code></p></li>
-<li><p><em>Target Name &amp; Coordinates:</em>- <code class="docutils literal notranslate"><span class="pre">NGC</span> <span class="pre">6946,</span> <span class="pre">RA:</span> <span class="pre">20:34:52.3,</span> <span class="pre">Dec:</span> <span class="pre">+60:09:14</span></code></p></li>
-<li><p><em>Proposal ID / Program Name:</em>- (If applicable)</p></li>
+<li><p><strong>Date &amp; Time of Observation (UTC Start to End):</strong>- e.g., <code class="docutils literal notranslate"><span class="pre">2025-06-15</span> <span class="pre">03:45:00</span> <span class="pre">UTC</span></code> to <code class="docutils literal notranslate"><span class="pre">2025-06-15</span> <span class="pre">04:30:00</span> <span class="pre">UTC</span></code></p></li>
+<li><p><strong>Telescope Used:</strong>- e.g., <code class="docutils literal notranslate"><span class="pre">LCO</span> <span class="pre">0.4m</span> <span class="pre">Faulkes</span> <span class="pre">Telescope</span> <span class="pre">North</span> <span class="pre">(fl03)</span></code></p></li>
+<li><p><strong>Target Name &amp; Coordinates:</strong>- <code class="docutils literal notranslate"><span class="pre">NGC</span> <span class="pre">6946,</span> <span class="pre">RA:</span> <span class="pre">20:34:52.3,</span> <span class="pre">Dec:</span> <span class="pre">+60:09:14</span></code></p></li>
+<li><p><strong>Proposal ID / Program Name:</strong>- (If applicable)</p></li>
 <li><p><strong>Instrument Settings:</strong></p>
 <ul>
 <li><p><em>Filter(s) used:</em>- <code class="docutils literal notranslate"><span class="pre">Sloan</span> <span class="pre">g',</span> <span class="pre">Sloan</span> <span class="pre">r',</span> <span class="pre">Sloan</span> <span class="pre">i'</span></code></p></li>
@@ -748,15 +748,15 @@ The content would be identical to the Jupyter Notebook example’s Markdown cell
 <li><p><em>Airmass at start/end:</em>- <code class="docutils literal notranslate"><span class="pre">1.2</span> <span class="pre">-&gt;</span> <span class="pre">1.1</span></code></p></li>
 </ul>
 </li>
-<li><p><em>Software Used for Request/Observation:</em>- <code class="docutils literal notranslate"><span class="pre">LCO</span> <span class="pre">Portal</span></code>, <code class="docutils literal notranslate"><span class="pre">TOM</span> <span class="pre">Toolkit</span> <span class="pre">vX.Y</span></code></p></li>
-<li><p><em>Commands/Scripts Used:</em>- <code class="docutils literal notranslate"><span class="pre">Submitted</span> <span class="pre">via</span> <span class="pre">LCO</span> <span class="pre">API</span> <span class="pre">script:</span> <span class="pre">observe_ngc6946.py</span> <span class="pre">on</span> <span class="pre">2025-06-14</span> <span class="pre">22:15:00</span> <span class="pre">UTC</span></code></p></li>
+<li><p><strong>Software Used for Request/Observation:</strong>- <code class="docutils literal notranslate"><span class="pre">LCO</span> <span class="pre">Portal</span></code>, <code class="docutils literal notranslate"><span class="pre">TOM</span> <span class="pre">Toolkit</span> <span class="pre">vX.Y</span></code></p></li>
+<li><p><strong>Commands/Scripts Used:</strong>- <code class="docutils literal notranslate"><span class="pre">Submitted</span> <span class="pre">via</span> <span class="pre">LCO</span> <span class="pre">API</span> <span class="pre">script:</span> <span class="pre">observe_ngc6946.py</span> <span class="pre">on</span> <span class="pre">2025-06-14</span> <span class="pre">22:15:00</span> <span class="pre">UTC</span></code></p></li>
 <li><p><strong>Raw Data Filenames &amp; Storage Location (on server/archive):</strong></p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">e.g.,</span> <span class="pre">fl03.20250615.0034.fits,</span> <span class="pre">...</span></code> (FITS headers will contain UTC timestamps)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Downloaded</span> <span class="pre">to</span> <span class="pre">/project/data/raw/YYYY-MM-DD/</span> <span class="pre">at</span> <span class="pre">2025-06-15</span> <span class="pre">08:00:00</span> <span class="pre">UTC</span></code></p></li>
 </ul>
 </li>
-<li><p>**Calibration Frames Used/Requested:*- <code class="docutils literal notranslate"><span class="pre">Standard</span> <span class="pre">set</span> <span class="pre">of</span> <span class="pre">bias,</span> <span class="pre">darks,</span> <span class="pre">flats</span> <span class="pre">for</span> <span class="pre">night</span> <span class="pre">of</span> <span class="pre">2025-06-15</span> <span class="pre">(UTC).</span></code></p></li>
+<li><p><strong>Calibration Frames Used/Requested:</strong>- <code class="docutils literal notranslate"><span class="pre">Standard</span> <span class="pre">set</span> <span class="pre">of</span> <span class="pre">bias,</span> <span class="pre">darks,</span> <span class="pre">flats</span> <span class="pre">for</span> <span class="pre">night</span> <span class="pre">of</span> <span class="pre">2025-06-15</span> <span class="pre">(UTC).</span></code></p></li>
 </ul>
 </section>
 <section id="code-snippets-outputs">
