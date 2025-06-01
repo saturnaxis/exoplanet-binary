@@ -536,13 +536,13 @@ document.write(`
 <div class="math notranslate nohighlight" id="equation-dist-eqn">
 <span class="eqno">(1.1)<a class="headerlink" href="#equation-dist-eqn" title="Link to this equation">#</a></span>\[r = \frac{a(1-e^2)}{1 + e\cos{f}},\]</div>
 <p>where the <strong>true anomaly</strong> <span class="math notranslate nohighlight">\(f\)</span> measures the position along the orbit (relative to the argument of pericenter).  Two points are defined along the semimajor axis that denote the closest (pericenter, <span class="math notranslate nohighlight">\(q\)</span>) and farthest (apocenter, <span class="math notranslate nohighlight">\(Q\)</span>) point from the reference star (see Fig. <a class="reference internal" href="#orbit-ellipse"><span class="std std-numref">1.2</span></a>).  Mathematically, these are given as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9a056ec8-b277-4f2f-b807-181d74efe01c">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-9a056ec8-b277-4f2f-b807-181d74efe01c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0fb7f14d-7159-4dc2-9e25-2659198ab0a0">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-0fb7f14d-7159-4dc2-9e25-2659198ab0a0" title="Permalink to this equation">#</a></span>\[\begin{align}
 q &amp;= a(1-e), \\
 Q &amp;= a(1+e). 
 \end{align}\]</div>
 <figure class="align-default" id="orbit-ellipse" style="width: 600px">
-<img alt="../_images/d32b1bd6a58259dc3de441718f40dec07402787b8ade3fdba73c0acccaf26d0c.png" src="../_images/d32b1bd6a58259dc3de441718f40dec07402787b8ade3fdba73c0acccaf26d0c.png" />
+<img alt="../_images/b483021596548baa1174bc09c6ee4a5d147b0080773c176b31d458bb5977c886.png" src="../_images/b483021596548baa1174bc09c6ee4a5d147b0080773c176b31d458bb5977c886.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Elliptical orbit <span class="math notranslate nohighlight">\((e=0.5)\)</span> with the reference star (orange star) at one focus.  The major axis (red dashed line) connects the apocenter (blue dot) to the pericenter, where the semimajor axis <span class="math notranslate nohighlight">\(a=1\ \rm AU\)</span>.  The orbit is tilted relative to the reference axis (<span class="math notranslate nohighlight">\(x\)</span>-axis) by <span class="math notranslate nohighlight">\(\omega = 45^\circ\)</span>.</span><a class="headerlink" href="#orbit-ellipse" title="Link to this image">#</a></p>
 </figcaption>
@@ -627,13 +627,13 @@ Q &amp;= a(1+e).
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d32b1bd6a58259dc3de441718f40dec07402787b8ade3fdba73c0acccaf26d0c.png" src="../_images/d32b1bd6a58259dc3de441718f40dec07402787b8ade3fdba73c0acccaf26d0c.png" />
+<img alt="../_images/b483021596548baa1174bc09c6ee4a5d147b0080773c176b31d458bb5977c886.png" src="../_images/b483021596548baa1174bc09c6ee4a5d147b0080773c176b31d458bb5977c886.png" />
 </div>
 </details>
 </div>
 <p>Thus far, we’ve used 3 parameters to draw an ellipse that is perpendicular to our line of sight.  Note that a single point on the ellipse can be located using the true anomaly <span class="math notranslate nohighlight">\(f\)</span>.  However, the universe does not always provide “face-on” systems that are perpendicular to our line of sight.  But we can transform our picture to the one provided by the universe using the appropriate <a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.  Notice that the rotation by the argument of pericenter used the rotation about the <span class="math notranslate nohighlight">\(z\)</span>-axis.  The rotation matrices are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a316256-ca79-4d2d-9154-f5c5c87c9ba4">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-1a316256-ca79-4d2d-9154-f5c5c87c9ba4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-278540a1-3a75-4283-9071-19c8f2a1888d">
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-278540a1-3a75-4283-9071-19c8f2a1888d" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_x(\theta) &amp;= \begin{pmatrix} 
     1 &amp; 0 &amp; 0 \\ 
     0 &amp; \cos{\theta} &amp; -\sin{\theta} \\ 
@@ -654,7 +654,7 @@ R_z(\theta) &amp;= \begin{pmatrix}
 <p>A rotation about the <span class="math notranslate nohighlight">\(x\)</span>-axis moves positive <span class="math notranslate nohighlight">\(y\)</span> side of the ellipse towards our line of sight, while the negative <span class="math notranslate nohighlight">\(y\)</span> side moves away (i.e., in the radial direction).  A transiting system would show a transverse motion along the <span class="math notranslate nohighlight">\(x\)</span>-axis, and a radial motion along the <span class="math notranslate nohighlight">\(z\)</span>-axis.  To get there, we need to apply the <span class="math notranslate nohighlight">\(R_x\)</span> matrix using the rotation angle <span class="math notranslate nohighlight">\(i\)</span>, which is called <strong>inclination</strong>. When <span class="math notranslate nohighlight">\(i=90^\circ\)</span>, then the motion is along our line of sight.</p>
 <p>The inclination (on the sky) for <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB is <span class="math notranslate nohighlight">\({\sim}79^\circ\)</span>, we’ll use this as an example of a non-face-on orbit.  Figure <a class="reference internal" href="#rotate-ell"><span class="std std-numref">1.3</span></a> illustrates how our view of an ellipse changes with respect to the inclination relative to the sky.</p>
 <figure class="align-default" id="rotate-ell" style="width: 600px">
-<img alt="../_images/645fd7c933bbbf82e00acb69b0467d429fd7cfecebb6c82f38e050b673306995.png" src="../_images/645fd7c933bbbf82e00acb69b0467d429fd7cfecebb6c82f38e050b673306995.png" />
+<img alt="../_images/713049059db84b70cbaac619a939c8b4fc63a0354b828ea64c7d72a518684a20.png" src="../_images/713049059db84b70cbaac619a939c8b4fc63a0354b828ea64c7d72a518684a20.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Elliptical orbit from Fig. <a class="reference internal" href="#orbit-ellipse"><span class="std std-numref">1.2</span></a> (red), but rotated with an inclination <span class="math notranslate nohighlight">\(i=79^\circ\)</span> (black).  The blue dots show the point transformation from one ellipse to the other.</span><a class="headerlink" href="#rotate-ell" title="Link to this image">#</a></p>
 </figcaption>
@@ -750,14 +750,14 @@ R_z(\theta) &amp;= \begin{pmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/645fd7c933bbbf82e00acb69b0467d429fd7cfecebb6c82f38e050b673306995.png" src="../_images/645fd7c933bbbf82e00acb69b0467d429fd7cfecebb6c82f38e050b673306995.png" />
+<img alt="../_images/713049059db84b70cbaac619a939c8b4fc63a0354b828ea64c7d72a518684a20.png" src="../_images/713049059db84b70cbaac619a939c8b4fc63a0354b828ea64c7d72a518684a20.png" />
 </div>
 </details>
 </div>
 <p>The argument of pericenter <span class="math notranslate nohighlight">\(\omega\)</span> rotates the orbit around the <span class="math notranslate nohighlight">\(z\)</span>-axis, where Fig. <a class="reference internal" href="#rotate-ell"><span class="std std-numref">1.3</span></a> has two points (or <em>nodes</em>) that cross the <span class="math notranslate nohighlight">\(x\)</span>-axis.  If we define a reference plane where <span class="math notranslate nohighlight">\(z=0\)</span>, then the orbiting body appears to ascend (move from <span class="math notranslate nohighlight">\(-z\)</span> to <span class="math notranslate nohighlight">\(+z\)</span>) at one node and descend (move from <span class="math notranslate nohighlight">\(+z\)</span> to <span class="math notranslate nohighlight">\(-z\)</span>) as it moves through the node.  The <strong>longitude of ascending node</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> defines the former, where the latter is called the descending node.  The ascending node is defined from <span class="math notranslate nohighlight">\(0^\circ-359^\circ\)</span> and wraps around (e.g., <span class="math notranslate nohighlight">\(359^\circ + 1^\circ \rightarrow 0^\circ\)</span>).</p>
 <p>There is not particular reason the orbit should align with our reference direction (the <span class="math notranslate nohighlight">\(x\)</span>-axis).  Therefore, the ascending node rotates the orbit about the <span class="math notranslate nohighlight">\(z\)</span>-axis similarly to the rotation from the argument of pericenter (i.e., <span class="math notranslate nohighlight">\(R_z(\Omega)\)</span>).</p>
 <figure class="align-default" id="sky-orbit" style="width: 600px">
-<img alt="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" src="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" />
+<img alt="../_images/5fe3ad24f93bff288f204052c6e1fff237bb13d055e6ecf5635e28ef68e4b094.png" src="../_images/5fe3ad24f93bff288f204052c6e1fff237bb13d055e6ecf5635e28ef68e4b094.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Elliptical orbit from Fig. <a class="reference internal" href="#orbit-ellipse"><span class="std std-numref">1.2</span></a> (red), but rotated with an inclination <span class="math notranslate nohighlight">\(i=79^\circ\)</span> (black) or <span class="math notranslate nohighlight">\(i=90^\circ\)</span> (magenta).  The inclined orbits (black and magenta) are also rotated with <span class="math notranslate nohighlight">\(\Omega = 60\)</span>, to illustrate the changing of the ascending node. The blue dots show the point transformation from one ellipse to the other.</span><a class="headerlink" href="#sky-orbit" title="Link to this image">#</a></p>
 </figcaption>
@@ -872,7 +872,7 @@ R_z(\theta) &amp;= \begin{pmatrix}
 [0.11835361 0.3399168  0.34705762]
 </pre></div>
 </div>
-<img alt="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" src="../_images/5b16abe8487de9276d029481cdb253354a9b625842334ca602f8bf323c4b1f68.png" />
+<img alt="../_images/5fe3ad24f93bff288f204052c6e1fff237bb13d055e6ecf5635e28ef68e4b094.png" src="../_images/5fe3ad24f93bff288f204052c6e1fff237bb13d055e6ecf5635e28ef68e4b094.png" />
 </div>
 </details>
 </div>
@@ -898,14 +898,14 @@ R_z(\theta) &amp;= \begin{pmatrix}
 <section id="cartesian-to-orbital-elements">
 <h3><span class="section-number">1.2.3. </span>Cartesian to orbital elements<a class="headerlink" href="#cartesian-to-orbital-elements" title="Link to this heading">#</a></h3>
 <p>Here is a brief overview to convert from Cartesian coordinates to orbital elements for a central body problem (i.e., single dominant mass <span class="math notranslate nohighlight">\(m_0\)</span> orbited by a much smaller mass <span class="math notranslate nohighlight">\(m_1\)</span>).  Let’s assume that a position <span class="math notranslate nohighlight">\(\vec{x} = \{x,\ y,\ z\}\)</span> and velocity <span class="math notranslate nohighlight">\(\vec{v} = \{\dot{x},\ \dot{y},\ \dot{z}\}\)</span> exist to define the motion of <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(m_o\)</span>.  Then, we can define a two scalars for the distance <span class="math notranslate nohighlight">\(r\)</span> and speed <span class="math notranslate nohighlight">\(v\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85c0c814-d2bf-4dc1-bcf7-39334b2310b2">
-<span class="eqno">(1.4)<a class="headerlink" href="#equation-85c0c814-d2bf-4dc1-bcf7-39334b2310b2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50db11de-0787-40f1-85e3-60361314a784">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-50db11de-0787-40f1-85e3-60361314a784" title="Permalink to this equation">#</a></span>\[\begin{align}
 r^2 = x^2 + y^2 + z^2, \\
 v^2 = \dot{x}^2 + \dot{y}^2 + \dot{z}^2.
 \end{align}\]</div>
 <p>The angular momentum vector <span class="math notranslate nohighlight">\(\vec{p}\)</span> is defined using the cross product, or <span class="math notranslate nohighlight">\(\vec{p} = m\ (\vec{x} \times \vec{v})\)</span>.  However, we are interested in the specific angular momentum <span class="math notranslate nohighlight">\(\vec{h} = \vec{p}/m\)</span> because it better describes the angular momentum vector normal (i.e. perpendicular) to the orbital plane.  The <a class="reference external" href="https://tutorial.math.lamar.edu/classes/calcii/crossproduct.aspx">cross product</a> can be written in terms of components via:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40b4f830-da33-4628-a670-2be23a08a3f8">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-40b4f830-da33-4628-a670-2be23a08a3f8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0dc7c22c-5a35-4815-8b55-27b1c2a01020">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-0dc7c22c-5a35-4815-8b55-27b1c2a01020" title="Permalink to this equation">#</a></span>\[\begin{align}
 \vec{h} &amp;= \det \begin{pmatrix} 
 \hat{\rm i} &amp; \hat{\rm j} &amp; \hat{\rm k} \\ 
 x &amp; y &amp; z \\ 
@@ -921,8 +921,8 @@ x &amp; y &amp; z \\
  &amp;= h_x \hat{\rm i} + h_y \hat{\rm j}+ h_z \hat{\rm k},
 \end{align} \]</div>
 <p>where the magnitude of the specific angular momentum vector is given by <span class="math notranslate nohighlight">\(h^2 = h_x^2 + h_y^2 + h_z^2\)</span>. Assuming a <span class="math notranslate nohighlight">\(\vec{h}^\prime\)</span> that is normal to the reference plane (i.e., <span class="math notranslate nohighlight">\(\vec{h}^\prime = \{0,\ 0,\ h\}\)</span>), we can project (rotate) the <span class="math notranslate nohighlight">\(\vec{h}\)</span> to point perpendicular to the orbital planet by <span class="math notranslate nohighlight">\(\vec{h} = R_z(\Omega)R_x(i)\vec{h}^\prime\)</span>, or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa3c544f-bdd6-4125-9bc6-be9ddd5241b1">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-fa3c544f-bdd6-4125-9bc6-be9ddd5241b1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0ff089d2-e0d7-422c-9b8d-5c2b3c1cb9fa">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-0ff089d2-e0d7-422c-9b8d-5c2b3c1cb9fa" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{pmatrix}  h_x \\ h_y \\ h_z 
 \end{pmatrix}
 
@@ -937,13 +937,13 @@ x &amp; y &amp; z \\
 \end{align}\]</div>
 <p><strong>semimajor axis</strong></p>
 <p>The velocity of a body in a bound orbit can be expressed (using the <a class="reference external" href="https://en.wikipedia.org/wiki/Vis-viva_equation">vis viva equation</a>) in terms of its total energy, <span class="math notranslate nohighlight">\(E = T + V\)</span>, and the gravitational parameter <span class="math notranslate nohighlight">\(\mathcal{G}(m_o + m_1)\)</span>, which depends on Newton’s universal gravitational constant <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.  Consequently, we find</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61b5a7bd-0032-4c41-98e4-69605d794665">
-<span class="eqno">(1.7)<a class="headerlink" href="#equation-61b5a7bd-0032-4c41-98e4-69605d794665" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-35a2c91c-b12d-4b0c-b0f8-120e284b8719">
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-35a2c91c-b12d-4b0c-b0f8-120e284b8719" title="Permalink to this equation">#</a></span>\[\begin{align}
 v^2 = \mathcal{G}(m_o + m_1)\left(\frac{2}{r} - \frac{1}{a}\right),
 \end{align}\]</div>
 <p>which can be solved in terms of the semimajor axis <span class="math notranslate nohighlight">\(a\)</span> as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec10dcec-eac6-4ddb-aa23-0f8ca82c393f">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-ec10dcec-eac6-4ddb-aa23-0f8ca82c393f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5c3d5313-42a0-42ba-893b-7c908d929afb">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-5c3d5313-42a0-42ba-893b-7c908d929afb" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{1}{a} &amp;= \frac{2}{r} - \frac{v^2}{\mathcal{G}(m_o+m_1)}.
 \end{align}\]</div>
 <p><strong>eccentricity</strong></p>
@@ -954,43 +954,43 @@ v^2 = \mathcal{G}(m_o + m_1)\left(\frac{2}{r} - \frac{1}{a}\right),
 &amp;=\sqrt{\mathcal{G}(m_o + m)\left(2r - \frac{r^2}{a}\right)}, \\
 &amp;=\sqrt{\mathcal{G}(m_o + m)a\left(2\frac{1-e^2}{1+e\cos{f}} - \frac{(1-e^2)^2}{(1+e\cos{f})^2}\right)}.\end{split}\]</div>
 <p>For a bound orbit the angular momentum is conserved, which means we are free to pick any value of <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(h\)</span> remains constant.  Choosing <span class="math notranslate nohighlight">\(f=0^\circ\)</span>, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03201d58-4a0d-413a-8cca-cbf3fc11e4ab">
-<span class="eqno">(1.10)<a class="headerlink" href="#equation-03201d58-4a0d-413a-8cca-cbf3fc11e4ab" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aacb37ac-4645-49e3-9bfd-3964a1783a15">
+<span class="eqno">(1.10)<a class="headerlink" href="#equation-aacb37ac-4645-49e3-9bfd-3964a1783a15" title="Permalink to this equation">#</a></span>\[\begin{align}
 h &amp;=\sqrt{\mathcal{G}(m_o + m)a\left(2(1-e) - (1-e)^2\right)}, \\
 &amp; = \sqrt{\mathcal{G}(m_o + m)a\left(1-e^2 \right)}.
 \end{align}\]</div>
 <p>With some algebra, we find an expression for the eccentricity as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fffc7f6-0d1d-446d-9573-0fa0cc94680b">
-<span class="eqno">(1.11)<a class="headerlink" href="#equation-2fffc7f6-0d1d-446d-9573-0fa0cc94680b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-872defee-b447-4448-a169-6e69293a7b19">
+<span class="eqno">(1.11)<a class="headerlink" href="#equation-872defee-b447-4448-a169-6e69293a7b19" title="Permalink to this equation">#</a></span>\[\begin{align}
 e = \sqrt{1-\frac{h^2}{\mathcal{G}(m_o + m)a}},
 \end{align}\]</div>
 <p>which depends on the initial specific angular momentum <span class="math notranslate nohighlight">\(h\)</span> and semimajor axis <span class="math notranslate nohighlight">\(a\)</span>.  In solving this initial value problem, it is assumed that <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are both input parameters (i.e., chosen in advance) so that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(h\)</span> could be determined in sequence.</p>
 <p><strong>argument of pericenter</strong></p>
 <p>The argument of pericenter can be determined using vector identities (see <a class="reference external" href="https://ocw.mit.edu/courses/16-522-space-propulsion-spring-2015/6127948308ccbe73c1c44751e2509ae0_MIT16_522S15_Lecture5.pdf">MIT OpenCourseWare</a> for more details).  Let’s backup and use the cross product form of the specific angular momentum, <span class="math notranslate nohighlight">\(\vec{h} = \vec{x} \times \vec{v}\)</span>.  Angular momentum conservation means that <span class="math notranslate nohighlight">\(h = |\vec{h}|\)</span> is constant with time.  The time derivative is then equal to zero, <span class="math notranslate nohighlight">\(\dot{\vec{h}} = 0\)</span>.</p>
 <p>Recall the equation of motion for orbiting bodies</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58a7a4f6-1b1a-456b-b295-673ced11e9e3">
-<span class="eqno">(1.12)<a class="headerlink" href="#equation-58a7a4f6-1b1a-456b-b295-673ced11e9e3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e607954b-2f9a-40c2-8e8a-b50c312129f7">
+<span class="eqno">(1.12)<a class="headerlink" href="#equation-e607954b-2f9a-40c2-8e8a-b50c312129f7" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{\vec{v}} + \frac{\mathcal{G}(m_o+m_1)\vec{r}}{r^3} = 0.
 \end{align}\]</div>
 <p>This means we can apply a cross product across all terms to get an expression in terms of <span class="math notranslate nohighlight">\(\vec{h}\)</span>, or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78316656-3263-4359-a96f-6afa9a97c3ab">
-<span class="eqno">(1.13)<a class="headerlink" href="#equation-78316656-3263-4359-a96f-6afa9a97c3ab" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-68ebc0a4-424e-4950-9461-51ec8261a5d4">
+<span class="eqno">(1.13)<a class="headerlink" href="#equation-68ebc0a4-424e-4950-9461-51ec8261a5d4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\left(\vec{v} \times \vec{h}\right) + \frac{\mathcal{G}(m_o+m_1)}{r^3}\left(\vec{r} \times \vec{h}\right) = 0.
 \end{align}\]</div>
 <p>We can then use the vector identity <span class="math notranslate nohighlight">\(\vec{r} \times \vec{h} = \vec{r} \times (\vec{r} \times \vec{v}) = \vec{r}(\vec{r}\cdot \vec{v})-r^2\vec{v}\)</span> to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ab6bc99-83d0-495e-9df5-d45de7a4b122">
-<span class="eqno">(1.14)<a class="headerlink" href="#equation-5ab6bc99-83d0-495e-9df5-d45de7a4b122" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7a6bb758-399b-493e-b675-69fac2498cae">
+<span class="eqno">(1.14)<a class="headerlink" href="#equation-7a6bb758-399b-493e-b675-69fac2498cae" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\left(\vec{v} \times \vec{h}\right) + \mathcal{G}(m_o+m_1)\frac{d}{dt}\left(\frac{ \vec{r}}{r} \right) = 0.
 \end{align}\]</div>
 <p>This equation can be directly integrated to produce the <a class="reference external" href="https://en.wikipedia.org/wiki/Eccentricity_vector"><strong>eccentricity vector</strong></a>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12923c49-e14c-42d7-a464-77f438876834">
-<span class="eqno">(1.15)<a class="headerlink" href="#equation-12923c49-e14c-42d7-a464-77f438876834" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-15011b4d-9199-4fdc-b555-3cd551d095e8">
+<span class="eqno">(1.15)<a class="headerlink" href="#equation-15011b4d-9199-4fdc-b555-3cd551d095e8" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathcal{G}(m_o+m_1)\vec{e} &amp;= \vec{v} \times \vec{h} - \mathcal{G}(m_o+m_1)\frac{\vec{r}}{r}, \\
 \vec{e} &amp;= \frac{\vec{v} \times \vec{h}}{\mathcal{G}(m_o+m_1)} - \frac{\vec{r}}{r},
 \end{align}\]</div>
 <p>which is also a <a class="reference external" href="https://en.wikipedia.org/wiki/Laplace%E2%80%93Runge%E2%80%93Lenz_vector">Laplace-Runge-Lenz vector</a> and points towards the pericenter.  The eccentricity vector can be decomposed into components within the orbital plane that depend on the argument of pericenter <span class="math notranslate nohighlight">\(\omega\)</span> (or <span class="math notranslate nohighlight">\(\varpi\)</span>) as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c885d95-af88-464a-b947-0b814b5619cb">
-<span class="eqno">(1.16)<a class="headerlink" href="#equation-0c885d95-af88-464a-b947-0b814b5619cb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-512f4f52-ce1f-4849-a92c-1f5ff053af43">
+<span class="eqno">(1.16)<a class="headerlink" href="#equation-512f4f52-ce1f-4849-a92c-1f5ff053af43" title="Permalink to this equation">#</a></span>\[\begin{align}
 e &amp;= \sqrt{\vec{e}\cdot \vec{e}}, \\
 e_x &amp;= e\cos{\omega}, \\
 e_y &amp;= e\sin{\omega}.
@@ -998,14 +998,14 @@ e_y &amp;= e\sin{\omega}.
 <p>Then the argument of pericenter can be determined through the appropriate <span class="math notranslate nohighlight">\(\arcsin,\ \arccos,\ \text{or } \arctan\)</span> functions.</p>
 <p><strong>orbital inclination</strong></p>
 <p>The orbital inclination is different from the observational (sky plane) inclination described earlier through the reference plane.  The orbital inclination is determined by a counter-clockwise rotation (about the <span class="math notranslate nohighlight">\(x\)</span>-axis) from the <span class="math notranslate nohighlight">\(y\)</span>- towards the <span class="math notranslate nohighlight">\(z\)</span>-axis following a right-hand rule.  Because we defined <span class="math notranslate nohighlight">\(\vec{h}\)</span> in a similar way, we can use <span class="math notranslate nohighlight">\(h_z\)</span> (and some algebra) to determine the orbital inclination as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-880450ae-95bd-4b00-86f3-01d780c7ee7d">
-<span class="eqno">(1.17)<a class="headerlink" href="#equation-880450ae-95bd-4b00-86f3-01d780c7ee7d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3f2a5a99-f8d9-488c-b428-5441c4a330e4">
+<span class="eqno">(1.17)<a class="headerlink" href="#equation-3f2a5a99-f8d9-488c-b428-5441c4a330e4" title="Permalink to this equation">#</a></span>\[\begin{align}
 i = \cos^{-1}\left( \frac{h_z}{h}\right).
 \end{align}\]</div>
 <p><strong>longitude of ascending node</strong></p>
 <p>The <span class="math notranslate nohighlight">\(h_x\)</span> and <span class="math notranslate nohighlight">\(h_y\)</span> components can be used to determine the longitude of ascending node <span class="math notranslate nohighlight">\(\Omega\)</span>, once the orbital inclination is determined.  Then, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca9b53c8-663e-4f19-83f1-771743db61ff">
-<span class="eqno">(1.18)<a class="headerlink" href="#equation-ca9b53c8-663e-4f19-83f1-771743db61ff" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a2a0fe3-8b33-4b01-879e-652c28c19877">
+<span class="eqno">(1.18)<a class="headerlink" href="#equation-3a2a0fe3-8b33-4b01-879e-652c28c19877" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sin{\Omega} = \frac{h_x}{h\sin{i}},\quad &amp;\text{and}&amp; \cos{\Omega} = \frac{-h_y}{h\sin{i}}.
 \end{align}\]</div>
 <div class="admonition note">
@@ -1014,8 +1014,8 @@ i = \cos^{-1}\left( \frac{h_z}{h}\right).
 </div>
 <p><strong>true anomaly</strong></p>
 <p>The true anomaly can be determined using Eq. <a class="reference internal" href="#equation-dist-eqn">(1.1)</a> (and some algebra) to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-733d75fb-a0a6-417e-a3df-836eda37f510">
-<span class="eqno">(1.19)<a class="headerlink" href="#equation-733d75fb-a0a6-417e-a3df-836eda37f510" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1ece6e87-d15f-46b4-9334-13827e168697">
+<span class="eqno">(1.19)<a class="headerlink" href="#equation-1ece6e87-d15f-46b4-9334-13827e168697" title="Permalink to this equation">#</a></span>\[\begin{align}
 \cos{f} = \frac{1}{e}\left(\frac{a(1-e^2)}{r}-1 \right).
 \end{align}\]</div>
 <div class="admonition note">
@@ -1027,8 +1027,8 @@ i = \cos^{-1}\left( \frac{h_z}{h}\right).
 <section id="using-alpha-cen-ab-parameters">
 <h2><span class="section-number">1.3. </span>Using <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB parameters<a class="headerlink" href="#using-alpha-cen-ab-parameters" title="Link to this heading">#</a></h2>
 <p>The orbit of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB can be represented on the sky using its orbital elements.  These orbital elements are depend on the given epoch, where the elements determined by <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2016/02/aa27859-15.pdf">Pourbaix &amp; Boffin (2016)</a> are for a Julian Date for 1955.66.  Additionally, the semimajor axis is often provided in <em>arcseconds</em> <span class="math notranslate nohighlight">\((^{\prime\prime})\)</span>, which describes the <em>projected</em> semimajor axis on the sky.  To get the actual (non-projected) semimajor axis, we can use Newton’s version of Kepler’s third law.  The <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB system has been observed long enough to get an accurate orbital period <span class="math notranslate nohighlight">\(P = 79.91\pm 0.013\ \rm yr\)</span>.  Also using the total mass of the binary as <span class="math notranslate nohighlight">\(m_{\rm tot} = 2.105\ M_\odot\)</span>, we can obtain</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9aa7013a-6415-4b75-a495-0a0129b6eae3">
-<span class="eqno">(1.20)<a class="headerlink" href="#equation-9aa7013a-6415-4b75-a495-0a0129b6eae3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a6bb1d2-531b-4477-a053-90b8566884f0">
+<span class="eqno">(1.20)<a class="headerlink" href="#equation-1a6bb1d2-531b-4477-a053-90b8566884f0" title="Permalink to this equation">#</a></span>\[\begin{align}
 a = \left(P^2 m_{\rm tot}\right)^{1/3} = \left(79.91^2 \cdot 2.105 \right)^{1/3} = 23.78\ \rm AU.
 \end{align}\]</div>
 <div class="admonition note">
@@ -1063,7 +1063,7 @@ a = \left(P^2 m_{\rm tot}\right)^{1/3} = \left(79.91^2 \cdot 2.105 \right)^{1/3}
 </div>
 <p>Table <a class="reference internal" href="#orbital-table"><span class="std std-numref">1.2</span></a> provides the orbital elements from <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2016/02/aa27859-15.pdf">Pourbaix &amp; Boffin (2016)</a>, where Figure <a class="reference internal" href="#sky-alphacen"><span class="std std-numref">1.6</span></a> illustrates the orbit on the sky plane.  Thus far, we’ve used the dynamicist convention for the orientation of an orbit, but observers typically use a coordinate plane with the vertical axis corresponds to the <span class="math notranslate nohighlight">\(x\)</span> values along the cardinal direction <span class="math notranslate nohighlight">\(N\)</span>.  Consequently (to follow a right hand rule) the horizontal axis corresponds to the <span class="math notranslate nohighlight">\(y\)</span> values and the cardinal direction <span class="math notranslate nohighlight">\(E\)</span> points to the left (see the Appendix of <a class="reference external" href="https://iopscience.iop.org/article/10.1088/0004-637X/798/1/46/pdf">Deitrick et al. (2015)</a> for more details).  Figure <a class="reference internal" href="#sky-fig"><span class="std std-numref">1.7</span></a> shows the orbit that includes both the astrometric and radial velocity data (<a class="reference external" href="https://articles.adsabs.harvard.edu/pdf/1999A%26A...344..172P">Pourbaix, Neuforge-Verheeke, &amp; Noels (1999)</a>) for comparison.</p>
 <figure class="align-default" id="sky-alphacen" style="width: 600px">
-<img alt="../_images/986519ed6adbbf54e4790447155d20bcc87b1efe14a1aeeed1b08840be667c5e.png" src="../_images/986519ed6adbbf54e4790447155d20bcc87b1efe14a1aeeed1b08840be667c5e.png" />
+<img alt="../_images/b529d5540fde62597efab244b05143657b9fb5099e82803181fb7e02dda0832e.png" src="../_images/b529d5540fde62597efab244b05143657b9fb5099e82803181fb7e02dda0832e.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Representation of the binary orbit with the orbital plane coplanar with the sky plane (red) and the observed orbit (black) using the appropriate Euler angles <span class="math notranslate nohighlight">\((i,\ \omega, \&amp;\ \Omega)\)</span>. The blue dots represent the pericenter of each orbit, where the black arrows denote the cardinal directions on the sky plane.</span><a class="headerlink" href="#sky-alphacen" title="Link to this image">#</a></p>
 </figcaption>
@@ -1157,7 +1157,7 @@ a = \left(P^2 m_{\rm tot}\right)^{1/3} = \left(79.91^2 \cdot 2.105 \right)^{1/3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/986519ed6adbbf54e4790447155d20bcc87b1efe14a1aeeed1b08840be667c5e.png" src="../_images/986519ed6adbbf54e4790447155d20bcc87b1efe14a1aeeed1b08840be667c5e.png" />
+<img alt="../_images/b529d5540fde62597efab244b05143657b9fb5099e82803181fb7e02dda0832e.png" src="../_images/b529d5540fde62597efab244b05143657b9fb5099e82803181fb7e02dda0832e.png" />
 </div>
 </details>
 </div>
@@ -1165,8 +1165,8 @@ a = \left(P^2 m_{\rm tot}\right)^{1/3} = \left(79.91^2 \cdot 2.105 \right)^{1/3}
 <section id="coordinate-systems">
 <h2><span class="section-number">1.4. </span>Coordinate systems<a class="headerlink" href="#coordinate-systems" title="Link to this heading">#</a></h2>
 <p>The two body problem is defined in terms of six parameters that define the size and orientation of an ellipse relative to a central mass.  In the case of a similar mass binary, the problem can be recast in either astrocentric or barycentric terms through a choice of a coordinate system.  The definition of the ellipse is invariant to the choice of coordinate system (i.e., invariant through a Galilean transformation or translation).  Mathematically, this means that we can transform from frame containing <span class="math notranslate nohighlight">\(\{x,\ y,\ z\}\)</span> to another frame with <span class="math notranslate nohighlight">\(\{x^\prime,\ y^\prime,\ z^\prime\}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b1c26bdb-3b97-41be-ac77-302ea8876298">
-<span class="eqno">(1.21)<a class="headerlink" href="#equation-b1c26bdb-3b97-41be-ac77-302ea8876298" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5365d701-9ffc-4664-8168-5e37f337e2b8">
+<span class="eqno">(1.21)<a class="headerlink" href="#equation-5365d701-9ffc-4664-8168-5e37f337e2b8" title="Permalink to this equation">#</a></span>\[\begin{align}
 x^\prime &amp;= x + x_o, \\
 y^\prime &amp;= y + y_o, \\
 z^\prime &amp;= z + z_o, \\
@@ -1175,39 +1175,39 @@ z^\prime &amp;= z + z_o, \\
 <section id="barycentric-coordinates">
 <h3><span class="section-number">1.4.1. </span>Barycentric coordinates<a class="headerlink" href="#barycentric-coordinates" title="Link to this heading">#</a></h3>
 <p>Let’s define the center of mass as the point of reference with the vectors <span class="math notranslate nohighlight">\(\vec{x_o} = \{x_o,\ y_o,\ z_o\}\)</span> and <span class="math notranslate nohighlight">\(\vec{v_o} = \{v_{x,o},\ v_{y,o},\ v_{z,o}\}\)</span>.  Then an astrocentric frame can be constructed relative to the center of mass (or <strong>barycenter</strong>) for each of the masses using vectors <span class="math notranslate nohighlight">\(\vec{x}_1\)</span> and <span class="math notranslate nohighlight">\(\vec{x}_2\)</span> to locate the masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, respectively.  A line can be constructed to connect one mass to the other through the barycenter, which introduces the following constraints:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9b30d5b-7d99-45d3-a36a-4cd3f8e0d8cb">
-<span class="eqno">(1.22)<a class="headerlink" href="#equation-e9b30d5b-7d99-45d3-a36a-4cd3f8e0d8cb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50ad47b7-3427-4ab3-bc53-1424562d8b11">
+<span class="eqno">(1.22)<a class="headerlink" href="#equation-50ad47b7-3427-4ab3-bc53-1424562d8b11" title="Permalink to this equation">#</a></span>\[\begin{align}
 m_1\vec{x}_1 + m_2\vec{x}_2 &amp;= (m_1 + m_2)\vec{x}_o,\\
 r &amp; = r_1 + r_2,
 \end{align}\]</div>
 <p>which depends on the distance <span class="math notranslate nohighlight">\(r = |\vec{x}_1-\vec{x}_2|\)</span> between <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, the distance <span class="math notranslate nohighlight">\(r_1 = |\vec{x}_1-\vec{x}_o|\)</span> from the barycenter to <span class="math notranslate nohighlight">\(m_1\)</span>, and the distance <span class="math notranslate nohighlight">\(r_2 = |\vec{x}_2-\vec{x}_o|\)</span> from the barycenter to <span class="math notranslate nohighlight">\(m_2\)</span>.  Through the constraint, <span class="math notranslate nohighlight">\(r_1\)</span> and <span class="math notranslate nohighlight">\(r_2\)</span> can be parameterized in terms of <span class="math notranslate nohighlight">\(r\)</span> and the masses by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ff8967d-3a3a-4ec9-b1ce-f01bcf979948">
-<span class="eqno">(1.23)<a class="headerlink" href="#equation-1ff8967d-3a3a-4ec9-b1ce-f01bcf979948" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a2938abd-f173-48e3-a2e3-9c01146c8c29">
+<span class="eqno">(1.23)<a class="headerlink" href="#equation-a2938abd-f173-48e3-a2e3-9c01146c8c29" title="Permalink to this equation">#</a></span>\[\begin{align}
 r_1 &amp;= \frac{m_2}{m_1+m_2}r, \\
 r_2 &amp;= \frac{m_1}{m_1+m_2}r.
 \end{align}\]</div>
 <p>The velocities can be transformed in a similar way, where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5f10237-1e72-4433-913e-c305ab5f96bd">
-<span class="eqno">(1.24)<a class="headerlink" href="#equation-e5f10237-1e72-4433-913e-c305ab5f96bd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c90b2646-64e6-435c-ad25-9b8eee5e4169">
+<span class="eqno">(1.24)<a class="headerlink" href="#equation-c90b2646-64e6-435c-ad25-9b8eee5e4169" title="Permalink to this equation">#</a></span>\[\begin{align}
 m_1\vec{v}_1 + m_2\vec{v}_2 &amp;= (m_1 + m_2)\vec{v}_o,\\
 v &amp; = v_1 + v_2,
 \end{align}\]</div>
 <p>which depends on the relative speed <span class="math notranslate nohighlight">\(v = |\vec{v}_1-\vec{v}_2|\)</span> between <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, the speed <span class="math notranslate nohighlight">\(v_1 = |\vec{v}_1-\vec{v}_o|\)</span> relative to the barycenter, and the speed <span class="math notranslate nohighlight">\(v_2 = |\vec{v}_2-\vec{v}_o|\)</span> relative to the barycenter.  Then the speeds of each body are defined by the mass ratios,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbc3cad8-a6ea-4017-aea1-178d65b22cb9">
-<span class="eqno">(1.25)<a class="headerlink" href="#equation-bbc3cad8-a6ea-4017-aea1-178d65b22cb9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9eef57e4-6077-4aaf-9cca-fca6d9c31164">
+<span class="eqno">(1.25)<a class="headerlink" href="#equation-9eef57e4-6077-4aaf-9cca-fca6d9c31164" title="Permalink to this equation">#</a></span>\[\begin{align}
 v_1 &amp;= \frac{m_2}{m_1+m_2}v, \\
 v_2 &amp; = \frac{m_1}{m_1+m_2}v.
 \end{align}\]</div>
 <p>The above example demonstrates the conditions for a two-body problem, but this can be generalized to <span class="math notranslate nohighlight">\(N\)</span> bodies by locating the position and velocity vectors for the barycenter.  Mathematically, these vectors are determined by a vector sum of the vectors locating each body, or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b9b94ea-b2c1-405a-b46b-5c32ee499cc2">
-<span class="eqno">(1.26)<a class="headerlink" href="#equation-9b9b94ea-b2c1-405a-b46b-5c32ee499cc2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-62966e84-609b-4925-8cb8-c80ccbe94c5c">
+<span class="eqno">(1.26)<a class="headerlink" href="#equation-62966e84-609b-4925-8cb8-c80ccbe94c5c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \vec{x}_o &amp;= \frac{1}{m_{\rm tot}} \sum_{i=1}^N m_i \vec{x}_i, \qquad \text{(barycenter position)}\\
 \vec{v}_o &amp;= \frac{1}{m_{\rm tot}} \sum_{i=1}^N m_i \vec{v}_i, \qquad \text{(barycenter velocity)}\\
 m_{\rm tot} &amp;= \sum_{i=1}^N m_i.
 \end{align}\]</div>
 <p>After locating the barycenter in both position and velocity, then the coordinates of each body can be translated (e.g., <span class="math notranslate nohighlight">\(\vec{x}_1^\prime = \vec{x}_1-\vec{x}_o\)</span>) so that the barycenter is a reference and coincides with the origin of the coordinate system.  Figure <a class="reference internal" href="#sky-alphacen-bary"><span class="std std-numref">1.8</span></a> illustrates the barycentric orbit for <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB on the sky plane.</p>
 <figure class="align-default" id="sky-alphacen-bary" style="width: 600px">
-<img alt="../_images/ec0fe6346e3a070aa312e98301a1c2d288ab61a65257636cfca55675d91969ea.png" src="../_images/ec0fe6346e3a070aa312e98301a1c2d288ab61a65257636cfca55675d91969ea.png" />
+<img alt="../_images/b6b4a9ea4675bdddc50854749f4c6f1213218b7b134f900b0c8c71503cb3edcd.png" src="../_images/b6b4a9ea4675bdddc50854749f4c6f1213218b7b134f900b0c8c71503cb3edcd.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1.8 </span><span class="caption-text">Representation of the binary orbit (<em>using barycentric coordinates</em>) with the orbital plane coplanar with the sky plane (left) and the observed orbit (right) using the appropriate Euler angles <span class="math notranslate nohighlight">\((i,\ \omega, \&amp;\ \Omega)\)</span>.</span><a class="headerlink" href="#sky-alphacen-bary" title="Link to this image">#</a></p>
 </figcaption>
@@ -1310,7 +1310,7 @@ m_{\rm tot} &amp;= \sum_{i=1}^N m_i.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ec0fe6346e3a070aa312e98301a1c2d288ab61a65257636cfca55675d91969ea.png" src="../_images/ec0fe6346e3a070aa312e98301a1c2d288ab61a65257636cfca55675d91969ea.png" />
+<img alt="../_images/b6b4a9ea4675bdddc50854749f4c6f1213218b7b134f900b0c8c71503cb3edcd.png" src="../_images/b6b4a9ea4675bdddc50854749f4c6f1213218b7b134f900b0c8c71503cb3edcd.png" />
 </div>
 </details>
 </div>
@@ -1326,8 +1326,8 @@ m_{\rm tot} &amp;= \sum_{i=1}^N m_i.
 </figcaption>
 </figure>
 <p>Using Jacobi coordinates is an iterative process, where you need to keep track of the current position/velocity vector relative to a reference point <span class="math notranslate nohighlight">\(O\)</span> and the “inclusive” barycenter (or the barycenter of inner subsystem).  For the <span class="math notranslate nohighlight">\(j{\rm th}\)</span> body <span class="math notranslate nohighlight">\((1&lt;j&lt;N)\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-268e5e82-9850-42c2-a400-5876ccaeca01">
-<span class="eqno">(1.27)<a class="headerlink" href="#equation-268e5e82-9850-42c2-a400-5876ccaeca01" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-42803f59-5955-4c20-8650-658d617eeec9">
+<span class="eqno">(1.27)<a class="headerlink" href="#equation-42803f59-5955-4c20-8650-658d617eeec9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \eta_j &amp;= \sum_{i=1}^{j} m_i, \\
 \vec{x}_{j}^\prime &amp;= \vec{x}_j - \frac{1}{\eta_{j-1}} \sum_{i=1}^{j-1} m_i \vec{x}_i,\\
 \vec{v}_{j}^\prime &amp;= \vec{v}_j - \frac{1}{\eta_{j-1}} \sum_{i=1}^{j-1} m_i\vec{v}_i,
@@ -1368,28 +1368,28 @@ m_{\rm tot} &amp;= \sum_{i=1}^N m_i.
 <p>The orbital elements are defined relative to a central body problem (or a single central gravitational potential).  However, a binary star system is not represented exactly by a central body, where there is now a binary potential.  As a result, there are multiple ways of adding a third body to the binary system.  One method is through a Galilean transformation, where the initial position <span class="math notranslate nohighlight">\(\vec{x}_j\)</span> and velocity <span class="math notranslate nohighlight">\(\vec{v}_j\)</span> of the stars and planets <span class="math notranslate nohighlight">\((j= \{A,\ B,\ p\})\)</span> are known using a Cartesian coordinate system.</p>
 <p><strong>Converting the binary orbit</strong></p>
 <p>The position vectors <span class="math notranslate nohighlight">\(\vec{x}_A\)</span> and <span class="math notranslate nohighlight">\(\vec{x}_B\)</span> represent the location of star A and B, respectively.  Additionally these vectors can be determined using either an astrocentric or barycentric reference.  Let’s assume an astrocentric reference (i.e., star A lies at the origin), where star B orbits star A and the binary orbital plane is coplanar with the reference plane <span class="math notranslate nohighlight">\((i_B=\Omega_B=0^\circ)\)</span>.  Therefore</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48339d6c-c71d-40d8-a3b7-ebb8f16812ac">
-<span class="eqno">(1.28)<a class="headerlink" href="#equation-48339d6c-c71d-40d8-a3b7-ebb8f16812ac" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5fd0d58d-06d2-4725-8d3a-72e55c24d962">
+<span class="eqno">(1.28)<a class="headerlink" href="#equation-5fd0d58d-06d2-4725-8d3a-72e55c24d962" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_A &amp;=y_A = z_A = 0, \\
 \dot{x}_A &amp;= \dot{y}_A = \dot{z}_A = 0
 \end{align}\]</div>
 <p>directly represents the initial position and velocity of star A.  We can use Eq. <a class="reference internal" href="#equation-dist-eqn">(1.1)</a> and <span class="math notranslate nohighlight">\(R_z(\omega_B + f_B)\)</span> to get the position of star B within the orbital plane.  Mathematically, this is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-769f4f28-6330-4346-8859-fb86fcb455b3">
-<span class="eqno">(1.29)<a class="headerlink" href="#equation-769f4f28-6330-4346-8859-fb86fcb455b3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3f874c5b-7650-43a6-8bac-d251d95b1044">
+<span class="eqno">(1.29)<a class="headerlink" href="#equation-3f874c5b-7650-43a6-8bac-d251d95b1044" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_B &amp;= \frac{a_B(1-e_B^2)}{1+e\cos{f_B}}\cos{(\omega_B+f_B)} = r_B\cos{(\omega_B+f_B)}, \\
 y_B &amp;= \frac{a_B(1-e_B^2)}{1+e\cos{f_B}}\sin{(\omega_B+f_B)} = r_B\sin{(\omega_B+f_B)}, \\
 z_B &amp;= 0.
 \end{align}\]</div>
 <p>To find the velocity components from orbital elements, we can simply take the time derivative of the position vector before the rotation matrix <span class="math notranslate nohighlight">\(R_z\)</span> is applied to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e17386bf-db01-437f-bbd6-0c1ed606ecfa">
-<span class="eqno">(1.30)<a class="headerlink" href="#equation-e17386bf-db01-437f-bbd6-0c1ed606ecfa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-98b3c907-c8fe-42f2-83eb-a850111e9c2d">
+<span class="eqno">(1.30)<a class="headerlink" href="#equation-98b3c907-c8fe-42f2-83eb-a850111e9c2d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{x} &amp;= \frac{d}{dt}r\cos{f} = \dot{r}\cos{f} - r\dot{f}\sin{f}, \\
 \dot{y} &amp;= \frac{d}{dt}r\sin{f} = \dot{r}\sin{f} + r\dot{f}\cos{f}, \\
 \dot{z} &amp;= 0.
 \end{align}\]</div>
 <p>The <span class="math notranslate nohighlight">\(\dot{r}\)</span> can be determined through a time derivative of Eq. <a class="reference internal" href="#equation-dist-eqn">(1.1)</a>, while the <span class="math notranslate nohighlight">\(r\dot{f}\)</span> is determined using a form of Kepler’s 2nd law and the specific angular momentum (<span class="math notranslate nohighlight">\(h = r^2\dot{f} = \sqrt{G(m_A+m_B)a(1-e^2)} = na^2\sqrt{1-e^2}\)</span>; see Eq. <a class="reference internal" href="#equation-spec-ang-mom">(1.9)</a>) to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e88b2dbe-2336-41f3-9f6d-51b3716132a1">
-<span class="eqno">(1.31)<a class="headerlink" href="#equation-e88b2dbe-2336-41f3-9f6d-51b3716132a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-172e16c3-b9bc-4f69-83f8-8bb973c34b96">
+<span class="eqno">(1.31)<a class="headerlink" href="#equation-172e16c3-b9bc-4f69-83f8-8bb973c34b96" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{r} &amp;= \frac{-a(1-e^2)e\sin{f}}{(1+e\cos{f})^2} = -\frac{re\sin{f}}{1+e\cos{f}}, \\
 r\dot{f} &amp;= \frac{na^2}{r}\sqrt{1-e^2} = \frac{na}{\sqrt{1-e^2}}(1+e\cos{f}), \\
 n &amp;= \sqrt{\frac{G(m_A + m_B)}{a^3}}
@@ -1400,31 +1400,31 @@ n &amp;= \sqrt{\frac{G(m_A + m_B)}{a^3}}
 \dot{y}_B &amp;= \frac{n a_B}{\sqrt{1-e_B}}\left[e + \cos{f_B}\right], \\
 \dot{z}_B &amp;= 0.\end{split}\]</div>
 <p>Finally, we can then apply the <span class="math notranslate nohighlight">\(R_z\)</span> rotation matrix to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bd5b75f-13c7-40e6-acb8-087f9e87a756">
-<span class="eqno">(1.33)<a class="headerlink" href="#equation-6bd5b75f-13c7-40e6-acb8-087f9e87a756" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8ed9293a-c949-4db6-b0b4-19c6f9c5ba9b">
+<span class="eqno">(1.33)<a class="headerlink" href="#equation-8ed9293a-c949-4db6-b0b4-19c6f9c5ba9b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{x}_B &amp;= -\frac{n a_B}{\sqrt{1-e_B}}\left(\sin{(\omega_B+f_B)} + e_B\sin{\omega_B}\right), \\
 \dot{y}_B &amp;= \frac{n a_B}{\sqrt{1-e_B}}\left(\cos{(\omega_B+f_B)} + e_B\cos{\omega_B}\right), \\
 \dot{z}_B &amp;= 0.
 \end{align}\]</div>
 <p><strong>Adding the planet</strong></p>
 <p>To add the planet to initially orbit star A, we mostly follow the same procedure as for star B but replace with the planet’s orbital elements (e.g., <span class="math notranslate nohighlight">\(r_p = a_p(1-e_p^2)/(1+e_p\cos{f_p})\)</span>) that are defined relative to the host star.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4d62b04-cac3-4fd0-b120-398aa5bac523">
-<span class="eqno">(1.34)<a class="headerlink" href="#equation-d4d62b04-cac3-4fd0-b120-398aa5bac523" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e71888d6-05bb-44b0-9a20-004b2436edd8">
+<span class="eqno">(1.34)<a class="headerlink" href="#equation-e71888d6-05bb-44b0-9a20-004b2436edd8" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_p &amp;= r_p\left(\cos{\Omega_p}\cos{(\omega_p+f_p)} - \sin{\Omega_p}\sin{(\omega_p+f_p)}\cos{i_p}\right), \\
 y_p &amp;= r_p\left(\sin{\Omega_p}\cos{(\omega_p+f_p)} + \cos{\Omega_p}\sin{(\omega_p+f_p)}\cos{i_p}\right), \\
 z_p &amp;= r_p\sin{(\omega_p+f_p)}\sin{i_p}.
 \end{align}\]</div>
 <p>The planetary inclination <span class="math notranslate nohighlight">\(i_p\)</span> and longitude of ascending node <span class="math notranslate nohighlight">\(\Omega_p\)</span> allow for the planet’s orbital planet to tilt relative to the binary orbital plane.  To get a coordinates for the planet on the sky relative to the binary, we would simply apply the rotation matrices <span class="math notranslate nohighlight">\(R_x\)</span> and <span class="math notranslate nohighlight">\(R_z\)</span> as necessary using <span class="math notranslate nohighlight">\(i_B\)</span> and <span class="math notranslate nohighlight">\(\Omega_B\)</span>.</p>
 <p>In the case of the planet, it will have three <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_angles">Euler angles</a> (<span class="math notranslate nohighlight">\(i_p\)</span>, <span class="math notranslate nohighlight">\(\omega_p\)</span>, <span class="math notranslate nohighlight">\(\Omega_p\)</span>) relative to the binary plane.  As a result, we can apply the <span class="math notranslate nohighlight">\(\left[R_z(\Omega_p)R_x(i_p)R_z(\omega_p)\right]\)</span> matrix transformation onto a velocity vector that is similar to Eq. <a class="reference internal" href="#equation-vel-vec">(1.32)</a> to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4348c1fa-343a-4f70-9dee-f6fcf3711b1a">
-<span class="eqno">(1.35)<a class="headerlink" href="#equation-4348c1fa-343a-4f70-9dee-f6fcf3711b1a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8bbffda7-3664-4865-9d92-e68cfd5a842f">
+<span class="eqno">(1.35)<a class="headerlink" href="#equation-8bbffda7-3664-4865-9d92-e68cfd5a842f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{x}_p &amp;= -\frac{n_p a_p}{\sqrt{1-e_p}} \left[\cos{\Omega_p}\left(\sin{(\omega_p + f_p)} + e_p\sin{\omega_p} \right) + \sin{\Omega_p}\left(\cos{(\omega_p + f_p)} - e_p\cos{\omega_p} \right)\cos{i_p} \right], \\
 \dot{y}_p &amp;= \frac{n_p a_p}{\sqrt{1-e_p}}  \left[\sin{\Omega_p}\left(\sin{(\omega_p + f_p)} - e_p\sin{\omega_p} \right) + \cos{\Omega_p}\left(\cos{(\omega_p + f_p)} + e_p\cos{\omega_p} \right)\cos{i_p} \right], \\
 \dot{z}_p &amp;= -\frac{n_p a_p}{\sqrt{1-e_p}} \left(\cos{(\omega_p + f_p) - e_p\cos{\omega_p}} \right)\sin{i_p},
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n_p = \sqrt{G(m+m_p)/a_p^3}\)</span> represents the mean motion of the planet relative to the host star with a mass <span class="math notranslate nohighlight">\(m\)</span>.  This will produce a set of Cartesian coordinates (<span class="math notranslate nohighlight">\(\vec{x}_p\)</span> and <span class="math notranslate nohighlight">\(\vec{v}_p\)</span>) such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a075624-c650-4c55-afba-53efb7262327">
-<span class="eqno">(1.36)<a class="headerlink" href="#equation-3a075624-c650-4c55-afba-53efb7262327" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2727643b-ab0d-43ab-a228-b1bc7911f7e5">
+<span class="eqno">(1.36)<a class="headerlink" href="#equation-2727643b-ab0d-43ab-a228-b1bc7911f7e5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \vec{x}_p^\prime &amp;= \vec{x}_A + \vec{x}_p, \\
 \vec{v}_p^\prime &amp;= \vec{v}_A + \vec{v}_p,
 \end{align}\]</div>

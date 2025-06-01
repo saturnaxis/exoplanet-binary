@@ -215,9 +215,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Data Reduction with AIJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Data Reduction (archival)</a></li>
 </ul>
 
     </div>
@@ -595,6 +595,38 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu = 0.50, e_bin = 0.50, the critical semimajor axis ratio rho_cr = 0.12
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_22683/43776500.py:19: DeprecationWarning: `interp2d` is deprecated!
+`interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
+
+For legacy code, nearly bug-for-bug compatible replacements are
+`RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
+scattered 2D data.
+
+In new code, for regular grids use `RegularGridInterpolator` instead.
+For scattered data, prefer `LinearNDInterpolator` or
+`CloughTocher2DInterpolator`.
+
+For more details see
+`https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
+
+  f = interp2d(xi, yi, zi, kind=&#39;linear&#39;)
+/tmp/ipykernel_22683/43776500.py:21: DeprecationWarning:         `interp2d` is deprecated!
+        `interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
+
+        For legacy code, nearly bug-for-bug compatible replacements are
+        `RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
+        scattered 2D data.
+
+        In new code, for regular grids use `RegularGridInterpolator` instead.
+        For scattered data, prefer `LinearNDInterpolator` or
+        `CloughTocher2DInterpolator`.
+
+        For more details see
+        `https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
+
+  astab = f(mu,ebin)[0]
+</pre></div>
+</div>
 </div>
 </div>
 <p>A nearly identical procedure can be applied to determine the critical semimajor axis ratio for P-Type planets using the GitHub repo <a class="reference external" href="https://github.com/saturnaxis/CBP_stability">saturnaxis:CBP_stability</a> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018ApJ...856..150Q/abstract">Quarles et al. (2018)</a>.</p>
@@ -627,6 +659,38 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu = 0.23, e_bin = 0.16, the critical semimajor axis ratio rho_cr = 2.70
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_22683/2350398638.py:19: DeprecationWarning: `interp2d` is deprecated!
+`interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
+
+For legacy code, nearly bug-for-bug compatible replacements are
+`RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
+scattered 2D data.
+
+In new code, for regular grids use `RegularGridInterpolator` instead.
+For scattered data, prefer `LinearNDInterpolator` or
+`CloughTocher2DInterpolator`.
+
+For more details see
+`https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
+
+  f = interp2d(xi, yi, zi, kind=&#39;linear&#39;)
+/tmp/ipykernel_22683/2350398638.py:21: DeprecationWarning:         `interp2d` is deprecated!
+        `interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
+
+        For legacy code, nearly bug-for-bug compatible replacements are
+        `RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
+        scattered 2D data.
+
+        In new code, for regular grids use `RegularGridInterpolator` instead.
+        For scattered data, prefer `LinearNDInterpolator` or
+        `CloughTocher2DInterpolator`.
+
+        For more details see
+        `https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
+
+  astab = f(mu,ebin)[0]
 </pre></div>
 </div>
 </div>
@@ -707,6 +771,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;Kepler16.bin&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">simulation</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+
+<span class="nn">Cell In[3], line 38,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_p</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_p</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_p</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_p</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_p</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_p</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now that a simulation has been run, we want to visualize the orbit.  However, the input coordinates were given using the sky plane.  Therefore, we will need to rotate the position vector to give us a face-on view of the system. Alternatively, we could have used the <span class="math notranslate nohighlight">\(x-z\)</span> plane to get the same view.</p>
 <p>The code below extracts the Cartesian coordinates from the simulation archive and creates a visualization using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
@@ -752,7 +834,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a447a835d2b77dcd60c4e73ecfba100a3abb78eb241a4a667561898c2b2c8a79.png" src="../_images/a447a835d2b77dcd60c4e73ecfba100a3abb78eb241a4a667561898c2b2c8a79.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#plot the simulation</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;rebound&#39; has no attribute &#39;SimulationArchive&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>In the above figure, barycentric coordinates are used so that we can see the changing position of star A (red) and star B (cyan) relative to the center-of-mass (<span class="math notranslate nohighlight">\(\times\)</span> symbol) at the origin.  Those orbits are Keplerian because the planetary mass is insufficient to strongly perturb the inner binary (at least on this scale).</p>
@@ -763,6 +856,24 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;Kepler16_long.bin&quot;</span>
 <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">simulation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;Kepler16_long.bin&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">simulation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+
+<span class="nn">Cell In[3], line 38,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_p</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_p</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_p</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_p</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_p</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_p</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
 </pre></div>
 </div>
 </div>
@@ -834,10 +945,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>forced eccentricity e_F = 0.034; forced periapse w_F = 278.553
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#plot the simulation</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">ax11</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;rebound&#39; has no attribute &#39;SimulationArchive&#39;
 </pre></div>
 </div>
-<img alt="../_images/0eef7469d2e6b95b1cb524deae0dfcc4a5d60325a67613d518d08110138c739f.png" src="../_images/0eef7469d2e6b95b1cb524deae0dfcc4a5d60325a67613d518d08110138c739f.png" />
 </div>
 </div>
 <p>The above figures show the evolution of the planet’s eccentricity and inclination vectors.  The planetary eccentricity vector illustrates how the shape of the orbit changes over time <strong>and</strong> how the orbit can rotate relative to the binary orbital plane.  The inclination vector represents how the planetary orbit can tilt and wobble with time (i.e., like a plate on a table).  Each of these vectors can have two components: <strong>free</strong> and <strong>forced</strong>.  The forced component shifts the mean value of the vectors away from the origin.</p>
@@ -900,6 +1019,24 @@ document.write(`
 <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep.bin&quot;</span>
 <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">simulation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">44</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep.bin&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="ne">---&gt; </span><span class="mi">44</span> <span class="n">simulation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+
+<span class="nn">Cell In[7], line 39,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> 
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
 </pre></div>
 </div>
 </div>
@@ -966,7 +1103,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0d0dc2a34bb085b77f0ba36ef98be3d4255a99c3f165e16312c7e618171e1ea4.png" src="../_images/0d0dc2a34bb085b77f0ba36ef98be3d4255a99c3f165e16312c7e618171e1ea4.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#plot the simulation</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;rebound&#39; has no attribute &#39;SimulationArchive&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>In the above figure, astrocentric coordinates are used so that we can see the changing position of the planet (cyan) and star B (cyan) relative to the primary star A (red).</p>
@@ -976,6 +1124,24 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep_long.bin&quot;</span>
 <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">simulation</span><span class="p">(</span><span class="mf">5e4</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep_long.bin&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">simulation</span><span class="p">(</span><span class="mf">5e4</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+
+<span class="nn">Cell In[7], line 39,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> 
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
 </pre></div>
 </div>
 </div>
@@ -1046,7 +1212,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6ddd6e99247032bedb1d78d79bd02cbcf7e4fbba7634093a00463edebb8ca074.png" src="../_images/6ddd6e99247032bedb1d78d79bd02cbcf7e4fbba7634093a00463edebb8ca074.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">norm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">t_max</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#plot the simulation</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">ax11</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;rebound&#39; has no attribute &#39;SimulationArchive&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>These panels are color-coded with time (<span class="math notranslate nohighlight">\(t=0 \rightarrow\)</span> dark blue and <span class="math notranslate nohighlight">\(t=5\times 10^4\ {\rm yr} \rightarrow\)</span> dark red).  The eccentricity and inclination are anti-correlated due to the <a class="reference external" href="https://en.wikipedia.org/wiki/Kozai_mechanism">Lidov-Kozai mechanism</a>.  The argument of pericenter <span class="math notranslate nohighlight">\(\omega_p\)</span> and longitude of ascending node <span class="math notranslate nohighlight">\(\Omega_p\)</span> are librating (i.e., oscillating between values but not a full rotation).  For the Lidov-Kozai mechanism, we expect orbits around a fixed point using <span class="math notranslate nohighlight">\(\omega_p\)</span> and <span class="math notranslate nohighlight">\(1-e_p^2\)</span> as coordinates, specifically at <span class="math notranslate nohighlight">\(\omega_p = 90^\circ\)</span> or <span class="math notranslate nohighlight">\(\omega_p = 270^\circ\)</span> (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ARA%26A..54..441N/abstract">Naoz (2016)</a> for more details).</p>

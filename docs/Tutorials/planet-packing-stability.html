@@ -215,9 +215,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Effective Research Logging (Using Jupyter Notebooks &amp; Markdown)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Tutorial: Creating a Normalized Light Curve of an Eclipsing Binary with AstroImageJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Tutorial: Creating Light Curves from MAST Archival Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Data Reduction with AIJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Data Reduction (archival)</a></li>
 </ul>
 
     </div>
@@ -501,16 +501,16 @@ allowfullscreen></iframe>
 <h3><span class="section-number">4.2.1. </span>From Lagrange points to the Hill radius<a class="headerlink" href="#from-lagrange-points-to-the-hill-radius" title="Link to this heading">#</a></h3>
 <p>In the three-body problem, the relative gravitational influence on a third body can be determined in which there are five special locations called the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_point">Lagrange points</a>.  These points define extrema in the gravitational potential, where the <strong>net</strong> gravitational force on the third body vanishes.  Additionally, they correspond to high and low topological levels of pseudopotential <span class="math notranslate nohighlight">\(U\)</span>.  This pseudopotential exists within a rotated reference frame, where two massive bodies appear at fixed locations and a third body reacts to the presence of the massive primaries.</p>
 <p>Consider two massive primaries lying along the <span class="math notranslate nohighlight">\(x\)</span>-axis of a reference coordinate system with the center of mass (barycenter) at the origin.  Since the barycenter lies at the origin, then the center of mass can be determined using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-878112d5-1fcb-4d72-b141-90d922833feb">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-878112d5-1fcb-4d72-b141-90d922833feb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-184828b3-5a0f-47f5-9d94-54896d93b724">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-184828b3-5a0f-47f5-9d94-54896d93b724" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp;= m_o x_o + m_1 x_1, \qquad {\rm where}\ m_o &gt; m_1;\\
 a_{\rm bin} &amp;= |x_o| + |x_1|, \\
 x_o &amp;= -\frac{m_1}{m_o+m_1}a_{\rm bin}, \\
 x_o &amp;= -\mu a_{\rm bin}, \quad {\rm and}\quad x_1 = (1-\mu)a_{\rm bin}.
 \end{align}\]</div>
 <p>Two intermediate constants: the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span> and mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> are introduced to simplify the notation, but they also provide a convenient means to scale the problem.  The above analysis can be extended into two dimensions using the pseudopotential <span class="math notranslate nohighlight">\(U\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b331ee09-d7eb-45ec-bb3c-e621474b2624">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-b331ee09-d7eb-45ec-bb3c-e621474b2624" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-497f30b1-0efa-4df3-b24e-939c144bdf6a">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-497f30b1-0efa-4df3-b24e-939c144bdf6a" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(x,y) &amp; = \frac{1-\mu}{r_o} + \frac{\mu}{r_1} + \frac{n^2}{2}\left(x^2+y^2\right), \\
 r_o &amp;= \sqrt{(x+\mu)^2 + y^2}, \\
 r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
@@ -521,8 +521,8 @@ r_1 &amp;= \sqrt{[x-(1-\mu)]^2 + y^2}.
 <p>The coordinates in the pseudopotential are also scaled by the binary semimajor axis <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>.  In these coordinates, the mean motion <span class="math notranslate nohighlight">\(n = 1\)</span>.  If you want to express everything in non-scaled coordinates, the <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\((1-\mu)\)</span> need to be replaced with <span class="math notranslate nohighlight">\(x_o\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, respectively.</p>
 </div>
 <p>Taking the partial derivatives of the pseudopotential <span class="math notranslate nohighlight">\(U\)</span> leads to deriving the forces within the rotated coordinate system (i.e., <span class="math notranslate nohighlight">\(F = -\nabla U\)</span>).  Integrating the full equations of motion derived from the pseudopotential leads to the <a class="reference external" href="https://en.wikipedia.org/wiki/Jacobi_integral">Jacobi Integral</a> and the associated constant of motion, the Jacobi constant <span class="math notranslate nohighlight">\(C_J\)</span>.  The Jacobi constant is given mathematically as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa2b0801-ded9-4248-b717-860686ce4b76">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-fa2b0801-ded9-4248-b717-860686ce4b76" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-29cab84e-6f29-45c3-ad26-58107d8cc078">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-29cab84e-6f29-45c3-ad26-58107d8cc078" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_J = 2U - v^2,
 \end{align}\]</div>
 <p>which is similar in appearance to an energy relation.  It is not because we are considering the restricted problem (<span class="math notranslate nohighlight">\(m_2\ll m_1 &lt; m_o\)</span>), where energy and angular momentum aren’t conserved.</p>
@@ -602,7 +602,11 @@ C_J = 2U - v^2,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c435e0b5413beb6ec4acc09c2fe293801d01f33047dde693bcda5982ad970420.png" src="../_images/c435e0b5413beb6ec4acc09c2fe293801d01f33047dde693bcda5982ad970420.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_22597/2356592594.py:32: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
+  my_cmap = cm.get_cmap(cmap)
+</pre></div>
+</div>
+<img alt="../_images/5d9a3e9025d443415550a4d1a8e196c826e700b818b91785d16db6c37a767508.png" src="../_images/5d9a3e9025d443415550a4d1a8e196c826e700b818b91785d16db6c37a767508.png" />
 </div>
 </div>
 <p>Below is a python code that computes the ZVC using many values of the Jacobi constant <span class="math notranslate nohighlight">\((C_J = 3,\ 3.05,\ 3.1,\ 3.15)\)</span> for the Earth-Moon system.  Three of the Lagrange points (black dots) are <em>collinear</em>, while the remaining two are the <em>triangular</em> Lagrange points.  Particles that start near <span class="math notranslate nohighlight">\(L_4\)</span> or <span class="math notranslate nohighlight">\(L_5\)</span> are bound within the lobe-shaped contours.</p>
@@ -664,12 +668,12 @@ C_J = 2U - v^2,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dfd59926efde1959d10c495ec7fcbfab188d1990669391abeec5bb69dafce423.png" src="../_images/dfd59926efde1959d10c495ec7fcbfab188d1990669391abeec5bb69dafce423.png" />
+<img alt="../_images/f52afc9d3ba7819fbe9814b2ad834c6cde44aeaee2b5eae39353eeaed29e7f3d.png" src="../_images/f52afc9d3ba7819fbe9814b2ad834c6cde44aeaee2b5eae39353eeaed29e7f3d.png" />
 </div>
 </div>
 <p>The appearance of the contours change with the mass ratio, which can be seen below if we consider the Sun-Earth system instead.  The inset panel zooms in on the region around the Earth and is scaled using the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  The Hill radius is defined using the mass ratio <span class="math notranslate nohighlight">\(\mu\)</span> and the binary separation <span class="math notranslate nohighlight">\(a_{\rm bin}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c50a1e04-a086-48da-94db-e19a70789c2a">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-c50a1e04-a086-48da-94db-e19a70789c2a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-781d1ae3-233e-415a-a9f0-dc6f3491878f">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-781d1ae3-233e-415a-a9f0-dc6f3491878f" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_H = a_{\rm bin}\left(\frac{\mu}{3}\right)^{1/3}.
 \end{align}\]</div>
 <p>Note that this definition is the result of an <em>approximation</em> that assumes circular orbits, where an additional term <span class="math notranslate nohighlight">\((1-e_{\rm bin})\)</span> would be necessary if the binary orbit were elliptical.  The definition effectively becomes</p>
@@ -752,12 +756,63 @@ q_{\rm bin} &amp;= a_{\rm bin}(1-e_{\rm bin}).\end{split}\]</div>
  6.75659148]
 </pre></div>
 </div>
-<img alt="../_images/a1256c8d58cedf9a07a35b7543ef871279bc4d3b53c6af37af90590addeacde5.png" src="../_images/a1256c8d58cedf9a07a35b7543ef871279bc4d3b53c6af37af90590addeacde5.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/IPython/core/formatters.py:340,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>     <span class="k">pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">340</span>     <span class="k">return</span> <span class="n">printer</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span> <span class="c1"># Finally look for special method names</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/IPython/core/pylabtools.py:152,</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, base64, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="kn">from</span> <span class="nn">matplotlib.backend_bases</span> <span class="kn">import</span> <span class="n">FigureCanvasBase</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>     <span class="n">FigureCanvasBase</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">152</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bytes_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;svg&#39;</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/matplotlib/backend_bases.py:2353,</span> in <span class="ni">FigureCanvasBase.print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2350</span>         <span class="n">bbox_inches</span> <span class="o">=</span> <span class="n">bbox_inches</span><span class="o">.</span><span class="n">padded</span><span class="p">(</span><span class="n">pad_inches</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2352</span>     <span class="c1"># call adjust_bbox to save only the given area</span>
+<span class="ne">-&gt; </span><span class="mi">2353</span>     <span class="n">restore_bbox</span> <span class="o">=</span> <span class="n">_tight_bbox</span><span class="o">.</span><span class="n">adjust_bbox</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2354</span>         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fixed_dpi</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2356</span>     <span class="n">_bbox_inches_restore</span> <span class="o">=</span> <span class="p">(</span><span class="n">bbox_inches</span><span class="p">,</span> <span class="n">restore_bbox</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2357</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/matplotlib/_tight_bbox.py:28,</span> in <span class="ni">adjust_bbox</span><span class="nt">(fig, bbox_inches, fixed_dpi)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">locator</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_axes_locator</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">if</span> <span class="n">locator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">ax</span><span class="o">.</span><span class="n">apply_aspect</span><span class="p">(</span><span class="n">locator</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">locator_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">current_pos</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">(</span><span class="n">original</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">frozen</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/mpl_toolkits/axes_grid1/inset_locator.py:73,</span> in <span class="ni">AnchoredLocatorBase.__call__</span><span class="nt">(self, ax, renderer)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="n">ax</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_offset</span><span class="p">(</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">bbox_canvas</span> <span class="o">=</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/matplotlib/offsetbox.py:399,</span> in <span class="ni">OffsetBox.get_window_extent</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="k">def</span> <span class="nf">get_window_extent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="c1"># docstring inherited</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>     <span class="k">if</span> <span class="n">renderer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">399</span>         <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">_get_renderer</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="k">try</span><span class="p">:</span>  <span class="c1"># Some subclasses redefine get_offset to take no args.</span>
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;_get_renderer&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 750x750 with 2 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>The squashing in the vertical (see panel inset) is even more obvious in this regime.  <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a> shows using numerical simulations that the orbital stability of satellites are limited to <span class="math notranslate nohighlight">\({\sim}0.4\ R_H\)</span> for a host planet on a circular orbit.  The stability decreases as the host planet’s orbit is more eccentric, as we may naively expect from Eqn. <a class="reference internal" href="#equation-min-rh">(4.5)</a>.  The orbital stability formula for prograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020AJ....159..260R/abstract">Rosario-Franco et al. (2020)</a>) and retrograde (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021AJ....162...58Q/abstract">Quarles et al. (2021)</a>) are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ad0f08f6-56a0-4d5f-bb97-05b5d078d2c2">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-ad0f08f6-56a0-4d5f-bb97-05b5d078d2c2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a5b1043c-5ff5-4856-a5be-17bebbcd620e">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-a5b1043c-5ff5-4856-a5be-17bebbcd620e" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_{\rm crit}(R_H) &amp;= 0.4061(1 - 1.1257e_p), \qquad &amp;{\rm (prograde)} \\
 a_{\rm crit}(R_H) &amp;= 0.668(1 - 1.236e_p). \qquad &amp;{\rm (retrograde)}
 \end{align}\]</div>
@@ -776,15 +831,15 @@ a_{\rm crit}(R_H) &amp;= 0.668(1 - 1.236e_p). \qquad &amp;{\rm (retrograde)}
 </figcaption>
 </figure>
 <p>Figure <a class="reference internal" href="#gladman-setup"><span class="std std-numref">4.1</span></a> illustrates that we can then parametrize the initial separation of orbits using <span class="math notranslate nohighlight">\(\Delta = a_2 - a_1\)</span>, or <span class="math notranslate nohighlight">\(a_2 = 1 + \Delta\)</span> in normalized units.  Through another transformation, the separation <span class="math notranslate nohighlight">\(\Delta\)</span> can be written in terms of Hill’s coordinates (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986CeMec..38...67H/abstract">Henon &amp; Petit (1986)</a>), which scale with the Hill radius <span class="math notranslate nohighlight">\(R_H\)</span>.  If we normalize with respect to the Hill radius, then we define</p>
-<div class="amsmath math notranslate nohighlight" id="equation-159c55b0-8b3f-4111-b147-e9a7ff7a644d">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-159c55b0-8b3f-4111-b147-e9a7ff7a644d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-49f71243-61e1-4132-b395-a6257f0ac362">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-49f71243-61e1-4132-b395-a6257f0ac362" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Delta_H &amp;= \frac{a_2 - a_1}{R_H}.
 \end{align}\]</div>
 <p>The above expression appears straightforward if you assume that <span class="math notranslate nohighlight">\(R_H\)</span> describes the Hill radius of <span class="math notranslate nohighlight">\(m_1\)</span>.  Then <span class="math notranslate nohighlight">\(\Delta_H\)</span> is describing the separation between the two orbits <strong>in units of <span class="math notranslate nohighlight">\(R_H\)</span></strong>.  However, it’s not as clear once you expand to more than two planets or if you want to vary the planetary masses.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993Icar..106..247G/abstract">Gladman (1993)</a> does show a critical value of <span class="math notranslate nohighlight">\(\mathbf{\Delta_H = 2\sqrt{3}}\)</span> for two planets on <em>initially circular</em> orbits.  This is not a bad assumption if you consider arguments from planet formation where it is expected that the planetary eccentricity could be significantly damped due to drag forces within the protoplanetary disk resulting in near circular orbits.</p>
 <p>A few years later, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996Icar..119..261C/abstract">Chambers et al. (1996)</a> take a slightly different approach by defining the mutual Hill radius.  The mutual Hill radius uses the total mass interior to the <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet’s orbit <span class="math notranslate nohighlight">\(M_j\)</span> and the average semimajor axis of the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> and <span class="math notranslate nohighlight">\(j+1^{\rm th}\)</span> planet.  Mathematically, this is expressed as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3b1c6ea-0fa0-415b-8fa8-dc84274e114b">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-c3b1c6ea-0fa0-415b-8fa8-dc84274e114b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0b9c1d05-f217-407f-bb80-e7fc48ca367b">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-0b9c1d05-f217-407f-bb80-e7fc48ca367b" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_{H_{j,j+1}} &amp;= \frac{a_j + a_{j+1}}{2} \left[ \frac{m_j+m_{j+1}}{3M_j} \right]^{1/3}, \\
 M_j &amp;= \sum_{j=1}^j m_j.
 \end{align}\]</div>
@@ -794,8 +849,8 @@ M_j &amp;= \sum_{j=1}^j m_j.
 <p>The symbol representing the Hill spacing <span class="math notranslate nohighlight">\(\Delta_H\)</span> varies among different authors, where <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ApJ...807...44P/abstract">Pu &amp; Wu (2015)</a> use <span class="math notranslate nohighlight">\(K\)</span> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> use <span class="math notranslate nohighlight">\(\beta\)</span>.  For consistency here, <span class="math notranslate nohighlight">\(\Delta_H\)</span> is used.</p>
 </div>
 <p>The explicit formula to define <span class="math notranslate nohighlight">\(a_k\)</span>, the semimajor axis of the <span class="math notranslate nohighlight">\(k^{\rm th}\)</span> planet, is given as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85403987-a428-4341-bd8e-0b5da89e635e">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-85403987-a428-4341-bd8e-0b5da89e635e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50050b61-3b7e-4eec-be78-aa51e9236b2a">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-50050b61-3b7e-4eec-be78-aa51e9236b2a" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_k &amp;= a_j \left[\frac{1+\Delta_H X}{1-\Delta_H X} \right]^{k-j}, \\
 X &amp;= \frac{1}{2}\left(\frac{m_j+m_{k}}{3M_j} \right)^{1/3},
 \end{align}\]</div>
@@ -843,7 +898,7 @@ X &amp;= \frac{1}{2}\left(\frac{m_j+m_{k}}{3M_j} \right)^{1/3},
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cd6fbf9c393de0ea78a3680845ffcd4c57400e58143ba7c6342deecc2ade05af.png" src="../_images/cd6fbf9c393de0ea78a3680845ffcd4c57400e58143ba7c6342deecc2ade05af.png" />
+<img alt="../_images/22cf31bf7aecd4580e0bc30116a0c06d5a581c202b77c301e1ed3f3927a60909.png" src="../_images/22cf31bf7aecd4580e0bc30116a0c06d5a581c202b77c301e1ed3f3927a60909.png" />
 </div>
 </div>
 </section>
@@ -878,15 +933,15 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 </div>
 <p>Since our goal is to avoid orbital resonances (i.e., rational numbers), we must seek out an irrational number.  The most irrational number is the <a class="reference external" href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a> <span class="math notranslate nohighlight">\(\varphi\)</span>, which can ironically be represented by ratios:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73e13c99-63af-4c02-ad32-5cc01775e6c1">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-73e13c99-63af-4c02-ad32-5cc01775e6c1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-90b30ef5-016d-4b95-a8a0-ad23321b34bd">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-90b30ef5-016d-4b95-a8a0-ad23321b34bd" title="Permalink to this equation">#</a></span>\[\begin{align}
 \varphi = \frac{1 + \sqrt{5}}{2} = 1.618033988749\ldots, \\
 \varphi^{-1} = \varphi - 1 = 0.618033988749\ldots,
 \end{align}\]</div>
 <p>and can be related to <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009Icar..201..381S/abstract">Smith &amp; Lissauer (2009)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018AJ....155..130Q/abstract">Quarles &amp; Lissauer (2018)</a> use the golden ratio to initialize the orbits of multiple planet systems.  This is done simply by taking integer multiples of <span class="math notranslate nohighlight">\(\phi\)</span> to define the initial mean/true anomaly for the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> planet.  Mathematically, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96cdcf80-52f6-4155-a71f-0420243ca794">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-96cdcf80-52f6-4155-a71f-0420243ca794" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-84f069a8-fc01-463f-8008-4ea260fec932">
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-84f069a8-fc01-463f-8008-4ea260fec932" title="Permalink to this equation">#</a></span>\[\begin{align}
 f_j = (j\varphi \cdot 360^\circ) \mod 360^\circ,\ \qquad (j\geq 1)
 \end{align}\]</div>
 <p>where the <span class="math notranslate nohighlight">\({\rm mod}\)</span> operator refers to the <a class="reference external" href="https://en.wikipedia.org/wiki/Modulo">modulo</a> that returns the remainder to keep the result within the bounds of <span class="math notranslate nohighlight">\(0-360^\circ\)</span>.  To convert the above scheme into radians, simply replace <span class="math notranslate nohighlight">\(360^\circ\)</span> with <span class="math notranslate nohighlight">\(2\pi\)</span>.</p>
@@ -895,8 +950,8 @@ f_j = (j\varphi \cdot 360^\circ) \mod 360^\circ,\ \qquad (j\geq 1)
 <h2><span class="section-number">4.4. </span>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Link to this heading">#</a></h2>
 <p>Let’s create a Solar System analog that contains a solar-mass star, Jupiter-mass planet, and 3 Earth-mass planets.  The Jupiter-mass planet is an analog to Jupiter in our Solar System, where it has a semimajor axis <span class="math notranslate nohighlight">\((a_J = 5.2\ AU)\)</span> and eccentricity <span class="math notranslate nohighlight">\((e_J \approx 0.05)\)</span> similar to Jupiter’s current orbit.  The three Earth-mass planets will be added using our rules described above for planet packing (i.e., initially spaced using their mutual Hill radius and arranged using the golden ratio) and beginning on circular orbits.</p>
 <p>The first Earth-mass planet begins at <span class="math notranslate nohighlight">\(1\ {\rm AU}\)</span>, and the other two planets have initial semimajor axes that have <span class="math notranslate nohighlight">\(\Delta_H = 10\)</span>.  This could be calculated by-hand, but we create a function (<code class="docutils literal notranslate"><span class="pre">get_semi</span></code>) below given the indices of the <span class="math notranslate nohighlight">\(j^{\rm th}\)</span> and <span class="math notranslate nohighlight">\(k^{\rm th}\)</span> planets, which makes it light work.  As a result, we have <span class="math notranslate nohighlight">\(a_j\)</span> for each planet as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96168796-3244-4047-bcac-3b3b15d9cc73">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-96168796-3244-4047-bcac-3b3b15d9cc73" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-088f62cd-53c6-46bf-81df-e35c4469e1f3">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-088f62cd-53c6-46bf-81df-e35c4469e1f3" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_1 &amp;= 1\ {\rm AU}, \\
 a_2 &amp;= 1.1345\ {\rm AU}, \\
 a_3 &amp;= 1.2871\ {\rm AU}, \\
@@ -971,6 +1026,22 @@ a_4 &amp;= 5.2\ {\rm AU}.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1.1345183686262765, 1.2871316026156066, 5.2]
 </pre></div>
 </div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">54</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;SSanalog_test.bin&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="ne">---&gt; </span><span class="mi">54</span> <span class="n">simulation</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">output_bin</span><span class="p">,</span><span class="n">output_steps</span><span class="p">)</span>
+
+<span class="nn">Cell In[5], line 25,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">Mass</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">a</span><span class="o">=</span><span class="n">semi</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">e</span><span class="o">=</span><span class="n">ecc</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">f</span><span class="o">=</span><span class="n">f_j</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>After running the code, it is usually easiest to interpret the results through a series of plots/figures.  Such diagrams need to show a couple of things:</p>
@@ -1024,7 +1095,18 @@ a_4 &amp;= 5.2\ {\rm AU}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bc0b7de21ea671e9918187d88f818d32fd11bcfc02ddc9d1b2462215382328a9.png" src="../_images/bc0b7de21ea671e9918187d88f818d32fd11bcfc02ddc9d1b2462215382328a9.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.inset_locator</span> <span class="kn">import</span> <span class="n">inset_axes</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#plot the simulation</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;rebound&#39; has no attribute &#39;SimulationArchive&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>The next view plots only the magnitude <span class="math notranslate nohighlight">\(e_p\)</span> and direction <span class="math notranslate nohighlight">\(\omega_p\)</span> for the eccentricity vector of each terrestrial planet.  Along with the vector components of the respective eccentricity vectors.</p>
@@ -1075,7 +1157,18 @@ a_4 &amp;= 5.2\ {\rm AU}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/180e4d5a54673f5456ff75f4bbcd6011f0351ec464c0732ee94aa0b1a9d07c00.png" src="../_images/180e4d5a54673f5456ff75f4bbcd6011f0351ec464c0732ee94aa0b1a9d07c00.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#plot the simulation</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">SimulationArchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;rebound&#39; has no attribute &#39;SimulationArchive&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
