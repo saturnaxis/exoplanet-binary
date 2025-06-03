@@ -567,8 +567,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">CloughTocher2DInterpolator</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -576,15 +575,10 @@ document.write(`
 <span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/ThreeBody_Stability/master/a_crit_Incl[0].txt&quot;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/CBP_stability/master/a_crit.txt&quot;</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mf">0.001</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),[</span><span class="mf">0.999</span><span class="p">]))</span>
-<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.81</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">zi</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">Z</span><span class="p">,(</span><span class="n">xi</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span><span class="n">yi</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]),</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="n">f</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">CloughTocher2DInterpolator</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
 
 <span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For mu = </span><span class="si">%1.2f</span><span class="s2">, e_bin = </span><span class="si">%1.2f</span><span class="s2">, the critical semimajor axis ratio rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">ebin</span><span class="p">,</span><span class="n">astab</span><span class="p">))</span>
@@ -592,39 +586,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu = 0.50, e_bin = 0.50, the critical semimajor axis ratio rho_cr = 0.12
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_22683/43776500.py:19: DeprecationWarning: `interp2d` is deprecated!
-`interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/CBP_stability/master/a_crit.txt&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">f</span> <span class="o">=</span> <span class="n">CloughTocher2DInterpolator</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For mu = </span><span class="si">%1.2f</span><span class="s2">, e_bin = </span><span class="si">%1.2f</span><span class="s2">, the critical semimajor axis ratio rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">ebin</span><span class="p">,</span><span class="n">astab</span><span class="p">))</span>
 
-For legacy code, nearly bug-for-bug compatible replacements are
-`RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
-scattered 2D data.
-
-In new code, for regular grids use `RegularGridInterpolator` instead.
-For scattered data, prefer `LinearNDInterpolator` or
-`CloughTocher2DInterpolator`.
-
-For more details see
-`https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
-
-  f = interp2d(xi, yi, zi, kind=&#39;linear&#39;)
-/tmp/ipykernel_22683/43776500.py:21: DeprecationWarning:         `interp2d` is deprecated!
-        `interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
-
-        For legacy code, nearly bug-for-bug compatible replacements are
-        `RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
-        scattered 2D data.
-
-        In new code, for regular grids use `RegularGridInterpolator` instead.
-        For scattered data, prefer `LinearNDInterpolator` or
-        `CloughTocher2DInterpolator`.
-
-        For more details see
-        `https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
-
-  astab = f(mu,ebin)[0]
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;T&#39;
 </pre></div>
 </div>
 </div>
@@ -633,24 +604,15 @@ For more details see
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">CloughTocher2DInterpolator</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.2937</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.2937</span><span class="p">)</span>  <span class="c1">#converting from q --&gt; mu  Doyle et al. (2011)</span>
 <span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.15944</span>
 
 <span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/CBP_stability/master/a_crit.txt&quot;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mf">0.001</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),[</span><span class="mf">0.999</span><span class="p">]))</span>
-<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.81</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">zi</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">Z</span><span class="p">,(</span><span class="n">xi</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span><span class="n">yi</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]),</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="n">f</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">CloughTocher2DInterpolator</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
 
 <span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For mu = </span><span class="si">%1.2f</span><span class="s2">, e_bin = </span><span class="si">%1.2f</span><span class="s2">, the critical semimajor axis ratio rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">ebin</span><span class="p">,</span><span class="n">astab</span><span class="p">))</span>
@@ -658,39 +620,16 @@ For more details see
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu = 0.23, e_bin = 0.16, the critical semimajor axis ratio rho_cr = 2.70
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_22683/2350398638.py:19: DeprecationWarning: `interp2d` is deprecated!
-`interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">github_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/saturnaxis/CBP_stability/master/a_crit.txt&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">github_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">f</span> <span class="o">=</span> <span class="n">CloughTocher2DInterpolator</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">astab</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">ebin</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For mu = </span><span class="si">%1.2f</span><span class="s2">, e_bin = </span><span class="si">%1.2f</span><span class="s2">, the critical semimajor axis ratio rho_cr = </span><span class="si">%1.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">ebin</span><span class="p">,</span><span class="n">astab</span><span class="p">))</span>
 
-For legacy code, nearly bug-for-bug compatible replacements are
-`RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
-scattered 2D data.
-
-In new code, for regular grids use `RegularGridInterpolator` instead.
-For scattered data, prefer `LinearNDInterpolator` or
-`CloughTocher2DInterpolator`.
-
-For more details see
-`https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
-
-  f = interp2d(xi, yi, zi, kind=&#39;linear&#39;)
-/tmp/ipykernel_22683/2350398638.py:21: DeprecationWarning:         `interp2d` is deprecated!
-        `interp2d` is deprecated in SciPy 1.10 and will be removed in SciPy 1.13.0.
-
-        For legacy code, nearly bug-for-bug compatible replacements are
-        `RectBivariateSpline` on regular grids, and `bisplrep`/`bisplev` for
-        scattered 2D data.
-
-        In new code, for regular grids use `RegularGridInterpolator` instead.
-        For scattered data, prefer `LinearNDInterpolator` or
-        `CloughTocher2DInterpolator`.
-
-        For more details see
-        `https://scipy.github.io/devdocs/notebooks/interp_transition_guide.html`
-
-  astab = f(mu,ebin)[0]
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;T&#39;
 </pre></div>
 </div>
 </div>
@@ -762,7 +701,7 @@ For more details see
     <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_p</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_p</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_p</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_p</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_p</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_p</span><span class="p">)</span>
 
-    <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
 
 <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;Kepler16.bin&quot;</span>
@@ -773,7 +712,7 @@ For more details see
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
 <span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;Kepler16.bin&quot;</span>
 <span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">20</span>
@@ -782,10 +721,10 @@ For more details see
 <span class="nn">Cell In[3], line 38,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
 <span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_p</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_p</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_p</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_p</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_p</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_p</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+<span class="ne">TypeError</span>: Simulation.save_to_file() got an unexpected keyword argument &#39;deletefile&#39;
 </pre></div>
 </div>
 </div>
@@ -861,7 +800,7 @@ For more details see
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;Kepler16_long.bin&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">200</span>
@@ -870,10 +809,10 @@ For more details see
 <span class="nn">Cell In[3], line 38,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
 <span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_p</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_p</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_p</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_p</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_p</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_p</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+<span class="ne">TypeError</span>: Simulation.save_to_file() got an unexpected keyword argument &#39;deletefile&#39;
 </pre></div>
 </div>
 </div>
@@ -1013,7 +952,7 @@ For more details see
     <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> 
     <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
 
-    <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
 
 <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep.bin&quot;</span>
@@ -1024,7 +963,7 @@ For more details see
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">44</span>
 <span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep.bin&quot;</span>
 <span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">5</span>
@@ -1033,10 +972,10 @@ For more details see
 <span class="nn">Cell In[7], line 39,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> 
 <span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+<span class="ne">TypeError</span>: Simulation.save_to_file() got an unexpected keyword argument &#39;deletefile&#39;
 </pre></div>
 </div>
 </div>
@@ -1129,7 +1068,7 @@ For more details see
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep_long.bin&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">output_steps</span> <span class="o">=</span> <span class="mi">200</span>
@@ -1138,10 +1077,10 @@ For more details see
 <span class="nn">Cell In[7], line 39,</span> in <span class="ni">simulation</span><span class="nt">(tscale, fname, out_step)</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">inc_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">Omega</span><span class="o">=</span><span class="n">RA_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> 
 <span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="n">out_step</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">tscale</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+<span class="ne">TypeError</span>: Simulation.save_to_file() got an unexpected keyword argument &#39;deletefile&#39;
 </pre></div>
 </div>
 </div>
