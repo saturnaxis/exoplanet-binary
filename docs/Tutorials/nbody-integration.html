@@ -216,8 +216,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">10. Data Reduction with AIJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. The Celestial Sphere: A Journey Through the Stars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
 </ul>
 
     </div>
@@ -558,12 +558,12 @@ document.write(`
 </section>
 <section id="saving-a-simulation">
 <h3><span class="section-number">2.2.2. </span>Saving a simulation<a class="headerlink" href="#saving-a-simulation" title="Link to this heading">#</a></h3>
-<p>We can create a <a class="reference external" href="https://rebound.readthedocs.io/en/latest/simulationarchive/">simulation archive</a> to store samples of the system as it evolves.  The <code class="docutils literal notranslate"><span class="pre">automateSimulationArchive</span></code> function allows us to specify a file name to store the samples, frequency for which to take samples (in time units given by sim.units), and whether to overwrite the previous file as a boolean.</p>
+<p>We can create a <a class="reference external" href="https://rebound.readthedocs.io/en/latest/simulationarchive/">simulation archive</a> to store samples of the system as it evolves.  The <code class="docutils literal notranslate"><span class="pre">save_to_file</span></code> function allows us to specify a file name to store the samples, frequency for which to take samples (in time units given by sim.units), and whether to overwrite the previous file as a boolean.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Replacing the <code class="docutils literal notranslate"><span class="pre">interval</span></code> argument with <code class="docutils literal notranslate"><span class="pre">step</span></code> is in general more reliable. The reason is that the number of timesteps is an integer value whereas the time is a floating point number. If you run long simulations, you might encounter issues with finite floating point precision. This only affects very high accuracy simulation where you want to make sure the outputs occur exactly at the right timestep.</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;archive.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#9/20 = 0.45 days (or 20 samples per orbit of inner planet)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="s2">&quot;archive.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#9/20 = 0.45 days (or 20 samples per orbit of inner planet)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">#integrate the orbits for 1000 periods of the inner planet; this takes a few (~3-4) minutes</span>
 </pre></div>
 </div>
@@ -691,7 +691,7 @@ document.write(`
 <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> <span class="c1">#i=Omega=0 by default</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>  <span class="c1">#convert to center of mass coordinates</span>
 
-<span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="s2">&quot;alphaCen.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">T_bin</span><span class="p">)</span>
 
 <span class="c1">#plot the simulation</span>
@@ -717,15 +717,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">22</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> <span class="c1">#i=Omega=0 by default</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>  <span class="c1">#convert to center of mass coordinates</span>
-<span class="ne">---&gt; </span><span class="mi">22</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="s2">&quot;alphaCen.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">T_bin</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="c1">#plot the simulation</span>
 
-<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+<span class="ne">TypeError</span>: Simulation.save_to_file() got an unexpected keyword argument &#39;deletefile&#39;
 </pre></div>
 </div>
 </div>
@@ -786,7 +786,7 @@ document.write(`
 <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> <span class="c1">#i=Omega=0 by default</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>  <span class="c1">#convert to center of mass coordinates</span>
 
-<span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">T_bin</span><span class="p">)</span>
 
 <span class="c1">#plot the simulation</span>
@@ -817,15 +817,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">26</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">M_B</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="n">omg_bin</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="n">MA_bin</span><span class="p">)</span> <span class="c1">#i=Omega=0 by default</span>
 <span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>  <span class="c1">#convert to center of mass coordinates</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="n">sim</span><span class="o">.</span><span class="n">automateSimulationArchive</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">26</span> <span class="n">sim</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="s2">&quot;alphaCen_wPl.bin&quot;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">deletefile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">sim</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">T_bin</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="c1">#plot the simulation</span>
 
-<span class="ne">AttributeError</span>: &#39;Simulation&#39; object has no attribute &#39;automateSimulationArchive&#39;
+<span class="ne">TypeError</span>: Simulation.save_to_file() got an unexpected keyword argument &#39;deletefile&#39;
 </pre></div>
 </div>
 </div>

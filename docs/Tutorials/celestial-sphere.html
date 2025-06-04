@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. The Celestial Sphere: A Journey Through the Stars &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/celestial-sphere';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/celestial-sphere.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Data Reduction with AIJ" href="AIJ-lightcurve.html" />
+    <link rel="prev" title="9. Research Logging" href="research-log.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Exoplanets within Binary Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. The Celestial Sphere: A Journey Through the Stars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/celestial-sphere.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/celestial-sphere.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/celestial-sphere.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Celestial Sphere: A Journey Through the Stars</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ancient-greek-perspective">10.1. The Ancient Greek Perspective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-astronomical-terms">10.2. Key Astronomical Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-way-altitude-and-azimuth-local-coordinates">10.3. Finding Your Way: Altitude and Azimuth (Local Coordinates)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-coordinates-right-ascension-declination-and-epoch">10.4. Universal Coordinates: Right Ascension, Declination, and Epoch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-right-ascension-for-monthly-astronomical-observations">10.5. Best Right Ascension for Monthly Astronomical Observations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-celestial-sphere-a-journey-through-the-stars">
+<h1><span class="section-number">10. </span>The Celestial Sphere: A Journey Through the Stars<a class="headerlink" href="#the-celestial-sphere-a-journey-through-the-stars" title="Link to this heading">#</a></h1>
+<p>The <strong>celestial sphere</strong> is an imaginary sphere of gigantic radius, concentric with the Earth, onto which all celestial objects appear to be projected. It’s a fundamental concept in astronomy for understanding the positions and motions of objects in the sky.</p>
+<hr class="docutils" />
+<section id="the-ancient-greek-perspective">
+<h2><span class="section-number">10.1. </span>The Ancient Greek Perspective<a class="headerlink" href="#the-ancient-greek-perspective" title="Link to this heading">#</a></h2>
+<p>Ancient Greek astronomers, like <strong>Aristotle</strong> and <strong>Ptolemy</strong>, didn’t know the Earth revolved around the Sun. From their Earth-centered (geocentric) perspective, it appeared as though the stars were fixed on a giant sphere that rotated around the Earth once a day.</p>
+<p>Here’s how they likely constructed this idea:</p>
+<ol class="arabic simple">
+<li><p><strong>Observation of Daily Motion:</strong> They observed that the Sun, Moon, planets, and stars rose in the eastern part of the sky and set in the western part. This suggested a daily rotation of something encompassing the Earth.</p></li>
+<li><p><strong>Fixed Patterns of Stars:</strong> While individual stars moved across the sky, their positions relative to each other (the constellations) remained constant. This implied they were attached to a single, rigid structure.</p></li>
+<li><p><strong>Apparent Dome of the Sky:</strong> The sky looks like a dome overhead. Extending this dome to be a full sphere surrounding the Earth was a natural geometric and conceptual leap.</p></li>
+<li><p><strong>Celestial Poles and Equator:</strong> They noticed that some stars in the north appeared to circle around a fixed point (the North Celestial Pole, near Polaris), while others rose and set. This led to the concept of celestial poles as the pivot points of this sphere and a celestial equator as the projection of Earth’s equator onto this sphere.</p></li>
+</ol>
+<p>This model, while not physically accurate in terms of the universe’s structure, was incredibly useful for predicting the positions of celestial objects and for navigation. It remains a powerful tool for observational astronomy today.</p>
+</section>
+<hr class="docutils" />
+<section id="key-astronomical-terms">
+<h2><span class="section-number">10.2. </span>Key Astronomical Terms<a class="headerlink" href="#key-astronomical-terms" title="Link to this heading">#</a></h2>
+<p>Here are some fundamental terms associated with the celestial sphere:</p>
+<ul class="simple">
+<li><p><strong>Zenith:</strong> The point on the celestial sphere directly above an observer.</p>
+<ul>
+<li><p><strong>Diagram:</strong>
+<img alt="Zenith, Nadir, and Horizon" src="https://www.trekview.org/assets/images/blog/2020-03-13/horizon-coords-meta.jpg" /></p></li>
+</ul>
+</li>
+<li><p><strong>Nadir:</strong> The point on the celestial sphere directly below an observer (opposite the zenith).</p></li>
+<li><p><strong>Celestial Poles (North and South):</strong> The points on the celestial sphere directly above the Earth’s North and South geographic poles. These are the points around which the celestial sphere appears to rotate.</p>
+<ul>
+<li><p><strong>Diagram:</strong>
+<img alt="Celestial Poles and Equator" src="https://orionbearastronomy.com/wp-content/uploads/2019/02/the-celestial-sphere-1-638.jpg" /></p></li>
+</ul>
+</li>
+<li><p><strong>Celestial Equator:</strong> The great circle on the celestial sphere in the same plane as the Earth’s equator. It divides the celestial sphere into northern and southern hemispheres.</p>
+<ul>
+<li><p><strong>Diagram:</strong> (See Celestial Poles diagram above, it’s usually shown together)</p></li>
+</ul>
+</li>
+<li><p><strong>Horizon:</strong> The great circle on the celestial sphere that separates the visible sky from the invisible sky (below the observer). It’s where the sky appears to meet the Earth.</p>
+<ul>
+<li><p><strong>Diagram:</strong> (See Zenith diagram above)</p></li>
+</ul>
+</li>
+<li><p><strong>Ecliptic:</strong> The apparent annual path of the Sun on the celestial sphere as viewed from Earth. It’s tilted at an angle of about <span class="math notranslate nohighlight">\(23.5^{\circ}\)</span> relative to the celestial equator because of the tilt of Earth’s axis. The planets and Moon also appear to move roughly along the ecliptic.</p>
+<ul>
+<li><p><strong>Diagram:</strong>
+<img alt="Ecliptic with Earth and Sun" src="http://hyperphysics.phy-astr.gsu.edu/hbase/solar/imgsol/eclip.png" /></p></li>
+</ul>
+</li>
+<li><p><strong>Meridian (Local Meridian):</strong> A great circle on the celestial sphere passing through the celestial poles and the observer’s zenith. An object is at its highest point in the sky when it crosses the meridian.</p>
+<ul>
+<li><p><strong>Diagram:</strong>
+<img alt="Local Meridian Diagram" src="https://astronomy.swin.edu.au/cms/cpg15x/albums/userpics/meridian.jpg" /></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="finding-your-way-altitude-and-azimuth-local-coordinates">
+<h2><span class="section-number">10.3. </span>Finding Your Way: Altitude and Azimuth (Local Coordinates)<a class="headerlink" href="#finding-your-way-altitude-and-azimuth-local-coordinates" title="Link to this heading">#</a></h2>
+<p>To tell someone where to look for a star in their <em>local sky right now</em>, you use the <strong>altitude-azimuth</strong> system. This system is specific to the observer’s location and time.</p>
+<ul class="simple">
+<li><p><strong>Altitude (Alt):</strong> This is the angular height of an object above the observer’s horizon. It’s measured in degrees, from <span class="math notranslate nohighlight">\(0^{\circ}\)</span> at the horizon to <span class="math notranslate nohighlight">\(90^{\circ}\)</span> at the zenith. Objects below the horizon have negative altitudes.</p></li>
+<li><p><strong>Azimuth (Az):</strong> This is the angular distance measured clockwise around the observer’s horizon from a reference direction, usually <strong>North</strong>, to the point on the horizon directly below the object. It’s measured in degrees from <span class="math notranslate nohighlight">\(0^{\circ}\)</span> to <span class="math notranslate nohighlight">\(360^{\circ}\)</span>.</p>
+<ul>
+<li><p>North = <span class="math notranslate nohighlight">\(0^{\circ}\)</span></p></li>
+<li><p>East = <span class="math notranslate nohighlight">\(90^{\circ}\)</span></p></li>
+<li><p>South = <span class="math notranslate nohighlight">\(180^{\circ}\)</span></p></li>
+<li><p>West = <span class="math notranslate nohighlight">\(270^{\circ}\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>How it works:</strong> Imagine pointing your finger towards the North on the horizon. Then, swing your arm to the right (clockwise) along the horizon by the azimuth angle. Finally, lift your arm upwards by the altitude angle. That’s where the object is!</p>
+<ul class="simple">
+<li><p><strong>Diagram:</strong>
+<img alt="Altitude-Azimuth Schematic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Azimuth-Altitude_schematic.svg/498px-Azimuth-Altitude_schematic.svg.png" /></p></li>
+</ul>
+<p><strong>Important Note:</strong> Because the Earth rotates, the altitude and azimuth of a star are constantly changing.</p>
+</section>
+<hr class="docutils" />
+<section id="universal-coordinates-right-ascension-declination-and-epoch">
+<h2><span class="section-number">10.4. </span>Universal Coordinates: Right Ascension, Declination, and Epoch<a class="headerlink" href="#universal-coordinates-right-ascension-declination-and-epoch" title="Link to this heading">#</a></h2>
+<p>To give a star a “fixed” address on the celestial sphere, much like longitude and latitude on Earth, astronomers use the <strong>equatorial coordinate system</strong>. These coordinates remain (mostly) constant for a star, regardless of the observer’s location or the time of day.</p>
+<ul class="simple">
+<li><p><strong>Declination (Dec, <span class="math notranslate nohighlight">\(\delta\)</span>):</strong> This is the angular distance of an object north or south of the celestial equator. It’s analogous to latitude on Earth.</p>
+<ul>
+<li><p>Measured in degrees, minutes (‘), and seconds (“).</p></li>
+<li><p>Positive values are north of the celestial equator (e.g., <span class="math notranslate nohighlight">\(+30^{\circ}\)</span>).</p></li>
+<li><p>Negative values are south of the celestial equator (e.g., <span class="math notranslate nohighlight">\(-15^{\circ}\)</span>).</p></li>
+<li><p>The celestial equator is <span class="math notranslate nohighlight">\(0^{\circ}\)</span> declination.</p></li>
+<li><p>The North Celestial Pole is <span class="math notranslate nohighlight">\(+90^{\circ}\)</span> declination.</p></li>
+<li><p>The South Celestial Pole is <span class="math notranslate nohighlight">\(-90^{\circ}\)</span> declination.</p></li>
+</ul>
+</li>
+<li><p><strong>Right Ascension (RA, <span class="math notranslate nohighlight">\(\alpha\)</span>):</strong> This is the angular distance of an object measured eastward along the celestial equator from the <strong>vernal equinox</strong> to the hour circle passing through the object. It’s analogous to longitude on Earth.</p>
+<ul>
+<li><p>The <strong>vernal equinox</strong> (also called the First Point of Aries) is the point on the celestial sphere where the Sun crosses the celestial equator moving from south to north, occurring around March 20th or 21st each year. This point is the <span class="math notranslate nohighlight">\(0\)</span> reference for Right Ascension.</p></li>
+<li><p>RA is usually measured in hours (h), minutes (m), and seconds (s), from <span class="math notranslate nohighlight">\(0\text{h}\)</span> to <span class="math notranslate nohighlight">\(24\text{h}\)</span>. This is because the Earth (and thus the celestial sphere) appears to rotate <span class="math notranslate nohighlight">\(360^{\circ}\)</span> in 24 hours, so 1 hour of RA = <span class="math notranslate nohighlight">\(15^{\circ}\)</span> of arc (<span class="math notranslate nohighlight">\(360^{\circ} / 24\text{h} = 15^{\circ}/\text{h}\)</span>).</p></li>
+<li><p>An object with an RA of <span class="math notranslate nohighlight">\(0\text{h}\)</span> is at the vernal equinox. An object with an RA of <span class="math notranslate nohighlight">\(6\text{h}\)</span> is <span class="math notranslate nohighlight">\(90^{\circ}\)</span> east of the vernal equinox along the celestial equator.</p></li>
+</ul>
+</li>
+<li><p><strong>Diagram for RA and Dec:</strong>
+<img alt="Right Ascension and Declination Coordinates" src="https://www.pas.rochester.edu/~blackman/ast104/celestialtime.gif" /></p></li>
+<li><p><strong>Epoch:</strong> Because of the Earth’s axial precession (a slow wobble in its rotational axis), the celestial poles and celestial equator shift very slowly over time. This means the vernal equinox also shifts, causing the Right Ascension and Declination of stars to change gradually.</p>
+<ul>
+<li><p>Therefore, celestial coordinates are always specified for a particular <strong>epoch</strong>, which is a standard reference point in time.</p></li>
+<li><p>The current standard epoch is <strong>J2000.0</strong>, which refers to January 1, 2000, at 12:00 Terrestrial Time. When you look up star coordinates in a catalog, they are usually given for J2000.0. For very precise observations over long periods, astronomers will calculate the coordinates for the current date, known as the “epoch of date.”</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="best-right-ascension-for-monthly-astronomical-observations">
+<h2><span class="section-number">10.5. </span>Best Right Ascension for Monthly Astronomical Observations<a class="headerlink" href="#best-right-ascension-for-monthly-astronomical-observations" title="Link to this heading">#</a></h2>
+<p>For planning nighttime astronomical observations, you want to observe objects that are high in the sky, ideally near your local meridian, during the darkest part of the night (around midnight). The Sun is “opposite” this region of the sky.</p>
+<p>The Sun’s Right Ascension changes throughout the year as it moves along the ecliptic. The objects best placed for viewing around midnight will have a Right Ascension roughly <span class="math notranslate nohighlight">\(12\)</span> hours different from the Sun’s current RA.</p>
+<p>Here’s a general guide (these are approximate RAs that will be near the meridian around local midnight):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Month</p></th>
+<th class="head text-left"><p>Best RA for Midnight Viewing (approx.)</p></th>
+<th class="head text-left"><p>Sun’s Approximate RA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>January</p></td>
+<td class="text-left"><p>6h - 8h RA</p></td>
+<td class="text-left"><p>~18h - 20h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>February</p></td>
+<td class="text-left"><p>8h - 10h RA</p></td>
+<td class="text-left"><p>~20h - 22h</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>March</p></td>
+<td class="text-left"><p>10h - 12h RA</p></td>
+<td class="text-left"><p>~22h - 0h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>April</p></td>
+<td class="text-left"><p>12h - 14h RA</p></td>
+<td class="text-left"><p>~0h - 2h</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>May</p></td>
+<td class="text-left"><p>14h - 16h RA</p></td>
+<td class="text-left"><p>~2h - 4h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>June</p></td>
+<td class="text-left"><p>16h - 18h RA</p></td>
+<td class="text-left"><p>~4h - 6h</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>July</p></td>
+<td class="text-left"><p>18h - 20h RA</p></td>
+<td class="text-left"><p>~6h - 8h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>August</p></td>
+<td class="text-left"><p>20h - 22h RA</p></td>
+<td class="text-left"><p>~8h - 10h</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>September</p></td>
+<td class="text-left"><p>22h - 0h RA</p></td>
+<td class="text-left"><p>~10h - 12h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>October</p></td>
+<td class="text-left"><p>0h - 2h RA</p></td>
+<td class="text-left"><p>~12h - 14h</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>November</p></td>
+<td class="text-left"><p>2h - 4h RA</p></td>
+<td class="text-left"><p>~14h - 16h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>December</p></td>
+<td class="text-left"><p>4h - 6h RA</p></td>
+<td class="text-left"><p>~16h - 18h</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>How to use this:</strong></p>
+<ol class="arabic simple">
+<li><p>Find the current month.</p></li>
+<li><p>The listed RA range is what will be culminating (highest in the sky) around midnight.</p></li>
+<li><p>Objects with RAs about 2-3 hours on either side of this range will also be well-placed for viewing earlier or later in the evening.</p></li>
+</ol>
+<p>For example, in <strong>May</strong>, objects with RAs around <span class="math notranslate nohighlight">\(14\text{h}\)</span> to <span class="math notranslate nohighlight">\(16\text{h}\)</span> (like the Virgo Cluster or constellations such as Boötes and Libra) will be high in the sky around midnight. Objects with RAs of <span class="math notranslate nohighlight">\(12\text{h}\)</span> would be good to observe earlier in the evening, while objects with RAs of <span class="math notranslate nohighlight">\(18\text{h}\)</span> would be better later in the night/early morning.</p>
+<p>Happy stargazing!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="research-log.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Research Logging</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="AIJ-lightcurve.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Data Reduction with AIJ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ancient-greek-perspective">10.1. The Ancient Greek Perspective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-astronomical-terms">10.2. Key Astronomical Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-way-altitude-and-azimuth-local-coordinates">10.3. Finding Your Way: Altitude and Azimuth (Local Coordinates)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-coordinates-right-ascension-declination-and-epoch">10.4. Universal Coordinates: Right Ascension, Declination, and Epoch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-right-ascension-for-monthly-astronomical-observations">10.5. Best Right Ascension for Monthly Astronomical Observations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

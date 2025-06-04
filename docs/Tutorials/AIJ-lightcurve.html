@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Data Reduction with AIJ &#8212; Exoplanets within Binary Systems</title>
+    <title>11. Data Reduction with AIJ &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -81,8 +81,7 @@
     <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/AIJ-lightcurve.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Data Reduction (archival)" href="archival-data.html" />
-    <link rel="prev" title="9. Research Logging" href="research-log.html" />
+    <link rel="prev" title="10. The Celestial Sphere: A Journey Through the Stars" href="celestial-sphere.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,8 +215,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Data Reduction with AIJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archival-data.html">11. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. The Celestial Sphere: A Journey Through the Stars</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Data Reduction with AIJ</a></li>
 </ul>
 
     </div>
@@ -448,46 +447,46 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">10.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-eclipsing-binary">10.1.1. What is an Eclipsing Binary?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-light-curve">10.1.2. What is a Light Curve?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-astroimagej-aij">10.1.3. What is AstroImageJ (<strong>AIJ</strong>)?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-of-this-tutorial">10.1.4. Goal of this Tutorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">10.1.5. Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">11.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-eclipsing-binary">11.1.1. What is an Eclipsing Binary?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-light-curve">11.1.2. What is a Light Curve?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-astroimagej-aij">11.1.3. What is AstroImageJ (<strong>AIJ</strong>)?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-of-this-tutorial">11.1.4. Goal of this Tutorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">11.1.5. Prerequisites</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-workspace">10.2. Setting up Your Workspace</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-your-fits-files">10.2.1. Organizing Your FITS Files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-astroimagej">10.2.2. Launching AstroImageJ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation-in-aij-important">10.2.3. Memory Allocation in AIJ (Important!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-workspace">11.2. Setting up Your Workspace</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-your-fits-files">11.2.1. Organizing Your FITS Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-astroimagej">11.2.2. Launching AstroImageJ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation-in-aij-important">11.2.3. Memory Allocation in AIJ (Important!)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-your-fits-images">10.3. Loading Your FITS Images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-navigation-and-display">10.3.1. Basic Image Navigation and Display</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-your-fits-images">11.3. Loading Your FITS Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-navigation-and-display">11.3.1. Basic Image Navigation and Display</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-calibration-a-brief-overview">10.4. Image Calibration (A Brief Overview)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-wcs-world-coordinate-system">10.5. Plate Solving and WCS (World Coordinate System)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">10.6. Performing Aperture Photometry</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-target-and-comparison-stars">10.6.1. Selecting Your Target and Comparison Stars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-aperture-sizes">10.6.2. Setting Aperture Sizes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-calibration-a-brief-overview">11.4. Image Calibration (A Brief Overview)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-wcs-world-coordinate-system">11.5. Plate Solving and WCS (World Coordinate System)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">11.6. Performing Aperture Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-target-and-comparison-stars">11.6.1. Selecting Your Target and Comparison Stars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-aperture-sizes">11.6.2. Setting Aperture Sizes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-photometry-and-inspecting-the-data-table">10.7. Running the Photometry and Inspecting the Data Table</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-measurements-table">10.7.1. Understanding the “Measurements” Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-photometry-and-inspecting-the-data-table">11.7. Running the Photometry and Inspecting the Data Table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-measurements-table">11.7.1. Understanding the “Measurements” Table</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-creating-the-light-curve">10.8. Differential Photometry: Creating the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-the-light-curve">10.9. Normalizing the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-folding-your-light-curve">10.10. Phase Folding Your Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-and-detrending-optional">10.11. Refining and Detrending (Optional)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-results">10.12. Saving Your Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-measurements-table">10.12.1. Saving the Measurements Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-light-curve-plot-time-series-and-phase-folded">10.12.2. Saving the Light Curve Plot (Time Series and Phase-Folded)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-aij-session-settings">10.12.3. Saving AIJ Session/Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-creating-the-light-curve">11.8. Differential Photometry: Creating the Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-the-light-curve">11.9. Normalizing the Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-folding-your-light-curve">11.10. Phase Folding Your Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-and-detrending-optional">11.11. Refining and Detrending (Optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-results">11.12. Saving Your Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-measurements-table">11.12.1. Saving the Measurements Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-light-curve-plot-time-series-and-phase-folded">11.12.2. Saving the Light Curve Plot (Time Series and Phase-Folded)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-aij-session-settings">11.12.3. Saving AIJ Session/Settings</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-next-steps">10.13. Conclusion and Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-next-steps">11.13. Conclusion and Next Steps</a></li>
 </ul>
             </nav>
         </div>
@@ -500,24 +499,24 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-reduction-with-aij">
-<h1><span class="section-number">10. </span>Data Reduction with AIJ<a class="headerlink" href="#data-reduction-with-aij" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Data Reduction with AIJ<a class="headerlink" href="#data-reduction-with-aij" title="Link to this heading">#</a></h1>
 <p>This tutorial will guide you through the process of reducing astronomical data from FITS files to create a normalized, phase-folded light curve of an eclipsing binary star system using AstroImageJ (AIJ). This is a fundamental skill in observational astronomy, particularly for studying variable stars.</p>
 <section id="introduction">
-<h2><span class="section-number">10.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <section id="what-is-an-eclipsing-binary">
-<h3><span class="section-number">10.1.1. </span>What is an Eclipsing Binary?<a class="headerlink" href="#what-is-an-eclipsing-binary" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1. </span>What is an Eclipsing Binary?<a class="headerlink" href="#what-is-an-eclipsing-binary" title="Link to this heading">#</a></h3>
 <p>An <strong>eclipsing binary</strong> is a system of two stars orbiting each other in such a way that, from our line of sight on Earth, one star periodically passes in front of the other. This passage causes a dip in the total observed brightness of the system. Studying these eclipses tells us a lot about the stars’ properties, like their sizes, masses, and temperatures.</p>
 </section>
 <section id="what-is-a-light-curve">
-<h3><span class="section-number">10.1.2. </span>What is a Light Curve?<a class="headerlink" href="#what-is-a-light-curve" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.2. </span>What is a Light Curve?<a class="headerlink" href="#what-is-a-light-curve" title="Link to this heading">#</a></h3>
 <p>A <strong>light curve</strong> is a graph that shows the brightness of an astronomical object over time. For an eclipsing binary, the light curve will show periodic dips in brightness corresponding to the eclipses. The shape and timing of these dips are crucial for analysis.</p>
 </section>
 <section id="what-is-astroimagej-aij">
-<h3><span class="section-number">10.1.3. </span>What is AstroImageJ (<strong>AIJ</strong>)?<a class="headerlink" href="#what-is-astroimagej-aij" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.3. </span>What is AstroImageJ (<strong>AIJ</strong>)?<a class="headerlink" href="#what-is-astroimagej-aij" title="Link to this heading">#</a></h3>
 <p><strong>AstroImageJ (AIJ)</strong> is a powerful, free, Java-based image processing and analysis software specifically designed for astronomy. It’s widely used for tasks like photometry (measuring brightness), image calibration, and creating light curves. You can download it from the official AIJ website: <a class="reference external" href="https://www.astro.louisville.edu/software/astroimagej/">https://www.astro.louisville.edu/software/astroimagej/</a></p>
 </section>
 <section id="goal-of-this-tutorial">
-<h3><span class="section-number">10.1.4. </span>Goal of this Tutorial<a class="headerlink" href="#goal-of-this-tutorial" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.4. </span>Goal of this Tutorial<a class="headerlink" href="#goal-of-this-tutorial" title="Link to this heading">#</a></h3>
 <p>By the end of this tutorial, you will be able to:</p>
 <ul class="simple">
 <li><p>Load a series of FITS images into AIJ.</p></li>
@@ -529,7 +528,7 @@ document.write(`
 </ul>
 </section>
 <section id="prerequisites">
-<h3><span class="section-number">10.1.5. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.5. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>AstroImageJ installed:</strong> Ensure you have the latest version of AIJ installed on your computer.</p></li>
 <li><p><strong>Java Development Kit (JDK):</strong> AIJ requires Java. Make sure you have a compatible JDK installed (usually OpenJDK or Oracle JDK).</p></li>
@@ -544,9 +543,9 @@ document.write(`
 </section>
 </section>
 <section id="setting-up-your-workspace">
-<h2><span class="section-number">10.2. </span>Setting up Your Workspace<a class="headerlink" href="#setting-up-your-workspace" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Setting up Your Workspace<a class="headerlink" href="#setting-up-your-workspace" title="Link to this heading">#</a></h2>
 <section id="organizing-your-fits-files">
-<h3><span class="section-number">10.2.1. </span>Organizing Your FITS Files<a class="headerlink" href="#organizing-your-fits-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.2.1. </span>Organizing Your FITS Files<a class="headerlink" href="#organizing-your-fits-files" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Create a dedicated folder</strong> for your project (e.g., <code class="docutils literal notranslate"><span class="pre">MyEclipsingBinary_Project</span></code>).</p></li>
 <li><p>Inside this project folder, create a subfolder named <code class="docutils literal notranslate"><span class="pre">fits_images</span></code> (or similar) and place all your FITS files for the eclipsing binary observation sequence there.</p></li>
@@ -554,14 +553,14 @@ document.write(`
 </ol>
 </section>
 <section id="launching-astroimagej">
-<h3><span class="section-number">10.2.2. </span>Launching AstroImageJ<a class="headerlink" href="#launching-astroimagej" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.2.2. </span>Launching AstroImageJ<a class="headerlink" href="#launching-astroimagej" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Navigate to the directory where you installed AstroImageJ.</p></li>
 <li><p>Launch AIJ. This is usually done by double-clicking the <code class="docutils literal notranslate"><span class="pre">AstroImageJ.jar</span></code> file or by running a platform-specific script (e.g., <code class="docutils literal notranslate"><span class="pre">AstroImageJ.exe</span></code> on Windows, or <code class="docutils literal notranslate"><span class="pre">AIJ_launcher_MacOS.sh</span></code> / <code class="docutils literal notranslate"><span class="pre">AIJ_launcher_Linux.sh</span></code>).</p></li>
 </ol>
 </section>
 <section id="memory-allocation-in-aij-important">
-<h3><span class="section-number">10.2.3. </span>Memory Allocation in AIJ (Important!)<a class="headerlink" href="#memory-allocation-in-aij-important" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.2.3. </span>Memory Allocation in AIJ (Important!)<a class="headerlink" href="#memory-allocation-in-aij-important" title="Link to this heading">#</a></h3>
 <p>AIJ can be memory-intensive, especially when working with many large FITS files.</p>
 <ol class="arabic simple">
 <li><p>Upon launching AIJ, you might see a startup configuration window, or you can access memory settings via <strong>Edit &gt; Options &gt; Memory &amp; Threads…</strong>.</p></li>
@@ -572,7 +571,7 @@ document.write(`
 </section>
 </section>
 <section id="loading-your-fits-images">
-<h2><span class="section-number">10.3. </span>Loading Your FITS Images<a class="headerlink" href="#loading-your-fits-images" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Loading Your FITS Images<a class="headerlink" href="#loading-your-fits-images" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>In AIJ, go to <strong>File &gt; Open…</strong> to open a single FITS image, or (more likely for a time series) <strong>File &gt; Open Image Series &gt; Open Series (User Selects Folder and Files)…</strong> or <strong>File &gt; Open Image Series &gt; Open All Images in Folder (recursive)…</strong>.</p>
 <ul class="simple">
@@ -583,7 +582,7 @@ document.write(`
 <li><p>You can navigate through the stack using the slider bar at the bottom of the image window or by using the <strong>Next Slice (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>)</strong> and <strong>Previous Slice (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>)</strong> buttons/commands.</p></li>
 </ol>
 <section id="basic-image-navigation-and-display">
-<h3><span class="section-number">10.3.1. </span>Basic Image Navigation and Display<a class="headerlink" href="#basic-image-navigation-and-display" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.3.1. </span>Basic Image Navigation and Display<a class="headerlink" href="#basic-image-navigation-and-display" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Zoom:</strong> Use the magnifying glass tools or <strong>Image &gt; Zoom &gt; In/Out</strong>.</p></li>
 <li><p><strong>Pan:</strong> Select the hand tool and drag the image.</p></li>
@@ -592,7 +591,7 @@ document.write(`
 </section>
 </section>
 <section id="image-calibration-a-brief-overview">
-<h2><span class="section-number">10.4. </span>Image Calibration (A Brief Overview)<a class="headerlink" href="#image-calibration-a-brief-overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Image Calibration (A Brief Overview)<a class="headerlink" href="#image-calibration-a-brief-overview" title="Link to this heading">#</a></h2>
 <p>Raw astronomical images contain instrumental signatures and noise that should ideally be removed for precise photometry. This process is called <strong>image calibration</strong> and typically involves:</p>
 <ul class="simple">
 <li><p><strong>Bias subtraction:</strong> Removing the baseline electronic signal present even in a zero-second exposure.</p></li>
@@ -613,7 +612,7 @@ document.write(`
 <p>For now, we will proceed assuming your images are either calibrated or you’re learning the photometry steps first with uncalibrated data (which will have more scatter but still show the eclipse).</p>
 </section>
 <section id="plate-solving-and-wcs-world-coordinate-system">
-<h2><span class="section-number">10.5. </span>Plate Solving and WCS (World Coordinate System)<a class="headerlink" href="#plate-solving-and-wcs-world-coordinate-system" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.5. </span>Plate Solving and WCS (World Coordinate System)<a class="headerlink" href="#plate-solving-and-wcs-world-coordinate-system" title="Link to this heading">#</a></h2>
 <p><strong>Plate solving</strong> is the process of accurately determining the celestial coordinates (Right Ascension - RA, Declination - Dec) for the pixels in your image. This embeds a World Coordinate System (WCS) into the FITS header, which is incredibly useful for:</p>
 <ul class="simple">
 <li><p>Identifying your target and comparison stars by their known coordinates.</p></li>
@@ -643,21 +642,21 @@ document.write(`
 </ul>
 </section>
 <section id="performing-aperture-photometry">
-<h2><span class="section-number">10.6. </span>Performing Aperture Photometry<a class="headerlink" href="#performing-aperture-photometry" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.6. </span>Performing Aperture Photometry<a class="headerlink" href="#performing-aperture-photometry" title="Link to this heading">#</a></h2>
 <p><strong>Aperture photometry</strong> is the technique of measuring the brightness of a star by summing the pixel values within a circular region (the aperture) centered on the star, and then subtracting the background sky brightness.</p>
 <ol class="arabic simple">
 <li><p>Open the <strong>DP (Data Processor)</strong> window.</p></li>
 <li><p>Go to the <strong>Aperture Photometry</strong> tab.</p></li>
 </ol>
 <section id="selecting-your-target-and-comparison-stars">
-<h3><span class="section-number">10.6.1. </span>Selecting Your Target and Comparison Stars<a class="headerlink" href="#selecting-your-target-and-comparison-stars" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.6.1. </span>Selecting Your Target and Comparison Stars<a class="headerlink" href="#selecting-your-target-and-comparison-stars" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Target Star (T1):</strong> Your eclipsing binary. In the image display, <strong>left-click</strong> on its center.</p></li>
 <li><p><strong>Comparison Stars (C2, C3, …):</strong> Select 2-5 stable, non-saturated stars of similar brightness if possible. <strong>Left-click</strong> on each.</p></li>
 </ul>
 </section>
 <section id="setting-aperture-sizes">
-<h3><span class="section-number">10.6.2. </span>Setting Aperture Sizes<a class="headerlink" href="#setting-aperture-sizes" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.6.2. </span>Setting Aperture Sizes<a class="headerlink" href="#setting-aperture-sizes" title="Link to this heading">#</a></h3>
 <p>Apertures have three radii: Object, Inner Sky, Outer Sky.</p>
 <ol class="arabic simple">
 <li><p><strong>Measure FWHM:</strong> Hover over a star or use AIJ tools to find the FWHM.</p></li>
@@ -673,13 +672,13 @@ document.write(`
 </section>
 </section>
 <section id="running-the-photometry-and-inspecting-the-data-table">
-<h2><span class="section-number">10.7. </span>Running the Photometry and Inspecting the Data Table<a class="headerlink" href="#running-the-photometry-and-inspecting-the-data-table" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.7. </span>Running the Photometry and Inspecting the Data Table<a class="headerlink" href="#running-the-photometry-and-inspecting-the-data-table" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>In the DP window, click <strong>Place Apertures</strong> or <strong>Start Photometry</strong>.</p></li>
 <li><p>A <strong>“Measurements” table</strong> will be generated.</p></li>
 </ol>
 <section id="understanding-the-measurements-table">
-<h3><span class="section-number">10.7.1. </span>Understanding the “Measurements” Table<a class="headerlink" href="#understanding-the-measurements-table" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.7.1. </span>Understanding the “Measurements” Table<a class="headerlink" href="#understanding-the-measurements-table" title="Link to this heading">#</a></h3>
 <p>Key columns:</p>
 <ul class="simple">
 <li><p><strong>Frame, File_Name</strong></p></li>
@@ -698,7 +697,7 @@ document.write(`
 </section>
 </section>
 <section id="differential-photometry-creating-the-light-curve">
-<h2><span class="section-number">10.8. </span>Differential Photometry: Creating the Light Curve<a class="headerlink" href="#differential-photometry-creating-the-light-curve" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.8. </span>Differential Photometry: Creating the Light Curve<a class="headerlink" href="#differential-photometry-creating-the-light-curve" title="Link to this heading">#</a></h2>
 <p>Differential photometry uses comparison stars to correct for atmospheric and instrumental effects. The <code class="docutils literal notranslate"><span class="pre">rel_flux_T1</span></code> column already represents this.</p>
 <p><strong>Plotting the Light Curve in AIJ:</strong></p>
 <ol class="arabic simple">
@@ -714,7 +713,7 @@ document.write(`
 <p>Inspect the initial light curve for eclipses, scatter, and outliers.</p>
 </section>
 <section id="normalizing-the-light-curve">
-<h2><span class="section-number">10.9. </span>Normalizing the Light Curve<a class="headerlink" href="#normalizing-the-light-curve" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.9. </span>Normalizing the Light Curve<a class="headerlink" href="#normalizing-the-light-curve" title="Link to this heading">#</a></h2>
 <p><strong>Normalization</strong> scales the light curve so the out-of-eclipse brightness is typically 1.0.</p>
 <p><strong>Method 1: Using AIJ’s Plotting Options</strong></p>
 <ol class="arabic simple">
@@ -740,7 +739,7 @@ document.write(`
 <p>The normalized light curve should have its out-of-eclipse level around 1.0.</p>
 </section>
 <section id="phase-folding-your-light-curve">
-<h2><span class="section-number">10.10. </span>Phase Folding Your Light Curve<a class="headerlink" href="#phase-folding-your-light-curve" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.10. </span>Phase Folding Your Light Curve<a class="headerlink" href="#phase-folding-your-light-curve" title="Link to this heading">#</a></h2>
 <p><strong>Phase folding</strong> takes your time-series data and wraps it according to a known periodic signal, like the orbit of an eclipsing binary. This overlays all observed cycles, improving the signal-to-noise ratio of the average light curve shape and making it easier to analyze the eclipse profiles.</p>
 <p><strong>Prerequisites for Phase Folding:</strong></p>
 <ul class="simple">
@@ -786,14 +785,14 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
 </ul>
 </section>
 <section id="refining-and-detrending-optional">
-<h2><span class="section-number">10.11. </span>Refining and Detrending (Optional)<a class="headerlink" href="#refining-and-detrending-optional" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.11. </span>Refining and Detrending (Optional)<a class="headerlink" href="#refining-and-detrending-optional" title="Link to this heading">#</a></h2>
 <p>Sometimes, even after differential photometry, your light curve might show residual trends. AIJ offers tools for detrending in the <strong>Plot Data</strong> window under a <strong>“Detrend”</strong> tab/section. You can fit and remove simple functions (linear, polynomial) from out-of-eclipse portions, often using parameters like Airmass.</p>
 <p><strong>Caution:</strong> Detrending should be done carefully. It’s generally best to apply detrending to the time-series data <em>before</em> phase folding if the trends are related to observing conditions of specific nights rather than an orbital phase-dependent phenomenon.</p>
 </section>
 <section id="saving-your-results">
-<h2><span class="section-number">10.12. </span>Saving Your Results<a class="headerlink" href="#saving-your-results" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.12. </span>Saving Your Results<a class="headerlink" href="#saving-your-results" title="Link to this heading">#</a></h2>
 <section id="saving-the-measurements-table">
-<h3><span class="section-number">10.12.1. </span>Saving the Measurements Table<a class="headerlink" href="#saving-the-measurements-table" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.12.1. </span>Saving the Measurements Table<a class="headerlink" href="#saving-the-measurements-table" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>In the Measurements table window, go to <strong>File &gt; Save Table As…</strong>.</p></li>
 <li><p>Choose <strong>CSV</strong> or <strong>Tab-delimited Text File (.txt)</strong>. Save it in your <code class="docutils literal notranslate"><span class="pre">results</span></code> folder.
@@ -801,7 +800,7 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
 </ol>
 </section>
 <section id="saving-the-light-curve-plot-time-series-and-phase-folded">
-<h3><span class="section-number">10.12.2. </span>Saving the Light Curve Plot (Time Series and Phase-Folded)<a class="headerlink" href="#saving-the-light-curve-plot-time-series-and-phase-folded" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.12.2. </span>Saving the Light Curve Plot (Time Series and Phase-Folded)<a class="headerlink" href="#saving-the-light-curve-plot-time-series-and-phase-folded" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>In AIJ’s <strong>Plot Data</strong> window:</p></li>
 <li><p>Use <strong>File &gt; Save Plot As…</strong> or <strong>Right-click &gt; Save As…</strong>.</p></li>
@@ -809,12 +808,12 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
 </ol>
 </section>
 <section id="saving-aij-session-settings">
-<h3><span class="section-number">10.12.3. </span>Saving AIJ Session/Settings<a class="headerlink" href="#saving-aij-session-settings" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.12.3. </span>Saving AIJ Session/Settings<a class="headerlink" href="#saving-aij-session-settings" title="Link to this heading">#</a></h3>
 <p>Look for options like <strong>File &gt; Save Photometry Settings…</strong> in the DP window to save aperture settings etc.</p>
 </section>
 </section>
 <section id="conclusion-and-next-steps">
-<h2><span class="section-number">10.13. </span>Conclusion and Next Steps<a class="headerlink" href="#conclusion-and-next-steps" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.13. </span>Conclusion and Next Steps<a class="headerlink" href="#conclusion-and-next-steps" title="Link to this heading">#</a></h2>
 <p>Congratulations! You’ve successfully loaded FITS images, performed aperture photometry, created a differential light curve, normalized it, phase-folded it, and saved your results using AstroImageJ.</p>
 <p><strong>Recap of what you learned:</strong></p>
 <ul class="simple">
@@ -871,22 +870,13 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="research-log.html"
+       href="celestial-sphere.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Research Logging</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>The Celestial Sphere: A Journey Through the Stars</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="archival-data.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Data Reduction (archival)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -904,46 +894,46 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">10.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-eclipsing-binary">10.1.1. What is an Eclipsing Binary?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-light-curve">10.1.2. What is a Light Curve?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-astroimagej-aij">10.1.3. What is AstroImageJ (<strong>AIJ</strong>)?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-of-this-tutorial">10.1.4. Goal of this Tutorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">10.1.5. Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">11.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-eclipsing-binary">11.1.1. What is an Eclipsing Binary?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-light-curve">11.1.2. What is a Light Curve?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-astroimagej-aij">11.1.3. What is AstroImageJ (<strong>AIJ</strong>)?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-of-this-tutorial">11.1.4. Goal of this Tutorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">11.1.5. Prerequisites</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-workspace">10.2. Setting up Your Workspace</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-your-fits-files">10.2.1. Organizing Your FITS Files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-astroimagej">10.2.2. Launching AstroImageJ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation-in-aij-important">10.2.3. Memory Allocation in AIJ (Important!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-workspace">11.2. Setting up Your Workspace</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-your-fits-files">11.2.1. Organizing Your FITS Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-astroimagej">11.2.2. Launching AstroImageJ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation-in-aij-important">11.2.3. Memory Allocation in AIJ (Important!)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-your-fits-images">10.3. Loading Your FITS Images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-navigation-and-display">10.3.1. Basic Image Navigation and Display</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-your-fits-images">11.3. Loading Your FITS Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-navigation-and-display">11.3.1. Basic Image Navigation and Display</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-calibration-a-brief-overview">10.4. Image Calibration (A Brief Overview)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-wcs-world-coordinate-system">10.5. Plate Solving and WCS (World Coordinate System)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">10.6. Performing Aperture Photometry</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-target-and-comparison-stars">10.6.1. Selecting Your Target and Comparison Stars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-aperture-sizes">10.6.2. Setting Aperture Sizes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-calibration-a-brief-overview">11.4. Image Calibration (A Brief Overview)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-wcs-world-coordinate-system">11.5. Plate Solving and WCS (World Coordinate System)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">11.6. Performing Aperture Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-target-and-comparison-stars">11.6.1. Selecting Your Target and Comparison Stars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-aperture-sizes">11.6.2. Setting Aperture Sizes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-photometry-and-inspecting-the-data-table">10.7. Running the Photometry and Inspecting the Data Table</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-measurements-table">10.7.1. Understanding the “Measurements” Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-photometry-and-inspecting-the-data-table">11.7. Running the Photometry and Inspecting the Data Table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-measurements-table">11.7.1. Understanding the “Measurements” Table</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-creating-the-light-curve">10.8. Differential Photometry: Creating the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-the-light-curve">10.9. Normalizing the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-folding-your-light-curve">10.10. Phase Folding Your Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-and-detrending-optional">10.11. Refining and Detrending (Optional)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-results">10.12. Saving Your Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-measurements-table">10.12.1. Saving the Measurements Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-light-curve-plot-time-series-and-phase-folded">10.12.2. Saving the Light Curve Plot (Time Series and Phase-Folded)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-aij-session-settings">10.12.3. Saving AIJ Session/Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-creating-the-light-curve">11.8. Differential Photometry: Creating the Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-the-light-curve">11.9. Normalizing the Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-folding-your-light-curve">11.10. Phase Folding Your Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-and-detrending-optional">11.11. Refining and Detrending (Optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-results">11.12. Saving Your Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-measurements-table">11.12.1. Saving the Measurements Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-light-curve-plot-time-series-and-phase-folded">11.12.2. Saving the Light Curve Plot (Time Series and Phase-Folded)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-aij-session-settings">11.12.3. Saving AIJ Session/Settings</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-next-steps">10.13. Conclusion and Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-next-steps">11.13. Conclusion and Next Steps</a></li>
 </ul>
   </nav></div>
 

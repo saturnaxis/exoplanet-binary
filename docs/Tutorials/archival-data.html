@@ -504,88 +504,8 @@ document.write(`
 <section id="setting-up-your-python-environment">
 <h2><span class="section-number">11.2. </span>Setting up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Link to this heading">#</a></h2>
 <p>To use <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, you’ll need Python and several packages including <code class="docutils literal notranslate"><span class="pre">astropy</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. The easiest way to install <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and its dependencies is using <code class="docutils literal notranslate"><span class="pre">pip</span></code>. If you are in an environment like Google Colab, this command will install it into your current session.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>lightkurve
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">lightkurve</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lightkurve in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (2.4.1)
-Requirement already satisfied: astropy&gt;=5.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (5.1)
-Requirement already satisfied: astroquery&gt;=0.3.10 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.4.6)
-Requirement already satisfied: beautifulsoup4&gt;=4.6.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (4.12.2)
-Requirement already satisfied: bokeh&gt;=2.0.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (3.2.1)
-Requirement already satisfied: fbpca&gt;=1.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.0)
-Requirement already satisfied: matplotlib&gt;=3.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (3.7.2)
-Requirement already satisfied: memoization&gt;=0.3.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.4.0)
-Requirement already satisfied: numpy&gt;=1.18 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.24.3)
-Requirement already satisfied: oktopus&gt;=0.1.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.1.2)
-Requirement already satisfied: pandas&gt;=1.1.4 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (2.0.3)
-Requirement already satisfied: patsy&gt;=0.5.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (0.5.3)
-Requirement already satisfied: requests&gt;=2.22.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (2.31.0)
-Requirement already satisfied: scikit-learn&gt;=0.24.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.3.0)
-Requirement already satisfied: tqdm&gt;=4.25.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (4.65.0)
-Requirement already satisfied: uncertainties&gt;=3.1.4 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (3.1.7)
-Requirement already satisfied: urllib3&gt;=1.23 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from lightkurve) (1.26.18)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyerfa&gt;=2.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astropy&gt;=5.0-&gt;lightkurve) (2.0.0)
-Requirement already satisfied: PyYAML&gt;=3.13 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astropy&gt;=5.0-&gt;lightkurve) (6.0)
-Requirement already satisfied: packaging&gt;=19.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astropy&gt;=5.0-&gt;lightkurve) (23.2)
-Requirement already satisfied: html5lib&gt;=0.999 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.1)
-Requirement already satisfied: keyring&gt;=4.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (23.13.1)
-Requirement already satisfied: pyvo&gt;=1.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.4.2)
-Requirement already satisfied: soupsieve&gt;1.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from beautifulsoup4&gt;=4.6.0-&gt;lightkurve) (2.5)
-Requirement already satisfied: Jinja2&gt;=2.9 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (3.1.2)
-Requirement already satisfied: contourpy&gt;=1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (1.0.5)
-Requirement already satisfied: pillow&gt;=7.1.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (9.4.0)
-Requirement already satisfied: tornado&gt;=5.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (6.3.2)
-Requirement already satisfied: xyzservices&gt;=2021.09.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from bokeh&gt;=2.0.0-&gt;lightkurve) (2022.9.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cycler&gt;=0.10 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (0.11.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (4.25.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (1.4.4)
-Requirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (3.0.9)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (2.8.2)
-Requirement already satisfied: scipy in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.11.1)
-Requirement already satisfied: autograd in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.6.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2023.3.post1)
-Requirement already satisfied: tzdata&gt;=2022.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2023.3)
-Requirement already satisfied: six in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from patsy&gt;=0.5.0-&gt;lightkurve) (1.16.0)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.3.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from requests&gt;=2.22.0-&gt;lightkurve) (2023.11.17)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: joblib&gt;=1.1.1 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (1.2.0)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (2.2.0)
-Requirement already satisfied: future in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from uncertainties&gt;=3.1.4-&gt;lightkurve) (0.18.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: webencodings in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from html5lib&gt;=0.999-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (0.5.1)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from Jinja2&gt;=2.9-&gt;bokeh&gt;=2.0.0-&gt;lightkurve) (2.1.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jaraco.classes in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (3.2.1)
-Requirement already satisfied: importlib-metadata&gt;=4.11.4 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (6.0.0)
-Requirement already satisfied: SecretStorage&gt;=3.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (3.3.1)
-Requirement already satisfied: jeepney&gt;=0.4.2 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (0.7.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=0.5 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from importlib-metadata&gt;=4.11.4-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (3.11.0)
-Requirement already satisfied: cryptography&gt;=2.0 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from SecretStorage&gt;=3.2-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (41.0.3)
-Requirement already satisfied: more-itertools in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from jaraco.classes-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (8.12.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.12 in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from cryptography&gt;=2.0-&gt;SecretStorage&gt;=3.2-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (1.15.1)
-Requirement already satisfied: pycparser in /home/saturnaxis/anaconda3/lib/python3.11/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.0-&gt;SecretStorage&gt;=3.2-&gt;keyring&gt;=4.0-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (2.21)
-</pre></div>
-</div>
-</div>
 </div>
 <p>Now, let’s import <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and other useful packages.</p>
 <div class="cell docutils container">
@@ -620,7 +540,7 @@ Requirement already satisfied: pycparser in /home/saturnaxis/anaconda3/lib/pytho
 <div class="cell_output docutils container">
 <div class="output text_html">SearchResult containing 84 data products.
 
-<table id="table123578778160848">
+<table id="table135795575957520">
 <thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
 <tr><td>0</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
@@ -658,7 +578,7 @@ Length = 84 rows</div></div>
 <div class="cell_output docutils container">
 <div class="output text_html">SearchResult containing 84 data products.
 
-<table id="table123578779928912">
+<table id="table135795582400592">
 <thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
 <tr><td>0</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
@@ -695,7 +615,7 @@ Length = 84 rows</div></div>
 <div class="cell_output docutils container">
 <div class="output text_html">SearchResult containing 55 data products.
 
-<table id="table123578780887312">
+<table id="table135795577978256">
 <thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
 <tr><td>0</td><td>TESS Sector 01</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/pipeline.html'>SPOC</a></td><td>120</td><td>261136679</td><td>0.0</td></tr>
@@ -877,7 +797,7 @@ Length = 18279 rows
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
@@ -899,7 +819,7 @@ Length = 18279 rows
 <span class="g g-Whitespace">    </span><span class="mi">199</span> <span class="c1"># Address issue #954: ignore incompatible columns with the same name</span>
 <span class="g g-Whitespace">    </span><span class="mi">200</span> <span class="n">columns_to_remove</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
-<span class="nn">Cell In[9], line 4,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(lc)</span>
+<span class="nn">Cell In[8], line 4,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(lc)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
