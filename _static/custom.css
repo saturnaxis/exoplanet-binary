@@ -30,3 +30,14 @@ table {
     width: fit-content !important;
 }
 
+/* Wrap long natural-language prompt examples without changing Python/code blocks */
+.prompt-block pre {
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Reduce unnecessary horizontal scrolling on wrapped prompt blocks */
+.prompt-block .highlight {
+  overflow-x: visible;
+}

@@ -1,0 +1,2879 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Research Logging &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/research-log_updated';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/research-log_updated.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Exoplanets within Binary Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/research-log_updated.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/research-log_updated.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/research-log_updated.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Research Logging</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-keep-a-research-log">Why keep a research log?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-counts-as-research-work">What Counts as Research Work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-minimum-useful-log-entry">The Minimum Useful Log Entry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date">Date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">Actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#result">Result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-step">Next step</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-folder-structure">Recommended folder structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-startup-checklist">Project Startup Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-naming-conventions">File Naming Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-readme-files">Project README Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-readme-template">Simple README template</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-log-template">Daily log template</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-filled-entry">Example filled entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meeting-notes">Meeting Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meeting-notes-template">Meeting notes template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-meeting-notes">Example meeting notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-weak-and-strong-log-entries">Examples of Weak and Strong Log Entries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-downloading-data">Example 1: Downloading data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-running-code">Example 2: Running code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-simulation-work">Example 3: Simulation work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-being-confused">Example 4: Being confused</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-reading-a-paper">Example 5: Reading a paper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reading-notes">Paper Reading Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-when-reading-a-paper">What to record when reading a paper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-notes-template">Paper notes template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-paper-notes">Example paper notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ai-tools-responsibly-in-a-research-log">Using AI Tools Responsibly in a Research Log</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ai-use-log-entry">Example AI-use log entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-or-markdown">Jupyter Notebook or Markdown?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-a-jupyter-notebook">When to use a Jupyter notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-a-markdown-file">When to use a Markdown file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-to-a-saved-figure-in-markdown">Linking to a saved figure in Markdown</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-videos-and-tutorials">Optional Videos and Tutorials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-logs-and-lab-notebooks">Research logs and lab notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-jupyter-notebooks">Markdown and Jupyter notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-and-github-desktop">GitHub and GitHub Desktop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provenance">Data Provenance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provenance-template">Data provenance template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-provenance-entry">Example data provenance entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-python-work">Logging Python Work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-when-using-python">What to record when using Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-recording-package-versions">Example: recording package versions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-saving-a-figure-with-a-useful-filename">Example: saving a figure with a useful filename</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-log-entry-for-python-work">Example log entry for Python work</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-checklist">Reproducibility Checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-seeds">Random seeds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-parameters">Saving parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-simulation-runs">Logging Simulation Runs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-your-simulation-log-should-answer">Questions your simulation log should answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation-log-entry">Example simulation log entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parameter-table">Example parameter table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-observations">Logging Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-log-template">Observation log template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-observation-log-entry">Example observation log entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-converting-an-observation-time-with-astropy">Example: converting an observation time with Astropy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-problems-errors-and-false-starts">Logging Problems, Errors, and False Starts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code-error">Example: code error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-confusing-result">Example: confusing result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-no-data-found">Example: no data found</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-and-backing-up-your-log">Syncing and Backing Up Your Log</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-google-drive-or-shared-cloud-storage">Using Google Drive or shared cloud storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-github-without-the-command-line">Using GitHub Without the Command Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-using-github-in-the-browser">Option 1: Using GitHub in the Browser</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-research-log-file-in-the-browser">Creating a new research log file in the browser</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-an-existing-log-file-in-the-browser">Editing an existing log file in the browser</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-small-files-in-the-browser">Uploading small files in the browser</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-using-github-desktop">Option 2: Using GitHub Desktop</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-and-sign-in">Step 1: Install and sign in</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clone-the-project-repository">Step 2: Clone the project repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-work-in-the-project-folder">Step 3: Work in the project folder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-review-changes-in-github-desktop">Step 4: Review changes in GitHub Desktop</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-commit-your-changes">Step 5: Commit your changes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-push-your-changes-to-github">Step 6: Push your changes to GitHub</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-pull-before-starting-work">Step 7: Pull before starting work</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-the-browser-vs-github-desktop">When to Use the Browser vs. GitHub Desktop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-gitignore">Using <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-gitignore-in-the-browser">Creating <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> in the browser</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-gitignore-using-github-desktop">Creating <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> using GitHub Desktop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-tasks">Tracking Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-log">Research log</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-list">Task list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-task-list-template">Simple task list template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-github-issues-for-tasks">Using GitHub Issues for tasks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-day-checklist">End-of-Day Checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-end-of-day-entry">Example end-of-day entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-not-to-put-in-the-log">What Not to Put in the Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-waiting-too-long-to-write-the-log">Mistake 1: Waiting too long to write the log</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-only-recording-successful-results">Mistake 2: Only recording successful results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-not-recording-filenames">Mistake 3: Not recording filenames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-not-recording-parameter-values">Mistake 4: Not recording parameter values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-5-not-explaining-why-you-made-a-decision">Mistake 5: Not explaining why you made a decision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-6-treating-the-log-like-polished-writing">Mistake 6: Treating the log like polished writing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-7-not-writing-the-next-step">Mistake 7: Not writing the next step</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-logs-into-reports-posters-and-presentations">Turning Logs into Reports, Posters, and Presentations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-review-your-logs-before-writing">How to review your logs before writing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="research-logging">
+<h1>Research Logging<a class="headerlink" href="#research-logging" title="Link to this heading">#</a></h1>
+<section id="why-keep-a-research-log">
+<h2>Why keep a research log?<a class="headerlink" href="#why-keep-a-research-log" title="Link to this heading">#</a></h2>
+<p>A research log is the working memory of a research project. It does not need to be polished, but it does need to be useful.</p>
+<p>Research usually involves many small steps:</p>
+<ul class="simple">
+<li><p>reading background material,</p></li>
+<li><p>downloading data,</p></li>
+<li><p>cleaning data,</p></li>
+<li><p>writing code,</p></li>
+<li><p>changing parameters,</p></li>
+<li><p>making plots,</p></li>
+<li><p>finding mistakes,</p></li>
+<li><p>fixing mistakes,</p></li>
+<li><p>asking questions,</p></li>
+<li><p>meeting with a mentor,</p></li>
+<li><p>trying something that does not work,</p></li>
+<li><p>returning later and trying again.</p></li>
+</ul>
+<p>Without a research log, these steps blur together. After a few days, it becomes difficult to remember what you tried, what files you used, what parameters you changed, or why you made a particular decision.</p>
+<p>A good research log helps you answer these questions later:</p>
+<ul class="simple">
+<li><p>What was I trying to do?</p></li>
+<li><p>Why was I trying to do it?</p></li>
+<li><p>What files, code, data, or papers did I use?</p></li>
+<li><p>What did I change?</p></li>
+<li><p>What happened?</p></li>
+<li><p>What confused me?</p></li>
+<li><p>What should I do next?</p></li>
+</ul>
+<p>A research log is not just for your mentor. It is mainly for your future self.</p>
+<p>You may think you will remember what you did. You probably will not. Research projects often stretch across weeks, months, or years. A detail that seems obvious today may be completely unclear two weeks from now.</p>
+<p>A research log is useful for several reasons.</p>
+<ul class="simple">
+<li><p><strong>Reproducibility:</strong> You or someone else can repeat the work later. This matters because research claims need to be traceable back to data, code, assumptions, and choices.</p></li>
+<li><p><strong>Memory:</strong> You will forget details faster than you expect. A log protects you from having to rediscover what you already learned.</p></li>
+<li><p><strong>Troubleshooting:</strong> Failed attempts are useful. If something breaks, your log can help you identify what changed.</p></li>
+<li><p><strong>Mentoring:</strong> Your mentor can give better help if they can see what you tried, what happened, and where you got stuck.</p></li>
+<li><p><strong>Writing:</strong> Research logs become raw material for posters, talks, papers, theses, and final reports.</p></li>
+<li><p><strong>Progress tracking:</strong> A log shows that research is moving forward, even when the final result is not finished yet.</p></li>
+<li><p><strong>Efficiency:</strong> A log prevents you from repeating the same test, rerunning the same broken code, or forgetting which file contains the useful result.</p></li>
+</ul>
+</section>
+<section id="what-counts-as-research-work">
+<h2>What Counts as Research Work?<a class="headerlink" href="#what-counts-as-research-work" title="Link to this heading">#</a></h2>
+<p>New researchers sometimes think they should only write in the log when they get a successful result. That is not correct.</p>
+<p>You should write a log entry whenever you do work that changes your understanding of the project.</p>
+<p>Research work includes:</p>
+<ul class="simple">
+<li><p>reading a paper or documentation,</p></li>
+<li><p>meeting with your mentor,</p></li>
+<li><p>downloading data,</p></li>
+<li><p>checking whether data exist,</p></li>
+<li><p>writing code,</p></li>
+<li><p>editing code,</p></li>
+<li><p>running a simulation,</p></li>
+<li><p>changing a parameter,</p></li>
+<li><p>making a plot,</p></li>
+<li><p>comparing two results,</p></li>
+<li><p>finding a mistake,</p></li>
+<li><p>fixing a mistake,</p></li>
+<li><p>getting an error message,</p></li>
+<li><p>realizing that an approach will not work,</p></li>
+<li><p>deciding what to try next.</p></li>
+</ul>
+<p>A failed attempt still belongs in the log. In research, a failed attempt often teaches you something important.</p>
+<p>For example, this is worth logging:</p>
+<blockquote>
+<div><p>I tried to download data for this target, but no TESS light curve was available.</p>
+</div></blockquote>
+<p>This is also worth logging:</p>
+<blockquote>
+<div><p>I changed the simulation timestep from <code class="docutils literal notranslate"><span class="pre">0.01</span></code> to <code class="docutils literal notranslate"><span class="pre">0.001</span></code>. The result looked more stable, but the run time increased by about a factor of 10.</p>
+</div></blockquote>
+<p>This is also worth logging:</p>
+<blockquote>
+<div><p>I do not understand why the plot has a gap near day 1350. Next time I need to inspect the data-quality flags.</p>
+</div></blockquote>
+<p>Research logs are not only for success. They are for keeping track of the full path of the project.</p>
+</section>
+<section id="the-minimum-useful-log-entry">
+<h2>The Minimum Useful Log Entry<a class="headerlink" href="#the-minimum-useful-log-entry" title="Link to this heading">#</a></h2>
+<p>Every research work session should leave behind a log entry.</p>
+<p>A useful entry does not need to be long, but it should include enough information that you can restart the work later without guessing.</p>
+<p>At minimum, include:</p>
+<ol class="arabic simple">
+<li><p><strong>Date</strong></p></li>
+<li><p><strong>Goal</strong></p></li>
+<li><p><strong>Actions</strong></p></li>
+<li><p><strong>Result</strong></p></li>
+<li><p><strong>Next step</strong></p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Minimum research log entry</p>
+<p>If you only have five minutes to write your log, write these five things:</p>
+<ul class="simple">
+<li><p><strong>Date:</strong> When did I do this work?</p></li>
+<li><p><strong>Goal:</strong> What was I trying to accomplish?</p></li>
+<li><p><strong>Actions:</strong> What did I actually do?</p></li>
+<li><p><strong>Result:</strong> What happened?</p></li>
+<li><p><strong>Next step:</strong> What should I do next?</p></li>
+</ul>
+</div>
+<section id="date">
+<h3>Date<a class="headerlink" href="#date" title="Link to this heading">#</a></h3>
+<p>The date matters because research projects are cumulative. You may need to compare today’s work with something you did last week or last month.</p>
+<p>Use a clear date format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2026-05-18
+</pre></div>
+</div>
+<p>This format avoids confusion between month/day/year and day/month/year.</p>
+</section>
+<section id="goal">
+<h3>Goal<a class="headerlink" href="#goal" title="Link to this heading">#</a></h3>
+<p>The goal is what you intended to accomplish during the work session.</p>
+<p>A weak goal is:</p>
+<blockquote>
+<div><p>Work on project.</p>
+</div></blockquote>
+<p>A better goal is:</p>
+<blockquote>
+<div><p>Download the available TESS light curves for TIC 123456789 and make an initial plot.</p>
+</div></blockquote>
+<p>The goal does not need to be ambitious. It just needs to be specific.</p>
+</section>
+<section id="actions">
+<h3>Actions<a class="headerlink" href="#actions" title="Link to this heading">#</a></h3>
+<p>The actions are what you actually did. This may be different from the goal. That is normal. Research often changes direction during a work session.</p>
+<p>Include things like:</p>
+<ul class="simple">
+<li><p>commands you ran,</p></li>
+<li><p>notebooks you opened,</p></li>
+<li><p>files you edited,</p></li>
+<li><p>parameters you changed,</p></li>
+<li><p>data you downloaded,</p></li>
+<li><p>plots you made,</p></li>
+<li><p>papers or documentation you read.</p></li>
+</ul>
+</section>
+<section id="result">
+<h3>Result<a class="headerlink" href="#result" title="Link to this heading">#</a></h3>
+<p>The result is what happened.</p>
+<p>A result can be successful:</p>
+<blockquote>
+<div><p>The light curve downloaded successfully and shows a possible transit-like dip.</p>
+</div></blockquote>
+<p>A result can be unsuccessful:</p>
+<blockquote>
+<div><p>The query returned no available data products.</p>
+</div></blockquote>
+<p>A result can be uncertain:</p>
+<blockquote>
+<div><p>The plot shows a feature near day 1350, but I do not know whether it is astrophysical or instrumental.</p>
+</div></blockquote>
+</section>
+<section id="next-step">
+<h3>Next step<a class="headerlink" href="#next-step" title="Link to this heading">#</a></h3>
+<p>The next step is one of the most important parts of the log. Write it as if you will forget everything before your next work session.</p>
+<p>A weak next step is:</p>
+<blockquote>
+<div><p>Keep going.</p>
+</div></blockquote>
+<p>A better next step is:</p>
+<blockquote>
+<div><p>Inspect the <code class="docutils literal notranslate"><span class="pre">quality</span></code> flags and remake the plot after removing flagged data points.</p>
+</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">Write for future you</p>
+<p>Assume that future you is tired, busy, and has not thought about this project for two weeks. Write enough detail that future you can restart without guessing.</p>
+</div>
+</section>
+</section>
+<section id="recommended-folder-structure">
+<h2>Recommended folder structure<a class="headerlink" href="#recommended-folder-structure" title="Link to this heading">#</a></h2>
+<p>Keep the research log close to the project files, but do not mix notes, raw data, generated figures, and code randomly.</p>
+<p>A simple project structure is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>research-project/
+├── README.md
+├── logs/
+│   ├── 2026-05-18.md
+│   ├── 2026-05-19.md
+│   └── 2026-05-20.md
+├── notebooks/
+│   ├── 01_download_data.ipynb
+│   └── 02_plot_lightcurve.ipynb
+├── scripts/
+│   └── analyze_lightcurve.py
+├── data/
+│   ├── raw/
+│   └── processed/
+└── figures/
+    └── 2026-05-18_lightcurve.png
+</pre></div>
+</div>
+<p>Use each folder for a specific purpose.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">logs/</span></code> contains daily notes and research decisions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> contains exploratory calculations, plots, and analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts/</span></code> contains reusable Python code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data/raw/</span></code> contains original data that should not be edited.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data/processed/</span></code> contains cleaned or derived data products.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">figures/</span></code> contains saved plots, diagrams, and images.</p></li>
+</ul>
+<p>Raw data and processed data should be separated when possible.</p>
+<p>Raw data means the original files you downloaded, received, or collected. Do not casually edit these files. If you need to clean or modify the data, save the result as a new file in <code class="docutils literal notranslate"><span class="pre">data/processed/</span></code>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Rule of thumb</p>
+<p>If you create a new file, your log should say where it is and why it exists.</p>
+</div>
+</section>
+<section id="project-startup-checklist">
+<h2>Project Startup Checklist<a class="headerlink" href="#project-startup-checklist" title="Link to this heading">#</a></h2>
+<p>Before beginning a research project, set up the basic structure that will help you keep the work organized.</p>
+<p>You do not need everything to be perfect on day one. However, you should know where notes, code, data, and figures will go.</p>
+<div class="tip admonition">
+<p class="admonition-title">Start-of-project checklist</p>
+<p>Before starting serious work, make sure you have:</p>
+<ul class="simple">
+<li><p>a project folder,</p></li>
+<li><p>a place for daily logs,</p></li>
+<li><p>a place for notebooks,</p></li>
+<li><p>a place for scripts,</p></li>
+<li><p>a place for raw data,</p></li>
+<li><p>a place for processed data,</p></li>
+<li><p>a place for figures,</p></li>
+<li><p>a backup or sync plan,</p></li>
+<li><p>a way to track tasks,</p></li>
+<li><p>a way to save paper notes and citations.</p></li>
+</ul>
+</div>
+<p>A good project setup prevents confusion later. Most research projects become messy because students start saving files wherever it is convenient in the moment.</p>
+<p>That works for one afternoon. It does not work for a project that lasts weeks, months, or years.</p>
+<p>At the beginning of a project, ask your mentor:</p>
+<ul class="simple">
+<li><p>Where should project files be stored?</p></li>
+<li><p>Which files should be shared?</p></li>
+<li><p>Which files should not be uploaded to GitHub?</p></li>
+<li><p>Are there large data files that should be stored somewhere else?</p></li>
+<li><p>Should I use Google Drive, GitHub, institutional storage, or another system?</p></li>
+<li><p>How often should I update my research log?</p></li>
+<li><p>How often should I send progress summaries?</p></li>
+</ul>
+</section>
+<section id="file-naming-conventions">
+<h2>File Naming Conventions<a class="headerlink" href="#file-naming-conventions" title="Link to this heading">#</a></h2>
+<p>Use filenames that help you understand what the file is without opening it.</p>
+<p>A good filename usually includes:</p>
+<ul class="simple">
+<li><p>the date,</p></li>
+<li><p>the target or system name,</p></li>
+<li><p>the type of file,</p></li>
+<li><p>a short description,</p></li>
+<li><p>sometimes a version number.</p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2026-05-18_tic123456789_lightcurve.png
+2026-05-18_tic123456789_sector17_cleaned.csv
+2026-05-18_rebound_ebin0p2_ap3p0_summary.txt
+2026-05-18_meeting-notes.md
+</pre></div>
+</div>
+<p>Avoid vague filenames:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>plot.png
+new_plot.png
+final_plot.png
+final_final_plot.png
+data.csv
+notes.md
+test.ipynb
+</pre></div>
+</div>
+<p>Vague filenames create problems later because you cannot tell which file matters.</p>
+<div class="tip admonition">
+<p class="admonition-title">Rule of thumb</p>
+<p>A filename should answer at least two questions:</p>
+<ol class="arabic simple">
+<li><p>What is this file?</p></li>
+<li><p>When or why was it created?</p></li>
+</ol>
+</div>
+<p>For dates, use the format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>YYYY-MM-DD
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2026-05-18
+</pre></div>
+</div>
+<p>This keeps files sorted in chronological order and avoids confusion between month/day/year and day/month/year.</p>
+</section>
+<section id="project-readme-files">
+<h2>Project README Files<a class="headerlink" href="#project-readme-files" title="Link to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file explains what a project folder or repository contains.</p>
+<p>The README is usually the first file someone should read when opening the project.</p>
+<p>A simple research project README should include:</p>
+<ul class="simple">
+<li><p>project title,</p></li>
+<li><p>short project description,</p></li>
+<li><p>people involved,</p></li>
+<li><p>folder structure,</p></li>
+<li><p>how to run the main notebooks or scripts,</p></li>
+<li><p>where data are stored,</p></li>
+<li><p>important warnings,</p></li>
+<li><p>contact person or mentor.</p></li>
+</ul>
+<section id="simple-readme-template">
+<h3>Simple README template<a class="headerlink" href="#simple-readme-template" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Project Title</span>
+
+<span class="gu">## Project description</span>
+
+Briefly describe the goal of the project.
+
+<span class="gu">## People</span>
+
+<span class="k">-</span><span class="w"> </span>Student:
+<span class="k">-</span><span class="w"> </span>Mentor:
+<span class="k">-</span><span class="w"> </span>Collaborators:
+
+<span class="gu">## Folder structure</span>
+
+<span class="k">-</span><span class="w"> </span><span class="sb">`logs/`</span>: daily research logs and meeting notes
+<span class="k">-</span><span class="w"> </span><span class="sb">`notebooks/`</span>: exploratory analysis notebooks
+<span class="k">-</span><span class="w"> </span><span class="sb">`scripts/`</span>: reusable Python scripts
+<span class="k">-</span><span class="w"> </span><span class="sb">`data/raw/`</span>: original data files
+<span class="k">-</span><span class="w"> </span><span class="sb">`data/processed/`</span>: cleaned or derived data files
+<span class="k">-</span><span class="w"> </span><span class="sb">`figures/`</span>: saved plots and diagrams
+
+<span class="gu">## How to run the analysis</span>
+
+<span class="k">1.</span> Open <span class="sb">`notebooks/01_download_data.ipynb`</span>.
+<span class="k">2.</span> Run the cells in order.
+<span class="k">3.</span> Open <span class="sb">`notebooks/02_plot_lightcurve.ipynb`</span>.
+<span class="k">4.</span> Check that the output figure appears in <span class="sb">`figures/`</span>.
+
+<span class="gu">## Data notes</span>
+
+Describe where the data came from and whether large files are stored somewhere else.
+
+<span class="gu">## Important warnings</span>
+
+List anything a new person should know before using the files.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="daily-log-template">
+<h2>Daily log template<a class="headerlink" href="#daily-log-template" title="Link to this heading">#</a></h2>
+<p>Copy this template at the start of each work session.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Research Log: YYYY-MM-DD</span>
+
+<span class="gu">## Goal</span>
+
+- 
+
+<span class="gu">## What I did</span>
+
+- 
+
+<span class="gu">## Files, code, or data used</span>
+
+<span class="k">-</span><span class="w"> </span>Notebook/script:
+<span class="k">-</span><span class="w"> </span>Data files:
+<span class="k">-</span><span class="w"> </span>Output files:
+<span class="k">-</span><span class="w"> </span>Git commit, if relevant:
+
+<span class="gu">## Results</span>
+
+- 
+
+<span class="gu">## Problems or questions</span>
+
+- 
+
+<span class="gu">## Next steps</span>
+
+- 
+</pre></div>
+</div>
+<section id="example-filled-entry">
+<h3>Example filled entry<a class="headerlink" href="#example-filled-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Research Log: 2026-05-18</span>
+
+<span class="gu">## Goal</span>
+
+<span class="k">-</span><span class="w"> </span>Download and inspect a TESS light curve.
+<span class="k">-</span><span class="w"> </span>Make a first plot of flux versus time.
+
+<span class="gu">## What I did</span>
+
+<span class="k">-</span><span class="w"> </span>Used <span class="sb">`lightkurve.search_lightcurve()`</span> to search for available TESS data.
+<span class="k">-</span><span class="w"> </span>Downloaded the first available light curve.
+<span class="k">-</span><span class="w"> </span>Removed NaN values.
+<span class="k">-</span><span class="w"> </span>Made a quick plot.
+
+<span class="gu">## Files, code, or data used</span>
+
+<span class="k">-</span><span class="w"> </span>Notebook: <span class="sb">`notebooks/01_download_tess_lightcurve.ipynb`</span>
+<span class="k">-</span><span class="w"> </span>Figure: <span class="sb">`figures/2026-05-18_tess_lightcurve.png`</span>
+<span class="k">-</span><span class="w"> </span>Package: <span class="sb">`lightkurve`</span>
+
+<span class="gu">## Results</span>
+
+<span class="k">-</span><span class="w"> </span>Found available TESS data.
+<span class="k">-</span><span class="w"> </span>The light curve shows several gaps.
+<span class="k">-</span><span class="w"> </span>The target may require additional cleaning before period analysis.
+
+<span class="gu">## Problems or questions</span>
+
+<span class="k">-</span><span class="w"> </span>I need to inspect the data-quality flags.
+<span class="k">-</span><span class="w"> </span>I need to compare available sectors.
+
+<span class="gu">## Next steps</span>
+
+<span class="k">-</span><span class="w"> </span>Check the <span class="sb">`quality`</span> flags.
+<span class="k">-</span><span class="w"> </span>Save a cleaned version of the light curve.
+<span class="k">-</span><span class="w"> </span>Ask whether this target is suitable for period analysis.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="meeting-notes">
+<h2>Meeting Notes<a class="headerlink" href="#meeting-notes" title="Link to this heading">#</a></h2>
+<p>Mentor meetings, group meetings, and research check-ins should be logged.</p>
+<p>A meeting can change the direction of a project. If you do not record the discussion, you may forget what was decided.</p>
+<p>Meeting notes do not need to be a transcript. They should record:</p>
+<ul class="simple">
+<li><p>what was discussed,</p></li>
+<li><p>what decisions were made,</p></li>
+<li><p>what questions remain,</p></li>
+<li><p>what tasks were assigned,</p></li>
+<li><p>what you should do next.</p></li>
+</ul>
+<section id="meeting-notes-template">
+<h3>Meeting notes template<a class="headerlink" href="#meeting-notes-template" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Meeting Notes: YYYY-MM-DD</span>
+
+<span class="gu">## People present</span>
+
+- 
+
+<span class="gu">## Main topics discussed</span>
+
+- 
+
+<span class="gu">## Decisions made</span>
+
+- 
+
+<span class="gu">## Questions or confusion</span>
+
+- 
+
+<span class="gu">## Tasks assigned to me</span>
+
+- 
+
+<span class="gu">## Tasks assigned to others</span>
+
+- 
+
+<span class="gu">## Next meeting or deadline</span>
+
+- 
+
+<span class="gu">## Next steps before the next meeting</span>
+
+- 
+</pre></div>
+</div>
+</section>
+<section id="example-meeting-notes">
+<h3>Example meeting notes<a class="headerlink" href="#example-meeting-notes" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Meeting Notes: 2026-05-18</span>
+
+<span class="gu">## People present</span>
+
+<span class="k">-</span><span class="w"> </span>Student
+<span class="k">-</span><span class="w"> </span>Research mentor
+
+<span class="gu">## Main topics discussed</span>
+
+<span class="k">-</span><span class="w"> </span>Whether TIC 123456789 is a good target for light-curve analysis.
+<span class="k">-</span><span class="w"> </span>Whether to use Sector 17 or Sector 18 TESS data.
+<span class="k">-</span><span class="w"> </span>How to handle data-quality flags.
+
+<span class="gu">## Decisions made</span>
+
+<span class="k">-</span><span class="w"> </span>Start with Sector 17 because it has fewer gaps.
+<span class="k">-</span><span class="w"> </span>Remove flagged data points before interpreting possible dips.
+<span class="k">-</span><span class="w"> </span>Save both the raw downloaded light curve and the cleaned version.
+
+<span class="gu">## Questions or confusion</span>
+
+<span class="k">-</span><span class="w"> </span>I am not sure which quality flags should always be removed.
+<span class="k">-</span><span class="w"> </span>I need to ask whether scattered-light flags matter for this target.
+
+<span class="gu">## Tasks assigned to me</span>
+
+<span class="k">-</span><span class="w"> </span>Inspect the quality column.
+<span class="k">-</span><span class="w"> </span>Make a plot before and after removing flagged points.
+<span class="k">-</span><span class="w"> </span>Save the cleaned light curve in <span class="sb">`data/processed/`</span>.
+
+<span class="gu">## Next steps before the next meeting</span>
+
+<span class="k">-</span><span class="w"> </span>Finish the quality-flag comparison.
+<span class="k">-</span><span class="w"> </span>Bring both plots to the next meeting.
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>Do not rely on memory after a mentor meeting. Write down decisions and tasks before you forget the details.</p>
+</div>
+</section>
+</section>
+<section id="examples-of-weak-and-strong-log-entries">
+<h2>Examples of Weak and Strong Log Entries<a class="headerlink" href="#examples-of-weak-and-strong-log-entries" title="Link to this heading">#</a></h2>
+<p>The examples below show the difference between entries that are too vague and entries that are useful.</p>
+<section id="example-1-downloading-data">
+<h3>Example 1: Downloading data<a class="headerlink" href="#example-1-downloading-data" title="Link to this heading">#</a></h3>
+<p>Weak entry:</p>
+<blockquote>
+<div><p>Downloaded data. It worked.</p>
+</div></blockquote>
+<p>This is not useful because it does not say what data were downloaded, what tool was used, where the data were saved, or what should happen next.</p>
+<p>Stronger entry:</p>
+<blockquote>
+<div><p>Used <code class="docutils literal notranslate"><span class="pre">lightkurve.search_lightcurve()</span></code> to search for TESS light curves for TIC 123456789. Found data from Sectors 17 and 18. Downloaded the Sector 17 light curve and saved the notebook as <code class="docutils literal notranslate"><span class="pre">notebooks/01_download_tess_lightcurve.ipynb</span></code>. The light curve contains several gaps, so the next step is to inspect the quality flags and compare with Sector 18.</p>
+</div></blockquote>
+</section>
+<section id="example-2-running-code">
+<h3>Example 2: Running code<a class="headerlink" href="#example-2-running-code" title="Link to this heading">#</a></h3>
+<p>Weak entry:</p>
+<blockquote>
+<div><p>Fixed the code.</p>
+</div></blockquote>
+<p>This is not useful because it does not say what was wrong or how it was fixed.</p>
+<p>Stronger entry:</p>
+<blockquote>
+<div><p>The plotting script failed because the time and flux arrays had different lengths after removing NaN values from only one array. I fixed this by creating a single mask and applying it to both arrays. The corrected script is <code class="docutils literal notranslate"><span class="pre">scripts/plot_lightcurve.py</span></code>. Next time, add a short check that prints the array lengths before plotting.</p>
+</div></blockquote>
+</section>
+<section id="example-3-simulation-work">
+<h3>Example 3: Simulation work<a class="headerlink" href="#example-3-simulation-work" title="Link to this heading">#</a></h3>
+<p>Weak entry:</p>
+<blockquote>
+<div><p>Ran more simulations.</p>
+</div></blockquote>
+<p>This is not useful because it does not identify the model, parameters, runtime, or result.</p>
+<p>Stronger entry:</p>
+<blockquote>
+<div><p>Ran three REBOUND simulations with binary eccentricity <code class="docutils literal notranslate"><span class="pre">e_bin</span> <span class="pre">=</span> <span class="pre">0.2</span></code> and planet semimajor axes <code class="docutils literal notranslate"><span class="pre">a_p</span> <span class="pre">=</span> <span class="pre">2.8</span></code>, <code class="docutils literal notranslate"><span class="pre">3.0</span></code>, and <code class="docutils literal notranslate"><span class="pre">3.2</span> <span class="pre">AU</span></code>. The <code class="docutils literal notranslate"><span class="pre">a_p</span> <span class="pre">=</span> <span class="pre">2.8</span> <span class="pre">AU</span></code> case became unstable before <code class="docutils literal notranslate"><span class="pre">10^4</span></code> binary periods. The <code class="docutils literal notranslate"><span class="pre">a_p</span> <span class="pre">=</span> <span class="pre">3.0</span> <span class="pre">AU</span></code> and <code class="docutils literal notranslate"><span class="pre">3.2</span> <span class="pre">AU</span></code> cases survived to <code class="docutils literal notranslate"><span class="pre">10^5</span></code> binary periods. Output files are saved in <code class="docutils literal notranslate"><span class="pre">data/processed/2026-05-18_stability_tests/</span></code>. Next step: run intermediate values between <code class="docutils literal notranslate"><span class="pre">2.8</span></code> and <code class="docutils literal notranslate"><span class="pre">3.0</span> <span class="pre">AU</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="example-4-being-confused">
+<h3>Example 4: Being confused<a class="headerlink" href="#example-4-being-confused" title="Link to this heading">#</a></h3>
+<p>Weak entry:</p>
+<blockquote>
+<div><p>I am confused.</p>
+</div></blockquote>
+<p>This is honest, but not actionable.</p>
+<p>Stronger entry:</p>
+<blockquote>
+<div><p>I do not understand why the folded light curve has two dips instead of one. Possible explanations are: the period is wrong, the system is an eclipsing binary, or I accidentally folded the data at half the true period. Next step: compare the period with the catalog value and replot using twice the current period.</p>
+</div></blockquote>
+</section>
+<section id="example-5-reading-a-paper">
+<h3>Example 5: Reading a paper<a class="headerlink" href="#example-5-reading-a-paper" title="Link to this heading">#</a></h3>
+<p>Weak entry:</p>
+<blockquote>
+<div><p>Read a paper about circumbinary planets.</p>
+</div></blockquote>
+<p>This is too vague. It does not say which paper, what you learned, or how it connects to the project.</p>
+<p>Stronger entry:</p>
+<blockquote>
+<div><p>Read the introduction and methods section of a paper on circumbinary planet stability. The main idea I need to remember is that binary eccentricity changes the inner stability boundary for circumbinary planets. I saved the paper citation in Zotero and added notes in <code class="docutils literal notranslate"><span class="pre">logs/paper_notes.md</span></code>. Next step: ask whether the stability criterion from this paper should be compared with my REBOUND simulations.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="paper-reading-notes">
+<h2>Paper Reading Notes<a class="headerlink" href="#paper-reading-notes" title="Link to this heading">#</a></h2>
+<p>Reading papers is part of research work. It belongs in the research log.  Do not try to write a perfect summary of every paper. Instead, record what the paper is, why you read it, what you learned, and how it affects your project.</p>
+<div class="note admonition">
+<p class="admonition-title">Reading research papers</p>
+<p>You are not expected to understand every part of a research paper the first time you read it.</p>
+<p>On a first pass, focus on:</p>
+<ul class="simple">
+<li><p>What problem is the paper trying to solve?</p></li>
+<li><p>What method did the authors use?</p></li>
+<li><p>What was the main result?</p></li>
+<li><p>What part matters for my project?</p></li>
+<li><p>What should I ask my mentor about?</p></li>
+</ul>
+</div>
+<section id="what-to-record-when-reading-a-paper">
+<h3>What to record when reading a paper<a class="headerlink" href="#what-to-record-when-reading-a-paper" title="Link to this heading">#</a></h3>
+<p>For each important paper, record:</p>
+<ul class="simple">
+<li><p>the full citation or a link to the paper,</p></li>
+<li><p>why you are reading it,</p></li>
+<li><p>the main research question,</p></li>
+<li><p>the data or methods used,</p></li>
+<li><p>the main result,</p></li>
+<li><p>one or two details that matter for your project,</p></li>
+<li><p>questions you have,</p></li>
+<li><p>whether you need to return to the paper later.</p></li>
+</ul>
+</section>
+<section id="paper-notes-template">
+<h3>Paper notes template<a class="headerlink" href="#paper-notes-template" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Paper Notes: Short Title or First Author Year</span>
+
+<span class="gu">## Citation</span>
+
+- 
+
+<span class="gu">## Why I am reading this paper</span>
+
+- 
+
+<span class="gu">## Main question of the paper</span>
+
+- 
+
+<span class="gu">## Methods or data used</span>
+
+- 
+
+<span class="gu">## Main result</span>
+
+- 
+
+<span class="gu">## Details relevant to my project</span>
+
+- 
+
+<span class="gu">## Terms or concepts I need to look up</span>
+
+- 
+
+<span class="gu">## Questions for my mentor</span>
+
+- 
+
+<span class="gu">## How this paper affects my next step</span>
+
+- 
+</pre></div>
+</div>
+</section>
+<section id="example-paper-notes">
+<h3>Example paper notes<a class="headerlink" href="#example-paper-notes" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Paper Notes: Example et al. 2020</span>
+
+<span class="gu">## Citation</span>
+
+<span class="k">-</span><span class="w"> </span>Example et al. 2020, Journal Name, Volume, Page
+
+<span class="gu">## Why I am reading this paper</span>
+
+<span class="k">-</span><span class="w"> </span>This paper discusses stability limits for circumbinary planets.
+<span class="k">-</span><span class="w"> </span>My project involves testing planet stability around binary stars using numerical simulations.
+
+<span class="gu">## Main question of the paper</span>
+
+<span class="k">-</span><span class="w"> </span>How close can a planet orbit to a binary star and remain stable?
+
+<span class="gu">## Methods or data used</span>
+
+<span class="k">-</span><span class="w"> </span>The authors ran numerical simulations over a range of binary eccentricities and planet semimajor axes.
+
+<span class="gu">## Main result</span>
+
+<span class="k">-</span><span class="w"> </span>The inner stability boundary moves outward when the binary eccentricity increases.
+
+<span class="gu">## Details relevant to my project</span>
+
+<span class="k">-</span><span class="w"> </span>I should compare my simulated stability boundary with the published empirical criterion.
+<span class="k">-</span><span class="w"> </span>I need to record binary eccentricity carefully because it strongly affects the expected stability limit.
+
+<span class="gu">## Terms or concepts I need to look up</span>
+
+<span class="k">-</span><span class="w"> </span>Mean-motion resonance
+<span class="k">-</span><span class="w"> </span>Critical semimajor axis
+<span class="k">-</span><span class="w"> </span>Integration time
+
+<span class="gu">## Questions for my mentor</span>
+
+<span class="k">-</span><span class="w"> </span>Should I reproduce one of the paper&#39;s test cases before running my own grid?
+<span class="k">-</span><span class="w"> </span>How long should my simulations run before I call an orbit stable?
+
+<span class="gu">## How this paper affects my next step</span>
+
+<span class="k">-</span><span class="w"> </span>Run a small test grid at fixed binary eccentricity before expanding to the full parameter range.
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Common mistake</p>
+<p>Do not write only “read paper.” Record what the paper changes about what you understand or what you will do next.</p>
+</div>
+</section>
+</section>
+<section id="using-ai-tools-responsibly-in-a-research-log">
+<h2>Using AI Tools Responsibly in a Research Log<a class="headerlink" href="#using-ai-tools-responsibly-in-a-research-log" title="Link to this heading">#</a></h2>
+<p>AI tools can help you understand code, summarize documentation, brainstorm next steps, or improve the wording of notes.</p>
+<p>However, an AI tool should not replace your own research record.</p>
+<p>If you use an AI tool during research, record enough information that your mentor can understand how it was used.</p>
+<p>Useful things to record:</p>
+<ul class="simple">
+<li><p>what question you asked,</p></li>
+<li><p>what answer or suggestion you used,</p></li>
+<li><p>whether you checked the suggestion,</p></li>
+<li><p>what changed in your code, notes, or analysis.</p></li>
+</ul>
+<section id="example-ai-use-log-entry">
+<h3>Example AI-use log entry<a class="headerlink" href="#example-ai-use-log-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## AI assistance</span>
+
+Tool used:
+<span class="k">-</span><span class="w"> </span>ChatGPT
+
+Question asked:
+<span class="k">-</span><span class="w"> </span>Why does my matplotlib plot fail when the time and flux arrays have different lengths?
+
+Useful suggestion:
+<span class="k">-</span><span class="w"> </span>The AI suggested checking whether I removed NaN values from only one array.
+
+What I checked:
+<span class="k">-</span><span class="w"> </span>I printed the lengths of the time and flux arrays.
+<span class="k">-</span><span class="w"> </span>The arrays had different lengths.
+
+What I changed:
+<span class="k">-</span><span class="w"> </span>I created a single mask and applied it to both arrays.
+
+Result:
+<span class="k">-</span><span class="w"> </span>The plot now runs without an array-length error.
+
+Remaining concern:
+<span class="k">-</span><span class="w"> </span>I still need to verify that the masking did not remove valid data points.
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>Do not blindly copy AI-generated code or explanations into a research project. Test the code, check the result, and record what you verified.</p>
+</div>
+</section>
+</section>
+<section id="jupyter-notebook-or-markdown">
+<h2>Jupyter Notebook or Markdown?<a class="headerlink" href="#jupyter-notebook-or-markdown" title="Link to this heading">#</a></h2>
+<p>Use a <strong>Jupyter notebook</strong> when the log entry needs code, plots, equations, or quick calculations.</p>
+<p>Use a <strong>Markdown file</strong> when you are writing notes, recording decisions, summarizing progress, or tracking commands.</p>
+<p>For many projects, a good setup is:</p>
+<ul class="simple">
+<li><p>daily notes in <code class="docutils literal notranslate"><span class="pre">logs/YYYY-MM-DD.md</span></code>,</p></li>
+<li><p>exploratory calculations in <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>,</p></li>
+<li><p>reusable code in <code class="docutils literal notranslate"><span class="pre">scripts/</span></code>,</p></li>
+<li><p>generated plots in <code class="docutils literal notranslate"><span class="pre">figures/</span></code>.</p></li>
+</ul>
+<p>Do not rely on notebook output alone. If a plot or table matters, save it as a file and mention it in the log.</p>
+<section id="when-to-use-a-jupyter-notebook">
+<h3>When to use a Jupyter notebook<a class="headerlink" href="#when-to-use-a-jupyter-notebook" title="Link to this heading">#</a></h3>
+<p>A notebook is useful when you are actively working with data or code.</p>
+<p>Use a notebook when you need to:</p>
+<ul class="simple">
+<li><p>test Python commands,</p></li>
+<li><p>make plots,</p></li>
+<li><p>inspect data tables,</p></li>
+<li><p>try calculations,</p></li>
+<li><p>document an analysis step-by-step,</p></li>
+<li><p>combine explanation, code, and output in one place.</p></li>
+</ul>
+<p>A notebook should not be only code cells. Add Markdown cells that explain what you are doing and what happened.</p>
+<p>A good notebook usually has this rhythm:</p>
+<ol class="arabic simple">
+<li><p>State the goal.</p></li>
+<li><p>Load packages and data.</p></li>
+<li><p>Run one analysis step.</p></li>
+<li><p>Write down what happened.</p></li>
+<li><p>Save important outputs.</p></li>
+<li><p>Write the next step.</p></li>
+</ol>
+</section>
+<section id="when-to-use-a-markdown-file">
+<h3>When to use a Markdown file<a class="headerlink" href="#when-to-use-a-markdown-file" title="Link to this heading">#</a></h3>
+<p>A Markdown file is useful for notes that do not need live code.</p>
+<p>Use a Markdown file when you need to:</p>
+<ul class="simple">
+<li><p>keep a daily research log,</p></li>
+<li><p>summarize a meeting,</p></li>
+<li><p>list tasks,</p></li>
+<li><p>record decisions,</p></li>
+<li><p>write paper notes,</p></li>
+<li><p>document commands,</p></li>
+<li><p>draft text for a report or poster.</p></li>
+</ul>
+<p>Markdown is plain text, so it works well with GitHub and version control.</p>
+</section>
+<section id="linking-to-a-saved-figure-in-markdown">
+<h3>Linking to a saved figure in Markdown<a class="headerlink" href="#linking-to-a-saved-figure-in-markdown" title="Link to this heading">#</a></h3>
+<p>A saved figure can be linked inside a Markdown log entry:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>![<span class="nt">Light curve of TIC 123456789</span>](<span class="na">../figures/2026-05-18_tic123456789_lightcurve.png</span>)
+</pre></div>
+</div>
+<p>The text inside the square brackets should describe the figure. The path inside the parentheses should point to the saved image file.</p>
+</section>
+</section>
+<section id="optional-videos-and-tutorials">
+<h2>Optional Videos and Tutorials<a class="headerlink" href="#optional-videos-and-tutorials" title="Link to this heading">#</a></h2>
+<p>The sections above are enough to get started, but the resources below give more background if you are new to research logs, Markdown, Jupyter notebooks, or GitHub.</p>
+<p>You do not need to watch all of these before starting. Use them when you get stuck or when you want a slower walk-through.</p>
+<section id="research-logs-and-lab-notebooks">
+<h3>Research logs and lab notebooks<a class="headerlink" href="#research-logs-and-lab-notebooks" title="Link to this heading">#</a></h3>
+<p>These videos focus on the habit of recording research work. Some examples may come from wet-lab science, but the basic ideas also apply to astronomy, physics, coding, simulations, and data analysis.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=-47lJ-fso7U">Why keep a journal - Think like a scientist</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=-MAIuaOL64I">Mini Series Part 1 - Keeping a Laboratory Notebook</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=GU1DxENGrcI">You Should Be Keeping a Research Notebook</a></p></li>
+</ul>
+<p>When watching these, focus on the main habit: write down what you did, when you did it, what happened, and what you should try next.</p>
+</section>
+<section id="markdown-and-jupyter-notebooks">
+<h3>Markdown and Jupyter notebooks<a class="headerlink" href="#markdown-and-jupyter-notebooks" title="Link to this heading">#</a></h3>
+<p>These resources are useful if you are new to writing formatted notes or working in notebooks.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.markdownguide.org/basic-syntax/">Markdown Guide: Basic Syntax</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub Docs: Basic writing and formatting syntax</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=HW29067qVWk">Jupyter Notebook Tutorial: Introduction, Setup, and Walkthrough</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=RLYoEyIHL6A">Google Colab Tutorial for Beginners</a></p></li>
+</ul>
+<p>Markdown is the formatting language used in many research logs, README files, GitHub issues, and Jupyter notebook text cells. Jupyter notebooks also use Markdown cells for explanatory text.</p>
+</section>
+<section id="github-and-github-desktop">
+<h3>GitHub and GitHub Desktop<a class="headerlink" href="#github-and-github-desktop" title="Link to this heading">#</a></h3>
+<p>These resources are useful if you are new to GitHub. GitHub can be confusing at first because it uses words like repository, commit, branch, push, and pull. You do not need to master everything immediately.</p>
+<p>Start with these:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/skills/introduction-to-github">GitHub Skills: Introduction to GitHub</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop">GitHub Docs: Getting started with GitHub Desktop</a></p></li>
+<li><p><a class="reference external" href="https://github.blog/developer-skills/github/beginners-guide-to-github-uploading-files-and-folders-to-github/">Beginner’s guide to GitHub: Uploading files and folders to GitHub</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=8Dd7KRpKeaE">Git, GitHub, &amp; GitHub Desktop for beginners</a></p></li>
+</ul>
+<p>GitHub Skills is not a video, but it is a guided hands-on exercise. That may be more useful than passively watching a video.</p>
+</section>
+</section>
+<section id="data-provenance">
+<h2>Data Provenance<a class="headerlink" href="#data-provenance" title="Link to this heading">#</a></h2>
+<p>Data provenance means keeping track of where data came from and what happened to it.</p>
+<p>This matters because a data file by itself is not enough. You also need to know:</p>
+<ul class="simple">
+<li><p>where the data came from,</p></li>
+<li><p>when you downloaded or received it,</p></li>
+<li><p>whether it was raw or processed,</p></li>
+<li><p>what processing steps were applied,</p></li>
+<li><p>what version of the file you used,</p></li>
+<li><p>what assumptions or filters were applied.</p></li>
+</ul>
+<p>A good research log should make the history of a data file clear.</p>
+<section id="data-provenance-template">
+<h3>Data provenance template<a class="headerlink" href="#data-provenance-template" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Data Provenance</span>
+
+Dataset:
+- 
+
+Source:
+- 
+
+Date accessed or downloaded:
+- 
+
+Original filename:
+- 
+
+Local filename:
+- 
+
+Local storage location:
+- 
+
+Raw or processed:
+- 
+
+Processing steps applied:
+- 
+
+Software or code used:
+- 
+
+Important filters or selection criteria:
+- 
+
+Known problems or limitations:
+- 
+</pre></div>
+</div>
+</section>
+<section id="example-data-provenance-entry">
+<h3>Example data provenance entry<a class="headerlink" href="#example-data-provenance-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Data Provenance</span>
+
+Dataset:
+<span class="k">-</span><span class="w"> </span>TESS light curve for TIC 123456789, Sector 17
+
+Source:
+<span class="k">-</span><span class="w"> </span>MAST archive, accessed through Lightkurve
+
+Date accessed or downloaded:
+<span class="k">-</span><span class="w"> </span>2026-05-18
+
+Original filename:
+<span class="k">-</span><span class="w"> </span>downloaded automatically by Lightkurve
+
+Local filename:
+<span class="k">-</span><span class="w"> </span><span class="sb">`data/raw/tic123456789_sector17_lc.fits`</span>
+
+Local storage location:
+<span class="k">-</span><span class="w"> </span><span class="sb">`data/raw/2026-05-18_tic123456789/`</span>
+
+Raw or processed:
+<span class="k">-</span><span class="w"> </span>Raw downloaded light curve product
+
+Processing steps applied:
+<span class="k">-</span><span class="w"> </span>Removed NaN values
+<span class="k">-</span><span class="w"> </span>Removed flagged data points
+<span class="k">-</span><span class="w"> </span>Normalized flux by median flux
+
+Software or code used:
+<span class="k">-</span><span class="w"> </span><span class="sb">`notebooks/01_download_tess_lightcurve.ipynb`</span>
+<span class="k">-</span><span class="w"> </span><span class="sb">`notebooks/02_clean_tess_lightcurve.ipynb`</span>
+
+Important filters or selection criteria:
+<span class="k">-</span><span class="w"> </span>Used Sector 17 only
+<span class="k">-</span><span class="w"> </span>Used short-cadence light curve product
+
+Known problems or limitations:
+<span class="k">-</span><span class="w"> </span>Several gaps remain in the time series
+<span class="k">-</span><span class="w"> </span>Need to verify which quality flags were removed
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Rule of thumb</p>
+<p>A plot is only as useful as your record of the data used to make it.</p>
+</div>
+</section>
+</section>
+<section id="logging-python-work">
+<h2>Logging Python Work<a class="headerlink" href="#logging-python-work" title="Link to this heading">#</a></h2>
+<p>When logging Python work, record enough information that you can rerun the analysis later.</p>
+<p>Include:</p>
+<ul class="simple">
+<li><p>the notebook or script name,</p></li>
+<li><p>the input data file,</p></li>
+<li><p>the package or tool used,</p></li>
+<li><p>the important parameter values,</p></li>
+<li><p>the output file,</p></li>
+<li><p>a short interpretation of the result.</p></li>
+</ul>
+<p>Do not paste an entire long script into the log. Record the important command, function, loop, or setting.</p>
+<section id="what-to-record-when-using-python">
+<h3>What to record when using Python<a class="headerlink" href="#what-to-record-when-using-python" title="Link to this heading">#</a></h3>
+<p>A good Python-related log entry should answer these questions:</p>
+<ul class="simple">
+<li><p>What notebook or script did I run?</p></li>
+<li><p>What data file did I use?</p></li>
+<li><p>What packages did I use?</p></li>
+<li><p>What parameters did I choose?</p></li>
+<li><p>What output did the code create?</p></li>
+<li><p>Did the code run successfully?</p></li>
+<li><p>Did the result make physical or scientific sense?</p></li>
+<li><p>What should I check next?</p></li>
+</ul>
+</section>
+<section id="example-recording-package-versions">
+<h3>Example: recording package versions<a class="headerlink" href="#example-recording-package-versions" title="Link to this heading">#</a></h3>
+<p>When a result depends on a Python package, record the package version.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">astropy</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python version: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NumPy version: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matplotlib version: </span><span class="si">{</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Astropy version: </span><span class="si">{</span><span class="n">astropy</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This information helps you reproduce the result later, especially if a package changes behavior after an update.</p>
+</section>
+<section id="example-saving-a-figure-with-a-useful-filename">
+<h3>Example: saving a figure with a useful filename<a class="headerlink" href="#example-saving-a-figure-with-a-useful-filename" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">flux</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">time</span> <span class="o">/</span> <span class="mf">2.5</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [days]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Relative flux&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Example Light Curve&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../figures/2026-05-18_example_lightcurve.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the log entry, record the figure filename and explain what the plot shows.</p>
+</section>
+<section id="example-log-entry-for-python-work">
+<h3>Example log entry for Python work<a class="headerlink" href="#example-log-entry-for-python-work" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Python analysis notes</span>
+
+Goal:
+<span class="k">-</span><span class="w"> </span>Make an initial plot of relative flux versus time.
+
+Code:
+<span class="k">-</span><span class="w"> </span>Notebook: <span class="sb">`notebooks/02_plot_lightcurve.ipynb`</span>
+
+Input:
+<span class="k">-</span><span class="w"> </span>Data file: <span class="sb">`data/processed/tic123456789_sector17_cleaned.csv`</span>
+
+Important choices:
+<span class="k">-</span><span class="w"> </span>Removed NaN values.
+<span class="k">-</span><span class="w"> </span>Plotted time on the x-axis and normalized flux on the y-axis.
+<span class="k">-</span><span class="w"> </span>Saved the plot at 200 dpi.
+
+Output:
+<span class="k">-</span><span class="w"> </span>Figure: <span class="sb">`figures/2026-05-18_tic123456789_sector17_lightcurve.png`</span>
+
+Result:
+<span class="k">-</span><span class="w"> </span>The light curve has several gaps.
+<span class="k">-</span><span class="w"> </span>There may be a dip near the middle of the time series, but I need to check quality flags before interpreting it.
+
+Next step:
+<span class="k">-</span><span class="w"> </span>Inspect the quality column and remake the plot after removing flagged points.
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Common mistake</p>
+<p>Do not write only “I made a plot.” Record the filename, the data used, and what the plot shows.</p>
+</div>
+</section>
+</section>
+<section id="reproducibility-checklist">
+<h2>Reproducibility Checklist<a class="headerlink" href="#reproducibility-checklist" title="Link to this heading">#</a></h2>
+<p>A result is reproducible if you or someone else can repeat the work and get the same result, or at least understand why the result changed.</p>
+<p>For computational work, record enough information to rerun the analysis.</p>
+<div class="tip admonition">
+<p class="admonition-title">Computational reproducibility checklist</p>
+<p>For important results, record:</p>
+<ul class="simple">
+<li><p>the notebook or script used,</p></li>
+<li><p>the input data file,</p></li>
+<li><p>the output file,</p></li>
+<li><p>the important parameter values,</p></li>
+<li><p>the Python version,</p></li>
+<li><p>important package versions,</p></li>
+<li><p>the date the analysis was run,</p></li>
+<li><p>whether random numbers were used,</p></li>
+<li><p>the random seed, if relevant.</p></li>
+</ul>
+</div>
+<section id="random-seeds">
+<h3>Random seeds<a class="headerlink" href="#random-seeds" title="Link to this heading">#</a></h3>
+<p>Some simulations or data-analysis procedures use random numbers.</p>
+<p>If random numbers are used, record the random seed.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then write in the log:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Random seed used: <span class="sb">`12345`</span>
+</pre></div>
+</div>
+<p>This helps you reproduce the same test later.</p>
+</section>
+<section id="saving-parameters">
+<h3>Saving parameters<a class="headerlink" href="#saving-parameters" title="Link to this heading">#</a></h3>
+<p>For simulations or repeated analyses, it is often useful to save parameters in one place.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;TIC 123456789&quot;</span><span class="p">,</span><span class="s2">&quot;sector&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span><span class="s2">&quot;remove_nans&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span><span class="s2">&quot;remove_quality_flags&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span><span class="s2">&quot;normalization&quot;</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In larger projects, parameters may be saved in a <code class="docutils literal notranslate"><span class="pre">.json</span></code>, <code class="docutils literal notranslate"><span class="pre">.yaml</span></code>, or <code class="docutils literal notranslate"><span class="pre">.toml</span></code> file.</p>
+</section>
+</section>
+<section id="logging-simulation-runs">
+<h2>Logging Simulation Runs<a class="headerlink" href="#logging-simulation-runs" title="Link to this heading">#</a></h2>
+<p>For a numerical simulation, the log should contain enough information to rerun the same calculation.</p>
+<p>This is especially important because simulation results depend on choices that may not be obvious later. Small changes in parameters, timestep, integration time, or initial conditions can change the result.</p>
+<p>Record:</p>
+<ul class="simple">
+<li><p>the physical system being modeled,</p></li>
+<li><p>the code or notebook used,</p></li>
+<li><p>the initial conditions,</p></li>
+<li><p>the important parameter values,</p></li>
+<li><p>the integration time,</p></li>
+<li><p>the timestep or accuracy settings,</p></li>
+<li><p>the output files,</p></li>
+<li><p>the main result,</p></li>
+<li><p>any warnings, crashes, or suspicious behavior.</p></li>
+</ul>
+<section id="questions-your-simulation-log-should-answer">
+<h3>Questions your simulation log should answer<a class="headerlink" href="#questions-your-simulation-log-should-answer" title="Link to this heading">#</a></h3>
+<p>A useful simulation log should answer these questions:</p>
+<ul class="simple">
+<li><p>What system did I simulate?</p></li>
+<li><p>What code did I run?</p></li>
+<li><p>What parameters did I use?</p></li>
+<li><p>What initial conditions did I use?</p></li>
+<li><p>How long did the simulation run?</p></li>
+<li><p>What output files were created?</p></li>
+<li><p>Did the simulation finish?</p></li>
+<li><p>Did anything unstable, strange, or suspicious happen?</p></li>
+<li><p>What should I run next?</p></li>
+</ul>
+</section>
+<section id="example-simulation-log-entry">
+<h3>Example simulation log entry<a class="headerlink" href="#example-simulation-log-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Simulation Run: Circumbinary stability test</span>
+
+Date: 2026-05-18
+
+Goal:
+<span class="k">-</span><span class="w"> </span>Test whether a planet remains stable near the inner edge of the circumbinary stability limit.
+
+Code:
+<span class="k">-</span><span class="w"> </span><span class="sb">`scripts/run_rebound_binary_planet.py`</span>
+
+Initial conditions:
+<span class="k">-</span><span class="w"> </span>Binary semimajor axis: <span class="sb">`a_bin = 1.0 AU`</span>
+<span class="k">-</span><span class="w"> </span>Binary eccentricity: <span class="sb">`e_bin = 0.2`</span>
+<span class="k">-</span><span class="w"> </span>Planet semimajor axis: <span class="sb">`a_p = 3.0 AU`</span>
+<span class="k">-</span><span class="w"> </span>Planet eccentricity: <span class="sb">`e_p = 0.0`</span>
+<span class="k">-</span><span class="w"> </span>Planet inclination: <span class="sb">`i_p = 0 deg`</span>
+
+Integrator settings:
+<span class="k">-</span><span class="w"> </span>Package: REBOUND
+<span class="k">-</span><span class="w"> </span>Integrator: WHFast
+<span class="k">-</span><span class="w"> </span>Integration time: <span class="sb">`1e5 binary periods`</span>
+<span class="k">-</span><span class="w"> </span>Output cadence: every <span class="sb">`100 binary periods`</span>
+
+Output:
+<span class="k">-</span><span class="w"> </span><span class="sb">`data/processed/run_2026-05-18_a3p0_ebin0p2.csv`</span>
+<span class="k">-</span><span class="w"> </span><span class="sb">`figures/2026-05-18_semimajor_axis_timeseries.png`</span>
+
+Result:
+<span class="k">-</span><span class="w"> </span>The planet survived the full integration.
+<span class="k">-</span><span class="w"> </span>The planet semimajor axis oscillated but did not show long-term drift.
+
+Questions:
+<span class="k">-</span><span class="w"> </span>Need to test nearby values of <span class="sb">`a_p`</span> to estimate the stability boundary.
+</pre></div>
+</div>
+</section>
+<section id="example-parameter-table">
+<h3>Example parameter table<a class="headerlink" href="#example-parameter-table" title="Link to this heading">#</a></h3>
+<p>For several related simulation runs, a small table is often clearer than a paragraph.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>| Run | <span class="sb">`e_bin`</span> | <span class="sb">`a_p`</span> [AU] | Integration time | Result |
+|---|---:|---:|---:|---|
+| 1 | 0.2 | 2.8 | <span class="sb">`1e5`</span> binary periods | unstable before <span class="sb">`1e4`</span> periods |
+| 2 | 0.2 | 3.0 | <span class="sb">`1e5`</span> binary periods | survived |
+| 3 | 0.2 | 3.2 | <span class="sb">`1e5`</span> binary periods | survived |
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Rule of thumb</p>
+<p>If changing a number could change the result, record that number.</p>
+</div>
+</section>
+</section>
+<section id="logging-observations">
+<h2>Logging Observations<a class="headerlink" href="#logging-observations" title="Link to this heading">#</a></h2>
+<p>For telescope observations, the log should make it possible to understand what was requested, what was actually observed, and where the data went.</p>
+<p>Observation logs are important because observing conditions, timing, instrument settings, and data locations can all matter later.</p>
+<section id="observation-log-template">
+<h3>Observation log template<a class="headerlink" href="#observation-log-template" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Observation Log</span>
+
+Target:
+<span class="k">-</span><span class="w"> </span>Name:
+<span class="k">-</span><span class="w"> </span>RA:
+<span class="k">-</span><span class="w"> </span>Dec:
+
+Observation time:
+<span class="k">-</span><span class="w"> </span>Requested window, UTC:
+<span class="k">-</span><span class="w"> </span>Actual start/end time, UTC:
+
+Telescope/instrument:
+<span class="k">-</span><span class="w"> </span>Telescope:
+<span class="k">-</span><span class="w"> </span>Instrument:
+<span class="k">-</span><span class="w"> </span>Filter(s):
+<span class="k">-</span><span class="w"> </span>Exposure time(s):
+<span class="k">-</span><span class="w"> </span>Number of exposures:
+<span class="k">-</span><span class="w"> </span>Binning:
+<span class="k">-</span><span class="w"> </span>Readout mode:
+
+Conditions:
+<span class="k">-</span><span class="w"> </span>Airmass:
+<span class="k">-</span><span class="w"> </span>Seeing:
+<span class="k">-</span><span class="w"> </span>Moon phase/separation:
+<span class="k">-</span><span class="w"> </span>Weather notes:
+
+Data:
+<span class="k">-</span><span class="w"> </span>Raw filenames:
+<span class="k">-</span><span class="w"> </span>Archive location:
+<span class="k">-</span><span class="w"> </span>Local storage location:
+<span class="k">-</span><span class="w"> </span>Calibration files:
+
+Notes:
+- 
+
+Next steps:
+- 
+</pre></div>
+</div>
+</section>
+<section id="example-observation-log-entry">
+<h3>Example observation log entry<a class="headerlink" href="#example-observation-log-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Observation Log</span>
+
+Target:
+<span class="k">-</span><span class="w"> </span>Name: TIC 123456789
+<span class="k">-</span><span class="w"> </span>RA: 12:34:56
+<span class="k">-</span><span class="w"> </span>Dec: +12:34:56
+
+Observation time:
+<span class="k">-</span><span class="w"> </span>Requested window, UTC: 2026-05-18 04:00--08:00
+<span class="k">-</span><span class="w"> </span>Actual start/end time, UTC: 2026-05-18 04:15--07:50
+
+Telescope/instrument:
+<span class="k">-</span><span class="w"> </span>Telescope: Example 0.6 m telescope
+<span class="k">-</span><span class="w"> </span>Instrument: CCD imager
+<span class="k">-</span><span class="w"> </span>Filter(s): Sloan r&#39;
+<span class="k">-</span><span class="w"> </span>Exposure time(s): 60 s
+<span class="k">-</span><span class="w"> </span>Number of exposures: 180
+<span class="k">-</span><span class="w"> </span>Binning: 2x2
+<span class="k">-</span><span class="w"> </span>Readout mode: standard
+
+Conditions:
+<span class="k">-</span><span class="w"> </span>Airmass: started near 1.2, ended near 1.8
+<span class="k">-</span><span class="w"> </span>Seeing: variable
+<span class="k">-</span><span class="w"> </span>Moon phase/separation: check later
+<span class="k">-</span><span class="w"> </span>Weather notes: thin clouds near the end of the sequence
+
+Data:
+<span class="k">-</span><span class="w"> </span>Raw filenames: <span class="sb">`tic123456789_*.fits`</span>
+<span class="k">-</span><span class="w"> </span>Archive location: observatory archive
+<span class="k">-</span><span class="w"> </span>Local storage location: <span class="sb">`data/raw/2026-05-18_tic123456789/`</span>
+<span class="k">-</span><span class="w"> </span>Calibration files: bias, dark, and flat frames available
+
+Notes:
+<span class="k">-</span><span class="w"> </span>Several images near the end of the sequence may have lower quality due to clouds.
+
+Next steps:
+<span class="k">-</span><span class="w"> </span>Inspect image quality.
+<span class="k">-</span><span class="w"> </span>Remove bad frames.
+<span class="k">-</span><span class="w"> </span>Begin differential photometry.
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Astronomy uses several time systems. Do not simply write “time” without saying what kind of time is being used.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UTC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JD_UTC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MJD_UTC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BJD_TDB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BTJD_TDB</span></code></p></li>
+</ul>
+<p>Observation timestamps are often recorded in UTC. Processed space-telescope light curves may use barycentric time systems. Record the time format and time scale used by the data product.</p>
+</div>
+</section>
+<section id="example-converting-an-observation-time-with-astropy">
+<h3>Example: converting an observation time with Astropy<a class="headerlink" href="#example-converting-an-observation-time-with-astropy" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
+
+<span class="c1"># Observation time recorded in UTC</span>
+<span class="n">t_utc</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s2">&quot;2026-05-18 04:30:00&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;utc&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ISO UTC time: </span><span class="si">{</span><span class="n">t_utc</span><span class="o">.</span><span class="n">iso</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Julian Date UTC: </span><span class="si">{</span><span class="n">t_utc</span><span class="o">.</span><span class="n">jd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Julian Date TDB: </span><span class="si">{</span><span class="n">t_utc</span><span class="o">.</span><span class="n">tdb</span><span class="o">.</span><span class="n">jd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The log should state which time value was used in the analysis.</p>
+</section>
+</section>
+<section id="logging-problems-errors-and-false-starts">
+<h2>Logging Problems, Errors, and False Starts<a class="headerlink" href="#logging-problems-errors-and-false-starts" title="Link to this heading">#</a></h2>
+<p>Do not erase failed attempts from the log. Failed attempts are part of the research record.</p>
+<p>Research is not a straight path. You will try things that do not work. You will misunderstand something. Code will break. Data will be missing. Plots will look wrong.</p>
+<p>These are not signs that the log has failed. These are exactly the kinds of things the log is supposed to record.</p>
+<p>Useful things to record:</p>
+<ul class="simple">
+<li><p>the exact error message,</p></li>
+<li><p>the file or notebook where the problem happened,</p></li>
+<li><p>the command or code cell that caused it,</p></li>
+<li><p>what you tried,</p></li>
+<li><p>what fixed it, if anything,</p></li>
+<li><p>what question remains.</p></li>
+</ul>
+<section id="example-code-error">
+<h3>Example: code error<a class="headerlink" href="#example-code-error" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Problem</span>
+
+While processing FITS images from <span class="sb">`2026-05-18 UTC`</span>, my script crashed with a <span class="sb">`MemoryError`</span>.
+
+<span class="gu">## Cause</span>
+
+I was loading all FITS images into memory at once.
+
+<span class="gu">## Attempted fix</span>
+
+Changed the script to process one image at a time.
+
+<span class="gu">## Result</span>
+
+The script completed without crashing.
+
+<span class="gu">## Next step</span>
+
+Check whether the output images match the earlier test case.
+</pre></div>
+</div>
+</section>
+<section id="example-confusing-result">
+<h3>Example: confusing result<a class="headerlink" href="#example-confusing-result" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Problem</span>
+
+The folded light curve shows two dips instead of one.
+
+<span class="gu">## Possible causes</span>
+
+<span class="k">-</span><span class="w"> </span>The period may be wrong.
+<span class="k">-</span><span class="w"> </span>The object may be an eclipsing binary.
+<span class="k">-</span><span class="w"> </span>I may have folded the light curve at half the true period.
+<span class="k">-</span><span class="w"> </span>Bad data points may not have been removed.
+
+<span class="gu">## What I tried</span>
+
+<span class="k">-</span><span class="w"> </span>Replotted the light curve using the catalog period.
+<span class="k">-</span><span class="w"> </span>Replotted using twice the catalog period.
+<span class="k">-</span><span class="w"> </span>Checked whether the dips have similar depths.
+
+<span class="gu">## Result</span>
+
+Using twice the original period gives one primary dip and one weaker secondary dip.
+
+<span class="gu">## Next step</span>
+
+Ask whether this target is more likely an eclipsing binary than a transiting planet candidate.
+</pre></div>
+</div>
+</section>
+<section id="example-no-data-found">
+<h3>Example: no data found<a class="headerlink" href="#example-no-data-found" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Problem</span>
+
+I searched for TESS data for TIC 123456789 but did not find any available light curves.
+
+<span class="gu">## What I tried</span>
+
+<span class="k">-</span><span class="w"> </span>Searched by TIC ID.
+<span class="k">-</span><span class="w"> </span>Searched by coordinates.
+<span class="k">-</span><span class="w"> </span>Checked whether the target falls on a TESS sector footprint.
+
+<span class="gu">## Result</span>
+
+No light curve products were returned.
+
+<span class="gu">## Next step</span>
+
+Ask whether this target should be removed from the sample or whether I should search for full-frame image data instead.
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>Do not delete confusing or failed attempts just because they did not lead to a final result. A failed attempt can save you or someone else from repeating the same mistake later.</p>
+</div>
+</section>
+</section>
+<section id="syncing-and-backing-up-your-log">
+<h2>Syncing and Backing Up Your Log<a class="headerlink" href="#syncing-and-backing-up-your-log" title="Link to this heading">#</a></h2>
+<p>At the end of a work session, your log should be saved somewhere that will not disappear if your computer fails.</p>
+<p>Good options include:</p>
+<ul class="simple">
+<li><p>Google Drive for shared folders and Colab notebooks,</p></li>
+<li><p>GitHub for Markdown files, scripts, notebooks, and version history,</p></li>
+<li><p>institutional storage if your project uses shared research directories.</p></li>
+</ul>
+<p>A log that only exists on one computer is not safely backed up.</p>
+<section id="using-google-drive-or-shared-cloud-storage">
+<h3>Using Google Drive or shared cloud storage<a class="headerlink" href="#using-google-drive-or-shared-cloud-storage" title="Link to this heading">#</a></h3>
+<p>Google Drive is useful when:</p>
+<ul class="simple">
+<li><p>you are working in Google Colab,</p></li>
+<li><p>your mentor shares files through Drive,</p></li>
+<li><p>your group uses shared folders,</p></li>
+<li><p>you want automatic syncing.</p></li>
+</ul>
+<p>Even when using Drive, keep your folders organized. Do not dump all files into one shared folder.</p>
+<p>A reasonable structure might be:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Research Project/
+├── logs/
+├── notebooks/
+├── data/
+├── figures/
+└── reports/
+</pre></div>
+</div>
+</section>
+<section id="using-github-without-the-command-line">
+<h3>Using GitHub Without the Command Line<a class="headerlink" href="#using-github-without-the-command-line" title="Link to this heading">#</a></h3>
+<p>Many beginning researchers do not know how to use Git from the command line. That is okay. You can still use GitHub through the browser or through GitHub Desktop.</p>
+<p>For this guide, the goal is not to become a Git expert. The goal is to keep your research log, notebooks, scripts, and figures backed up in an organized place.</p>
+<p>There are three common ways to use GitHub:</p>
+<ol class="arabic simple">
+<li><p><strong>GitHub in the browser</strong><br />
+Best for editing Markdown logs, README files, and uploading a few small files.</p></li>
+<li><p><strong>GitHub Desktop</strong><br />
+Best for working on a project folder on your computer and syncing changes without typing Git commands.</p></li>
+<li><p><strong>Command-line Git</strong><br />
+Useful later, but not required to start keeping a research log.</p></li>
+</ol>
+<p>This course will focus on the first two.</p>
+<div class="note admonition">
+<p class="admonition-title">Basic vocabulary</p>
+<p>A <strong>repository</strong>, often called a <strong>repo</strong>, is a project folder stored on GitHub.</p>
+<p>A <strong>commit</strong> is a saved snapshot of your changes.</p>
+<p>A <strong>commit message</strong> is a short note explaining what changed.</p>
+<p>A <strong>push</strong> sends changes from your computer to GitHub.</p>
+<p>A <strong>pull</strong> brings newer changes from GitHub down to your computer.</p>
+</div>
+</section>
+<section id="option-1-using-github-in-the-browser">
+<h3>Option 1: Using GitHub in the Browser<a class="headerlink" href="#option-1-using-github-in-the-browser" title="Link to this heading">#</a></h3>
+<p>The browser method is the easiest way to start. Use it when you need to create or edit a simple Markdown log file.</p>
+<section id="creating-a-new-research-log-file-in-the-browser">
+<h4>Creating a new research log file in the browser<a class="headerlink" href="#creating-a-new-research-log-file-in-the-browser" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to the GitHub repository for your project.</p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">logs/</span></code> folder.</p></li>
+<li><p>Click <strong>Add file</strong>.</p></li>
+<li><p>Choose <strong>Create new file</strong>.</p></li>
+<li><p>Name the file using the date.</p></li>
+</ol>
+<p>For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>logs/2026-05-18.md
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Type or paste your research log entry.</p></li>
+<li><p>Scroll down to the <strong>Commit changes</strong> section.</p></li>
+<li><p>Write a short commit message.</p></li>
+</ol>
+<p>For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Add research log for 2026-05-18
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Click <strong>Commit changes</strong>.</p></li>
+</ol>
+<p>Your log entry is now saved in the GitHub repository.</p>
+</section>
+<section id="editing-an-existing-log-file-in-the-browser">
+<h4>Editing an existing log file in the browser<a class="headerlink" href="#editing-an-existing-log-file-in-the-browser" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to the GitHub repository.</p></li>
+<li><p>Open the file you want to edit.</p></li>
+<li><p>Click the pencil icon or <strong>Edit this file</strong> button.</p></li>
+<li><p>Make your changes.</p></li>
+<li><p>Use the <strong>Preview</strong> tab if you want to check the rendered Markdown.</p></li>
+<li><p>Scroll down to <strong>Commit changes</strong>.</p></li>
+<li><p>Write a short commit message.</p></li>
+<li><p>Click <strong>Commit changes</strong>.</p></li>
+</ol>
+<p>Good commit messages are short but specific.</p>
+<p>Weak commit messages:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>update
+changes
+stuff
+</pre></div>
+</div>
+<p>Better commit messages:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Add notes from mentor meeting
+Update TESS light curve notes
+Fix typo in observation log
+Add next steps for simulation runs
+</pre></div>
+</div>
+</section>
+<section id="uploading-small-files-in-the-browser">
+<h4>Uploading small files in the browser<a class="headerlink" href="#uploading-small-files-in-the-browser" title="Link to this heading">#</a></h4>
+<p>Use the browser to upload small files such as a Markdown file, a small figure, or a short notebook.</p>
+<ol class="arabic simple">
+<li><p>Go to the GitHub repository.</p></li>
+<li><p>Open the folder where the file should go.</p></li>
+<li><p>Click <strong>Add file</strong>.</p></li>
+<li><p>Choose <strong>Upload files</strong>.</p></li>
+<li><p>Drag the file into the browser window, or click <strong>choose your files</strong>.</p></li>
+<li><p>Write a commit message.</p></li>
+<li><p>Click <strong>Commit changes</strong>.</p></li>
+</ol>
+<p>For example, if you made a figure, upload it to the <code class="docutils literal notranslate"><span class="pre">figures/</span></code> folder and use a commit message like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Add light curve figure for TIC 123456789
+</pre></div>
+</div>
+<p>Then mention that figure in your research log.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Figure saved as <span class="sb">`figures/2026-05-18_tic123456789_lightcurve.png`</span>.
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Browser method: best use</p>
+<p>Use the browser method for small edits, daily Markdown logs, README files, and a few small uploads.</p>
+<p>If you are regularly changing notebooks, scripts, folders, and figures, use GitHub Desktop instead.</p>
+</div>
+</section>
+</section>
+<section id="option-2-using-github-desktop">
+<h3>Option 2: Using GitHub Desktop<a class="headerlink" href="#option-2-using-github-desktop" title="Link to this heading">#</a></h3>
+<p>GitHub Desktop is usually better once you are working with a full project folder on your computer.</p>
+<p>Use GitHub Desktop when you are editing:</p>
+<ul class="simple">
+<li><p>Jupyter notebooks,</p></li>
+<li><p>Python scripts,</p></li>
+<li><p>multiple log files,</p></li>
+<li><p>figures,</p></li>
+<li><p>small processed data files,</p></li>
+<li><p>project README files.</p></li>
+</ul>
+<p>GitHub Desktop lets you review changes, write a commit message, and sync with GitHub without typing Git commands.</p>
+<section id="step-1-install-and-sign-in">
+<h4>Step 1: Install and sign in<a class="headerlink" href="#step-1-install-and-sign-in" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Install GitHub Desktop from the official website.</p></li>
+<li><p>Open GitHub Desktop.</p></li>
+<li><p>Sign in with your GitHub account.</p></li>
+<li><p>Choose a default editor if GitHub Desktop asks for one.</p></li>
+</ol>
+<p>A common choice is Visual Studio Code, but any plain-text editor can work for Markdown files.</p>
+</section>
+<section id="step-2-clone-the-project-repository">
+<h4>Step 2: Clone the project repository<a class="headerlink" href="#step-2-clone-the-project-repository" title="Link to this heading">#</a></h4>
+<p>Cloning means copying the GitHub repository to your computer.</p>
+<ol class="arabic simple">
+<li><p>Go to the repository page on GitHub.</p></li>
+<li><p>Click the green <strong>Code</strong> button.</p></li>
+<li><p>Choose <strong>Open with GitHub Desktop</strong>.</p></li>
+<li><p>Choose where the project folder should live on your computer.</p></li>
+<li><p>Click <strong>Clone</strong>.</p></li>
+</ol>
+<p>After cloning, you will have a normal folder on your computer containing the project files.</p>
+</section>
+<section id="step-3-work-in-the-project-folder">
+<h4>Step 3: Work in the project folder<a class="headerlink" href="#step-3-work-in-the-project-folder" title="Link to this heading">#</a></h4>
+<p>Open the cloned folder on your computer. Then work normally.</p>
+<p>For example, you might:</p>
+<ul class="simple">
+<li><p>create a new file in <code class="docutils literal notranslate"><span class="pre">logs/</span></code>,</p></li>
+<li><p>edit a notebook in <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>,</p></li>
+<li><p>save a figure in <code class="docutils literal notranslate"><span class="pre">figures/</span></code>,</p></li>
+<li><p>modify a Python script in <code class="docutils literal notranslate"><span class="pre">scripts/</span></code>.</p></li>
+</ul>
+<p>Keep the folder structure organized.</p>
+<p>Do not save everything to the top-level project folder.</p>
+</section>
+<section id="step-4-review-changes-in-github-desktop">
+<h4>Step 4: Review changes in GitHub Desktop<a class="headerlink" href="#step-4-review-changes-in-github-desktop" title="Link to this heading">#</a></h4>
+<p>After you edit files, open GitHub Desktop.</p>
+<p>GitHub Desktop will show a list of changed files.</p>
+<p>Before committing:</p>
+<ol class="arabic simple">
+<li><p>Look through the changed files.</p></li>
+<li><p>Make sure the changes are intentional.</p></li>
+<li><p>Make sure you are not accidentally committing large data files, temporary files, or private information.</p></li>
+</ol>
+<p>Examples of files that usually should not be committed:</p>
+<ul class="simple">
+<li><p>huge raw datasets,</p></li>
+<li><p>passwords,</p></li>
+<li><p>API keys,</p></li>
+<li><p>private notes unrelated to the project,</p></li>
+<li><p>temporary files,</p></li>
+<li><p>automatically generated cache folders.</p></li>
+</ul>
+</section>
+<section id="step-5-commit-your-changes">
+<h4>Step 5: Commit your changes<a class="headerlink" href="#step-5-commit-your-changes" title="Link to this heading">#</a></h4>
+<p>In GitHub Desktop:</p>
+<ol class="arabic simple">
+<li><p>Write a short summary of the change.</p></li>
+<li><p>Add a longer description if useful.</p></li>
+<li><p>Click <strong>Commit to main</strong> or <strong>Commit to [branch name]</strong>.</p></li>
+</ol>
+<p>Example commit summaries:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Add research log for 2026-05-18
+Update light curve plotting notebook
+Add cleaned TESS light curve figure
+Fix NaN masking in plotting script
+Add simulation run summary
+</pre></div>
+</div>
+<p>A commit should represent one clear unit of work. Do not wait until you have changed twenty unrelated files.</p>
+</section>
+<section id="step-6-push-your-changes-to-github">
+<h4>Step 6: Push your changes to GitHub<a class="headerlink" href="#step-6-push-your-changes-to-github" title="Link to this heading">#</a></h4>
+<p>After committing, click <strong>Push origin</strong>.</p>
+<p>This sends your committed changes from your computer to GitHub.</p>
+<p>If you forget to push, the changes are committed on your computer but not yet backed up to GitHub.</p>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>A commit saves a snapshot on your computer.</p>
+<p>A push sends that snapshot to GitHub.</p>
+<p>For backup purposes, you usually need to do both.</p>
+</div>
+</section>
+<section id="step-7-pull-before-starting-work">
+<h4>Step 7: Pull before starting work<a class="headerlink" href="#step-7-pull-before-starting-work" title="Link to this heading">#</a></h4>
+<p>If you work across multiple computers, or if your mentor or another student may have changed the repository, start each work session by opening GitHub Desktop and clicking <strong>Fetch origin</strong> or <strong>Pull origin</strong>.</p>
+<p>This brings the newest version from GitHub to your computer.</p>
+<div class="tip admonition">
+<p class="admonition-title">Good habit</p>
+<p>At the start of a work session, pull changes from GitHub.</p>
+<p>At the end of a work session, commit and push your changes.</p>
+</div>
+</section>
+</section>
+<section id="when-to-use-the-browser-vs-github-desktop">
+<h3>When to Use the Browser vs. GitHub Desktop<a class="headerlink" href="#when-to-use-the-browser-vs-github-desktop" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Recommended method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Edit a daily Markdown log</p></td>
+<td><p>Browser or GitHub Desktop</p></td>
+</tr>
+<tr class="row-odd"><td><p>Create a new Markdown note</p></td>
+<td><p>Browser or GitHub Desktop</p></td>
+</tr>
+<tr class="row-even"><td><p>Upload one small figure</p></td>
+<td><p>Browser</p></td>
+</tr>
+<tr class="row-odd"><td><p>Work with notebooks and scripts</p></td>
+<td><p>GitHub Desktop</p></td>
+</tr>
+<tr class="row-even"><td><p>Upload several files or folders</p></td>
+<td><p>GitHub Desktop</p></td>
+</tr>
+<tr class="row-odd"><td><p>Review many changed files before saving</p></td>
+<td><p>GitHub Desktop</p></td>
+</tr>
+<tr class="row-even"><td><p>Learn full Git commands</p></td>
+<td><p>Command line, later</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For most new students, a good starting workflow is:</p>
+<ol class="arabic simple">
+<li><p>Use the browser for quick Markdown edits.</p></li>
+<li><p>Use GitHub Desktop for real project work.</p></li>
+<li><p>Learn command-line Git later if your project requires it.</p></li>
+</ol>
+</section>
+<section id="using-gitignore">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#using-gitignore" title="Link to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file tells Git which files to ignore.</p>
+<p>This is useful because research projects often create temporary files that should not be saved in the repository.</p>
+<p>Common examples include:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file should usually be placed in the main project folder.</p>
+<p>Example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>research-project/
+├── .gitignore
+├── README.md
+├── logs/
+├── notebooks/
+├── scripts/
+├── data/
+└── figures/
+</pre></div>
+</div>
+<p>You can create or edit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> using either the GitHub browser interface or GitHub Desktop.</p>
+<section id="creating-gitignore-in-the-browser">
+<h4>Creating <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> in the browser<a class="headerlink" href="#creating-gitignore-in-the-browser" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Open the repository on GitHub.</p></li>
+<li><p>Click <strong>Add file</strong>.</p></li>
+<li><p>Choose <strong>Create new file</strong>.</p></li>
+<li><p>Name the file:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.gitignore
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Add ignore rules.</p></li>
+<li><p>Write a commit message.</p></li>
+</ol>
+<p>For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Add .gitignore for Python and Jupyter files
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Click <strong>Commit changes</strong>.</p></li>
+</ol>
+</section>
+<section id="creating-gitignore-using-github-desktop">
+<h4>Creating <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> using GitHub Desktop<a class="headerlink" href="#creating-gitignore-using-github-desktop" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Open the project folder on your computer.</p></li>
+<li><p>Create a new plain-text file named <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p>Add ignore rules.</p></li>
+<li><p>Save the file.</p></li>
+<li><p>Open GitHub Desktop.</p></li>
+<li><p>Commit the new <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.</p></li>
+<li><p>Push the commit to GitHub.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Rule of thumb</p>
+<p>Use GitHub to save logs, code, notebooks, and small figures.</p>
+<p>Do not use GitHub as a dumping ground for huge raw datasets unless your mentor tells you to.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="tracking-tasks">
+<h2>Tracking Tasks<a class="headerlink" href="#tracking-tasks" title="Link to this heading">#</a></h2>
+<p>A research log records what happened during a work session.</p>
+<p>A task list records what still needs to be done.</p>
+<p>Both are useful, but they are not the same thing.</p>
+<section id="research-log">
+<h3>Research log<a class="headerlink" href="#research-log" title="Link to this heading">#</a></h3>
+<p>Use the research log for:</p>
+<ul class="simple">
+<li><p>what you tried,</p></li>
+<li><p>what happened,</p></li>
+<li><p>what files changed,</p></li>
+<li><p>what results you got,</p></li>
+<li><p>what confused you,</p></li>
+<li><p>what you learned.</p></li>
+</ul>
+</section>
+<section id="task-list">
+<h3>Task list<a class="headerlink" href="#task-list" title="Link to this heading">#</a></h3>
+<p>Use a task list for:</p>
+<ul class="simple">
+<li><p>what needs to be done next,</p></li>
+<li><p>what questions need to be answered,</p></li>
+<li><p>what bugs need to be fixed,</p></li>
+<li><p>what plots need to be remade,</p></li>
+<li><p>what files need to be cleaned up,</p></li>
+<li><p>what deadlines are approaching.</p></li>
+</ul>
+</section>
+<section id="simple-task-list-template">
+<h3>Simple task list template<a class="headerlink" href="#simple-task-list-template" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Task List</span>
+
+<span class="gu">## To do</span>
+
+<span class="k">- [ ]</span> Inspect quality flags for Sector 17
+<span class="k">- [ ]</span> Remake light curve after removing flagged points
+<span class="k">- [ ]</span> Compare Sector 17 and Sector 18
+<span class="k">- [ ]</span> Ask mentor whether this target should remain in the sample
+
+<span class="gu">## In progress</span>
+
+<span class="k">- [ ]</span> Clean Sector 17 light curve
+
+<span class="gu">## Done</span>
+
+<span class="k">- [x]</span> Download Sector 17 light curve
+<span class="k">- [x]</span> Make first raw light curve plot
+</pre></div>
+</div>
+</section>
+<section id="using-github-issues-for-tasks">
+<h3>Using GitHub Issues for tasks<a class="headerlink" href="#using-github-issues-for-tasks" title="Link to this heading">#</a></h3>
+<p>If your project uses GitHub, you can use GitHub Issues to track tasks.</p>
+<p>A useful issue should include:</p>
+<ul class="simple">
+<li><p>a short title,</p></li>
+<li><p>the problem or task,</p></li>
+<li><p>why it matters,</p></li>
+<li><p>what counts as done,</p></li>
+<li><p>links to relevant files, figures, or logs.</p></li>
+</ul>
+<p>Example issue title:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Inspect quality flags for TIC 123456789 Sector 17
+</pre></div>
+</div>
+<p>Example issue body:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Task</span>
+
+Inspect the quality flags for the Sector 17 TESS light curve of TIC 123456789.
+
+<span class="gu">## Why this matters</span>
+
+The raw light curve has several gaps and possible bad points. I should not interpret dips before checking whether flagged points are affecting the plot.
+
+<span class="gu">## Done when</span>
+
+<span class="k">- [ ]</span> Quality flags have been inspected.
+<span class="k">- [ ]</span> A cleaned light curve has been saved.
+<span class="k">- [ ]</span> A before/after comparison plot has been made.
+<span class="k">- [ ]</span> The research log has been updated with the result.
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Rule of thumb</p>
+<p>The log explains what happened.</p>
+<p>The task list reminds you what still needs to happen.</p>
+</div>
+</section>
+</section>
+<section id="end-of-day-checklist">
+<h2>End-of-Day Checklist<a class="headerlink" href="#end-of-day-checklist" title="Link to this heading">#</a></h2>
+<p>Before you stop working, check the following:</p>
+<ul class="simple">
+<li><p>Did I write down what I tried?</p></li>
+<li><p>Did I record the important filenames?</p></li>
+<li><p>Did I save any plots or tables that matter?</p></li>
+<li><p>Did I record parameter values for any simulation or analysis?</p></li>
+<li><p>Did I record errors or failed attempts?</p></li>
+<li><p>Did I write down what confused me?</p></li>
+<li><p>Did I write the next step clearly enough that I can restart quickly?</p></li>
+<li><p>Did I back up or sync the log?</p></li>
+<li><p>If using GitHub in the browser, did I click <strong>Commit changes</strong>?</p></li>
+<li><p>If using GitHub Desktop, did I click <strong>Commit</strong> and then <strong>Push origin</strong>?</p></li>
+</ul>
+<p>A good end-of-day log entry does not need to be beautiful. It needs to prevent you from losing the thread of the project.</p>
+<div class="tip admonition">
+<p class="admonition-title">Five-minute shutdown routine</p>
+<p>At the end of each work session:</p>
+<ol class="arabic simple">
+<li><p>Save your notebook or script.</p></li>
+<li><p>Save any important figures.</p></li>
+<li><p>Write the result of the work session.</p></li>
+<li><p>Write the next step.</p></li>
+<li><p>Sync or back up the files.</p></li>
+</ol>
+</div>
+<section id="example-end-of-day-entry">
+<h3>Example end-of-day entry<a class="headerlink" href="#example-end-of-day-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## End-of-day summary</span>
+
+Today I downloaded and plotted the Sector 17 TESS light curve for TIC 123456789. The light curve has several gaps, and I have not yet checked the quality flags. The main output is <span class="sb">`figures/2026-05-18_tic123456789_sector17_lightcurve.png`</span>.
+
+Next time I should inspect the quality flags, remove flagged points, and compare the result with Sector 18.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="what-not-to-put-in-the-log">
+<h2>What Not to Put in the Log<a class="headerlink" href="#what-not-to-put-in-the-log" title="Link to this heading">#</a></h2>
+<p>A research log should be useful, but it should not contain everything.</p>
+<p>Do not put the following in a shared research log:</p>
+<ul class="simple">
+<li><p>passwords,</p></li>
+<li><p>API keys,</p></li>
+<li><p>private login information,</p></li>
+<li><p>private student information,</p></li>
+<li><p>private collaborator information,</p></li>
+<li><p>unrelated personal notes,</p></li>
+<li><p>copyrighted files you do not have permission to share,</p></li>
+<li><p>large raw datasets unless your mentor says they belong there.</p></li>
+</ul>
+<p>When in doubt, ask your mentor before uploading or sharing sensitive files.</p>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>Never put passwords, tokens, or API keys in a GitHub repository.</p>
+</div>
+</section>
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<p>New researchers often make the same logging mistakes. Most of these mistakes are easy to avoid if you know what to watch for.</p>
+<section id="mistake-1-waiting-too-long-to-write-the-log">
+<h3>Mistake 1: Waiting too long to write the log<a class="headerlink" href="#mistake-1-waiting-too-long-to-write-the-log" title="Link to this heading">#</a></h3>
+<p>Do not wait several days before writing the log. You will forget details.</p>
+<p>Write the log during the work session or immediately after it.</p>
+</section>
+<section id="mistake-2-only-recording-successful-results">
+<h3>Mistake 2: Only recording successful results<a class="headerlink" href="#mistake-2-only-recording-successful-results" title="Link to this heading">#</a></h3>
+<p>Failed attempts belong in the log.</p>
+<p>If something did not work, record:</p>
+<ul class="simple">
+<li><p>what you tried,</p></li>
+<li><p>what happened,</p></li>
+<li><p>what error message appeared,</p></li>
+<li><p>what you think caused the problem,</p></li>
+<li><p>what you should try next.</p></li>
+</ul>
+</section>
+<section id="mistake-3-not-recording-filenames">
+<h3>Mistake 3: Not recording filenames<a class="headerlink" href="#mistake-3-not-recording-filenames" title="Link to this heading">#</a></h3>
+<p>A result is much less useful if you cannot find the file later.</p>
+<p>Do not write:</p>
+<blockquote>
+<div><p>Made a plot.</p>
+</div></blockquote>
+<p>Write:</p>
+<blockquote>
+<div><p>Made <code class="docutils literal notranslate"><span class="pre">figures/2026-05-18_tic123456789_sector17_lightcurve.png</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="mistake-4-not-recording-parameter-values">
+<h3>Mistake 4: Not recording parameter values<a class="headerlink" href="#mistake-4-not-recording-parameter-values" title="Link to this heading">#</a></h3>
+<p>For code and simulations, parameter values matter.</p>
+<p>Do not write:</p>
+<blockquote>
+<div><p>Ran the simulation with different settings.</p>
+</div></blockquote>
+<p>Write:</p>
+<blockquote>
+<div><p>Ran the simulation with <code class="docutils literal notranslate"><span class="pre">e_bin</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, <code class="docutils literal notranslate"><span class="pre">a_p</span> <span class="pre">=</span> <span class="pre">3.0</span> <span class="pre">AU</span></code>, and integration time <code class="docutils literal notranslate"><span class="pre">1e5</span></code> binary periods.</p>
+</div></blockquote>
+</section>
+<section id="mistake-5-not-explaining-why-you-made-a-decision">
+<h3>Mistake 5: Not explaining why you made a decision<a class="headerlink" href="#mistake-5-not-explaining-why-you-made-a-decision" title="Link to this heading">#</a></h3>
+<p>Research involves choices. Record the reason for important choices.</p>
+<p>For example:</p>
+<blockquote>
+<div><p>I used Sector 17 instead of Sector 18 because Sector 17 has fewer gaps and better phase coverage.</p>
+</div></blockquote>
+</section>
+<section id="mistake-6-treating-the-log-like-polished-writing">
+<h3>Mistake 6: Treating the log like polished writing<a class="headerlink" href="#mistake-6-treating-the-log-like-polished-writing" title="Link to this heading">#</a></h3>
+<p>A research log is not a final report. It is allowed to be rough.</p>
+<p>The log should be:</p>
+<ul class="simple">
+<li><p>clear,</p></li>
+<li><p>dated,</p></li>
+<li><p>specific,</p></li>
+<li><p>useful.</p></li>
+</ul>
+<p>It does not need to sound elegant.</p>
+</section>
+<section id="mistake-7-not-writing-the-next-step">
+<h3>Mistake 7: Not writing the next step<a class="headerlink" href="#mistake-7-not-writing-the-next-step" title="Link to this heading">#</a></h3>
+<p>The next step is what helps you restart.</p>
+<p>Do not write:</p>
+<blockquote>
+<div><p>Continue analysis.</p>
+</div></blockquote>
+<p>Write:</p>
+<blockquote>
+<div><p>Remove flagged data points and remake the light curve plot before attempting period analysis.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="turning-logs-into-reports-posters-and-presentations">
+<h2>Turning Logs into Reports, Posters, and Presentations<a class="headerlink" href="#turning-logs-into-reports-posters-and-presentations" title="Link to this heading">#</a></h2>
+<p>A research log is not the final product, but it makes final products easier to create.</p>
+<p>When it is time to write a report, make a poster, or prepare a talk, your logs can help you find:</p>
+<ul class="simple">
+<li><p>what question you investigated,</p></li>
+<li><p>what methods you used,</p></li>
+<li><p>what data you analyzed,</p></li>
+<li><p>what problems you solved,</p></li>
+<li><p>what figures you created,</p></li>
+<li><p>what results were important,</p></li>
+<li><p>what questions remain.</p></li>
+</ul>
+<section id="how-to-review-your-logs-before-writing">
+<h3>How to review your logs before writing<a class="headerlink" href="#how-to-review-your-logs-before-writing" title="Link to this heading">#</a></h3>
+<p>Before making a report or presentation, skim your logs and mark:</p>
+<ul class="simple">
+<li><p>important results,</p></li>
+<li><p>useful figures,</p></li>
+<li><p>failed attempts that explain your final method,</p></li>
+<li><p>decisions that changed the project,</p></li>
+<li><p>questions that remain open.</p></li>
+</ul>
+<p>Then make a short summary.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Project summary from logs</span>
+
+Main research question:
+- 
+
+Data or simulations used:
+- 
+
+Main methods:
+- 
+
+Most important result:
+- 
+
+Best figures:
+- 
+
+Problems solved:
+- 
+
+Questions still open:
+- 
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Key idea</p>
+<p>A good research log turns a final report from a memory test into an editing task.</p>
+</div>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>A research log does not need to be polished. It needs to be clear, dated, and specific enough that you can continue the work later.  Write for your future self. Record what worked, what failed, what files changed, and what you should do next.</p>
+<p>A good research log protects the project from lost details. It also helps your mentor understand your progress and give better advice.</p>
+<p>The basic rule is simple:</p>
+<div class="tip admonition">
+<p class="admonition-title">Final rule</p>
+<p>If you changed something, record what changed. If something failed, record what failed. If you made a decision, record why. If you created a file, record where it is.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-keep-a-research-log">Why keep a research log?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-counts-as-research-work">What Counts as Research Work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-minimum-useful-log-entry">The Minimum Useful Log Entry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date">Date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">Actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#result">Result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-step">Next step</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-folder-structure">Recommended folder structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-startup-checklist">Project Startup Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-naming-conventions">File Naming Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-readme-files">Project README Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-readme-template">Simple README template</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-log-template">Daily log template</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-filled-entry">Example filled entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meeting-notes">Meeting Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meeting-notes-template">Meeting notes template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-meeting-notes">Example meeting notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-weak-and-strong-log-entries">Examples of Weak and Strong Log Entries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-downloading-data">Example 1: Downloading data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-running-code">Example 2: Running code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-simulation-work">Example 3: Simulation work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-being-confused">Example 4: Being confused</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-reading-a-paper">Example 5: Reading a paper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reading-notes">Paper Reading Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-when-reading-a-paper">What to record when reading a paper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-notes-template">Paper notes template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-paper-notes">Example paper notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ai-tools-responsibly-in-a-research-log">Using AI Tools Responsibly in a Research Log</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ai-use-log-entry">Example AI-use log entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-or-markdown">Jupyter Notebook or Markdown?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-a-jupyter-notebook">When to use a Jupyter notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-a-markdown-file">When to use a Markdown file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-to-a-saved-figure-in-markdown">Linking to a saved figure in Markdown</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-videos-and-tutorials">Optional Videos and Tutorials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-logs-and-lab-notebooks">Research logs and lab notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-and-jupyter-notebooks">Markdown and Jupyter notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-and-github-desktop">GitHub and GitHub Desktop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provenance">Data Provenance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provenance-template">Data provenance template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-provenance-entry">Example data provenance entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-python-work">Logging Python Work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-when-using-python">What to record when using Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-recording-package-versions">Example: recording package versions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-saving-a-figure-with-a-useful-filename">Example: saving a figure with a useful filename</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-log-entry-for-python-work">Example log entry for Python work</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-checklist">Reproducibility Checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-seeds">Random seeds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-parameters">Saving parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-simulation-runs">Logging Simulation Runs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-your-simulation-log-should-answer">Questions your simulation log should answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation-log-entry">Example simulation log entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parameter-table">Example parameter table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-observations">Logging Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-log-template">Observation log template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-observation-log-entry">Example observation log entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-converting-an-observation-time-with-astropy">Example: converting an observation time with Astropy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-problems-errors-and-false-starts">Logging Problems, Errors, and False Starts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code-error">Example: code error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-confusing-result">Example: confusing result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-no-data-found">Example: no data found</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-and-backing-up-your-log">Syncing and Backing Up Your Log</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-google-drive-or-shared-cloud-storage">Using Google Drive or shared cloud storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-github-without-the-command-line">Using GitHub Without the Command Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-using-github-in-the-browser">Option 1: Using GitHub in the Browser</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-research-log-file-in-the-browser">Creating a new research log file in the browser</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-an-existing-log-file-in-the-browser">Editing an existing log file in the browser</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-small-files-in-the-browser">Uploading small files in the browser</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-using-github-desktop">Option 2: Using GitHub Desktop</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-and-sign-in">Step 1: Install and sign in</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clone-the-project-repository">Step 2: Clone the project repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-work-in-the-project-folder">Step 3: Work in the project folder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-review-changes-in-github-desktop">Step 4: Review changes in GitHub Desktop</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-commit-your-changes">Step 5: Commit your changes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-push-your-changes-to-github">Step 6: Push your changes to GitHub</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-pull-before-starting-work">Step 7: Pull before starting work</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-the-browser-vs-github-desktop">When to Use the Browser vs. GitHub Desktop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-gitignore">Using <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-gitignore-in-the-browser">Creating <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> in the browser</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-gitignore-using-github-desktop">Creating <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> using GitHub Desktop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-tasks">Tracking Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-log">Research log</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-list">Task list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-task-list-template">Simple task list template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-github-issues-for-tasks">Using GitHub Issues for tasks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-day-checklist">End-of-Day Checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-end-of-day-entry">Example end-of-day entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-not-to-put-in-the-log">What Not to Put in the Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-waiting-too-long-to-write-the-log">Mistake 1: Waiting too long to write the log</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-only-recording-successful-results">Mistake 2: Only recording successful results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-not-recording-filenames">Mistake 3: Not recording filenames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-not-recording-parameter-values">Mistake 4: Not recording parameter values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-5-not-explaining-why-you-made-a-decision">Mistake 5: Not explaining why you made a decision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-6-treating-the-log-like-polished-writing">Mistake 6: Treating the log like polished writing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-7-not-writing-the-next-step">Mistake 7: Not writing the next step</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-logs-into-reports-posters-and-presentations">Turning Logs into Reports, Posters, and Presentations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-review-your-logs-before-writing">How to review your logs before writing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
