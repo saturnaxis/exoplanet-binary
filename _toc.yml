@@ -30,4 +30,5 @@ parts:
   - file: Tutorials/photometry-basics-guide.ipynb
   - file: Tutorials/AIJ-lightcurve.ipynb
   - file: Tutorials/archival-data.ipynb
+  - file: Tutorials/modeling-exoplanet-transits.ipynb
 

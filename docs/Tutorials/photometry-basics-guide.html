@@ -79,6 +79,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/photometry-basics-guide';</script>
     <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/photometry-basics-guide.html" />
+    <link rel="icon" href="../_static/CBP_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12. Reducing Light Curves with AstroImageJ" href="AIJ-lightcurve.html" />
@@ -169,8 +170,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/CBP_logo.png" class="logo__image only-light" alt="Exoplanets within Binary Systems - Home"/>
+    <script>document.write(`<img src="../_static/CBP_logo.png" class="logo__image only-dark" alt="Exoplanets within Binary Systems - Home"/>`);</script>
   
-    <p class="title logo__title">Exoplanets within Binary Systems</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -504,10 +511,6 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="basics-of-ccd-photometry">
 <h1><span class="section-number">11. </span>Basics of CCD Photometry<a class="headerlink" href="#basics-of-ccd-photometry" title="Link to this heading">#</a></h1>
 <p>This guide introduces the practical ideas needed to turn astronomical images into brightness measurements. The goal is not to cover every advanced reduction method. The goal is to help you understand what the detector records, what can go wrong, how calibration frames help, and how a calibrated image becomes a differential light curve.</p>
-<div class="tip admonition">
-<p class="admonition-title">Learning goals</p>
-<p>By the end of this guide, you should be able to explain how a CCD/CMOS image records light, identify the major noise sources in photometry, describe the purpose of bias, dark, and flat-field frames, calibrate simple light images with Python, and explain the basic idea of differential photometry.</p>
-</div>
 <section id="what-photometry-measures">
 <h2><span class="section-number">11.1. </span>What Photometry Measures<a class="headerlink" href="#what-photometry-measures" title="Link to this heading">#</a></h2>
 <p>Photometry means measuring the brightness of an object. In time-series photometry, we measure brightness repeatedly so that we can make a light curve. A light curve is a graph of brightness versus time. Eclipsing binaries, transiting exoplanets, pulsating stars, rotating asteroids, and cataclysmic variables can all produce measurable changes in brightness.</p>
