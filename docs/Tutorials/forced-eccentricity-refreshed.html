@@ -77,13 +77,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/forced-eccentricity';</script>
-    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/forced-eccentricity.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/forced-eccentricity-refreshed';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/forced-eccentricity-refreshed.html" />
     <link rel="icon" href="../_static/CBP_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Obliquity Evolution" href="obliquity-evolution.html" />
-    <link rel="prev" title="4. Planet Packing" href="planet-packing-stability.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -145,6 +143,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -213,9 +213,9 @@
 <li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
@@ -282,7 +282,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/forced-eccentricity.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/forced-eccentricity-refreshed.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +300,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/forced-eccentricity.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/forced-eccentricity-refreshed.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +364,7 @@
       
       
       
-      <li><a href="../_sources/Tutorials/forced-eccentricity.ipynb" target="_blank"
+      <li><a href="../_sources/Tutorials/forced-eccentricity-refreshed.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -448,7 +448,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Free and Forced Eccentricity</h1>
+    <h1>5. Free and Forced Eccentricity</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -466,12 +466,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eccentricity-as-a-vector">5.3. Eccentricity as a vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-type-architecture">5.4. S-Type architecture</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-heppenheimer-s-type-model">5.5. The Heppenheimer S-Type model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-three-initial-eccentricities">5.5.1. Example: three initial eccentricities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-three-initial-eccentricities">Example: three initial eccentricities</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-eccentricity-and-maximum-eccentricity">5.6. Free eccentricity and maximum eccentricity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-marchal-and-empirical-corrections">5.7. First-order, Marchal, and empirical corrections</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#andrade-ines-style-empirical-correction">5.7.1. Andrade-Ines style empirical correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#andrade-ines-style-empirical-correction">Andrade-Ines style empirical correction</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applicability-domains">5.8. Applicability domains</a></li>
@@ -480,12 +480,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-and-slow-circumbinary-eccentricity-components">5.11. Fast and slow circumbinary eccentricity components</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking-against-an-n-body-simulation">5.12. Benchmarking against an N-body simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">5.13. Common mistakes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treating-circular-as-dynamically-cold">5.13.1. Treating circular as dynamically cold</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-pericenter-alignment">5.13.2. Forgetting the pericenter alignment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusing-s-type-and-p-type-semimajor-axis-ratios">5.13.3. Confusing S-Type and P-Type semimajor axis ratios</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-secular-model-near-a-mean-motion-resonance">5.13.4. Using a secular model near a mean motion resonance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-the-first-order-model-is-always-enough">5.13.5. Assuming the first-order model is always enough</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-sign-of-the-forced-eccentricity">5.13.6. Forgetting the sign of the forced eccentricity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treating-circular-as-dynamically-cold">Treating circular as dynamically cold</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-pericenter-alignment">Forgetting the pericenter alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusing-s-type-and-p-type-semimajor-axis-ratios">Confusing S-Type and P-Type semimajor axis ratios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-secular-model-near-a-mean-motion-resonance">Using a secular model near a mean motion resonance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-the-first-order-model-is-always-enough">Assuming the first-order model is always enough</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-sign-of-the-forced-eccentricity">Forgetting the sign of the forced eccentricity</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-paste-reference">5.14. Copy-paste reference</a></li>
@@ -502,7 +502,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="free-and-forced-eccentricity">
-<h1><span class="section-number">5. </span>Free and Forced Eccentricity<a class="headerlink" href="#free-and-forced-eccentricity" title="Link to this heading">#</a></h1>
+<h1>5. Free and Forced Eccentricity<a class="headerlink" href="#free-and-forced-eccentricity" title="Link to this heading">#</a></h1>
 <p>This guide shows how the <strong>secular Laplace-Lagrange approach</strong> can be used to understand simple planet-in-binary problems before turning to full numerical simulations.</p>
 <p>The main idea is that the planet’s eccentricity vector can be separated into two pieces:</p>
 <ol class="arabic simple">
@@ -530,36 +530,36 @@ document.write(`
 \]</div>
 <p>For most examples below, the binary pericenter is placed along the reference <span class="math notranslate nohighlight">\(x\)</span>-axis so that <span class="math notranslate nohighlight">\(\varpi_{\rm bin}=0\)</span> and <span class="math notranslate nohighlight">\(\Delta\varpi=\varpi_p\)</span>.</p>
 <section id="why-this-looks-like-a-forced-oscillator">
-<h2><span class="section-number">5.1. </span>Why this looks like a forced oscillator<a class="headerlink" href="#why-this-looks-like-a-forced-oscillator" title="Link to this heading">#</a></h2>
+<h2>5.1. Why this looks like a forced oscillator<a class="headerlink" href="#why-this-looks-like-a-forced-oscillator" title="Link to this heading">#</a></h2>
 <p>Planets can experience a small but coherent forcing over time, which is referred to as a <strong>secular perturbation</strong>. This type of forcing is reminiscent of perturbations of a harmonic oscillator or pendulum.</p>
 <p>Consider a pendulum (or swing) that oscillates back and forth.  If the perturbation (even if small) is timed when the pendulum reaches its maximum height and along the natural direction of motion, then the overall amplitude of the oscillation will increase over time because the pendulum is receiving a coherent boost along the direction of motion.</p>
 <p>This is in contrast to the pendulum receiving a boost randomly along and against the direction of motion. If the direction and magnitude of the kicks are truly random, then the boost in each direction should cancel out on average resulting in no growth in the oscillation amplitude.</p>
 <p>The components of free and forced eccentricity are described mathematically using concepts of forced and free oscillations of harmonic oscillators that are connected together. This is similar to the problem of a <a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/hbase/oscdr.html">damped, driven oscillator</a>, which has a linear combination of a steady-state and transient solution. The steady-state solution maps to the forced eccentricity, where the transient solution is the free eccentricity.  The following section reviews the physics of coupled oscillations.</p>
 <section id="a-review-of-coupled-oscillations">
-<h3><span class="section-number">5.1.1. </span>A Review of Coupled Oscillations<a class="headerlink" href="#a-review-of-coupled-oscillations" title="Link to this heading">#</a></h3>
+<h3>5.1.1. A Review of Coupled Oscillations<a class="headerlink" href="#a-review-of-coupled-oscillations" title="Link to this heading">#</a></h3>
 <p>Consider two masses on a <em>frictionless</em> plane, where each mass is connected by a spring (with a spring constant <span class="math notranslate nohighlight">\(k\)</span>) to a wall.  Each spring experiences a force according to Hooke’s law (e.g., <span class="math notranslate nohighlight">\(F = -kx\)</span>).  Additionally, the two springs are connected <em>to one another</em> by another spring with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.</p>
 <figure class="align-default" id="coupled-masses">
 <a class="reference internal image-reference" href="../_images/coupled_masses.png"><img alt="coupled masses" src="../_images/coupled_masses.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Two identical masses attached to their respective wall with a spring with a spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The masses are coupled by another spring (with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>) and slide on a frictionless plane.</span><a class="headerlink" href="#coupled-masses" title="Link to this image">#</a></p>
+<p><span class="caption-text">Two identical masses attached to their respective wall with a spring with a spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The masses are coupled by another spring (with a spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>) and slide on a frictionless plane.</span><a class="headerlink" href="#coupled-masses" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The mass on the left is displaced by a distance <span class="math notranslate nohighlight">\(x_1\)</span> to the right.  It’s left spring will apply a force to bring it back to the equilibrium, but the middle spring will compress along with the rightmost spring.  The compression of the middle and right spring will apply a force on the other mass on the right.  Because the masses are connected, there will be a similar set of forces acting on the mass on the right.  Altogether the forces on the left and right mass are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-72b281ec-de70-4697-9cb0-fd8a61be296a">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-72b281ec-de70-4697-9cb0-fd8a61be296a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7e574788-c83b-4bcd-9664-823bdacfae92">
+<span class="eqno">()<a class="headerlink" href="#equation-7e574788-c83b-4bcd-9664-823bdacfae92" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{F}_{\rm left} &amp;= -kx_1 + \kappa(x_2-x_1) = m\ddot{x}_1, \\
 \mathbf{F}_{\rm right} &amp;= -kx_2 + \kappa(x_1-x_2) = m\ddot{x}_2.
 \end{align}\]</div>
 <p>Notice that each of these equations have a part that we expect from an isolated spring and a part that describes the interaction via the connecting spring with spring constant <span class="math notranslate nohighlight">\(\kappa\)</span>.  Furthermore, the interaction on the left mass is equal and opposite to the interaction force on the right mass.  The above equations can be rearranged to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cef02fc9-6135-40e9-971b-4f73921a1973">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-cef02fc9-6135-40e9-971b-4f73921a1973" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-33bff9f7-5a11-4323-9ace-2fa57f752fd6">
+<span class="eqno">()<a class="headerlink" href="#equation-33bff9f7-5a11-4323-9ace-2fa57f752fd6" title="Permalink to this equation">#</a></span>\[\begin{align}
  m \ddot{x}_1 &amp;= -(\kappa + k)x_1 + \kappa x_2, \\
  m \ddot{x}_2 &amp;= \kappa x_1 - (\kappa + k)x_2,
 \end{align}\]</div>
 <p>or in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-448c8da8-14ba-4c86-a99f-56059e5451e1">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-448c8da8-14ba-4c86-a99f-56059e5451e1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c888492d-3db0-48a0-95b4-a85b785db5c9">
+<span class="eqno">()<a class="headerlink" href="#equation-c888492d-3db0-48a0-95b4-a85b785db5c9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{pmatrix} 
 m\ddot{x}_1 \\ m\ddot{x}_2 
 \end{pmatrix} &amp;= 
@@ -571,14 +571,14 @@ x_1 \\ x_2
 \end{pmatrix}.
 \end{align}\]</div>
 <p>Let’s use the following trial functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-92a3cb11-b898-4c5b-8e0a-37ea1ed49eaf">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-92a3cb11-b898-4c5b-8e0a-37ea1ed49eaf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-52826a4d-8e1d-4c37-8cca-d5d4f35ab62f">
+<span class="eqno">()<a class="headerlink" href="#equation-52826a4d-8e1d-4c37-8cca-d5d4f35ab62f" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1 e^{i\omega t}, \\
 x_2(t) &amp;= B_2 e^{i\omega t},
 \end{align}\]</div>
 <p>based on our prior knowledge concerning the isolated springs.  Upon substitution, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e938090-163a-4669-9177-81ac5bf01576">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-5e938090-163a-4669-9177-81ac5bf01576" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-55487413-dfea-426c-9834-c9e80a407ffa">
+<span class="eqno">()<a class="headerlink" href="#equation-55487413-dfea-426c-9834-c9e80a407ffa" title="Permalink to this equation">#</a></span>\[\begin{align}
 -m\omega^2\begin{pmatrix} 
 B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix} &amp;= 
@@ -590,8 +590,8 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix},
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be30547b-ce24-4cf8-a487-ce5291677507">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-be30547b-ce24-4cf8-a487-ce5291677507" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-98bb58be-42cc-406a-ae3b-70158c6711c9">
+<span class="eqno">()<a class="headerlink" href="#equation-98bb58be-42cc-406a-ae3b-70158c6711c9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 
 (\kappa + k) - m\omega^2 &amp; -\kappa \\ -\kappa &amp; (\kappa + k) - m\omega^2
 \end{bmatrix} 
@@ -603,34 +603,34 @@ B_1 e^{i\omega t} \\ B_2 e^{i\omega t}
 \end{pmatrix}.
 \end{align}\]</div>
 <p>The trivial solution is <span class="math notranslate nohighlight">\(B_1 = B_2 = 0\)</span>.  But the non-trivial solution is solved via the characteristic equation (or determinant) via:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f827e0e5-08cc-472b-9d50-4b0ec0595706">
-<span class="eqno">(5.7)<a class="headerlink" href="#equation-f827e0e5-08cc-472b-9d50-4b0ec0595706" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3779cc41-7afe-4dd6-be70-6e32b055f7bf">
+<span class="eqno">()<a class="headerlink" href="#equation-3779cc41-7afe-4dd6-be70-6e32b055f7bf" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[(\kappa + k) - m\omega^2\right]^2 - \kappa^2 &amp;= 0, \\
 (m\omega^2)^2 - 2m(\kappa + k)\omega^2 + (\kappa + k)^2 - \kappa^2 &amp;= 0, \\
 x^2 -2(\kappa+k)x + 2\kappa k + k^2 &amp; = 0,
 \end{align}\]</div>
 <p>which has solutions via the quadratic equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2c1d48e-2b99-4b7f-bdcb-882bcdba864c">
-<span class="eqno">(5.8)<a class="headerlink" href="#equation-d2c1d48e-2b99-4b7f-bdcb-882bcdba864c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b98478b1-72ea-444b-9f3c-77422c370a50">
+<span class="eqno">()<a class="headerlink" href="#equation-b98478b1-72ea-444b-9f3c-77422c370a50" title="Permalink to this equation">#</a></span>\[\begin{align}
 x &amp;= (\kappa + k) \pm \frac{1}{2}\sqrt{4(\kappa + k)^2 - 4(2\kappa k + k^2)}, \\
 m\omega^2 &amp;= (\kappa + k) \pm \kappa, \\
 \omega &amp;= \pm \sqrt{\frac{(\kappa + k) \pm \kappa}{m}}.
 \end{align}\]</div>
 <p>Each root (from the quadratic equation) permits a separate eigenfrequency:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d093f614-a2ba-4d97-b48d-43522102f942">
-<span class="eqno">(5.9)<a class="headerlink" href="#equation-d093f614-a2ba-4d97-b48d-43522102f942" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2b2f40a7-a126-42d3-9af3-c080a1d61257">
+<span class="eqno">()<a class="headerlink" href="#equation-2b2f40a7-a126-42d3-9af3-c080a1d61257" title="Permalink to this equation">#</a></span>\[\begin{align}
 \omega_1 = \pm \sqrt{\frac{2\kappa + k}{m}}, \qquad&amp; \text{and} \qquad&amp;
 \omega_2 = \pm \sqrt{\frac{k}{m}}.
 \end{align}\]</div>
 <p>To determine the coefficients <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span>, we substitute the eigenfrequencies (<span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>) back into the characteristic equation to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9239bd3a-2ffa-4f66-94d3-2b67fd01c99c">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-9239bd3a-2ffa-4f66-94d3-2b67fd01c99c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b5312ba6-cdf1-4634-aab8-2fbb31acc16d">
+<span class="eqno">()<a class="headerlink" href="#equation-b5312ba6-cdf1-4634-aab8-2fbb31acc16d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[ k + \kappa - (k + 2\kappa) \right]B_1 - \kappa B_2 &amp;= -\kappa (B_1 + B_2) = 0,&amp;\ (\text{for } \omega_1;\  B_1 = -B_2) \\
 \left( k+ \kappa - k\right)B_1 - \kappa B_2 &amp;= \kappa (B_1 - B_2) = 0.&amp;  (\text{for } \omega_2;\  B_1 = B_2)
 \end{align}\]</div>
 <p>The most general solution of the coupled harmonic oscillator problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7a2d6b4-ec87-4ac6-a6af-d36e33ad0608">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-a7a2d6b4-ec87-4ac6-a6af-d36e33ad0608" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-775b611e-9dad-4dbe-be5e-6203dca8df5f">
+<span class="eqno">()<a class="headerlink" href="#equation-775b611e-9dad-4dbe-be5e-6203dca8df5f" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_1(t) &amp;= B_1^+ e^{+i\omega_1 t} + B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}, \\
 x_2(t) &amp;= -B_1^+ e^{+i\omega_1 t} - B_1^- e^{-i\omega_1 t} + B_2^+ e^{+i\omega_2 t} + B_2^- e^{-i\omega_2 t}.
 \end{align}\]</div>
@@ -659,7 +659,7 @@ allowfullscreen></iframe>
 </section>
 </section>
 <section id="from-coupled-oscillators-to-eccentricity-vectors">
-<h2><span class="section-number">5.2. </span>From Coupled Oscillators to Eccentricity Vectors<a class="headerlink" href="#from-coupled-oscillators-to-eccentricity-vectors" title="Link to this heading">#</a></h2>
+<h2>5.2. From Coupled Oscillators to Eccentricity Vectors<a class="headerlink" href="#from-coupled-oscillators-to-eccentricity-vectors" title="Link to this heading">#</a></h2>
 <p>The coupled-oscillator example is not just a mechanics review. It gives us the mathematical pattern we need for secular eccentricity evolution.</p>
 <p>In the spring problem, the motion is described by a sum of normal modes. The motion of each mass can be written as a combination of oscillatory pieces whose amplitudes are set by the initial conditions. The important point is that a complicated-looking interaction becomes easier to understand after we choose better variables.</p>
 <p>In the secular eccentricity problem, the same idea appears in a different coordinate system. Instead of tracking a displacement <span class="math notranslate nohighlight">\(x(t)\)</span>, we track the eccentricity-vector components</p>
@@ -682,7 +682,7 @@ h(t) &amp;= e_{\rm free}\sin(gt+\phi).
 <p>This is the bridge from the oscillator analogy to the secular Laplace-Lagrange model. The rest of the guide uses this idea as a benchmark: first understand the simple eccentricity-vector oscillator, then compare it with more complete numerical or higher-order treatments.</p>
 </section>
 <section id="eccentricity-as-a-vector">
-<h2><span class="section-number">5.3. </span>Eccentricity as a vector<a class="headerlink" href="#eccentricity-as-a-vector" title="Link to this heading">#</a></h2>
+<h2>5.3. Eccentricity as a vector<a class="headerlink" href="#eccentricity-as-a-vector" title="Link to this heading">#</a></h2>
 <p>For secular theory, it is often better to use the eccentricity vector components instead of eccentricity and longitude of pericenter separately. We define</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -736,13 +736,13 @@ e_p = \sqrt{k^2+h^2}.
 </div>
 </section>
 <section id="s-type-architecture">
-<h2><span class="section-number">5.4. </span>S-Type architecture<a class="headerlink" href="#s-type-architecture" title="Link to this heading">#</a></h2>
-<p>An <strong>S-Type planet</strong> orbits one star in a binary system. The companion star acts as an external perturber. The basic hierarchy is shown in <a class="reference internal" href="#fig-s-type-architecture"><span class="std std-numref">Fig. 5.2</span></a>.</p>
+<h2>5.4. S-Type architecture<a class="headerlink" href="#s-type-architecture" title="Link to this heading">#</a></h2>
+<p>An <strong>S-Type planet</strong> orbits one star in a binary system. The companion star acts as an external perturber. The basic hierarchy is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-s-type-architecture</span></code>.</p>
 <figure class="align-center" id="fig-s-type-architecture">
 <a class="reference internal image-reference" href="../_images/S_type_fig.png"><img alt="../_images/S_type_fig.png" src="../_images/S_type_fig.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">S-Type hierarchical architecture. The planet <span class="math notranslate nohighlight">\(m_2\)</span> orbits the host star <span class="math notranslate nohighlight">\(m_1\)</span>, while the stellar companion <span class="math notranslate nohighlight">\(m_3\)</span> orbits the center of mass of the inner pair. The blue point marks the center of mass used in the hierarchical coordinate system.</span><a class="headerlink" href="#fig-s-type-architecture" title="Link to this image">#</a></p>
+<p><span class="caption-text">S-Type hierarchical architecture. The planet <span class="math notranslate nohighlight">\(m_2\)</span> orbits the host star <span class="math notranslate nohighlight">\(m_1\)</span>, while the stellar companion <span class="math notranslate nohighlight">\(m_3\)</span> orbits the center of mass of the inner pair. The blue point marks the center of mass used in the hierarchical coordinate system.</span><a class="headerlink" href="#fig-s-type-architecture" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This figure uses the same coordinate logic introduced in the <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-alpha-centauri.html#">Introduction to the <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri System</a>. The semimajor axes are defined relative to the appropriate center of mass. In the S-Type hierarchy, <span class="math notranslate nohighlight">\(a_1\)</span> and <span class="math notranslate nohighlight">\(a_2\)</span> describe the motion of the host star and planet around their inner center of mass, while <span class="math notranslate nohighlight">\(a_3\)</span> describes the stellar companion relative to that same center of mass.</p>
@@ -797,7 +797,7 @@ a_{\rm bin} = a_3.
 <p>For a hierarchical S-Type planet, <span class="math notranslate nohighlight">\(\alpha \ll 1\)</span>. The secular model assumes that the planet is not too close to the companion star and not strongly affected by mean motion resonances.</p>
 </section>
 <section id="the-heppenheimer-s-type-model">
-<h2><span class="section-number">5.5. </span>The Heppenheimer S-Type model<a class="headerlink" href="#the-heppenheimer-s-type-model" title="Link to this heading">#</a></h2>
+<h2>5.5. The Heppenheimer S-Type model<a class="headerlink" href="#the-heppenheimer-s-type-model" title="Link to this heading">#</a></h2>
 <p>The first benchmark model is the low-eccentricity secular model associated with Heppenheimer. It comes from expanding the disturbing function in powers of <span class="math notranslate nohighlight">\(\alpha = a_p/a_{\rm bin}\)</span> and keeping the leading terms that affect the planet’s eccentricity vector.</p>
 <p>In this approximation, the semimajor axis is nearly constant:</p>
 <div class="math notranslate nohighlight">
@@ -865,7 +865,7 @@ g_H &amp;= \frac{3}{4}\mu\alpha^3\frac{n_p}{(1-e_{\rm bin}^2)^{3/2}},\\
 </div>
 </div>
 <section id="example-three-initial-eccentricities">
-<h3><span class="section-number">5.5.1. </span>Example: three initial eccentricities<a class="headerlink" href="#example-three-initial-eccentricities" title="Link to this heading">#</a></h3>
+<h3>Example: three initial eccentricities<a class="headerlink" href="#example-three-initial-eccentricities" title="Link to this heading">#</a></h3>
 <p>The example below reproduces the basic behavior of the Heppenheimer solution. The forced eccentricity does not depend on the planet’s initial eccentricity. The initial eccentricity only changes the size of the free oscillation around the forced point.</p>
 <p>The chosen toy system has</p>
 <div class="amsmath math notranslate nohighlight">
@@ -947,7 +947,7 @@ The secular period is 2*pi/g_H = 36.60 yr.
 </section>
 </section>
 <section id="free-eccentricity-and-maximum-eccentricity">
-<h2><span class="section-number">5.6. </span>Free eccentricity and maximum eccentricity<a class="headerlink" href="#free-eccentricity-and-maximum-eccentricity" title="Link to this heading">#</a></h2>
+<h2>5.6. Free eccentricity and maximum eccentricity<a class="headerlink" href="#free-eccentricity-and-maximum-eccentricity" title="Link to this heading">#</a></h2>
 <p>The secular solution can be written as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1016,7 +1016,7 @@ e_{\min} &amp;= \left|\epsilon_H - e_{\rm free}\right|.
 <p>For an S-Type planet, the forced vector usually points in the direction of the binary pericenter in this simple model. Starting aligned with the binary and near the forced eccentricity minimizes the free eccentricity.</p>
 </section>
 <section id="first-order-marchal-and-empirical-corrections">
-<h2><span class="section-number">5.7. </span>First-order, Marchal, and empirical corrections<a class="headerlink" href="#first-order-marchal-and-empirical-corrections" title="Link to this heading">#</a></h2>
+<h2>5.7. First-order, Marchal, and empirical corrections<a class="headerlink" href="#first-order-marchal-and-empirical-corrections" title="Link to this heading">#</a></h2>
 <p>The Heppenheimer model is useful because it is simple. It is also limited. It assumes a hierarchical system and low planetary eccentricity. As the planet moves closer to the binary companion, higher-order terms and short-period effects become more important.</p>
 <p>A commonly used compact correction has the form</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1058,7 +1058,7 @@ The corrected secular period is 29.14 yr.
 </div>
 </div>
 <section id="andrade-ines-style-empirical-correction">
-<h3><span class="section-number">5.7.1. </span>Andrade-Ines style empirical correction<a class="headerlink" href="#andrade-ines-style-empirical-correction" title="Link to this heading">#</a></h3>
+<h3>Andrade-Ines style empirical correction<a class="headerlink" href="#andrade-ines-style-empirical-correction" title="Link to this heading">#</a></h3>
 <p>The binary-stability chapter describes a more flexible empirical correction that can be represented as finite sums:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1123,7 +1123,7 @@ Replace example_coeffs with the published coefficient table before using this co
 </section>
 </section>
 <section id="applicability-domains">
-<h2><span class="section-number">5.8. </span>Applicability domains<a class="headerlink" href="#applicability-domains" title="Link to this heading">#</a></h2>
+<h2>5.8. Applicability domains<a class="headerlink" href="#applicability-domains" title="Link to this heading">#</a></h2>
 <p>Andrade-Ines et al. emphasized that the first-order model is algebraically simple and easy to implement, but it only works where the perturbation is sufficiently small. A second-order model increases the range of validity, but even that model fails when short-period terms, mean motion resonances, or instability dominate the evolution.</p>
 <p>For this guide, the important lesson is practical:</p>
 <div class="warning admonition">
@@ -1202,13 +1202,13 @@ alpha = 0.25: strongly perturbed: secular theory may fail; check MMRs and stabil
 </div>
 </section>
 <section id="p-type-architecture">
-<h2><span class="section-number">5.9. </span>P-Type architecture<a class="headerlink" href="#p-type-architecture" title="Link to this heading">#</a></h2>
-<p>A <strong>P-Type planet</strong> orbits both stars in the binary. These are also called <strong>circumbinary planets</strong>. In this hierarchy, the binary is the inner orbit and the planet is the outer orbit, as shown in <a class="reference internal" href="#fig-p-type-architecture"><span class="std std-numref">Fig. 5.3</span></a>.</p>
+<h2>5.9. P-Type architecture<a class="headerlink" href="#p-type-architecture" title="Link to this heading">#</a></h2>
+<p>A <strong>P-Type planet</strong> orbits both stars in the binary. These are also called <strong>circumbinary planets</strong>. In this hierarchy, the binary is the inner orbit and the planet is the outer orbit, as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-p-type-architecture</span></code>.</p>
 <figure class="align-center" id="fig-p-type-architecture">
 <a class="reference internal image-reference" href="../_images/P_type_fig.png"><img alt="../_images/P_type_fig.png" src="../_images/P_type_fig.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">P-Type hierarchical architecture. The two stars <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> form the inner binary, while the planet <span class="math notranslate nohighlight">\(m_3\)</span> orbits the center of mass of the binary. The blue point marks the binary center of mass used in the hierarchical coordinate system.</span><a class="headerlink" href="#fig-p-type-architecture" title="Link to this image">#</a></p>
+<p><span class="caption-text">P-Type hierarchical architecture. The two stars <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> form the inner binary, while the planet <span class="math notranslate nohighlight">\(m_3\)</span> orbits the center of mass of the binary. The blue point marks the binary center of mass used in the hierarchical coordinate system.</span><a class="headerlink" href="#fig-p-type-architecture" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This figure uses the same coordinate logic introduced in the <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-alpha-centauri.html#">Introduction to the <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri System</a>. The inner binary is described relative to its center of mass. The planet is then described as an outer body orbiting that same center of mass.</p>
@@ -1275,7 +1275,7 @@ a_p = a_3.
 </div>
 </section>
 <section id="circumbinary-secular-model">
-<h2><span class="section-number">5.10. </span>Circumbinary secular model<a class="headerlink" href="#circumbinary-secular-model" title="Link to this heading">#</a></h2>
+<h2>5.10. Circumbinary secular model<a class="headerlink" href="#circumbinary-secular-model" title="Link to this heading">#</a></h2>
 <p>For circumbinary planets, one simple secular model is associated with Moriwaki and Nakagawa. We define</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1379,7 +1379,7 @@ The P-Type secular period is 2*pi/g_MN = 1622.30 yr.
 </div>
 </section>
 <section id="fast-and-slow-circumbinary-eccentricity-components">
-<h2><span class="section-number">5.11. </span>Fast and slow circumbinary eccentricity components<a class="headerlink" href="#fast-and-slow-circumbinary-eccentricity-components" title="Link to this heading">#</a></h2>
+<h2>5.11. Fast and slow circumbinary eccentricity components<a class="headerlink" href="#fast-and-slow-circumbinary-eccentricity-components" title="Link to this heading">#</a></h2>
 <p>The low-order secular forced eccentricity for a P-Type planet can become very small for symmetric binaries. However, circumbinary orbits also have short-period variations caused by the binary’s fast orbital motion.</p>
 <p>One useful estimate for the fast component is</p>
 <div class="math notranslate nohighlight">
@@ -1422,7 +1422,7 @@ The rough mean eccentricity estimate is &lt;e_p&gt; = 0.0580.
 </div>
 </section>
 <section id="benchmarking-against-an-n-body-simulation">
-<h2><span class="section-number">5.12. </span>Benchmarking against an N-body simulation<a class="headerlink" href="#benchmarking-against-an-n-body-simulation" title="Link to this heading">#</a></h2>
+<h2>5.12. Benchmarking against an N-body simulation<a class="headerlink" href="#benchmarking-against-an-n-body-simulation" title="Link to this heading">#</a></h2>
 <p>The secular model is useful because it is cheap and transparent. An N-body model is more complete because it retains short-period terms, resonant effects, and non-linear behavior. A good workflow is:</p>
 <ol class="arabic simple">
 <li><p>use the secular model to predict <span class="math notranslate nohighlight">\(e_{\rm forced}\)</span> and <span class="math notranslate nohighlight">\(g\)</span>,</p></li>
@@ -1463,68 +1463,23 @@ The rough mean eccentricity estimate is &lt;e_p&gt; = 0.0580.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_optional_rebound_s_type_example</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a short S-Type REBOUND simulation if REBOUND is installed.</span>
 
-<span class="sd">    This example uses the same S-Type toy model as the Heppenheimer secular example:</span>
-<span class="sd">    a planet orbits the host star m1, while the stellar companion m3 is the external perturber.</span>
-
-<span class="sd">    This is a demonstration cell, not a production-quality stability simulation.</span>
+<span class="sd">    This example is intentionally minimal. It should be treated as a starting point,</span>
+<span class="sd">    not as a production-quality stability simulation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">rebound_available</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 
-    <span class="c1"># ------------------------------------------------------------</span>
-    <span class="c1"># S-Type toy model parameters</span>
-    <span class="c1"># ------------------------------------------------------------</span>
-    <span class="n">m1</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># host star mass in solar masses</span>
-    <span class="n">m2</span> <span class="o">=</span> <span class="mf">0.0</span>          <span class="c1"># planet treated as a test particle</span>
-    <span class="n">m3</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># stellar companion mass in solar masses</span>
-
-    <span class="n">a_bin</span> <span class="o">=</span> <span class="mf">1.0</span>       <span class="c1"># binary semimajor axis in AU</span>
-    <span class="n">e_bin</span> <span class="o">=</span> <span class="mf">0.3</span>       <span class="c1"># binary eccentricity</span>
-
-    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>       <span class="c1"># S-Type hierarchy parameter: alpha = a_p / a_bin</span>
-    <span class="n">a_p</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">a_bin</span>
-
-    <span class="c1"># The S-Type secular model uses the perturber mass ratio m3/(m1 + m2).</span>
-    <span class="n">mu_sec</span> <span class="o">=</span> <span class="n">m3</span> <span class="o">/</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span>
-
-    <span class="c1"># Planet mean motion around the host star.</span>
-    <span class="n">n_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span> <span class="o">/</span> <span class="n">a_p</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-
-    <span class="c1"># Heppenheimer forced eccentricity and secular frequency.</span>
-    <span class="n">e_forced</span> <span class="o">=</span> <span class="mf">1.25</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">e_bin</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_bin</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">g_sec</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">mu_sec</span> <span class="o">*</span> <span class="n">alpha</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n_p</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_bin</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
-    <span class="n">period_sec</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">g_sec</span>
-
-    <span class="c1"># Keplerian periods used only to choose a reasonable timestep.</span>
-    <span class="n">period_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a_p</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">))</span>
-    <span class="n">period_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a_bin</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m3</span><span class="p">))</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">period_p</span> <span class="o">/</span> <span class="mi">40</span><span class="p">,</span> <span class="n">period_bin</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
-
-    <span class="c1"># ------------------------------------------------------------</span>
-    <span class="c1"># Build the REBOUND simulation</span>
-    <span class="c1"># ------------------------------------------------------------</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;yr&quot;</span><span class="p">,</span> <span class="s2">&quot;AU&quot;</span><span class="p">,</span> <span class="s2">&quot;Msun&quot;</span><span class="p">)</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s2">&quot;whfast&quot;</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
 
-    <span class="c1"># Add the host star.</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m1</span><span class="p">)</span>
-
-    <span class="c1"># Add the S-Type planet around the host star.</span>
-    <span class="c1"># Starting the planet near the forced eccentricity reduces the free eccentricity.</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_forced</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">primary</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="c1"># Add the stellar companion as the outer perturber.</span>
-    <span class="c1"># Because the planet is massless, using the host star as the primary is equivalent</span>
-    <span class="c1"># to using the center of mass of the inner pair for this toy setup.</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m3</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">primary</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
+    <span class="c1"># Host star, planet, and companion star.</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m_host</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_p</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">eps_H</span><span class="p">,</span> <span class="n">primary</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m_companion</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_bin</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e_bin</span><span class="p">,</span> <span class="n">primary</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">move_to_com</span><span class="p">()</span>
 
-    <span class="c1"># ------------------------------------------------------------</span>
-    <span class="c1"># Integrate and record osculating eccentricity</span>
-    <span class="c1"># ------------------------------------------------------------</span>
     <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">period_sec</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
     <span class="n">ecc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
 
@@ -1533,68 +1488,55 @@ The rough mean eccentricity estimate is &lt;e_p&gt; = 0.0580.
         <span class="n">orbit</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">orbit</span><span class="p">(</span><span class="n">primary</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">ecc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">orbit</span><span class="o">.</span><span class="n">e</span>
 
-    <span class="k">return</span> <span class="n">times</span><span class="p">,</span> <span class="n">ecc</span><span class="p">,</span> <span class="n">e_forced</span><span class="p">,</span> <span class="n">period_sec</span>
-
+    <span class="k">return</span> <span class="n">times</span><span class="p">,</span> <span class="n">ecc</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">run_optional_rebound_s_type_example</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">times</span><span class="p">,</span> <span class="n">ecc</span><span class="p">,</span> <span class="n">e_forced</span><span class="p">,</span> <span class="n">period_sec</span> <span class="o">=</span> <span class="n">result</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">ecc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.8</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">e_forced</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$e_F$&quot;</span><span class="p">)</span>
-
+    <span class="n">times</span><span class="p">,</span> <span class="n">ecc</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">ecc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time (yr)&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Osculating eccentricity&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Optional REBOUND S-Type eccentricity evolution&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The S-Type forced eccentricity used for the initial planet orbit is e_F = </span><span class="si">{</span><span class="n">e_forced</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The secular period from the toy model is </span><span class="si">{</span><span class="n">period_sec</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> yr.&quot;</span><span class="p">)</span>
-
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The S-Type forced eccentricity used for the initial planet orbit is e_F = 0.0412.
-The secular period from the toy model is 36.6 yr.
-</pre></div>
-</div>
-<img alt="../_images/335fb1af865d31d9d1e2211c9c68fbd287528df712c23bf411c265f2f82bd4a5.png" src="../_images/335fb1af865d31d9d1e2211c9c68fbd287528df712c23bf411c265f2f82bd4a5.png" />
+<img alt="../_images/d5aaf63306cdcf218fe5bc85170efeb7b594f2353e3d1f7898e4aa742401e57e.png" src="../_images/d5aaf63306cdcf218fe5bc85170efeb7b594f2353e3d1f7898e4aa742401e57e.png" />
 </div>
 </div>
 </section>
 <section id="common-mistakes">
-<h2><span class="section-number">5.13. </span>Common mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<h2>5.13. Common mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
 <section id="treating-circular-as-dynamically-cold">
-<h3><span class="section-number">5.13.1. </span>Treating circular as dynamically cold<a class="headerlink" href="#treating-circular-as-dynamically-cold" title="Link to this heading">#</a></h3>
+<h3>Treating circular as dynamically cold<a class="headerlink" href="#treating-circular-as-dynamically-cold" title="Link to this heading">#</a></h3>
 <p>A circular initial orbit has <span class="math notranslate nohighlight">\(e_p=0\)</span>, but that does not mean <span class="math notranslate nohighlight">\(e_{\rm free}=0\)</span>. If the forced eccentricity is nonzero, a circular orbit begins displaced from the forced point.</p>
 </section>
 <section id="forgetting-the-pericenter-alignment">
-<h3><span class="section-number">5.13.2. </span>Forgetting the pericenter alignment<a class="headerlink" href="#forgetting-the-pericenter-alignment" title="Link to this heading">#</a></h3>
+<h3>Forgetting the pericenter alignment<a class="headerlink" href="#forgetting-the-pericenter-alignment" title="Link to this heading">#</a></h3>
 <p>The initial eccentricity alone is not enough. The free eccentricity depends on the vector difference between the initial eccentricity vector and the forced eccentricity vector.</p>
 </section>
 <section id="confusing-s-type-and-p-type-semimajor-axis-ratios">
-<h3><span class="section-number">5.13.3. </span>Confusing S-Type and P-Type semimajor axis ratios<a class="headerlink" href="#confusing-s-type-and-p-type-semimajor-axis-ratios" title="Link to this heading">#</a></h3>
+<h3>Confusing S-Type and P-Type semimajor axis ratios<a class="headerlink" href="#confusing-s-type-and-p-type-semimajor-axis-ratios" title="Link to this heading">#</a></h3>
 <p>For S-Type problems, <span class="math notranslate nohighlight">\(\alpha=a_p/a_{\rm bin}\)</span> is small. For P-Type problems, <span class="math notranslate nohighlight">\(\alpha=a_p/a_{\rm bin}\)</span> is large, and the expansion uses inverse powers of <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </section>
 <section id="using-a-secular-model-near-a-mean-motion-resonance">
-<h3><span class="section-number">5.13.4. </span>Using a secular model near a mean motion resonance<a class="headerlink" href="#using-a-secular-model-near-a-mean-motion-resonance" title="Link to this heading">#</a></h3>
+<h3>Using a secular model near a mean motion resonance<a class="headerlink" href="#using-a-secular-model-near-a-mean-motion-resonance" title="Link to this heading">#</a></h3>
 <p>Secular theory averages over the orbital periods. A mean motion resonance is specifically about a commensurability between orbital periods. That is exactly where simple averaging can fail.</p>
 </section>
 <section id="assuming-the-first-order-model-is-always-enough">
-<h3><span class="section-number">5.13.5. </span>Assuming the first-order model is always enough<a class="headerlink" href="#assuming-the-first-order-model-is-always-enough" title="Link to this heading">#</a></h3>
+<h3>Assuming the first-order model is always enough<a class="headerlink" href="#assuming-the-first-order-model-is-always-enough" title="Link to this heading">#</a></h3>
 <p>The first-order model is valuable because it is transparent. It is not universally accurate. Second-order terms, short-period variations, and direct N-body integrations become necessary as the perturbation strengthens.</p>
 </section>
 <section id="forgetting-the-sign-of-the-forced-eccentricity">
-<h3><span class="section-number">5.13.6. </span>Forgetting the sign of the forced eccentricity<a class="headerlink" href="#forgetting-the-sign-of-the-forced-eccentricity" title="Link to this heading">#</a></h3>
+<h3>Forgetting the sign of the forced eccentricity<a class="headerlink" href="#forgetting-the-sign-of-the-forced-eccentricity" title="Link to this heading">#</a></h3>
 <p>In some P-Type expressions, the forced eccentricity can be signed. A negative value means the forced vector points anti-aligned with the binary pericenter in the chosen coordinate convention.</p>
 </section>
 </section>
 <section id="copy-paste-reference">
-<h2><span class="section-number">5.14. </span>Copy-paste reference<a class="headerlink" href="#copy-paste-reference" title="Link to this heading">#</a></h2>
+<h2>5.14. Copy-paste reference<a class="headerlink" href="#copy-paste-reference" title="Link to this heading">#</a></h2>
 <p>This section collects the main reusable functions from the guide.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1637,7 +1579,7 @@ e_max: 4.12088
 </div>
 </section>
 <section id="references-and-source-notes">
-<h2><span class="section-number">5.15. </span>References and source notes<a class="headerlink" href="#references-and-source-notes" title="Link to this heading">#</a></h2>
+<h2>5.15. References and source notes<a class="headerlink" href="#references-and-source-notes" title="Link to this heading">#</a></h2>
 <p>This guide is based on the standard secular eccentricity-vector picture used in studies of planets in binary-star systems. The most important source ideas are:</p>
 <ul class="simple">
 <li><p>Heppenheimer’s first-order S-Type secular model.</p></li>
@@ -1688,24 +1630,6 @@ e_max: 4.12088
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="planet-packing-stability.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Planet Packing</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="obliquity-evolution.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Obliquity Evolution</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -1730,12 +1654,12 @@ e_max: 4.12088
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eccentricity-as-a-vector">5.3. Eccentricity as a vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-type-architecture">5.4. S-Type architecture</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-heppenheimer-s-type-model">5.5. The Heppenheimer S-Type model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-three-initial-eccentricities">5.5.1. Example: three initial eccentricities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-three-initial-eccentricities">Example: three initial eccentricities</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-eccentricity-and-maximum-eccentricity">5.6. Free eccentricity and maximum eccentricity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-marchal-and-empirical-corrections">5.7. First-order, Marchal, and empirical corrections</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#andrade-ines-style-empirical-correction">5.7.1. Andrade-Ines style empirical correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#andrade-ines-style-empirical-correction">Andrade-Ines style empirical correction</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applicability-domains">5.8. Applicability domains</a></li>
@@ -1744,12 +1668,12 @@ e_max: 4.12088
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-and-slow-circumbinary-eccentricity-components">5.11. Fast and slow circumbinary eccentricity components</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking-against-an-n-body-simulation">5.12. Benchmarking against an N-body simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">5.13. Common mistakes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treating-circular-as-dynamically-cold">5.13.1. Treating circular as dynamically cold</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-pericenter-alignment">5.13.2. Forgetting the pericenter alignment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusing-s-type-and-p-type-semimajor-axis-ratios">5.13.3. Confusing S-Type and P-Type semimajor axis ratios</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-secular-model-near-a-mean-motion-resonance">5.13.4. Using a secular model near a mean motion resonance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-the-first-order-model-is-always-enough">5.13.5. Assuming the first-order model is always enough</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-sign-of-the-forced-eccentricity">5.13.6. Forgetting the sign of the forced eccentricity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treating-circular-as-dynamically-cold">Treating circular as dynamically cold</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-pericenter-alignment">Forgetting the pericenter alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusing-s-type-and-p-type-semimajor-axis-ratios">Confusing S-Type and P-Type semimajor axis ratios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-secular-model-near-a-mean-motion-resonance">Using a secular model near a mean motion resonance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-the-first-order-model-is-always-enough">Assuming the first-order model is always enough</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forgetting-the-sign-of-the-forced-eccentricity">Forgetting the sign of the forced eccentricity</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-paste-reference">5.14. Copy-paste reference</a></li>

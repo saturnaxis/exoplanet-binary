@@ -20,8 +20,6 @@ execute:
   exclude_patterns:          # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
     - 'nbody-integration.ipynb'
     - 'three-body-stability.ipynb'
-  #   - 'archival-data.ipynb'
-  #   - 'archival-data_old.ipynb'
   timeout                   : 600    # The maximum time (in seconds) each notebook cell is allowed to run.
   run_in_temp               : false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
                                     # otherwise the notebook's parent directory will be the cwd.

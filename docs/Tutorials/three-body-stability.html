@@ -215,7 +215,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. 5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
@@ -227,6 +227,7 @@
 <li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archival-data.html">13. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">14. Modeling Exoplanet Transits</a></li>
 </ul>
 
     </div>
@@ -487,7 +488,7 @@ document.write(`
 <p>Instead of searching for analytical solutions, others have used numerical approximations (or computational solutions) to solve the problem.  Although less elegant, such techniques are generally more practical because investigators can explore wide swathes of potential parameter space using modern parallel computing.</p>
 <p>This guide will focus on numerical approaches for the case of a planet orbiting a pair of binary stars.  In this case, the planet is (at most) a Jupiter-mass body and naturally requires the restricted TBP because the two primary bodies are stellar masses (<span class="math notranslate nohighlight">\(m_2&gt;0.08\ M_\odot\)</span>; <span class="math notranslate nohighlight">\(m_1 \ge m_2\)</span>).  In 1982, Rudolf Dvorak defined three potential configurations of planets in binary systems: S-Type, P-Type, or T-Type (see Figure <a class="reference internal" href="#planet-configs"><span class="std std-numref">3.1</span></a>).</p>
 <figure class="align-default" id="planet-configs">
-<a class="reference internal image-reference" href="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369"><img alt="planet configurations" src="https://www.astronomy.com/wp-content/uploads/sites/2/2023/02/exoplanetorbits.png?resize=600%2C369" style="width: 600px;" />
+<a class="reference internal image-reference" href="https://www.astronomy.com/wp-content/uploads/2023/02/exoplanetorbits.png"><img alt="planet configurations" src="https://www.astronomy.com/wp-content/uploads/2023/02/exoplanetorbits.png" style="width: 600px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Possible configurations of exoplanets in binary star systems (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1982OAWMN.191..423D/abstract">Dvorak 1982</a>).  The planet can orbit either star (S-Type), both stars, (P-Type), or along the orbit of the secondary as a Trojan (T-Type). Figure credit: <a class="reference external" href="https://www.astronomy.com/science/can-solar-systems-exist-in-a-binary-star-system/">Astronomy: Roen Kelly</a>.</span><a class="headerlink" href="#planet-configs" title="Link to this image">#</a></p>
