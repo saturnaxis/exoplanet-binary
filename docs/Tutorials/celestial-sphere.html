@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Celestial Sphere &#8212; Exoplanets within Binary Systems</title>
+    <title>10. Celestial Sphere and Sky Coordinates &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ada1e387" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
     <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -77,6 +77,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"3717defda1e847dc910e3cf25ea7777e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "450px", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "700px"}}, "8dbc176d10f941428f8d2a0fa59e3ecc": {"model_name": "AnyModel", "model_module": "anywidget", "model_module_version": "~0.11.*", "state": {"_anywidget_id": "ipyaladin.widget.Aladin", "_base_layer_last_view": "https://alaskybis.unistra.fr/DSS/DSSColor", "_css": ".cell-output-ipywidget-background{background:transparent}.jp-OutputArea-output,.aladin-widget{background-color:transparent}.aladin-widget .aladin-measurement-div{max-height:100px}.lm-Widget.aladin-lite-lm-container{height:100%}\n", "_dom_classes": [], "_esm": "function y(o){o.charAt(0)===\"_\"&&(o=o.slice(1));let t=o.split(\"_\");for(let i=1;i<t.length;i++)t[i]=t[i].charAt(0).toUpperCase()+t[i].slice(1);return t.join(\"\")}function c(o){let t={};for(let i in o)t[y(i)]=o[i];return t}var u=class{locked=!1;unlock(){this.locked=!1}lock(){this.locked=!0}},p=-1;function v(o){p=o}function _(o,t){o==-1?t.style.height=\"100%\":t.style.height=`${o}px`}import C from\"https://esm.sh/aladin-lite@3.7.3-beta\";var r=C;var A=0,g=class{constructor(t,i){this.aladin=t,this.model=i}handleAddMarker(t){let i=c(t.options||{});i.name||(i.name=\"markers\");let n=r.catalog(i);this.aladin.addCatalog(n);let e=t.markers,a=[];for(let s of e)a.push(r.marker(s.lon,s.lat,{useMarkerDefaultIcon:i.useMarkerDefaultIcon|!1,popupTitle:s.title,popupDesc:s.description}));n.addSources(a)}async handleSaveViewAsImage(t){let i=t.path,n=t.format,e=t.with_logo,a=await this.aladin.getViewData(\"arraybuffer\",`image/${n}`,e);this.model.send({event_type:\"save_view_as_image\",path:i},null,[a])}handleAddFits(t,i){let n=c(t.options||{});n.name||(n.name=`image_${String(++A).padStart(3,\"0\")}`);let e=i[0],a=new Blob([e],{type:\"application/octet-stream\"}),s=URL.createObjectURL(a),h=this.aladin.createImageFITS(s,n,(d,m)=>{this.aladin.gotoRaDec(d,m),console.info(`FITS located at ra: ${d}, dec: ${m}`),URL.revokeObjectURL(s)});this.aladin.setOverlayImageLayer(h,n.name)}handleAddCatalogFromURL(t){let i=c(t.options||{});this.aladin.addCatalog(r.catalogFromURL(t.votable_URL,i))}handleAddMOCFromURL(t){let i=c(t.options||{});this.aladin.addMOC(r.MOCFromURL(t.moc_URL,i))}handleAddMOCFromDict(t){let i=c(t.options||{});this.aladin.addMOC(r.MOCFromJSON(t.moc_dict,i))}handleAddOverlay(t){let i=t.regions_infos,n=c(t.graphic_options||{});n.color||(n.color=\"red\");let e=r.graphicOverlay(n);this.aladin.addOverlay(e);for(let a of i){let s=a.infos;switch(a.region_type){case\"stcs\":e.addFootprints(r.footprintsFromSTCS(s.stcs,a.options));break;case\"circle\":e.add(r.circle(s.ra,s.dec,s.radius,a.options));break;case\"ellipse\":e.add(r.ellipse(s.ra,s.dec,s.a,s.b,s.theta,a.options));break;case\"line\":a.options.lineWidth=a.options.lineWidth||3,e.add(r.vector(s.ra1,s.dec1,s.ra2,s.dec2,a.options));break;case\"polygon\":e.add(r.polygon(s.vertices,a.options));break}}}handleChangeColormap(t){this.aladin.getBaseImageLayer().setColormap(t.colormap)}handleGetJPGThumbnail(){this.aladin.exportAsPNG()}handleTriggerSelection(t){let i=t.selection_type;i===\"rectangle\"?i=\"rect\":i===\"polygon\"&&(i=\"poly\"),this.aladin.select(i)}handleAddTable(t,i){let n=c(t.options||{}),e=c(n.circleError||{}),a=c(n.ellipseError||{}),s=i[0].buffer,h=new TextDecoder(\"utf-8\"),d=new Blob([h.decode(s)]),m=URL.createObjectURL(d);n.onClick=\"showTable\";let b=n.shape||\"cross\";Object.keys(e).length!=0&&(n.shape=l=>l.data[e.radius]?r.circle(l.ra,l.dec,l.data[e.radius]*e.conversionRadius):b),Object.keys(a).length!=0&&(n.shape=l=>l.data[a.majAxis]&l.data[a.minAxis]?r.ellipse(l.ra,l.dec,l.data[a.majAxis]*a.conversionMajAxis,l.data[a.minAxis]*a.conversionMinAxis,l.data[a.angle]*a.conversionAngle):b),r.catalogFromURL(m,n,l=>{this.aladin.addCatalog(l)},!1),URL.revokeObjectURL(m)}};var f=class{constructor(t,i,n){this.aladin=t,this.aladinDiv=i,this.model=n,this.messageHandler=new g(t,n),this.currentDivNumber=parseInt(i.id.split(\"-\").pop())}isLastDiv(){if(this.currentDivNumber===p)return!0;let t=p;for(let i=t;i>=0;i--){let n=document.getElementById(`aladin-lite-div-${i}`);if(n&&n.style.display!==\"none\"){t=i;break}}return v(t),this.currentDivNumber===t}updateWCS(){this.isLastDiv()&&this.model.set(\"_wcs\",this.aladin.getViewWCS())}updateRotation(){this.isLastDiv()&&this.model.set(\"_rotation\",this.aladin.getRotation())}update2AxisFoV(){if(!this.isLastDiv())return;let t=this.aladin.getFov();this.model.set(\"_fov_xy\",{x:t[0],y:t[1]})}subscribeAll(){this.aladin.on(\"positionChanged\",e=>{if(i.locked){i.unlock();return}t.lock();let a=[e.ra,e.dec];this.updateWCS(),this.updateRotation(),this.model.set(\"_target\",`${a[0]} ${a[1]}`),this.model.save_changes()}),this.aladin.on(\"zoomChanged\",e=>{this.model.set(\"_fov\",parseFloat(e.toFixed(5))),this.updateWCS(),this.update2AxisFoV(),this.isLastDiv()&&this.model.save_changes()}),this.aladin.on(\"cooFrameChanged\",()=>{this.updateWCS(),this.model.save_changes()}),this.aladin.on(\"projectionChanged\",()=>{this.updateWCS(),this.model.save_changes()}),this.aladin.on(\"layerChanged\",(e,a,s)=>{a===\"base\"&&this.model.set(\"_survey_body\",e.hipsBody||\"sky\"),!(a!==\"base\"||s!==\"ADDED\")&&(this.updateWCS(),this.model.set(\"_base_layer_last_view\",e.id),this.model.save_changes())}),this.aladin.on(\"resizeChanged\",(e,a)=>{if(e===1&&a===1){this.model.set(\"_is_reduced\",!0),this.model.save_changes();return}else this.model.set(\"_is_reduced\",!1);this.updateWCS(),this.update2AxisFoV(),this.model.set(\"_height\",a),this.model.save_changes()}),this.aladin.on(\"objectHovered\",e=>{e.data!==void 0&&this.model.send({event_type:\"object_hovered\",content:{ra:e.ra,dec:e.dec}})}),this.aladin.on(\"rotationChanged\",e=>{this.updateRotation(),this.isLastDiv()&&this.model.save_changes()}),this.aladin.on(\"objectClicked\",e=>{if(e){let a={ra:e.ra||e.source.ra,dec:e.dec||e.source.dec};e.data!==void 0&&(a.data=e.data),e.source!==void 0&&(a.data=e.source.data),this.model.set(\"clicked_object\",a),this.model.send({event_type:\"object_clicked\",content:a}),this.model.save_changes()}}),this.aladin.on(\"click\",e=>{this.model.send({event_type:\"click\",content:e})}),this.aladin.on(\"select\",e=>{let a=e.map(h=>h.map(d=>({ra:d.ra,dec:d.dec,data:d.data,x:d.x,y:d.y})));this.model.set(\"_selected_objects\",a),this.model.save_changes();let s=[];e.forEach(h=>{h.forEach(d=>{s.push({ra:d.ra,dec:d.dec,data:d.data,x:d.x,y:d.y})})}),this.model.send({event_type:\"select\",content:s})}),this.aladin.view.catalogCanvas.addEventListener(\"dblclick\",e=>{this.updateRotation(),this.model.save_changes()});let t=new u,i=new u;this.traitHandlers={_target:e=>{if(t.locked){t.unlock();return}i.lock();let a=e.split(\" \");this.aladin.gotoRaDec(a[0],a[1])},_fov:e=>{this.aladin.setFoV(e),this.updateWCS(),this.update2AxisFoV(),this.model.save_changes()},_rotation:e=>{this.aladin.setRotation(e),this.updateWCS(),this.update2AxisFoV(),this.model.save_changes()},_height:e=>{_(e,this.aladinDiv),this.updateWCS(),this.update2AxisFoV(),this.model.save_changes()},coo_frame:e=>{this.aladin.setFrame(e)},survey:e=>{this.aladin.setImageSurvey(e)},overlay_survey:e=>{e!==\"\"&&this.aladin.setOverlayImageLayer(e)},overlay_survey_opacity:e=>{let a=this.aladin.getOverlayImageLayer();a&&a.setAlpha(e)}};for(var n in this.traitHandlers){let e=this.traitHandlers[n];this.model.on(\"change:\"+n,(a,s)=>e(s))}this.eventHandlers={add_marker:this.messageHandler.handleAddMarker,save_view_as_image:this.messageHandler.handleSaveViewAsImage,add_fits:this.messageHandler.handleAddFits,add_catalog_from_URL:this.messageHandler.handleAddCatalogFromURL,add_MOC_from_URL:this.messageHandler.handleAddMOCFromURL,add_MOC_from_dict:this.messageHandler.handleAddMOCFromDict,add_overlay:this.messageHandler.handleAddOverlay,change_colormap:this.messageHandler.handleChangeColormap,get_JPG_thumbnail:this.messageHandler.handleGetJPGThumbnail,trigger_selection:this.messageHandler.handleTriggerSelection,add_table:this.messageHandler.handleAddTable},this.model.on(\"msg:custom\",(e,a)=>{let s=e.event_name,h=this.eventHandlers[s];if(h)h.call(this,e,a);else throw new Error(`Unknown event name: ${s}`)})}unsubscribeAll(){for(var t in this.traitHandlers)this.model.off(\"change:\"+t);this.model.off(\"msg:custom\")}};function w(o,t){t.classList.add(\"aladin-lite-lm-container\"),v(p+1);let i=o.get(\"_init_options\"),n={};for(let s in i)n[y(s)]=i[s];let e=document.createElement(\"div\");e.classList.add(\"aladin-widget\"),_(o.get(\"_height\"),e),e.id=`aladin-lite-div-${p}`;let a=new r.aladin(e,n);return t.appendChild(e),{aladin:a,aladinDiv:e}}async function k({model:o}){await r.init}function x({model:o,el:t}){let{aladin:i,aladinDiv:n}=w(o,t),e=new f(i,n,o);e.subscribeAll();let a=e.traitHandlers;for(let d in a){let m=o.get(d);m!==null&&a[d](m)}let s={...i.getFov()};o.set(\"_fov_xy\",{x:s[0],y:s[1]});let h={...i.getViewWCS()};return o.set(\"_wcs\",h),o.set(\"_is_loaded\",!0),o.save_changes(),()=>{e.unsubscribeAll()}}var $={initialize:k,render:x};export{$ as default};\n", "_fov": 0.25, "_fov_xy": {}, "_height": 400, "_init_options": {"show_simbad_pointer_control": true, "show_coo_grid_control": true, "show_settings_control": true, "show_context_menu": true, "_target": "Vega", "_fov": 0.25, "survey": "P/DSS2/color", "reticle_color": "red", "reticle_size": 24}, "_is_loaded": false, "_is_reduced": false, "_model_module": "anywidget", "_model_module_version": "~0.11.*", "_model_name": "AnyModel", "_ready": false, "_rotation": 0.0, "_selected_objects": [], "_survey_body": "sky", "_target": "279.23473479 38.78368896", "_view_count": null, "_view_module": "anywidget", "_view_module_version": "~0.11.*", "_view_name": "AnyView", "_wcs": {}, "clicked_object": {}, "coo_frame": "ICRS", "layout": "IPY_MODEL_3717defda1e847dc910e3cf25ea7777e", "overlay_survey": "", "overlay_survey_opacity": 0.0, "projection": "SIN", "survey": "P/DSS2/color", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/celestial-sphere';</script>
     <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/celestial-sphere.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -216,7 +219,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Celestial Sphere</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Celestial Sphere and Sky Coordinates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
 </ul>
 
@@ -438,7 +441,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Celestial Sphere</h1>
+    <h1>Celestial Sphere and Sky Coordinates</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -448,11 +451,33 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ancient-greek-perspective">10.1. The Ancient Greek Perspective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-astronomical-terms">10.2. Key Astronomical Terms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-way-altitude-and-azimuth-local-coordinates">10.3. Finding Your Way: Altitude and Azimuth (Local Coordinates)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-coordinates-right-ascension-declination-and-epoch">10.4. Universal Coordinates: Right Ascension, Declination, and Epoch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-right-ascension-for-monthly-astronomical-observations">10.5. Best Right Ascension for Monthly Astronomical Observations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-celestial-sphere-is-useful">10.1. Why the Celestial Sphere Is Useful</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-local-sky-horizon-zenith-nadir-and-meridian">10.2. The Local Sky: Horizon, Zenith, Nadir, and Meridian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizon-coordinates-altitude-and-azimuth">10.3. Horizon Coordinates: Altitude and Azimuth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equatorial-coordinates-right-ascension-declination-and-epoch">10.4. Equatorial Coordinates: Right Ascension, Declination, and Epoch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#earth-rotation-sidereal-time-and-hour-angle">10.5. Earth Rotation, Sidereal Time, and Hour Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#celestial-poles-celestial-equator-and-observer-latitude">10.6. Celestial Poles, Celestial Equator, and Observer Latitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ecliptic-and-the-sun-s-apparent-path">10.7. The Ecliptic and the Sun’s Apparent Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-observations-with-right-ascension">10.8. Planning Observations with Right Ascension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-packages-for-planning-observations">10.9. Python Packages for Planning Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-finder-chart-with-ipyaladin">10.9.1. Optional finder chart with <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-in-an-observing-plan-log">10.9.2. What to record in an observing-plan log</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-python-using-astropy-for-real-observing-calculations">10.10. Optional Python: Using Astropy for Real Observing Calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplemental-videos">10.11. Supplemental Videos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-sky-and-horizon-coordinates">10.11.1. Local sky and horizon coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equatorial-coordinates-and-the-celestial-sphere">10.11.2. Equatorial coordinates and the celestial sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidereal-time-hour-angle-and-sky-motion">10.11.3. Sidereal time, hour angle, and sky motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astronomical-time-systems-and-observing-dates">10.11.4. Astronomical time systems and observing dates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-targets-catalogs-and-finder-charts">10.11.5. Finding targets, catalogs, and finder charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecliptic-seasons-and-the-sun-s-apparent-path">10.11.6. Ecliptic, seasons, and the Sun’s apparent path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#telescopes-photometry-and-light-curves">10.11.7. Telescopes, photometry, and light curves</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">10.12. Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-rules">10.13. Summary Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-questions">10.14. Checkpoint Questions</a></li>
 </ul>
             </nav>
         </div>
@@ -464,191 +489,673 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="celestial-sphere">
-<h1><span class="section-number">10. </span>Celestial Sphere<a class="headerlink" href="#celestial-sphere" title="Link to this heading">#</a></h1>
-<p>The <strong>celestial sphere</strong> is an imaginary sphere of gigantic radius, concentric with the Earth, onto which all celestial objects appear to be projected. It’s a fundamental concept in astronomy for understanding the positions and motions of objects in the sky.</p>
-<hr class="docutils" />
-<section id="the-ancient-greek-perspective">
-<h2><span class="section-number">10.1. </span>The Ancient Greek Perspective<a class="headerlink" href="#the-ancient-greek-perspective" title="Link to this heading">#</a></h2>
-<p>Ancient Greek astronomers, like <strong>Aristotle</strong> and <strong>Ptolemy</strong>, didn’t know the Earth revolved around the Sun. From their Earth-centered (geocentric) perspective, it appeared as though the stars were fixed on a giant sphere that rotated around the Earth once a day.</p>
-<p>Here’s how they likely constructed this idea:</p>
-<ol class="arabic simple">
-<li><p><strong>Observation of Daily Motion:</strong> They observed that the Sun, Moon, planets, and stars rose in the eastern part of the sky and set in the western part. This suggested a daily rotation of something encompassing the Earth.</p></li>
-<li><p><strong>Fixed Patterns of Stars:</strong> While individual stars moved across the sky, their positions relative to each other (the constellations) remained constant. This implied they were attached to a single, rigid structure.</p></li>
-<li><p><strong>Apparent Dome of the Sky:</strong> The sky looks like a dome overhead. Extending this dome to be a full sphere surrounding the Earth was a natural geometric and conceptual leap.</p></li>
-<li><p><strong>Celestial Poles and Equator:</strong> They noticed that some stars in the north appeared to circle around a fixed point (the North Celestial Pole, near Polaris), while others rose and set. This led to the concept of celestial poles as the pivot points of this sphere and a celestial equator as the projection of Earth’s equator onto this sphere.</p></li>
-</ol>
-<p>This model, while not physically accurate in terms of the universe’s structure, was incredibly useful for predicting the positions of celestial objects and for navigation. It remains a powerful tool for observational astronomy today.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="celestial-sphere-and-sky-coordinates">
+<h1><span class="section-number">10. </span>Celestial Sphere and Sky Coordinates<a class="headerlink" href="#celestial-sphere-and-sky-coordinates" title="Link to this heading">#</a></h1>
+<p>The <strong>celestial sphere</strong> is an imaginary sphere centered on the observer. Astronomers use it as a map of the sky. It is not a claim that stars are physically attached to a shell. It is a coordinate system that helps us describe where objects appear to be, how they move across the sky, and when they are well placed for observation.</p>
+<p>This page focuses on the practical ideas needed for observing, target selection, and reading astronomical coordinates.</p>
+<div class="note admonition">
+<p class="admonition-title">Learning goals</p>
+<p>After working through this page, you should be able to explain the difference between local sky coordinates and equatorial coordinates, identify the zenith, horizon, meridian, celestial equator, celestial poles, and ecliptic, convert right ascension between hours and degrees, explain why right ascension is useful for planning observations, and estimate which right ascensions are best placed in the night sky during different months.</p>
+</div>
+<section id="why-the-celestial-sphere-is-useful">
+<h2><span class="section-number">10.1. </span>Why the Celestial Sphere Is Useful<a class="headerlink" href="#why-the-celestial-sphere-is-useful" title="Link to this heading">#</a></h2>
+<p>The celestial sphere is useful because the sky appears to be a dome above us. Stars are at very different physical distances, but for many observing tasks we only need their <strong>directions</strong> on the sky. We can therefore imagine every object projected onto a large sphere around Earth or around the observer.</p>
+<p>Ancient Greek astronomers used this idea in an Earth-centered model of the universe. They observed that the Sun, Moon, planets, and stars rise in the east and set in the west; that constellations keep nearly fixed patterns; and that stars near the north celestial pole circle around a nearly fixed point in the sky. The physical interpretation has changed, but the geometry remains useful. Modern astronomers still use the celestial sphere as a practical mapping tool.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key idea</p>
+<p>The celestial sphere is a model for directions, not distances. It tells you where to look on the sky, not how far away an object is.</p>
+</div>
 </section>
-<hr class="docutils" />
-<section id="key-astronomical-terms">
-<h2><span class="section-number">10.2. </span>Key Astronomical Terms<a class="headerlink" href="#key-astronomical-terms" title="Link to this heading">#</a></h2>
-<p>Here are some fundamental terms associated with the celestial sphere:</p>
-<ul class="simple">
-<li><p><strong>Zenith:</strong> The point on the celestial sphere directly above an observer.</p>
-<ul>
-<li><p><strong>Diagram:</strong>
-<img alt="Zenith, Nadir, and Horizon" src="https://www.trekview.org/assets/images/blog/2020-03-13/horizon-coords-meta.jpg" /></p></li>
-</ul>
-</li>
-<li><p><strong>Nadir:</strong> The point on the celestial sphere directly below an observer (opposite the zenith).</p></li>
-<li><p><strong>Celestial Poles (North and South):</strong> The points on the celestial sphere directly above the Earth’s North and South geographic poles. These are the points around which the celestial sphere appears to rotate.</p>
-<ul>
-<li><p><strong>Diagram:</strong>
-<img alt="Celestial Poles and Equator" src="https://orionbearastronomy.com/wp-content/uploads/2019/02/the-celestial-sphere-1-638.jpg" /></p></li>
-</ul>
-</li>
-<li><p><strong>Celestial Equator:</strong> The great circle on the celestial sphere in the same plane as the Earth’s equator. It divides the celestial sphere into northern and southern hemispheres.</p>
-<ul>
-<li><p><strong>Diagram:</strong> (See Celestial Poles diagram above, it’s usually shown together)</p></li>
-</ul>
-</li>
-<li><p><strong>Horizon:</strong> The great circle on the celestial sphere that separates the visible sky from the invisible sky (below the observer). It’s where the sky appears to meet the Earth.</p>
-<ul>
-<li><p><strong>Diagram:</strong> (See Zenith diagram above)</p></li>
-</ul>
-</li>
-<li><p><strong>Ecliptic:</strong> The apparent annual path of the Sun on the celestial sphere as viewed from Earth. It’s tilted at an angle of about <span class="math notranslate nohighlight">\(23.5^{\circ}\)</span> relative to the celestial equator because of the tilt of Earth’s axis. The planets and Moon also appear to move roughly along the ecliptic.</p>
-<ul>
-<li><p><strong>Diagram:</strong>
-<img alt="Ecliptic with Earth and Sun" src="http://hyperphysics.phy-astr.gsu.edu/hbase/solar/imgsol/eclip.png" /></p></li>
-</ul>
-</li>
-<li><p><strong>Meridian (Local Meridian):</strong> A great circle on the celestial sphere passing through the celestial poles and the observer’s zenith. An object is at its highest point in the sky when it crosses the meridian.</p>
-<ul>
-<li><p><strong>Diagram:</strong>
-<img alt="Local Meridian Diagram" src="https://astronomy.swin.edu.au/cms/cpg15x/albums/userpics/meridian.jpg" /></p></li>
-</ul>
-</li>
-</ul>
+<section id="the-local-sky-horizon-zenith-nadir-and-meridian">
+<h2><span class="section-number">10.2. </span>The Local Sky: Horizon, Zenith, Nadir, and Meridian<a class="headerlink" href="#the-local-sky-horizon-zenith-nadir-and-meridian" title="Link to this heading">#</a></h2>
+<p>The <strong>local sky</strong> depends on the observer’s position on Earth. Two observers at different locations do not have the same horizon, zenith, or local meridian.</p>
+<p>The <strong>zenith</strong> is the point directly above the observer. The <strong>nadir</strong> is the point directly below the observer. The <strong>horizon</strong> is the boundary between the visible and invisible sky for that observer. The <strong>local meridian</strong> is the great circle passing through the north point on the horizon, the zenith, the south point on the horizon, and the celestial poles. When an object crosses the local meridian, it is said to <strong>transit</strong> or <strong>culminate</strong>. For most objects, this is when they reach their highest altitude in the sky.</p>
+<div class="tip admonition">
+<p class="admonition-title">Observing rule</p>
+<p>Objects are usually best observed when they are high above the horizon and near the local meridian. Low-altitude objects are seen through more atmosphere, which increases extinction, turbulence, and distortion.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># This simple diagram shows the local sky as a dome over the observer.</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="c1"># Example object and altitude angle.</span>
+<span class="n">alt_deg</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">az_projection</span> <span class="o">=</span> <span class="mf">0.55</span>
+<span class="n">obj_x</span> <span class="o">=</span> <span class="n">az_projection</span>
+<span class="n">obj_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alt_deg</span><span class="p">))</span> <span class="o">*</span> <span class="n">az_projection</span>
+<span class="n">obj_y</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">obj_y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">obj_x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">obj_x</span><span class="p">],</span> <span class="p">[</span><span class="n">obj_y</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">obj_x</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">obj_y</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="c1"># Draw a small altitude angle arc.</span>
+<span class="n">arc_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">obj_y</span><span class="p">,</span> <span class="n">obj_x</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.22</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">arc_alt</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arc_alt</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="s2">&quot;altitude&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.12</span><span class="p">,</span> <span class="s2">&quot;Zenith&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.06</span><span class="p">,</span> <span class="s2">&quot;North horizon&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.06</span><span class="p">,</span> <span class="s2">&quot;South horizon&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="s2">&quot;local meridian&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">obj_x</span> <span class="o">+</span> <span class="mf">0.04</span><span class="p">,</span> <span class="n">obj_y</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/95f087e05a0bdd35d91bf8ed2076093304a0939073ae9c78c480b408193bd7f8.png" src="../_images/95f087e05a0bdd35d91bf8ed2076093304a0939073ae9c78c480b408193bd7f8.png" />
+</div>
+</div>
 </section>
-<hr class="docutils" />
-<section id="finding-your-way-altitude-and-azimuth-local-coordinates">
-<h2><span class="section-number">10.3. </span>Finding Your Way: Altitude and Azimuth (Local Coordinates)<a class="headerlink" href="#finding-your-way-altitude-and-azimuth-local-coordinates" title="Link to this heading">#</a></h2>
-<p>To tell someone where to look for a star in their <em>local sky right now</em>, you use the <strong>altitude-azimuth</strong> system. This system is specific to the observer’s location and time.</p>
-<ul class="simple">
-<li><p><strong>Altitude (Alt):</strong> This is the angular height of an object above the observer’s horizon. It’s measured in degrees, from <span class="math notranslate nohighlight">\(0^{\circ}\)</span> at the horizon to <span class="math notranslate nohighlight">\(90^{\circ}\)</span> at the zenith. Objects below the horizon have negative altitudes.</p></li>
-<li><p><strong>Azimuth (Az):</strong> This is the angular distance measured clockwise around the observer’s horizon from a reference direction, usually <strong>North</strong>, to the point on the horizon directly below the object. It’s measured in degrees from <span class="math notranslate nohighlight">\(0^{\circ}\)</span> to <span class="math notranslate nohighlight">\(360^{\circ}\)</span>.</p>
-<ul>
-<li><p>North = <span class="math notranslate nohighlight">\(0^{\circ}\)</span></p></li>
-<li><p>East = <span class="math notranslate nohighlight">\(90^{\circ}\)</span></p></li>
-<li><p>South = <span class="math notranslate nohighlight">\(180^{\circ}\)</span></p></li>
-<li><p>West = <span class="math notranslate nohighlight">\(270^{\circ}\)</span></p></li>
-</ul>
-</li>
-</ul>
-<p><strong>How it works:</strong> Imagine pointing your finger towards the North on the horizon. Then, swing your arm to the right (clockwise) along the horizon by the azimuth angle. Finally, lift your arm upwards by the altitude angle. That’s where the object is!</p>
-<ul class="simple">
-<li><p><strong>Diagram:</strong>
-<img alt="Altitude-Azimuth Schematic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Azimuth-Altitude_schematic.svg/498px-Azimuth-Altitude_schematic.svg.png" /></p></li>
-</ul>
-<p><strong>Important Note:</strong> Because the Earth rotates, the altitude and azimuth of a star are constantly changing.</p>
+<section id="horizon-coordinates-altitude-and-azimuth">
+<h2><span class="section-number">10.3. </span>Horizon Coordinates: Altitude and Azimuth<a class="headerlink" href="#horizon-coordinates-altitude-and-azimuth" title="Link to this heading">#</a></h2>
+<p>The <strong>altitude-azimuth system</strong> describes where an object appears in your local sky right now. It is useful when you are physically pointing a telescope, binoculars, or your eyes.</p>
+<p><strong>Altitude</strong> is the angular height of an object above the horizon. An object on the horizon has altitude <span class="math notranslate nohighlight">\(0^{\circ}\)</span>, an object at the zenith has altitude <span class="math notranslate nohighlight">\(90^{\circ}\)</span>, and an object below the horizon has negative altitude. <strong>Azimuth</strong> is the direction around the horizon, usually measured clockwise from north. In the common astronomy convention, north is <span class="math notranslate nohighlight">\(0^{\circ}\)</span>, east is <span class="math notranslate nohighlight">\(90^{\circ}\)</span>, south is <span class="math notranslate nohighlight">\(180^{\circ}\)</span>, and west is <span class="math notranslate nohighlight">\(270^{\circ}\)</span>.</p>
+<p>Altitude and azimuth are local and time-dependent. The same star has different altitude and azimuth values for different observers, and the values change continuously as Earth rotates.</p>
+<div class="warning admonition">
+<p class="admonition-title">Common beginner mistake</p>
+<p>Altitude and azimuth are not permanent coordinates for a star. They tell you where the star is from one location at one time.</p>
+</div>
 </section>
-<hr class="docutils" />
-<section id="universal-coordinates-right-ascension-declination-and-epoch">
-<h2><span class="section-number">10.4. </span>Universal Coordinates: Right Ascension, Declination, and Epoch<a class="headerlink" href="#universal-coordinates-right-ascension-declination-and-epoch" title="Link to this heading">#</a></h2>
-<p>To give a star a “fixed” address on the celestial sphere, much like longitude and latitude on Earth, astronomers use the <strong>equatorial coordinate system</strong>. These coordinates remain (mostly) constant for a star, regardless of the observer’s location or the time of day.</p>
-<ul class="simple">
-<li><p><strong>Declination (Dec, <span class="math notranslate nohighlight">\(\delta\)</span>):</strong> This is the angular distance of an object north or south of the celestial equator. It’s analogous to latitude on Earth.</p>
-<ul>
-<li><p>Measured in degrees, minutes (‘), and seconds (“).</p></li>
-<li><p>Positive values are north of the celestial equator (e.g., <span class="math notranslate nohighlight">\(+30^{\circ}\)</span>).</p></li>
-<li><p>Negative values are south of the celestial equator (e.g., <span class="math notranslate nohighlight">\(-15^{\circ}\)</span>).</p></li>
-<li><p>The celestial equator is <span class="math notranslate nohighlight">\(0^{\circ}\)</span> declination.</p></li>
-<li><p>The North Celestial Pole is <span class="math notranslate nohighlight">\(+90^{\circ}\)</span> declination.</p></li>
-<li><p>The South Celestial Pole is <span class="math notranslate nohighlight">\(-90^{\circ}\)</span> declination.</p></li>
-</ul>
-</li>
-<li><p><strong>Right Ascension (RA, <span class="math notranslate nohighlight">\(\alpha\)</span>):</strong> This is the angular distance of an object measured eastward along the celestial equator from the <strong>vernal equinox</strong> to the hour circle passing through the object. It’s analogous to longitude on Earth.</p>
-<ul>
-<li><p>The <strong>vernal equinox</strong> (also called the First Point of Aries) is the point on the celestial sphere where the Sun crosses the celestial equator moving from south to north, occurring around March 20th or 21st each year. This point is the <span class="math notranslate nohighlight">\(0\)</span> reference for Right Ascension.</p></li>
-<li><p>RA is usually measured in hours (h), minutes (m), and seconds (s), from <span class="math notranslate nohighlight">\(0\text{h}\)</span> to <span class="math notranslate nohighlight">\(24\text{h}\)</span>. This is because the Earth (and thus the celestial sphere) appears to rotate <span class="math notranslate nohighlight">\(360^{\circ}\)</span> in 24 hours, so 1 hour of RA = <span class="math notranslate nohighlight">\(15^{\circ}\)</span> of arc (<span class="math notranslate nohighlight">\(360^{\circ} / 24\text{h} = 15^{\circ}/\text{h}\)</span>).</p></li>
-<li><p>An object with an RA of <span class="math notranslate nohighlight">\(0\text{h}\)</span> is at the vernal equinox. An object with an RA of <span class="math notranslate nohighlight">\(6\text{h}\)</span> is <span class="math notranslate nohighlight">\(90^{\circ}\)</span> east of the vernal equinox along the celestial equator.</p></li>
-</ul>
-</li>
-<li><p><strong>Diagram for RA and Dec:</strong>
-<img alt="Right Ascension and Declination Coordinates" src="https://www.pas.rochester.edu/~blackman/ast104/celestialtime.gif" /></p></li>
-<li><p><strong>Epoch:</strong> Because of the Earth’s axial precession (a slow wobble in its rotational axis), the celestial poles and celestial equator shift very slowly over time. This means the vernal equinox also shifts, causing the Right Ascension and Declination of stars to change gradually.</p>
-<ul>
-<li><p>Therefore, celestial coordinates are always specified for a particular <strong>epoch</strong>, which is a standard reference point in time.</p></li>
-<li><p>The current standard epoch is <strong>J2000.0</strong>, which refers to January 1, 2000, at 12:00 Terrestrial Time. When you look up star coordinates in a catalog, they are usually given for J2000.0. For very precise observations over long periods, astronomers will calculate the coordinates for the current date, known as the “epoch of date.”</p></li>
-</ul>
-</li>
-</ul>
+<section id="equatorial-coordinates-right-ascension-declination-and-epoch">
+<h2><span class="section-number">10.4. </span>Equatorial Coordinates: Right Ascension, Declination, and Epoch<a class="headerlink" href="#equatorial-coordinates-right-ascension-declination-and-epoch" title="Link to this heading">#</a></h2>
+<p>Astronomers use the <strong>equatorial coordinate system</strong> to give objects a more stable address on the sky. It is similar in spirit to longitude and latitude on Earth, but it is projected onto the celestial sphere.</p>
+<p><strong>Declination</strong>, written as Dec or <span class="math notranslate nohighlight">\(\delta\)</span>, measures angular distance north or south of the celestial equator. It is analogous to latitude. The celestial equator has <span class="math notranslate nohighlight">\(\delta = 0^{\circ}\)</span>, the north celestial pole has <span class="math notranslate nohighlight">\(\delta = +90^{\circ}\)</span>, and the south celestial pole has <span class="math notranslate nohighlight">\(\delta = -90^{\circ}\)</span>.</p>
+<p><strong>Right ascension</strong>, written as RA or <span class="math notranslate nohighlight">\(\alpha\)</span>, measures angle eastward along the celestial equator from the vernal equinox. It is analogous to longitude, but it is usually measured in hours, minutes, and seconds instead of degrees. The full circle is <span class="math notranslate nohighlight">\(24{\rm h}\)</span>, so <span class="math notranslate nohighlight">\(1{\rm h}\)</span> of RA corresponds to <span class="math notranslate nohighlight">\(15^{\circ}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[1{\rm h} = 15^{\circ}\]</div>
+<p>The <strong>epoch</strong> tells you the reference date for the coordinate grid. This matters because Earth’s rotation axis slowly precesses, causing the celestial poles and equator to drift over time. Many catalogs report coordinates at epoch <strong>J2000.0</strong>, which refers to January 1, 2000, at 12:00 Terrestrial Time. For most introductory observing tasks, J2000 coordinates are fine. For precise pointing, long time baselines, or high proper-motion stars, the epoch matters.</p>
+<div class="tip admonition">
+<p class="admonition-title">Practical distinction</p>
+<p>Use RA and Dec to identify a target in a catalog. Use altitude and azimuth to know where to look from a specific observing site at a specific time.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Right ascension is often written in hours, minutes, and seconds.</span>
+<span class="c1"># This helper converts RA from h:m:s to degrees.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ra_hms_to_degrees</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert right ascension from hours, minutes, seconds to degrees.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">15</span> <span class="o">*</span> <span class="p">(</span><span class="n">hours</span> <span class="o">+</span> <span class="n">minutes</span><span class="o">/</span><span class="mi">60</span> <span class="o">+</span> <span class="n">seconds</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">degrees_to_ra_hms</span><span class="p">(</span><span class="n">degrees</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert right ascension from degrees to hours, minutes, seconds.&quot;&quot;&quot;</span>
+    <span class="n">total_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">degrees</span> <span class="o">/</span> <span class="mi">15</span><span class="p">)</span> <span class="o">%</span> <span class="mi">24</span>
+    <span class="n">hours</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_hours</span><span class="p">)</span>
+    <span class="n">total_minutes</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_hours</span> <span class="o">-</span> <span class="n">hours</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_minutes</span><span class="p">)</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_minutes</span> <span class="o">-</span> <span class="n">minutes</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="k">return</span> <span class="n">hours</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span>
+
+<span class="n">ra_deg</span> <span class="o">=</span> <span class="n">ra_hms_to_degrees</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">17.3</span><span class="p">)</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">degrees_to_ra_hms</span><span class="p">(</span><span class="n">ra_deg</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RA = 5h 35m 17.3s corresponds to </span><span class="si">{</span><span class="n">ra_deg</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> degrees.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ra_deg</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> degrees corresponds to RA = </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">h </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">m </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RA = 5h 35m 17.3s corresponds to 83.822 degrees.
+83.822 degrees corresponds to RA = 5h 35m 17.3s.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<hr class="docutils" />
-<section id="best-right-ascension-for-monthly-astronomical-observations">
-<h2><span class="section-number">10.5. </span>Best Right Ascension for Monthly Astronomical Observations<a class="headerlink" href="#best-right-ascension-for-monthly-astronomical-observations" title="Link to this heading">#</a></h2>
-<p>For planning nighttime astronomical observations, you want to observe objects that are high in the sky, ideally near your local meridian, during the darkest part of the night (around midnight). The Sun is “opposite” this region of the sky.</p>
-<p>The Sun’s Right Ascension changes throughout the year as it moves along the ecliptic. The objects best placed for viewing around midnight will have a Right Ascension roughly <span class="math notranslate nohighlight">\(12\)</span> hours different from the Sun’s current RA.</p>
-<p>Here’s a general guide (these are approximate RAs that will be near the meridian around local midnight):</p>
+<section id="earth-rotation-sidereal-time-and-hour-angle">
+<h2><span class="section-number">10.5. </span>Earth Rotation, Sidereal Time, and Hour Angle<a class="headerlink" href="#earth-rotation-sidereal-time-and-hour-angle" title="Link to this heading">#</a></h2>
+<p>The sky appears to rotate because Earth rotates. A star’s RA does not change during the night, but its location in the local sky does. The connection between catalog coordinates and local observing geometry is made using <strong>local sidereal time</strong> and <strong>hour angle</strong>.</p>
+<p>The <strong>local sidereal time</strong> is the right ascension currently crossing your local meridian. If the local sidereal time is <span class="math notranslate nohighlight">\(10{\rm h}\)</span>, then objects with <span class="math notranslate nohighlight">\(\alpha \approx 10{\rm h}\)</span> are near the meridian. The <strong>hour angle</strong> <span class="math notranslate nohighlight">\(H\)</span> tells how far an object is from the meridian:</p>
+<div class="math notranslate nohighlight">
+\[H = {\rm LST} - \alpha.\]</div>
+<p>An object with <span class="math notranslate nohighlight">\(H=0\)</span> is on the meridian. Negative hour angle usually means the object is east of the meridian and will transit later. Positive hour angle usually means the object is west of the meridian and has already transited.</p>
+<p>For an observer at latitude <span class="math notranslate nohighlight">\(\phi\)</span>, an object with declination <span class="math notranslate nohighlight">\(\delta\)</span> has altitude <span class="math notranslate nohighlight">\(h\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[\sin h = \sin\phi\sin\delta + \cos\phi\cos\delta\cos H.\]</div>
+<p>This equation is useful because it connects an object’s fixed sky address, RA and Dec, to its altitude from a specific observing site at a specific time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Altitude of a target as a function of hour angle.</span>
+<span class="c1"># This is useful for understanding why objects are best observed near meridian transit.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">altitude_at_hour_angle</span><span class="p">(</span><span class="n">latitude_deg</span><span class="p">,</span> <span class="n">dec_deg</span><span class="p">,</span> <span class="n">hour_angle_hours</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute altitude in degrees for an object observed from latitude_deg,</span>
+<span class="sd">    with declination dec_deg, at a given hour angle in hours.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">latitude_deg</span><span class="p">)</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">dec_deg</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">15</span> <span class="o">*</span> <span class="n">hour_angle_hours</span><span class="p">)</span>
+
+    <span class="n">sin_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">sin_alt</span><span class="p">))</span>
+
+<span class="n">latitude_deg</span> <span class="o">=</span> <span class="mf">32.5</span>  <span class="c1"># approximate latitude for northeast Texas</span>
+<span class="n">hour_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">dec_deg</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">]:</span>
+    <span class="n">alt</span> <span class="o">=</span> <span class="n">altitude_at_hour_angle</span><span class="p">(</span><span class="n">latitude_deg</span><span class="p">,</span> <span class="n">dec_deg</span><span class="p">,</span> <span class="n">hour_angle</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hour_angle</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Dec = </span><span class="si">{</span><span class="n">dec_deg</span><span class="si">:</span><span class="s2">+.0f</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Hour angle [hours]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Altitude [degrees]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Altitude vs. Hour Angle for Latitude </span><span class="si">{</span><span class="n">latitude_deg</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/566d00171ffded2423fe10b2e0d7cc1256a671cc743a1a1b43279b1f3a984037.png" src="../_images/566d00171ffded2423fe10b2e0d7cc1256a671cc743a1a1b43279b1f3a984037.png" />
+</div>
+</div>
+</section>
+<section id="celestial-poles-celestial-equator-and-observer-latitude">
+<h2><span class="section-number">10.6. </span>Celestial Poles, Celestial Equator, and Observer Latitude<a class="headerlink" href="#celestial-poles-celestial-equator-and-observer-latitude" title="Link to this heading">#</a></h2>
+<p>The <strong>north celestial pole</strong> is the point in the sky directly above Earth’s north geographic pole. The <strong>south celestial pole</strong> is directly above Earth’s south geographic pole. The <strong>celestial equator</strong> is the projection of Earth’s equator onto the sky.</p>
+<p>A useful observing fact is that the altitude of the visible celestial pole equals the observer’s latitude. For example, at latitude <span class="math notranslate nohighlight">\(32.5^{\circ}{\rm N}\)</span>, the north celestial pole is about <span class="math notranslate nohighlight">\(32.5^{\circ}\)</span> above the northern horizon. This is why Polaris appears higher in the sky for observers farther north and lower in the sky for observers farther south.</p>
+<div class="tip admonition">
+<p class="admonition-title">Checkpoint</p>
+<p>If you observe from latitude <span class="math notranslate nohighlight">\(40^{\circ}{\rm N}\)</span>, what is the approximate altitude of the north celestial pole? What would happen to that altitude if you traveled south toward the equator?</p>
+</div>
+</section>
+<section id="the-ecliptic-and-the-sun-s-apparent-path">
+<h2><span class="section-number">10.7. </span>The Ecliptic and the Sun’s Apparent Path<a class="headerlink" href="#the-ecliptic-and-the-sun-s-apparent-path" title="Link to this heading">#</a></h2>
+<p>The <strong>ecliptic</strong> is the Sun’s apparent annual path across the celestial sphere. It is tilted by about <span class="math notranslate nohighlight">\(23.5^{\circ}\)</span> relative to the celestial equator because Earth’s rotation axis is tilted relative to its orbital plane.</p>
+<p>The Moon and planets are usually found near the ecliptic because the Solar System is relatively flat. They are not exactly on the ecliptic, but the ecliptic is a useful guide when looking for planets in the sky.</p>
+<p>The ecliptic also explains why the Sun’s right ascension changes throughout the year. Around the March equinox, the Sun has RA near <span class="math notranslate nohighlight">\(0{\rm h}\)</span>. Around the June solstice, it has RA near <span class="math notranslate nohighlight">\(6{\rm h}\)</span>. Around the September equinox, it has RA near <span class="math notranslate nohighlight">\(12{\rm h}\)</span>. Around the December solstice, it has RA near <span class="math notranslate nohighlight">\(18{\rm h}\)</span>.</p>
+</section>
+<section id="planning-observations-with-right-ascension">
+<h2><span class="section-number">10.8. </span>Planning Observations with Right Ascension<a class="headerlink" href="#planning-observations-with-right-ascension" title="Link to this heading">#</a></h2>
+<p>For nighttime observing, the best-placed targets are usually those high in the sky during the dark part of the night. Around local midnight, the sky on the meridian is roughly opposite the Sun. Therefore, the best right ascension for midnight observing is approximately</p>
+<div class="math notranslate nohighlight">
+\[\alpha_{\rm best} \approx \alpha_{\odot} + 12{\rm h}.\]</div>
+<p>This rule is approximate. The best target also depends on your observing site, the target declination, moonlight, weather, telescope limits, and the time of night you plan to observe.</p>
+<center>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head text-left"><p>Month</p></th>
-<th class="head text-left"><p>Best RA for Midnight Viewing (approx.)</p></th>
-<th class="head text-left"><p>Sun’s Approximate RA</p></th>
+<tr class="row-odd"><th class="head"><p>Month</p></th>
+<th class="head text-right"><p>Sun’s approximate RA</p></th>
+<th class="head text-right"><p>RA best placed near midnight</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p>January</p></td>
-<td class="text-left"><p>6h - 8h RA</p></td>
-<td class="text-left"><p>~18h - 20h</p></td>
+<tr class="row-even"><td><p>January</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(19{\rm h}\)</span> to <span class="math notranslate nohighlight">\(21{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(7{\rm h}\)</span> to <span class="math notranslate nohighlight">\(9{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>February</p></td>
-<td class="text-left"><p>8h - 10h RA</p></td>
-<td class="text-left"><p>~20h - 22h</p></td>
+<tr class="row-odd"><td><p>February</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(21{\rm h}\)</span> to <span class="math notranslate nohighlight">\(23{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(9{\rm h}\)</span> to <span class="math notranslate nohighlight">\(11{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>March</p></td>
-<td class="text-left"><p>10h - 12h RA</p></td>
-<td class="text-left"><p>~22h - 0h</p></td>
+<tr class="row-even"><td><p>March</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(23{\rm h}\)</span> to <span class="math notranslate nohighlight">\(1{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(11{\rm h}\)</span> to <span class="math notranslate nohighlight">\(13{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>April</p></td>
-<td class="text-left"><p>12h - 14h RA</p></td>
-<td class="text-left"><p>~0h - 2h</p></td>
+<tr class="row-odd"><td><p>April</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(1{\rm h}\)</span> to <span class="math notranslate nohighlight">\(3{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(13{\rm h}\)</span> to <span class="math notranslate nohighlight">\(15{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>May</p></td>
-<td class="text-left"><p>14h - 16h RA</p></td>
-<td class="text-left"><p>~2h - 4h</p></td>
+<tr class="row-even"><td><p>May</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(3{\rm h}\)</span> to <span class="math notranslate nohighlight">\(5{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(15{\rm h}\)</span> to <span class="math notranslate nohighlight">\(17{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>June</p></td>
-<td class="text-left"><p>16h - 18h RA</p></td>
-<td class="text-left"><p>~4h - 6h</p></td>
+<tr class="row-odd"><td><p>June</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(5{\rm h}\)</span> to <span class="math notranslate nohighlight">\(7{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(17{\rm h}\)</span> to <span class="math notranslate nohighlight">\(19{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>July</p></td>
-<td class="text-left"><p>18h - 20h RA</p></td>
-<td class="text-left"><p>~6h - 8h</p></td>
+<tr class="row-even"><td><p>July</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(7{\rm h}\)</span> to <span class="math notranslate nohighlight">\(9{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(19{\rm h}\)</span> to <span class="math notranslate nohighlight">\(21{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>August</p></td>
-<td class="text-left"><p>20h - 22h RA</p></td>
-<td class="text-left"><p>~8h - 10h</p></td>
+<tr class="row-odd"><td><p>August</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(9{\rm h}\)</span> to <span class="math notranslate nohighlight">\(11{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(21{\rm h}\)</span> to <span class="math notranslate nohighlight">\(23{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>September</p></td>
-<td class="text-left"><p>22h - 0h RA</p></td>
-<td class="text-left"><p>~10h - 12h</p></td>
+<tr class="row-even"><td><p>September</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(11{\rm h}\)</span> to <span class="math notranslate nohighlight">\(13{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(23{\rm h}\)</span> to <span class="math notranslate nohighlight">\(1{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>October</p></td>
-<td class="text-left"><p>0h - 2h RA</p></td>
-<td class="text-left"><p>~12h - 14h</p></td>
+<tr class="row-odd"><td><p>October</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(13{\rm h}\)</span> to <span class="math notranslate nohighlight">\(15{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(1{\rm h}\)</span> to <span class="math notranslate nohighlight">\(3{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>November</p></td>
-<td class="text-left"><p>2h - 4h RA</p></td>
-<td class="text-left"><p>~14h - 16h</p></td>
+<tr class="row-even"><td><p>November</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(15{\rm h}\)</span> to <span class="math notranslate nohighlight">\(17{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(3{\rm h}\)</span> to <span class="math notranslate nohighlight">\(5{\rm h}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>December</p></td>
-<td class="text-left"><p>4h - 6h RA</p></td>
-<td class="text-left"><p>~16h - 18h</p></td>
+<tr class="row-odd"><td><p>December</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(17{\rm h}\)</span> to <span class="math notranslate nohighlight">\(19{\rm h}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(5{\rm h}\)</span> to <span class="math notranslate nohighlight">\(7{\rm h}\)</span></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>How to use this:</strong></p>
+</center>
+<p>For example, in May, objects with RA near <span class="math notranslate nohighlight">\(15{\rm h}\)</span> to <span class="math notranslate nohighlight">\(17{\rm h}\)</span> are well placed near midnight. Objects with smaller RA may be better earlier in the evening, while objects with larger RA may be better later at night.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A small helper for wrapping right ascension values into the range 0h to 24h.</span>
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;August&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;November&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;December&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">wrap_ra_hours</span><span class="p">(</span><span class="n">ra_hours</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ra_hours</span> <span class="o">%</span> <span class="mi">24</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Approximate midnight observing guide&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">sun_ra</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+    <span class="n">best_ra</span> <span class="o">=</span> <span class="n">wrap_ra_hours</span><span class="p">(</span><span class="n">sun_ra</span> <span class="o">+</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">9s</span><span class="si">}</span><span class="s2">: Sun RA ≈ </span><span class="si">{</span><span class="n">sun_ra</span><span class="si">:</span><span class="s2">2.0f</span><span class="si">}</span><span class="s2">h, best midnight RA ≈ </span><span class="si">{</span><span class="n">best_ra</span><span class="si">:</span><span class="s2">2.0f</span><span class="si">}</span><span class="s2">h&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate midnight observing guide
+------------------------------------
+January  : Sun RA ≈ 20h, best midnight RA ≈  8h
+February : Sun RA ≈ 22h, best midnight RA ≈ 10h
+March    : Sun RA ≈  0h, best midnight RA ≈ 12h
+April    : Sun RA ≈  2h, best midnight RA ≈ 14h
+May      : Sun RA ≈  4h, best midnight RA ≈ 16h
+June     : Sun RA ≈  6h, best midnight RA ≈ 18h
+July     : Sun RA ≈  8h, best midnight RA ≈ 20h
+August   : Sun RA ≈ 10h, best midnight RA ≈ 22h
+September: Sun RA ≈ 12h, best midnight RA ≈  0h
+October  : Sun RA ≈ 14h, best midnight RA ≈  2h
+November : Sun RA ≈ 16h, best midnight RA ≈  4h
+December : Sun RA ≈ 18h, best midnight RA ≈  6h
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="python-packages-for-planning-observations">
+<h2><span class="section-number">10.9. </span>Python Packages for Planning Observations<a class="headerlink" href="#python-packages-for-planning-observations" title="Link to this heading">#</a></h2>
+<p>The ideas in this chapter become more useful when they are connected to observation planning. For real observing, you usually want to answer questions like: When is my target above the horizon? When is it high enough to observe? When is the Sun down? Is the target visible during astronomical twilight? What does the field look like on the sky?</p>
+<p>Python has several packages that help with these questions.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>What it is useful for</p></th>
+<th class="head"><p>What a beginner should remember</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">astropy</span></code></p></td>
+<td><p>Coordinates, times, units, observatory locations, and transformations between coordinate systems</p></td>
+<td><p>This is the foundation package for most astronomy calculations in Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">astroplan</span></code></p></td>
+<td><p>Observation planning, including observers, targets, twilight times, airmass plots, and observability constraints</p></td>
+<td><p>Use this when you want to know whether a target is observable from a site on a specific night.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
+<td><p>Plotting altitude, airmass, light curves, and observing windows</p></td>
+<td><p>Use this to make saved figures for a research log or observing plan.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code></p></td>
+<td><p>Interactive finder charts in Jupyter notebooks using Aladin Lite</p></td>
+<td><p>Use this when you want to inspect the sky around a target interactively.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></p></td>
+<td><p>Interactive notebook controls such as dropdown menus, sliders, and side-by-side layouts</p></td>
+<td><p>Useful later, but not required for a first observation-planning example.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The simplified workflow is:</p>
 <ol class="arabic simple">
-<li><p>Find the current month.</p></li>
-<li><p>The listed RA range is what will be culminating (highest in the sky) around midnight.</p></li>
-<li><p>Objects with RAs about 2-3 hours on either side of this range will also be well-placed for viewing earlier or later in the evening.</p></li>
+<li><p>Define the observing site.</p></li>
+<li><p>Define the target position.</p></li>
+<li><p>Choose an observing date.</p></li>
+<li><p>Compute sunset, sunrise, and twilight times.</p></li>
+<li><p>Plot target airmass or altitude through the night.</p></li>
+<li><p>Optionally open a finder chart to inspect the field.</p></li>
 </ol>
-<p>For example, in <strong>May</strong>, objects with RAs around <span class="math notranslate nohighlight">\(14\text{h}\)</span> to <span class="math notranslate nohighlight">\(16\text{h}\)</span> (like the Virgo Cluster or constellations such as Boötes and Libra) will be high in the sky around midnight. Objects with RAs of <span class="math notranslate nohighlight">\(12\text{h}\)</span> would be good to observe earlier in the evening, while objects with RAs of <span class="math notranslate nohighlight">\(18\text{h}\)</span> would be better later in the night/early morning.</p>
-<p>Happy stargazing!</p>
+<p>The example below uses a fixed coordinate for the target instead of resolving the target name online. This makes the example more reliable in a teaching notebook because it does not depend on an internet name-resolution query.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional example: basic observation planning with astroplan.</span>
+<span class="c1">#</span>
+<span class="c1"># This cell is written so the notebook can still run even if astroplan</span>
+<span class="c1"># is not installed in the current environment.</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarthLocation</span><span class="p">,</span> <span class="n">SkyCoord</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astroplan</span><span class="w"> </span><span class="kn">import</span> <span class="n">Observer</span><span class="p">,</span> <span class="n">FixedTarget</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astroplan.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_airmass</span>
+
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This optional example requires astropy, astroplan, numpy, and matplotlib.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Install the missing package in a local environment before running this cell.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing package message: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># 1. Define an observing site.</span>
+    <span class="c1"># These are approximate coordinates for Kitt Peak National Observatory.</span>
+    <span class="n">kpno_location</span> <span class="o">=</span> <span class="n">EarthLocation</span><span class="o">.</span><span class="n">from_geodetic</span><span class="p">(</span><span class="n">lon</span><span class="o">=-</span><span class="mf">111.600</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mf">31.958</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">2096</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="n">observer</span> <span class="o">=</span> <span class="n">Observer</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">kpno_location</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Kitt Peak&quot;</span><span class="p">,</span> <span class="n">timezone</span><span class="o">=</span><span class="s2">&quot;US/Arizona&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 2. Define a target using fixed coordinates.</span>
+    <span class="c1"># Vega is used here only as a familiar example target.</span>
+    <span class="n">target_coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="s2">&quot;18h36m56.3s&quot;</span><span class="p">,</span> <span class="s2">&quot;+38d47m01s&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s2">&quot;icrs&quot;</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">FixedTarget</span><span class="p">(</span><span class="n">coord</span><span class="o">=</span><span class="n">target_coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vega&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 3. Choose an observing date.</span>
+    <span class="c1"># The time is in UTC. This example starts near the evening of 2026 July 1</span>
+    <span class="c1"># for a North American observing site.</span>
+    <span class="n">observing_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s2">&quot;2026-07-02 04:00:00&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 4. Compute approximate night boundaries.</span>
+    <span class="n">sunset</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">sun_set_time</span><span class="p">(</span><span class="n">observing_time</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">sunrise</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">sun_rise_time</span><span class="p">(</span><span class="n">observing_time</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;next&quot;</span><span class="p">)</span>
+    <span class="n">astro_dark_start</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">twilight_evening_astronomical</span><span class="p">(</span><span class="n">observing_time</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">astro_dark_end</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">twilight_morning_astronomical</span><span class="p">(</span><span class="n">observing_time</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;next&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Observing site: </span><span class="si">{</span><span class="n">observer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target: </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sunset: </span><span class="si">{</span><span class="n">sunset</span><span class="o">.</span><span class="n">iso</span><span class="si">}</span><span class="s2"> UTC&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Astronomical twilight ends: </span><span class="si">{</span><span class="n">astro_dark_start</span><span class="o">.</span><span class="n">iso</span><span class="si">}</span><span class="s2"> UTC&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Astronomical twilight begins: </span><span class="si">{</span><span class="n">astro_dark_end</span><span class="o">.</span><span class="n">iso</span><span class="si">}</span><span class="s2"> UTC&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sunrise: </span><span class="si">{</span><span class="n">sunrise</span><span class="o">.</span><span class="n">iso</span><span class="si">}</span><span class="s2"> UTC&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 5. Make an airmass plot from sunset to sunrise.</span>
+    <span class="n">hours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sunrise</span> <span class="o">-</span> <span class="n">sunset</span><span class="p">)</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">sunset</span> <span class="o">+</span> <span class="n">hours</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plot_airmass</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">observer</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">max_airmass</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">brightness_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">altitude_yaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">astro_dark_start</span><span class="o">.</span><span class="n">datetime</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Astronomical twilight ends&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">astro_dark_end</span><span class="o">.</span><span class="n">datetime</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Astronomical twilight begins&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Airmass of </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">observer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observing site: Kitt Peak
+Target: Vega
+Sunset: 2026-07-02 02:31:56.984 UTC
+Astronomical twilight ends: 2026-07-02 04:15:57.561 UTC
+Astronomical twilight begins: 2026-07-02 10:45:03.089 UTC
+Sunrise: 2026-07-02 12:29:01.892 UTC
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: TimeDeltaMissingUnitWarning: Numerical value without unit or explicit format passed to TimeDelta, assuming days [astropy.time.core]
+/home/saturnaxis/anaconda3/lib/python3.11/site-packages/matplotlib/dates.py:449: UserWarning: no explicit representation of timezones available for np.datetime64
+  d = d.astype(&#39;datetime64[us]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/01786878f14ec050af7234c782a24ca801871fe74e6476134c54fb93de4b5f72.png" src="../_images/01786878f14ec050af7234c782a24ca801871fe74e6476134c54fb93de4b5f72.png" />
+</div>
+</div>
+<section id="optional-finder-chart-with-ipyaladin">
+<h3><span class="section-number">10.9.1. </span>Optional finder chart with <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code><a class="headerlink" href="#optional-finder-chart-with-ipyaladin" title="Link to this heading">#</a></h3>
+<p>An airmass plot tells you <strong>when</strong> the target is observable. A finder chart helps you inspect <strong>where</strong> the target is on the sky and what the nearby field looks like. The <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code> widget is useful for this in a live Jupyter notebook.</p>
+<p>This kind of cell may not display in every static Jupyter Book build. It is mainly for an interactive notebook session.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional interactive finder chart with ipyaladin.</span>
+<span class="c1">#</span>
+<span class="c1"># This cell works in a live Jupyter notebook environment when ipyaladin is installed.</span>
+<span class="c1"># It may not render as an interactive widget in a static web page.</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">ipyaladin</span><span class="w"> </span><span class="kn">import</span> <span class="n">Aladin</span>
+
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This optional finder-chart example requires ipyaladin.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Install ipyaladin in a local Jupyter environment before running this cell.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing package message: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Aladin</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;Vega&quot;</span><span class="p">,</span> <span class="n">fov</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">survey</span><span class="o">=</span><span class="s2">&quot;P/DSS2/color&quot;</span><span class="p">,</span> <span class="n">reticle_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">reticle_size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="s2">&quot;700px&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="s2">&quot;450px&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-to-record-in-an-observing-plan-log">
+<h3><span class="section-number">10.9.2. </span>What to record in an observing-plan log<a class="headerlink" href="#what-to-record-in-an-observing-plan-log" title="Link to this heading">#</a></h3>
+<p>When you use software to plan observations, record the important choices. A useful log entry should say which site you used, which target coordinates you used, which date you planned for, which filters or exposure times you considered, and which figure or finder chart you saved.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Observation planning log</span>
+
+Date planned:
+<span class="k">-</span><span class="w"> </span>2026-07-01
+
+Observing site:
+<span class="k">-</span><span class="w"> </span>Kitt Peak National Observatory
+
+Target:
+<span class="k">-</span><span class="w"> </span>Vega
+<span class="k">-</span><span class="w"> </span>RA: 18h36m56.3s
+<span class="k">-</span><span class="w"> </span>Dec: +38d47m01s
+
+Software:
+<span class="k">-</span><span class="w"> </span><span class="sb">`astropy`</span>
+<span class="k">-</span><span class="w"> </span><span class="sb">`astroplan`</span>
+<span class="k">-</span><span class="w"> </span><span class="sb">`matplotlib`</span>
+<span class="k">-</span><span class="w"> </span>optional: <span class="sb">`ipyaladin`</span>
+
+Result:
+<span class="k">-</span><span class="w"> </span>The target is observable during the night and reaches low airmass.
+<span class="k">-</span><span class="w"> </span>Airmass plot created in the notebook.
+
+Next step:
+<span class="k">-</span><span class="w"> </span>Replace the example target with the science target and save the airmass plot in <span class="sb">`figures/`</span>.
+</pre></div>
+</div>
+<p>The most common beginner mistake is to save the plot but not record the observing site, date, target coordinates, or time zone. Without those details, the plot is hard to interpret later.</p>
+</section>
+</section>
+<section id="optional-python-using-astropy-for-real-observing-calculations">
+<h2><span class="section-number">10.10. </span>Optional Python: Using Astropy for Real Observing Calculations<a class="headerlink" href="#optional-python-using-astropy-for-real-observing-calculations" title="Link to this heading">#</a></h2>
+<p>The previous examples show the geometry using simple equations. For real observing plans, astronomers often use <strong>Astropy</strong>, which can account for time, location, coordinate frames, and object coordinates more systematically.</p>
+<p>The cell below is written so that it does not crash if Astropy is not installed. In a fresh Colab notebook, you may need to install it first using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">astropy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional example. This cell gives a real Alt/Az calculation if Astropy is installed.</span>
+<span class="c1"># If Astropy is not installed, it prints instructions instead of failing.</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span><span class="p">,</span> <span class="n">EarthLocation</span><span class="p">,</span> <span class="n">AltAz</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+
+    <span class="c1"># Example observing site near northeast Texas.</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">EarthLocation</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">32.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">95.0</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="c1"># Example target coordinates.</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="s2">&quot;15h00m00s&quot;</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="s2">&quot;+30d00m00s&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s2">&quot;icrs&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Example observing time in UTC.</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s2">&quot;2026-05-18 05:00:00&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;utc&quot;</span><span class="p">)</span>
+
+    <span class="n">altaz_frame</span> <span class="o">=</span> <span class="n">AltAz</span><span class="p">(</span><span class="n">obstime</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">)</span>
+    <span class="n">target_altaz</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">altaz_frame</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target altitude: </span><span class="si">{</span><span class="n">target_altaz</span><span class="o">.</span><span class="n">alt</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target azimuth:  </span><span class="si">{</span><span class="n">target_altaz</span><span class="o">.</span><span class="n">az</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Astropy is not installed in this environment.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To run this example in Colab or Jupyter, install Astropy first:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    pip install astropy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Target altitude: 81.56 deg
+Target azimuth:  105.51 deg
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="supplemental-videos">
+<h2><span class="section-number">10.11. </span>Supplemental Videos<a class="headerlink" href="#supplemental-videos" title="Link to this heading">#</a></h2>
+<p>These videos are optional review resources. They are not a substitute for doing the coordinate and observing-planning exercises, but they can help if the geometry, time systems, or observing workflow feels unfamiliar. Use them selectively: if you are confused about <strong>where an object is in your local sky</strong>, start with the Alt/Az videos; if you are confused about <strong>how catalogs list object positions</strong>, start with the equatorial-coordinate and catalog videos; if you are confused about <strong>when an object is observable</strong>, review sidereal time, hour angle, and astronomical time systems.</p>
+<section id="local-sky-and-horizon-coordinates">
+<h3><span class="section-number">10.11.1. </span>Local sky and horizon coordinates<a class="headerlink" href="#local-sky-and-horizon-coordinates" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=i2e0aRtwsCY">The Sky Part 1: Local Sky and Alt-Az / Horizon Coordinates</a>, Launch Pad Astronomy<br />
+Best match for horizon, zenith, altitude, azimuth, and the observer-centered sky.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/results?search_query=Launch+Pad+Astronomy+The+Sky+Part+2+Explaining+Alt+Az">The Sky Part 2: Explaining Alt Az</a>, Launch Pad Astronomy<br />
+Useful follow-up if altitude and azimuth still feel abstract.</p></li>
+</ul>
+</section>
+<section id="equatorial-coordinates-and-the-celestial-sphere">
+<h3><span class="section-number">10.11.2. </span>Equatorial coordinates and the celestial sphere<a class="headerlink" href="#equatorial-coordinates-and-the-celestial-sphere" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=WvXTUcYVXzI">Equatorial Coordinate System Explained: How Astronomers Navigate the Celestial Sphere</a>, Launch Pad Astronomy<br />
+Best match for right ascension, declination, and why astronomers use coordinates fixed to the sky.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=jkrw6tObCKk">Celestial Coordinates Guide for Astronomers</a><br />
+A practical amateur-astronomy-style overview of RA/Dec and using coordinates to find objects.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=BmyEOpJRxJM">Lesson 2 - Lecture 1 - The Celestial Sphere - OpenStax</a><br />
+Longer lecture-style review of the celestial sphere.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=3OlDsAsOBWI">Lesson 4 - Lecture 1 - Coordinate Systems - OpenStax</a><br />
+Longer lecture-style review of astronomical coordinate systems.</p></li>
+</ul>
+</section>
+<section id="sidereal-time-hour-angle-and-sky-motion">
+<h3><span class="section-number">10.11.3. </span>Sidereal time, hour angle, and sky motion<a class="headerlink" href="#sidereal-time-hour-angle-and-sky-motion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=01QWC-rZcfE">Cycles in the Sky: Crash Course Astronomy #3</a>, Crash Course Astronomy<br />
+Good broad review of repeated sky motions and why the sky changes over time.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=wygtuSCwrNM">Astronomy GCSE Topic 6 Local Sidereal Time</a><br />
+Useful if you need a slower explanation of why local sidereal time is connected to what is crossing the meridian.</p></li>
+</ul>
+</section>
+<section id="astronomical-time-systems-and-observing-dates">
+<h3><span class="section-number">10.11.4. </span>Astronomical time systems and observing dates<a class="headerlink" href="#astronomical-time-systems-and-observing-dates" title="Link to this heading">#</a></h3>
+<p>Boyce Astro has several short videos that are useful once students begin planning observations or reading light-curve data products. These are especially useful because observational astronomy often uses time systems that are not the same as ordinary clock time.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://boyce-astro.org/what-is-time-from-an-astronomical-perspective/">What is Time from an Astronomical Perspective</a>, Boyce Astro<br />
+Use this as a general introduction to why astronomy has multiple time scales.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/what-is-time-jd/">What is Time: JD</a>, Boyce Astro<br />
+Useful when students first encounter Julian Date in FITS headers, observing logs, or time-series data.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/what-is-time-bjd/">What is Time: BJD</a>, Boyce Astro<br />
+Useful when students encounter barycentric timing in exoplanet or variable-star light curves.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/what-is-an-ephemeris/">What is an Ephemeris</a>, Boyce Astro<br />
+Useful for connecting period, phase, predicted event times, and observing windows.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/what-is-an-epoch-2/">What is an Epoch</a>, Boyce Astro<br />
+Useful for understanding reference dates in coordinates, orbits, and time-dependent astronomical quantities.</p></li>
+</ul>
+</section>
+<section id="finding-targets-catalogs-and-finder-charts">
+<h3><span class="section-number">10.11.5. </span>Finding targets, catalogs, and finder charts<a class="headerlink" href="#finding-targets-catalogs-and-finder-charts" title="Link to this heading">#</a></h3>
+<p>These videos connect directly to the observing-planning examples in this notebook. They are useful when a target name has to be turned into coordinates, a finder chart, or a field that can actually be observed.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://boyce-astro.org/online-catalogs-overview/">Online Catalogs Overview</a>, Boyce Astro<br />
+Good orientation to common catalog tools such as CDS, VizieR, and SIMBAD.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/simbad/">SIMBAD</a>, Boyce Astro<br />
+Useful for looking up object names, coordinates, identifiers, and literature references.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/locating-your-star-in-an-image-using-astrometry-net-and-ds9/">Locating Your Star in an Image Using Astrometry.net and DS9</a>, Boyce Astro<br />
+Useful once students move from catalog coordinates to actual images and need to confirm which star is the target.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/locating-your-star-in-an-image-variable-stars-and-exoplanets/">Locating your star in an image - Variable Stars and Exoplanets</a>, Boyce Astro<br />
+Useful for connecting target identification to variable-star or exoplanet-style observing projects.</p></li>
+</ul>
+</section>
+<section id="ecliptic-seasons-and-the-sun-s-apparent-path">
+<h3><span class="section-number">10.11.6. </span>Ecliptic, seasons, and the Sun’s apparent path<a class="headerlink" href="#ecliptic-seasons-and-the-sun-s-apparent-path" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=6-Zm1wzuR-s">Understanding the Sun’s Motion and the Reason for Seasons</a>, Launch Pad Astronomy<br />
+Useful review for the Sun’s path, seasonal changes, and why the ecliptic matters.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=vYxps00Ap9s">The Ecliptic: Crash Course Kids #37.2</a>, Crash Course Kids<br />
+Short and simple review of the ecliptic. This is below college level, but it is a useful quick visual reminder.</p></li>
+</ul>
+</section>
+<section id="telescopes-photometry-and-light-curves">
+<h3><span class="section-number">10.11.7. </span>Telescopes, photometry, and light curves<a class="headerlink" href="#telescopes-photometry-and-light-curves" title="Link to this heading">#</a></h3>
+<p>These are not required for understanding the celestial sphere itself, but they are helpful for students who will use coordinates to plan real observations or interpret time-series data.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://boyce-astro.org/telescopes-an-overview/">Telescopes: An Overview</a>, Boyce Astro<br />
+Useful for basic telescope vocabulary such as aperture and field of view.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/photometry-an-overview/">Photometry an Overview</a>, Boyce Astro<br />
+Useful for understanding why repeated brightness measurements are scientifically useful.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/flow-of-a-photometry-project/">Flow of A Photometry Project</a>, Boyce Astro<br />
+Useful for seeing how target selection, imaging, measurement, and analysis fit together in a complete project.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/overview-of-a-light-curve/">Overview of a Light Curve</a>, Boyce Astro<br />
+Useful when connecting observing windows to brightness versus time data.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/light-curve-analysis/">Light Curve Analysis</a>, Boyce Astro<br />
+Useful follow-up for students who will analyze variable-star or exoplanet time-series data.</p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/the-weird-and-wonderful-world-of-exoplanet-data/">The Weird and Wonderful World of Exoplanet Data</a>, Boyce Astro<br />
+Useful broader context for students interested in TESS, exoplanet transits, and real observing data.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">How to use these videos</p>
+<p>Do not try to watch everything at once. Choose one short cluster based on the problem you are having: sky geometry, coordinate systems, time systems, target lookup, or light-curve context. After watching, return to the notebook and test the idea with one concrete target.</p>
+</div>
+</section>
+</section>
+<section id="common-mistakes">
+<h2><span class="section-number">10.12. </span>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<p>A common mistake is to confuse RA and altitude. RA is part of a catalog coordinate system. Altitude is a local sky coordinate that changes throughout the night. Another common mistake is to assume that a target with a good RA is automatically observable. Declination matters too. A target can have the right RA for the month but still be too far south, too low above the horizon, too close to the Sun, or poorly placed during the available observing window.</p>
+<p>Students also often forget that “best RA by month” is only a planning shortcut. Real observation planning should check altitude versus time, twilight, moonlight, airmass, telescope limits, exposure time, and target priority.</p>
+<div class="tip admonition">
+<p class="admonition-title">Practical checklist</p>
+<p>Before choosing a target for an observing run, check its RA, Dec, altitude during the observing window, time of meridian transit, angular separation from the Moon, expected brightness, required filter or instrument setup, and whether the target is scientifically useful for the project.</p>
+</div>
+</section>
+<section id="summary-rules">
+<h2><span class="section-number">10.13. </span>Summary Rules<a class="headerlink" href="#summary-rules" title="Link to this heading">#</a></h2>
+<p>The celestial sphere is a map of directions on the sky. Horizon coordinates, altitude and azimuth, describe where an object is in the local sky at a specific time. Equatorial coordinates, right ascension and declination, give a more stable catalog address for an object. Earth rotation connects the two systems through sidereal time and hour angle.</p>
+<div class="tip admonition">
+<p class="admonition-title">Final rules</p>
+<p>Use <strong>RA and Dec</strong> to identify targets in catalogs.</p>
+<p>Use <strong>altitude and azimuth</strong> to point or visualize the local sky.</p>
+<p>Use <strong>hour angle and meridian transit</strong> to decide when a target is highest.</p>
+<p>Use <strong>RA by month</strong> only as a first-pass observing guide, not as a substitute for an altitude versus time check.</p>
+</div>
+</section>
+<section id="checkpoint-questions">
+<h2><span class="section-number">10.14. </span>Checkpoint Questions<a class="headerlink" href="#checkpoint-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why is the celestial sphere still useful even though stars are not physically attached to a sphere around Earth?</p></li>
+<li><p>What is the difference between altitude and declination?</p></li>
+<li><p>If a star has altitude <span class="math notranslate nohighlight">\(20^{\circ}\)</span>, is it high or low in the sky? Why might that matter for observations?</p></li>
+<li><p>If the local sidereal time is <span class="math notranslate nohighlight">\(8{\rm h}\)</span>, which right ascension is crossing the local meridian?</p></li>
+<li><p>Around which month are objects with RA near <span class="math notranslate nohighlight">\(16{\rm h}\)</span> well placed near midnight?</p></li>
+<li><p>Why is it not enough to choose targets using RA alone?</p></li>
+</ol>
 </section>
 </section>
 
@@ -716,11 +1223,33 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ancient-greek-perspective">10.1. The Ancient Greek Perspective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-astronomical-terms">10.2. Key Astronomical Terms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-way-altitude-and-azimuth-local-coordinates">10.3. Finding Your Way: Altitude and Azimuth (Local Coordinates)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-coordinates-right-ascension-declination-and-epoch">10.4. Universal Coordinates: Right Ascension, Declination, and Epoch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-right-ascension-for-monthly-astronomical-observations">10.5. Best Right Ascension for Monthly Astronomical Observations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-celestial-sphere-is-useful">10.1. Why the Celestial Sphere Is Useful</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-local-sky-horizon-zenith-nadir-and-meridian">10.2. The Local Sky: Horizon, Zenith, Nadir, and Meridian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizon-coordinates-altitude-and-azimuth">10.3. Horizon Coordinates: Altitude and Azimuth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equatorial-coordinates-right-ascension-declination-and-epoch">10.4. Equatorial Coordinates: Right Ascension, Declination, and Epoch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#earth-rotation-sidereal-time-and-hour-angle">10.5. Earth Rotation, Sidereal Time, and Hour Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#celestial-poles-celestial-equator-and-observer-latitude">10.6. Celestial Poles, Celestial Equator, and Observer Latitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ecliptic-and-the-sun-s-apparent-path">10.7. The Ecliptic and the Sun’s Apparent Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-observations-with-right-ascension">10.8. Planning Observations with Right Ascension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-packages-for-planning-observations">10.9. Python Packages for Planning Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-finder-chart-with-ipyaladin">10.9.1. Optional finder chart with <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-in-an-observing-plan-log">10.9.2. What to record in an observing-plan log</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-python-using-astropy-for-real-observing-calculations">10.10. Optional Python: Using Astropy for Real Observing Calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplemental-videos">10.11. Supplemental Videos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-sky-and-horizon-coordinates">10.11.1. Local sky and horizon coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equatorial-coordinates-and-the-celestial-sphere">10.11.2. Equatorial coordinates and the celestial sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidereal-time-hour-angle-and-sky-motion">10.11.3. Sidereal time, hour angle, and sky motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astronomical-time-systems-and-observing-dates">10.11.4. Astronomical time systems and observing dates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-targets-catalogs-and-finder-charts">10.11.5. Finding targets, catalogs, and finder charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecliptic-seasons-and-the-sun-s-apparent-path">10.11.6. Ecliptic, seasons, and the Sun’s apparent path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#telescopes-photometry-and-light-curves">10.11.7. Telescopes, photometry, and light curves</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">10.12. Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-rules">10.13. Summary Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-questions">10.14. Checkpoint Questions</a></li>
 </ul>
   </nav></div>
 
@@ -745,7 +1274,7 @@ By Billy Quarles
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>
