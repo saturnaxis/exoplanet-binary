@@ -27,6 +27,7 @@ parts:
   chapters:
   - file: Tutorials/research-log.ipynb
   - file: Tutorials/celestial-sphere.ipynb
+  - file: Tutorials/photometry-basics-guide.ipynb
   - file: Tutorials/AIJ-lightcurve.ipynb
-#  - file: Tutorials/archival-data.ipynb
+  - file: Tutorials/archival-data.ipynb
 

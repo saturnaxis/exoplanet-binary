@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>11. Data Reduction with AIJ &#8212; Exoplanets within Binary Systems</title>
+    <title>12. Reducing Light Curves with AstroImageJ &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -75,13 +75,12 @@
                 gtag('config', 'G-8VDVRMR2BH');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/AIJ-lightcurve';</script>
     <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/AIJ-lightcurve.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="10. Celestial Sphere and Sky Coordinates" href="celestial-sphere.html" />
+    <link rel="next" title="13. Data Reduction (archival)" href="archival-data.html" />
+    <link rel="prev" title="11. Basics of CCD Photometry" href="photometry-basics-guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,7 +215,9 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Data Reduction with AIJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">13. Data Reduction (archival)</a></li>
 </ul>
 
     </div>
@@ -437,7 +438,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Reduction with AIJ</h1>
+    <h1>Reducing Light Curves with AstroImageJ</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -447,46 +448,35 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">11.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-eclipsing-binary">11.1.1. What is an Eclipsing Binary?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-light-curve">11.1.2. What is a Light Curve?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-astroimagej-aij">11.1.3. What is AstroImageJ (<strong>AIJ</strong>)?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-of-this-tutorial">11.1.4. Goal of this Tutorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">11.1.5. Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-big-picture-workflow">12.1. The Big Picture Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-project-folder">12.2. Setting Up the Project Folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fits-headers-before-aij">12.3. FITS Headers Before AIJ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-images-into-aij">12.4. Loading Images into AIJ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-in-aij">12.5. Calibration in AIJ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-astrometry-net">12.6. Plate Solving and Astrometry.net</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-target-and-comparison-stars">12.7. Choosing Target and Comparison Stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-apertures-and-sky-annuli">12.8. Setting Apertures and Sky Annuli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-multi-aperture-photometry">12.9. Running Multi-Aperture Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-normalizing-and-detrending">12.10. Plotting, Normalizing, and Detrending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-specific-tips">12.11. Target-Specific Tips</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eclipsing-binary-stars">12.11.1. Eclipsing Binary Stars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exoplanet-transits">12.11.2. Exoplanet Transits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asteroids">12.11.3. Asteroids</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-workspace">11.2. Setting up Your Workspace</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-your-fits-files">11.2.1. Organizing Your FITS Files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-astroimagej">11.2.2. Launching AstroImageJ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation-in-aij-important">11.2.3. Memory Allocation in AIJ (Important!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-results-and-recording-settings">12.12. Exporting Results and Recording Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problems-and-fixes">12.13. Common Problems and Fixes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-and-further-reading">12.14. Videos and Further Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astroimagej-and-differential-photometry">12.14.1. AstroImageJ and differential photometry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astroimagej-workflow-videos">12.14.2. AstroImageJ workflow videos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aavso-photometry-and-variable-star-resources">12.14.3. AAVSO photometry and variable-star resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exoplanet-transit-background">12.14.4. Exoplanet transit background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astrometry-plate-solving-and-target-identification">12.14.5. Astrometry, plate solving, and target identification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-comparison-tools">12.14.6. Optional comparison tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-background">12.14.7. Useful background</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-your-fits-images">11.3. Loading Your FITS Images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-navigation-and-display">11.3.1. Basic Image Navigation and Display</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-calibration-a-brief-overview">11.4. Image Calibration (A Brief Overview)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-wcs-world-coordinate-system">11.5. Plate Solving and WCS (World Coordinate System)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">11.6. Performing Aperture Photometry</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-target-and-comparison-stars">11.6.1. Selecting Your Target and Comparison Stars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-aperture-sizes">11.6.2. Setting Aperture Sizes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-photometry-and-inspecting-the-data-table">11.7. Running the Photometry and Inspecting the Data Table</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-measurements-table">11.7.1. Understanding the “Measurements” Table</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-creating-the-light-curve">11.8. Differential Photometry: Creating the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-the-light-curve">11.9. Normalizing the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-folding-your-light-curve">11.10. Phase Folding Your Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-and-detrending-optional">11.11. Refining and Detrending (Optional)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-results">11.12. Saving Your Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-measurements-table">11.12.1. Saving the Measurements Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-light-curve-plot-time-series-and-phase-folded">11.12.2. Saving the Light Curve Plot (Time Series and Phase-Folded)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-aij-session-settings">11.12.3. Saving AIJ Session/Settings</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-next-steps">11.13. Conclusion and Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">12.15. Final Checklist</a></li>
 </ul>
             </nav>
         </div>
@@ -498,344 +488,327 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-reduction-with-aij">
-<h1><span class="section-number">11. </span>Data Reduction with AIJ<a class="headerlink" href="#data-reduction-with-aij" title="Link to this heading">#</a></h1>
-<p>This tutorial will guide you through the process of reducing astronomical data from FITS files to create a normalized, phase-folded light curve of an eclipsing binary star system using AstroImageJ (AIJ). This is a fundamental skill in observational astronomy, particularly for studying variable stars.</p>
-<section id="introduction">
-<h2><span class="section-number">11.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<section id="what-is-an-eclipsing-binary">
-<h3><span class="section-number">11.1.1. </span>What is an Eclipsing Binary?<a class="headerlink" href="#what-is-an-eclipsing-binary" title="Link to this heading">#</a></h3>
-<p>An <strong>eclipsing binary</strong> is a system of two stars orbiting each other in such a way that, from our line of sight on Earth, one star periodically passes in front of the other. This passage causes a dip in the total observed brightness of the system. Studying these eclipses tells us a lot about the stars’ properties, like their sizes, masses, and temperatures.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="reducing-light-curves-with-astroimagej">
+<h1><span class="section-number">12. </span>Reducing Light Curves with AstroImageJ<a class="headerlink" href="#reducing-light-curves-with-astroimagej" title="Link to this heading">#</a></h1>
+<p>This guide shows how to use <a class="reference external" href="https://astroimagej.com/"><strong>AstroImageJ (AIJ)</strong></a> to turn a sequence of astronomical FITS images into a differential light curve. The workflow is useful for <strong>eclipsing binary stars</strong>, <strong>exoplanet transits</strong>, and <strong>asteroids</strong>, but the details are not identical for every target. A fixed star can usually be measured with the same aperture pattern from image to image. A moving asteroid requires extra care because the target moves relative to the comparison stars.</p>
+<p>The goal is not to describe every AIJ menu item. The goal is to give you a practical reduction path: organize the data, inspect the FITS headers, calibrate or confirm calibration, plate solve when needed, choose apertures, run differential photometry, inspect the light curve, and save enough information that the result can be checked later.</p>
+<div class="note admonition">
+<p class="admonition-title">What AIJ is good for</p>
+<p>AstroImageJ is especially useful for time-series differential photometry because it combines image display, FITS handling, calibration, aperture photometry, plotting, detrending, and exoplanet transit modeling in one graphical interface.</p>
+</div>
+<section id="the-big-picture-workflow">
+<h2><span class="section-number">12.1. </span>The Big Picture Workflow<a class="headerlink" href="#the-big-picture-workflow" title="Link to this heading">#</a></h2>
+<p>A light-curve reduction is a chain of steps. If one early step is wrong, the final light curve can look noisy, shifted, or physically misleading. Work slowly the first few times and write down what settings you used.</p>
+<p>A typical AIJ workflow is:</p>
+<ol class="arabic simple">
+<li><p>Organize the raw images and calibration frames.</p></li>
+<li><p>Check a few FITS headers for target name, exposure time, filter, date, time, and observatory information.</p></li>
+<li><p>Calibrate the images with bias, dark, and flat frames, or confirm that the images were already calibrated.</p></li>
+<li><p>Load the science images as an image stack.</p></li>
+<li><p>Plate solve the images if you need WCS coordinates, BJD_TDB, target identification, or astrometry.</p></li>
+<li><p>Choose the target aperture and comparison-star apertures.</p></li>
+<li><p>Run multi-aperture differential photometry across the image stack.</p></li>
+<li><p>Inspect the measurements table and light curve.</p></li>
+<li><p>Remove or flag bad frames only when there is a defensible reason.</p></li>
+<li><p>Normalize, detrend, phase fold, or model the light curve as appropriate for the target.</p></li>
+<li><p>Save the measurements table, plots, settings, and a short research-log entry.</p></li>
+</ol>
+<div class="warning admonition">
+<p class="admonition-title">Do not skip inspection</p>
+<p>A light curve can look plausible even when the reduction is wrong. Always inspect the images, aperture placement, comparison stars, measurements table, and final plot.</p>
+</div>
 </section>
-<section id="what-is-a-light-curve">
-<h3><span class="section-number">11.1.2. </span>What is a Light Curve?<a class="headerlink" href="#what-is-a-light-curve" title="Link to this heading">#</a></h3>
-<p>A <strong>light curve</strong> is a graph that shows the brightness of an astronomical object over time. For an eclipsing binary, the light curve will show periodic dips in brightness corresponding to the eclipses. The shape and timing of these dips are crucial for analysis.</p>
+<section id="setting-up-the-project-folder">
+<h2><span class="section-number">12.2. </span>Setting Up the Project Folder<a class="headerlink" href="#setting-up-the-project-folder" title="Link to this heading">#</a></h2>
+<p>Keep the AIJ work in a project folder with a predictable structure. This prevents the common problem where raw images, calibrated images, plots, exported tables, and notes all end up in the same directory.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AIJ-project/
+├── raw/
+├── calibration/
+│   ├── bias/
+│   ├── darks/
+│   └── flats/
+├── calibrated/
+├── plate_solved/
+├── results/
+├── settings/
+└── logs/
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">raw/</span></code> for the original images, <code class="docutils literal notranslate"><span class="pre">calibration/</span></code> for bias, dark, and flat frames, <code class="docutils literal notranslate"><span class="pre">calibrated/</span></code> for reduced images, <code class="docutils literal notranslate"><span class="pre">plate_solved/</span></code> for images with WCS information, <code class="docutils literal notranslate"><span class="pre">results/</span></code> for exported tables and plots, <code class="docutils literal notranslate"><span class="pre">settings/</span></code> for saved AIJ photometry settings, and <code class="docutils literal notranslate"><span class="pre">logs/</span></code> for notes about what you did. Do not edit or overwrite the raw images unless your mentor explicitly tells you to.</p>
+<div class="tip admonition">
+<p class="admonition-title">File naming tip</p>
+<p>Use names that include the date, target, and processing stage, such as <code class="docutils literal notranslate"><span class="pre">2026-05-18_TIC123456789_calibrated_001.fits</span></code> or <code class="docutils literal notranslate"><span class="pre">2026-05-18_TIC123456789_AIJ-measurements.csv</span></code>.</p>
+</div>
 </section>
-<section id="what-is-astroimagej-aij">
-<h3><span class="section-number">11.1.3. </span>What is AstroImageJ (<strong>AIJ</strong>)?<a class="headerlink" href="#what-is-astroimagej-aij" title="Link to this heading">#</a></h3>
-<p><strong>AstroImageJ (AIJ)</strong> is a powerful, free, Java-based image processing and analysis software specifically designed for astronomy. It’s widely used for tasks like photometry (measuring brightness), image calibration, and creating light curves. You can download it from the official AIJ website: <a class="reference external" href="https://www.astro.louisville.edu/software/astroimagej/">https://www.astro.louisville.edu/software/astroimagej/</a></p>
+<section id="fits-headers-before-aij">
+<h2><span class="section-number">12.3. </span>FITS Headers Before AIJ<a class="headerlink" href="#fits-headers-before-aij" title="Link to this heading">#</a></h2>
+<p>Before you start clicking through AIJ, inspect at least a few FITS headers. The header is the metadata record attached to the image. It usually contains the exposure time, filter, observation time, object name, telescope, camera, image type, detector temperature, binning, and sometimes RA/Dec or WCS information.</p>
+<p>Important keywords to check include <code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>, <code class="docutils literal notranslate"><span class="pre">DATE-OBS</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPTIME</span></code> or <code class="docutils literal notranslate"><span class="pre">EXPOSURE</span></code>, <code class="docutils literal notranslate"><span class="pre">FILTER</span></code>, <code class="docutils literal notranslate"><span class="pre">IMAGETYP</span></code>, <code class="docutils literal notranslate"><span class="pre">XBINNING</span></code>, <code class="docutils literal notranslate"><span class="pre">YBINNING</span></code>, <code class="docutils literal notranslate"><span class="pre">GAIN</span></code>, <code class="docutils literal notranslate"><span class="pre">RDNOISE</span></code>, <code class="docutils literal notranslate"><span class="pre">AIRMASS</span></code>, <code class="docutils literal notranslate"><span class="pre">RA</span></code>, <code class="docutils literal notranslate"><span class="pre">DEC</span></code>, <code class="docutils literal notranslate"><span class="pre">SITELAT</span></code>, <code class="docutils literal notranslate"><span class="pre">SITELONG</span></code>, and <code class="docutils literal notranslate"><span class="pre">CCD-TEMP</span></code>. Different cameras and observatory pipelines may use different keyword names, so do not assume every file uses exactly the same convention.</p>
+<div class="tip admonition">
+<p class="admonition-title">Header sanity check</p>
+<p>Before using AIJ, confirm that the science images have the expected target, exposure time, filter, and observation time. Also confirm that calibration frames are labeled as bias, dark, or flat frames and that their exposure times and filters make sense.</p>
+</div>
+<p>AIJ can display FITS header information from the image window. If you plate solve images, the solution may add WCS keywords such as <code class="docutils literal notranslate"><span class="pre">CRVAL1</span></code>, <code class="docutils literal notranslate"><span class="pre">CRVAL2</span></code>, <code class="docutils literal notranslate"><span class="pre">CRPIX1</span></code>, <code class="docutils literal notranslate"><span class="pre">CRPIX2</span></code>, <code class="docutils literal notranslate"><span class="pre">CD1_1</span></code>, <code class="docutils literal notranslate"><span class="pre">CD1_2</span></code>, <code class="docutils literal notranslate"><span class="pre">CD2_1</span></code>, and <code class="docutils literal notranslate"><span class="pre">CD2_2</span></code>. Those keywords connect image pixels to sky coordinates.</p>
 </section>
-<section id="goal-of-this-tutorial">
-<h3><span class="section-number">11.1.4. </span>Goal of this Tutorial<a class="headerlink" href="#goal-of-this-tutorial" title="Link to this heading">#</a></h3>
-<p>By the end of this tutorial, you will be able to:</p>
+<section id="loading-images-into-aij">
+<h2><span class="section-number">12.4. </span>Loading Images into AIJ<a class="headerlink" href="#loading-images-into-aij" title="Link to this heading">#</a></h2>
+<p>Start AIJ and load the science images as a stack. A stack lets AIJ move through the time series one frame at a time while keeping the same reduction and photometry workflow.</p>
+<p>A common path is <strong>File &gt; Import &gt; Image Sequence</strong> or one of the AIJ image-series options, depending on your version. Select the science images in chronological order. If the images are large or numerous, use virtual-stack options when available so the entire sequence is not loaded into memory at once.</p>
+<p>After the stack opens, step through several frames. Check that the field is the expected target, stars are not badly trailed, the background is not saturated, the target is visible, and the images are in the correct time order. Adjust brightness and contrast only for display. Display settings do not change the underlying pixel values.</p>
+<div class="note admonition">
+<p class="admonition-title">Common first check</p>
+<p>Blink through the first few frames. The target field should look stable. Clouds, tracking jumps, focus changes, or a meridian flip can be easier to see by stepping through the images than by looking at a final light curve.</p>
+</div>
+</section>
+<section id="calibration-in-aij">
+<h2><span class="section-number">12.5. </span>Calibration in AIJ<a class="headerlink" href="#calibration-in-aij" title="Link to this heading">#</a></h2>
+<p>Raw images contain detector and optical-system signatures. Bias frames remove the electronic offset, dark frames remove thermal signal, and flat fields correct pixel-to-pixel sensitivity differences, dust shadows, and vignetting. For precise photometry, calibration is not optional.</p>
+<p>If your images were already calibrated by an observatory pipeline, record that fact in your log and do not calibrate them a second time. If you have raw images and calibration frames, use AIJ’s Data Processor to create or apply master calibration frames. The exact menu labels vary by AIJ version, but the workflow is the same: identify the calibration frames, create master calibration frames if needed, apply them to the science images, and save the calibrated images to a new folder.</p>
+<div class="tip admonition">
+<p class="admonition-title">Calibration checklist</p>
+<p>Use bias frames with the same camera readout mode and binning as the science frames. Use dark frames with the same exposure time, temperature, binning, and readout mode when possible. Use flats taken with the same filter and optical configuration as the science images. If the camera was rotated, focus changed substantially, or filters were moved, old flats may not correct the images well.</p>
+</div>
+<p>After calibration, inspect a calibrated image. Dust donuts should be reduced, the background should look smoother, and the image should not show obvious overcorrection. If the calibrated image looks worse than the raw image, stop and check whether the wrong darks, flats, or filters were applied.</p>
+</section>
+<section id="plate-solving-and-astrometry-net">
+<h2><span class="section-number">12.6. </span>Plate Solving and Astrometry.net<a class="headerlink" href="#plate-solving-and-astrometry-net" title="Link to this heading">#</a></h2>
+<p><strong>Plate solving</strong> determines how image pixels map onto sky coordinates. In a solved FITS image, the header contains WCS information that lets software connect each pixel to RA and Dec. Plate solving is useful for identifying the target, importing aperture positions by coordinate, checking field orientation, calculating some time and airmass quantities, and documenting exactly which field was measured.</p>
+<p>AIJ can interface with Astrometry.net for plate solving. Astrometry.net is useful when the pointing is uncertain because it can solve an astronomical image and return astrometric calibration metadata. In practice, plate solving is much faster when you provide a good initial estimate of the image center, image scale, and search radius.</p>
+<p>Basic plate-solving workflow:</p>
+<ol class="arabic simple">
+<li><p>Confirm the FITS header has a reasonable <code class="docutils literal notranslate"><span class="pre">DATE-OBS</span></code> and exposure time.</p></li>
+<li><p>Estimate the image scale in arcsec/pixel from the telescope and camera.</p></li>
+<li><p>Provide a target name or approximate RA/Dec.</p></li>
+<li><p>Run the plate solve on one image first.</p></li>
+<li><p>Check that catalog-star overlays match real stars.</p></li>
+<li><p>If the first image solves, solve the full stack or save the solved images.</p></li>
+<li><p>Record whether WCS information was added to the FITS headers.</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">When plate solving matters most</p>
+<p>Plate solving is especially useful for asteroid work, crowded fields, target identification, and any project where apertures may need to be placed by coordinates instead of by eye.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Astrometry.net troubleshooting</p>
+<p>If a solve fails, check the image scale, field center, search radius, image orientation, and whether the frame has enough stars. Cropped images, very small fields of view, saturated stars, clouds, or wrong scale estimates can all cause plate-solving failures.</p>
+</div>
+</section>
+<section id="choosing-target-and-comparison-stars">
+<h2><span class="section-number">12.7. </span>Choosing Target and Comparison Stars<a class="headerlink" href="#choosing-target-and-comparison-stars" title="Link to this heading">#</a></h2>
+<p>Differential photometry compares the target brightness to one or more comparison stars in the same images. A good comparison star is stable, unsaturated, isolated, visible in every frame, and reasonably similar in brightness and color to the target when possible.</p>
+<p>Use more than one comparison star when the field allows it. A single comparison star can quietly ruin the light curve if it is variable, blended, saturated, or affected by bad pixels. Also choose at least one check star if the project requires a formal comparison-check plot.</p>
+<div class="tip admonition">
+<p class="admonition-title">Comparison-star checklist</p>
+<p>Good comparison stars are not saturated, not near the edge of the image, not blended with nearby stars, not on bad columns or dust artifacts, and not so faint that their noise dominates the result. They should also stay inside the image for the entire run.</p>
+</div>
+<p>For time-series projects, avoid comparison stars that are crossed by an asteroid, affected by a diffraction spike, or near the sky annulus of the target aperture. If the target is an asteroid, check the path of the asteroid across the field before choosing comparison stars.</p>
+</section>
+<section id="setting-apertures-and-sky-annuli">
+<h2><span class="section-number">12.8. </span>Setting Apertures and Sky Annuli<a class="headerlink" href="#setting-apertures-and-sky-annuli" title="Link to this heading">#</a></h2>
+<p>AIJ aperture photometry uses an object aperture and a sky annulus. The object aperture sums the target’s light. The sky annulus estimates the local background that should be subtracted from the object aperture.</p>
+<p>A practical starting point is to measure the FWHM of several stars and choose an object aperture radius roughly 1.5 to 2.5 times the FWHM. The inner sky radius should be far enough from the star that it does not include much stellar light, and the outer sky radius should include enough sky pixels to estimate the background robustly.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aperture-size rule</p>
+<p>Start with one aperture size for all stars. Then inspect the light curve and aperture overlays. A larger aperture includes more of the star but also more sky noise. A smaller aperture reduces sky noise but can lose stellar flux if seeing or guiding changes.</p>
+</div>
+<p>Use centroiding for stars when the target and comparison stars are fixed on the detector from frame to frame. For fast-moving asteroids or trailed objects, centroiding can fail or follow the wrong object, so check aperture placement carefully.</p>
+</section>
+<section id="running-multi-aperture-photometry">
+<h2><span class="section-number">12.9. </span>Running Multi-Aperture Photometry<a class="headerlink" href="#running-multi-aperture-photometry" title="Link to this heading">#</a></h2>
+<p>The <strong>Multi-Aperture</strong> tool is the normal AIJ tool for time-series differential photometry. The typical order is to click the target first, then comparison stars. AIJ labels the target and comparison apertures in the measurements table. Check the labels carefully so you know which aperture is the target and which are comparisons.</p>
+<p>After starting the run, watch several frames. Confirm that apertures remain centered, sky annuli do not include nearby stars, the target is not saturated, and comparison stars remain inside the image. If the field jumps, the apertures may fail to recenter correctly.</p>
+<p>Important output columns often include the frame number, filename, time column, airmass, source-minus-sky fluxes, relative flux, relative flux error, FWHM, sky background, and aperture positions. The exact column names depend on your AIJ settings.</p>
+<div class="warning admonition">
+<p class="admonition-title">Save the table</p>
+<p>The measurements table is your main science product. Save it even if you also save a plot. A plot is useful for presentation, but the table is what you need for checking, replotting, and later analysis.</p>
+</div>
+</section>
+<section id="plotting-normalizing-and-detrending">
+<h2><span class="section-number">12.10. </span>Plotting, Normalizing, and Detrending<a class="headerlink" href="#plotting-normalizing-and-detrending" title="Link to this heading">#</a></h2>
+<p>Use AIJ’s Multi-Plot tool to plot relative flux versus time. For time, use <code class="docutils literal notranslate"><span class="pre">BJD_TDB</span></code> when it is available and trustworthy. If <code class="docutils literal notranslate"><span class="pre">BJD_TDB</span></code> is not available, use <code class="docutils literal notranslate"><span class="pre">JD_UTC</span></code> or another documented time column, but write down exactly which one you used.</p>
+<p>Normalize the light curve so that the baseline is near 1.0. For eclipsing binaries and exoplanet transits, normalize using out-of-eclipse or out-of-transit data. Do not include eclipse or transit points in the baseline estimate. For asteroids, normalization depends on the project goal; you may want relative changes over time rather than a transit-like baseline.</p>
+<p>Detrending can remove slow systematic trends caused by airmass, seeing, sky background, or image motion. Use detrending carefully. A detrending model should remove an instrumental or atmospheric trend, not erase real astrophysical variability.</p>
+<div class="warning admonition">
+<p class="admonition-title">Detrending warning</p>
+<p>Never apply a trend correction just because it makes the light curve look prettier. Record which detrending variables were used and check that the correction does not remove the signal you are trying to measure.</p>
+</div>
+</section>
+<section id="target-specific-tips">
+<h2><span class="section-number">12.11. </span>Target-Specific Tips<a class="headerlink" href="#target-specific-tips" title="Link to this heading">#</a></h2>
+<p>The same AIJ tools are used for different targets, but the reduction strategy changes with the science goal.</p>
+<section id="eclipsing-binary-stars">
+<h3><span class="section-number">12.11.1. </span>Eclipsing Binary Stars<a class="headerlink" href="#eclipsing-binary-stars" title="Link to this heading">#</a></h3>
+<p>For eclipsing binaries, the target is fixed relative to the comparison stars, so the standard multi-aperture workflow usually works well. The main goal is to measure changes in brightness over one or more orbital cycles. Use a reliable period and epoch if you phase fold the data. If the period or epoch is uncertain, save the time-series light curve before doing any phase folding.</p>
+<p>Tips for eclipsing binaries:</p>
 <ul class="simple">
-<li><p>Load a series of FITS images into AIJ.</p></li>
-<li><p>Perform aperture photometry on your target eclipsing binary and suitable comparison stars.</p></li>
-<li><p>Generate a raw light curve.</p></li>
-<li><p>Normalize the light curve.</p></li>
-<li><p><strong>Phase fold the light curve using a known period and epoch.</strong></p></li>
-<li><p>Save your results.</p></li>
+<li><p>Use comparison stars that are stable and not much brighter or fainter than the target.</p></li>
+<li><p>Preserve both primary and secondary eclipses; do not detrend through eclipse features.</p></li>
+<li><p>Check whether the out-of-eclipse baseline changes from night to night.</p></li>
+<li><p>Record the period and epoch used for phase folding.</p></li>
+<li><p>If combining multiple nights, check whether the same comparison stars and filters were used.</p></li>
 </ul>
 </section>
-<section id="prerequisites">
-<h3><span class="section-number">11.1.5. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<section id="exoplanet-transits">
+<h3><span class="section-number">12.11.2. </span>Exoplanet Transits<a class="headerlink" href="#exoplanet-transits" title="Link to this heading">#</a></h3>
+<p>For exoplanet transits, timing and systematics matter. Use accurate site information, accurate FITS times, and <code class="docutils literal notranslate"><span class="pre">BJD_TDB</span></code> when possible. Observe baseline before and after the transit so the out-of-transit level is well defined. A transit is often shallow, so comparison-star choice and detrending can strongly affect the result.</p>
+<p>Tips for exoplanets:</p>
 <ul class="simple">
-<li><p><strong>AstroImageJ installed:</strong> Ensure you have the latest version of AIJ installed on your computer.</p></li>
-<li><p><strong>Java Development Kit (JDK):</strong> AIJ requires Java. Make sure you have a compatible JDK installed (usually OpenJDK or Oracle JDK).</p></li>
-<li><p><strong>FITS files:</strong> You’ll need a series of FITS (Flexible Image Transport System) files of an eclipsing binary. These are the raw data from your telescope observations.</p></li>
-<li><p><strong>Known Ephemeris (for phase folding):</strong> To phase fold the light curve, you’ll need:</p>
+<li><p>Use an ensemble of comparison stars when available.</p></li>
+<li><p>Avoid saturated stars and stars near detector defects.</p></li>
+<li><p>Keep exposure times long enough to reduce scintillation but short enough to avoid saturation and excessive smearing.</p></li>
+<li><p>Record ingress, egress, predicted mid-transit time, exposure time, filter, and detrending variables.</p></li>
+<li><p>Use detrending only when there is a physical or instrumental reason, such as airmass, FWHM, sky background, or centroid motion.</p></li>
+</ul>
+</section>
+<section id="asteroids">
+<h3><span class="section-number">12.11.3. </span>Asteroids<a class="headerlink" href="#asteroids" title="Link to this heading">#</a></h3>
+<p>Asteroids move relative to the background stars. This makes asteroid photometry different from eclipsing-binary or exoplanet photometry. The target aperture may need to follow the asteroid, while comparison stars remain fixed to the stellar field. Before running photometry, blink through the image stack to identify the moving object and check whether it crosses comparison stars, bad pixels, or field stars.</p>
+<p>Tips for asteroids:</p>
+<ul class="simple">
+<li><p>Use image blinking, sometimes informally called image blitting, to identify the moving target across the stack.</p></li>
+<li><p>Plate solve the images when possible so the asteroid position and comparison-star positions can be checked against coordinates.</p></li>
+<li><p>Use astrometry.net if the field lacks trustworthy WCS information or if the pointing is uncertain.</p></li>
+<li><p>Avoid comparison stars near the asteroid path.</p></li>
+<li><p>If the asteroid moves significantly, inspect aperture placement throughout the stack instead of trusting the first frame.</p></li>
+<li><p>If the asteroid trails, reduce the exposure time if possible. If the data are already trailed, consider whether a larger, elliptical, or custom aperture is needed.</p></li>
+<li><p>Do not stack images for a time-series light curve unless you preserve correct timing and understand what the stacking does to the moving target.</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Asteroid warning</p>
+<p>A normal stellar photometry workflow assumes that the target and comparison stars move together on the detector. An asteroid violates that assumption. Always check whether AIJ is following the asteroid or accidentally measuring a nearby field star.</p>
+</div>
+</section>
+</section>
+<section id="exporting-results-and-recording-settings">
+<h2><span class="section-number">12.12. </span>Exporting Results and Recording Settings<a class="headerlink" href="#exporting-results-and-recording-settings" title="Link to this heading">#</a></h2>
+<p>Save the measurements table, the light-curve plot, the aperture settings, and a short research-log entry. The exported table should go in <code class="docutils literal notranslate"><span class="pre">results/</span></code>, not in the raw-data folder.</p>
+<p>A useful saved-result package includes:</p>
+<ul class="simple">
+<li><p>the AIJ measurements table,</p></li>
+<li><p>a time-series light-curve plot,</p></li>
+<li><p>a normalized light-curve plot if used,</p></li>
+<li><p>a phase-folded plot if used,</p></li>
+<li><p>the aperture settings or AIJ settings file,</p></li>
+<li><p>a screenshot showing target and comparison apertures,</p></li>
+<li><p>notes about calibration, plate solving, comparison stars, and detrending.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Research-log entry</p>
+<p>Write down the target, date, filter, number of images, exposure time, calibration status, plate-solving status, comparison stars used, aperture radii, time column used, and output filenames.</p>
+</div>
+</section>
+<section id="common-problems-and-fixes">
+<h2><span class="section-number">12.13. </span>Common Problems and Fixes<a class="headerlink" href="#common-problems-and-fixes" title="Link to this heading">#</a></h2>
+<p>If the light curve has large scatter, check whether the target or comparison stars are saturated, whether clouds or poor seeing affected some frames, whether the apertures drifted, whether the sky annulus contains field stars, and whether the wrong calibration frames were applied. Also check whether one comparison star is variable by plotting comparison stars against each other.</p>
+<p>If the time axis looks wrong, inspect the FITS headers for date, time, exposure, and time zone assumptions. Observation times should generally be recorded in UTC. If AIJ reports <code class="docutils literal notranslate"><span class="pre">BJD_TDB</span></code>, make sure site coordinates and image times were correct before trusting it.</p>
+<p>If plate solving fails, check image scale, field center, search radius, and whether the image has enough unsaturated stars. If an asteroid light curve looks wrong, blink the images and confirm that the aperture follows the asteroid in every frame.</p>
+<div class="warning admonition">
+<p class="admonition-title">Do not delete data casually</p>
+<p>Bad frames can be excluded from analysis, but do not erase them. Keep the original table and make a note explaining which frames were excluded and why.</p>
+</div>
+</section>
+<section id="videos-and-further-reading">
+<h2><span class="section-number">12.14. </span>Videos and Further Reading<a class="headerlink" href="#videos-and-further-reading" title="Link to this heading">#</a></h2>
+<p>Use these resources when you need a slower walkthrough or an alternate explanation.</p>
+<section id="astroimagej-and-differential-photometry">
+<h3><span class="section-number">12.14.1. </span>AstroImageJ and differential photometry<a class="headerlink" href="#astroimagej-and-differential-photometry" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://astroimagej.com/guides/aij/">AstroImageJ official documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.astro.louisville.edu/software/astroimagej/guide/AstroImageJ_User_Guide.pdf">AstroImageJ User Guide PDF</a></p></li>
+<li><p><a class="reference external" href="https://britastro.org/wp-content/uploads/sites/Tutorial_AIJ_Photometry_v2.06.pdf">British Astronomical Association: Guide to AstroImageJ Differential Photometry</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=GW--rE5O-c8">Patriot Astro: AstroImageJ exoplanet transit processing</a></p></li>
+</ul>
+</section>
+<section id="astroimagej-workflow-videos">
+<h3><span class="section-number">12.14.2. </span>AstroImageJ workflow videos<a class="headerlink" href="#astroimagej-workflow-videos" title="Link to this heading">#</a></h3>
+<p>Use these when you want to see the software workflow from image sequence to light curve.</p>
 <ul>
-<li><p>The <strong>orbital period (P)</strong> of the binary system.</p></li>
-<li><p>A <strong>reference time of an event (T0 or Epoch)</strong>, usually the time of a specific primary minimum (e.g., in BJD_TDB).</p></li>
-</ul>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=zmJ04i06Rjc">Intro to Light Curve Photometry with AstroImageJ</a><br />
+A practical introduction to making a light curve in AstroImageJ. This is a good first video before you try a complete reduction.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=GW--rE5O-c8">AstroImageJ (AIJ): Processing ExoPlanet Transits from Start to Finish</a><br />
+A complete start-to-finish AstroImageJ exoplanet transit workflow.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=EfMPl2SaSjM">Obtaining a Light Curve Using AstroImageJ</a><br />
+A short introduction to using AstroImageJ with a set of FITS images to create a light curve.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=h_RmtGULenQ">Robotic Telescope Project: How to Import Your Data into AstroImageJ</a><br />
+Useful for the first practical step: getting image data loaded into AIJ correctly.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=uVb5CE_syd0">Robotic Telescope Project: Basic Analysis of Exoplanet Transit Data</a><br />
+A classroom-friendly workflow for analyzing exoplanet transit data in AstroImageJ.</p>
+<h3 class="rubric" id="boyce-astro-resources">Boyce Astro resources</h3>
 </li>
+<li><p><a class="reference external" href="https://boyce-astro.org/videos/astrometry/">Boyce Astro: Astrometry videos</a></p></li>
+<li><p><a class="reference external" href="https://boyce-astro.org/wp-content/uploads/AIJ-Cookbook-Rev-1-5a.pdf">Boyce Astro: AIJ Cookbook for exoplanet observations</a></p></li>
 </ul>
 </section>
-</section>
-<section id="setting-up-your-workspace">
-<h2><span class="section-number">11.2. </span>Setting up Your Workspace<a class="headerlink" href="#setting-up-your-workspace" title="Link to this heading">#</a></h2>
-<section id="organizing-your-fits-files">
-<h3><span class="section-number">11.2.1. </span>Organizing Your FITS Files<a class="headerlink" href="#organizing-your-fits-files" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>Create a dedicated folder</strong> for your project (e.g., <code class="docutils literal notranslate"><span class="pre">MyEclipsingBinary_Project</span></code>).</p></li>
-<li><p>Inside this project folder, create a subfolder named <code class="docutils literal notranslate"><span class="pre">fits_images</span></code> (or similar) and place all your FITS files for the eclipsing binary observation sequence there.</p></li>
-<li><p>It’s also good practice to create folders for <code class="docutils literal notranslate"><span class="pre">calibration_frames</span></code> (darks, flats, biases, if you have them and will calibrate) and <code class="docutils literal notranslate"><span class="pre">results</span></code> (where you’ll save your light curves and data tables).</p></li>
-</ol>
-</section>
-<section id="launching-astroimagej">
-<h3><span class="section-number">11.2.2. </span>Launching AstroImageJ<a class="headerlink" href="#launching-astroimagej" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Navigate to the directory where you installed AstroImageJ.</p></li>
-<li><p>Launch AIJ. This is usually done by double-clicking the <code class="docutils literal notranslate"><span class="pre">AstroImageJ.jar</span></code> file or by running a platform-specific script (e.g., <code class="docutils literal notranslate"><span class="pre">AstroImageJ.exe</span></code> on Windows, or <code class="docutils literal notranslate"><span class="pre">AIJ_launcher_MacOS.sh</span></code> / <code class="docutils literal notranslate"><span class="pre">AIJ_launcher_Linux.sh</span></code>).</p></li>
-</ol>
-</section>
-<section id="memory-allocation-in-aij-important">
-<h3><span class="section-number">11.2.3. </span>Memory Allocation in AIJ (Important!)<a class="headerlink" href="#memory-allocation-in-aij-important" title="Link to this heading">#</a></h3>
-<p>AIJ can be memory-intensive, especially when working with many large FITS files.</p>
-<ol class="arabic simple">
-<li><p>Upon launching AIJ, you might see a startup configuration window, or you can access memory settings via <strong>Edit &gt; Options &gt; Memory &amp; Threads…</strong>.</p></li>
-<li><p>It’s recommended to allocate a significant portion of your system’s RAM to AIJ, but leave enough for your operating system and other applications. A common recommendation is 50-75% of your available RAM if you have 8GB or more.</p></li>
-<li><p>For example, if you have 16GB of RAM, you might allocate 8000MB to 12000MB to AIJ.</p></li>
-<li><p>You’ll need to restart AIJ for memory changes to take effect.</p></li>
-</ol>
-</section>
-</section>
-<section id="loading-your-fits-images">
-<h2><span class="section-number">11.3. </span>Loading Your FITS Images<a class="headerlink" href="#loading-your-fits-images" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>In AIJ, go to <strong>File &gt; Open…</strong> to open a single FITS image, or (more likely for a time series) <strong>File &gt; Open Image Series &gt; Open Series (User Selects Folder and Files)…</strong> or <strong>File &gt; Open Image Series &gt; Open All Images in Folder (recursive)…</strong>.</p>
+<section id="aavso-photometry-and-variable-star-resources">
+<h3><span class="section-number">12.14.3. </span>AAVSO photometry and variable-star resources<a class="headerlink" href="#aavso-photometry-and-variable-star-resources" title="Link to this heading">#</a></h3>
+<p>Use these when students need more background on comparison stars, CCD photometry, and variable-star measurement practices.</p>
 <ul class="simple">
-<li><p>For this tutorial, let’s assume you’ll use <strong>Open Series (User Selects Folder and Files)…</strong>. Navigate to your <code class="docutils literal notranslate"><span class="pre">fits_images</span></code> folder and select all the FITS files for your observation run.</p></li>
-</ul>
-</li>
-<li><p>AIJ will load the images as a “stack.” The first image in the series will be displayed.</p></li>
-<li><p>You can navigate through the stack using the slider bar at the bottom of the image window or by using the <strong>Next Slice (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>)</strong> and <strong>Previous Slice (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>)</strong> buttons/commands.</p></li>
-</ol>
-<section id="basic-image-navigation-and-display">
-<h3><span class="section-number">11.3.1. </span>Basic Image Navigation and Display<a class="headerlink" href="#basic-image-navigation-and-display" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Zoom:</strong> Use the magnifying glass tools or <strong>Image &gt; Zoom &gt; In/Out</strong>.</p></li>
-<li><p><strong>Pan:</strong> Select the hand tool and drag the image.</p></li>
-<li><p><strong>Brightness/Contrast:</strong> Go to <strong>Image &gt; Adjust &gt; Brightness/Contrast… (B&amp;C)</strong>. Click “Auto” for a quick adjustment, or manually adjust the sliders to better see your stars. This only changes the display, not the underlying data values.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=gcE7c4CggFM">AAVSO How-To Hour: How to Start with CCD Photometry</a><br />
+A longer AAVSO webinar introducing CCD photometry practice.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=ufbFaUywEBg">AAVSO How to Understand Star Photometry</a><br />
+A conceptual video connecting image pixels and measured brightness to useful photometric data.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=CLDRmTfit-4">Guide to AAVSO Measurements, Part 1</a><br />
+Useful for those who need to format or report variable-star measurements.</p></li>
+<li><p><a class="reference external" href="https://www.aavso.org/tutorials">AAVSO Tutorials</a><br />
+These are not all videos, but they are useful guided resources for variable-star observing.</p></li>
 </ul>
 </section>
-</section>
-<section id="image-calibration-a-brief-overview">
-<h2><span class="section-number">11.4. </span>Image Calibration (A Brief Overview)<a class="headerlink" href="#image-calibration-a-brief-overview" title="Link to this heading">#</a></h2>
-<p>Raw astronomical images contain instrumental signatures and noise that should ideally be removed for precise photometry. This process is called <strong>image calibration</strong> and typically involves:</p>
+<section id="exoplanet-transit-background">
+<h3><span class="section-number">12.14.4. </span>Exoplanet transit background<a class="headerlink" href="#exoplanet-transit-background" title="Link to this heading">#</a></h3>
+<p>Use these when students understand the software steps but need help interpreting what the transit light curve means physically.</p>
 <ul class="simple">
-<li><p><strong>Bias subtraction:</strong> Removing the baseline electronic signal present even in a zero-second exposure.</p></li>
-<li><p><strong>Dark subtraction:</strong> Removing the signal generated by thermal electrons in the detector, which depends on exposure time and temperature.</p></li>
-<li><p><strong>Flat-fielding:</strong> Correcting for variations in pixel sensitivity across the detector and for artifacts like dust donuts or vignetting.</p></li>
-</ul>
-<p>AIJ has built-in tools for calibration:</p>
-<ol class="arabic simple">
-<li><p>Go to <strong>DP</strong> (Data Processor) in the AIJ toolbar (it looks like a little calculator or a graph icon).</p></li>
-<li><p>In the Data Processor window, click the <strong>Calibrate Images</strong> tab.</p></li>
-<li><p>Here you can specify your master bias, dark, and flat frames.</p></li>
-</ol>
-<p><strong>For this tutorial:</strong></p>
-<ul class="simple">
-<li><p>If you have been provided you with <strong>pre-calibrated FITS files</strong>, you can skip the active calibration steps. However, it’s crucial to understand that this step <em>must</em> be done for accurate scientific results.</p></li>
-<li><p>If you have raw data and calibration frames (bias, darks, flats), you should perform calibration before proceeding with photometry. Consult your mentor or AIJ documentation for detailed steps on creating master calibration frames and applying them.</p></li>
-</ul>
-<p>For now, we will proceed assuming your images are either calibrated or you’re learning the photometry steps first with uncalibrated data (which will have more scatter but still show the eclipse).</p>
-</section>
-<section id="plate-solving-and-wcs-world-coordinate-system">
-<h2><span class="section-number">11.5. </span>Plate Solving and WCS (World Coordinate System)<a class="headerlink" href="#plate-solving-and-wcs-world-coordinate-system" title="Link to this heading">#</a></h2>
-<p><strong>Plate solving</strong> is the process of accurately determining the celestial coordinates (Right Ascension - RA, Declination - Dec) for the pixels in your image. This embeds a World Coordinate System (WCS) into the FITS header, which is incredibly useful for:</p>
-<ul class="simple">
-<li><p>Identifying your target and comparison stars by their known coordinates.</p></li>
-<li><p>Allowing AIJ to calculate airmass and other astronomically relevant parameters like BJD_TDB.</p></li>
-<li><p>Enabling features like image alignment to an external catalog.</p></li>
-</ul>
-<p><strong>How to Plate Solve in AIJ:</strong></p>
-<ol class="arabic simple">
-<li><p>Make sure your image stack is loaded.</p></li>
-<li><p>Go to <strong>DP</strong> (Data Processor).</p></li>
-<li><p>Click the <strong>WCS Plate Solve</strong> tab.</p></li>
-<li><p>You’ll need to provide an initial guess for the image’s center coordinates (RA and Dec) and the image scale (arcseconds per pixel). You can often find this information in the FITS header of your images or from your telescope/observatory logs.</p>
-<ul class="simple">
-<li><p><strong>RA/Dec Object:</strong> Enter the name of your target (e.g., “V123 Cygni”) and click “Get Coords” for AIJ to look it up (requires internet), or manually enter the J2000 RA and Dec.</p></li>
-<li><p><strong>Image Scale:</strong> Enter your telescope’s image scale in arcsec/pixel.</p></li>
-<li><p><strong>Search Radius:</strong> How far AIJ should search from your initial guess.</p></li>
-</ul>
-</li>
-<li><p>Choose a catalog (e.g., “All VizieR Stars” or a specific catalog like Gaia).</p></li>
-<li><p>Ensure <strong>“Update FITS header with WCS solution”</strong> and <strong>“Update DATE-OBS, TIME-OBS, and exposure time and enable BJD calculation”</strong> are checked for BJD_TDB calculation.</p></li>
-<li><p>Click <strong>Plate Solve Current Image</strong> or <strong>Plate Solve All Images in Stack</strong>.</p></li>
-</ol>
-<p><strong>Verifying the Plate Solution:</strong></p>
-<ul class="simple">
-<li><p>After a successful solve, AIJ will overlay catalog stars on your image. Check if they align well.</p></li>
-<li><p>The FITS header will now contain WCS keywords. You can view the header via <strong>Image &gt; Show Info…</strong> (then click FITS Header).</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=hBU1yFbGHB8">NASA: Looking for the Shadows of New Worlds</a><br />
+A NASA Goddard video about using transit photometry to find exoplanets.</p></li>
+<li><p><a class="reference external" href="https://svs.gsfc.nasa.gov/12018/">NASA Goddard: Looking for the Shadows of New Worlds</a><br />
+Same NASA video hosted through NASA’s Scientific Visualization Studio, with additional description and transcript access.</p></li>
+<li><p><a class="reference external" href="https://www.esa.int/ESA_Multimedia/Videos/2019/12/Detecting_exoplanets_with_the_transit_method">ESA: Detecting Exoplanets with the Transit Method</a><br />
+A short animation showing how a planet crossing its star causes a periodic brightness dip.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=xNeRqbw18Jk">ESA YouTube: Detecting Exoplanets with the Transit Method</a><br />
+YouTube version of the ESA transit-method animation.</p></li>
 </ul>
 </section>
-<section id="performing-aperture-photometry">
-<h2><span class="section-number">11.6. </span>Performing Aperture Photometry<a class="headerlink" href="#performing-aperture-photometry" title="Link to this heading">#</a></h2>
-<p><strong>Aperture photometry</strong> is the technique of measuring the brightness of a star by summing the pixel values within a circular region (the aperture) centered on the star, and then subtracting the background sky brightness.</p>
-<ol class="arabic simple">
-<li><p>Open the <strong>DP (Data Processor)</strong> window.</p></li>
-<li><p>Go to the <strong>Aperture Photometry</strong> tab.</p></li>
-</ol>
-<section id="selecting-your-target-and-comparison-stars">
-<h3><span class="section-number">11.6.1. </span>Selecting Your Target and Comparison Stars<a class="headerlink" href="#selecting-your-target-and-comparison-stars" title="Link to this heading">#</a></h3>
+<section id="astrometry-plate-solving-and-target-identification">
+<h3><span class="section-number">12.14.5. </span>Astrometry, plate solving, and target identification<a class="headerlink" href="#astrometry-plate-solving-and-target-identification" title="Link to this heading">#</a></h3>
+<p>Use these when students are having trouble confirming the target field, matching stars, or understanding why plate solving matters.</p>
 <ul class="simple">
-<li><p><strong>Target Star (T1):</strong> Your eclipsing binary. In the image display, <strong>left-click</strong> on its center.</p></li>
-<li><p><strong>Comparison Stars (C2, C3, …):</strong> Select 2-5 stable, non-saturated stars of similar brightness if possible. <strong>Left-click</strong> on each.</p></li>
+<li><p><a class="reference external" href="https://nova.astrometry.net/">Astrometry.net</a><br />
+Upload an image to solve the sky coordinates when the FITS header has missing or unreliable WCS information.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=RcOHqyEVADc">Can’t find your target? Plate solve in the field with Astrometry.net</a><br />
+A practical video showing how blind plate solving can help identify a field.</p></li>
+<li><p><a class="reference external" href="https://astrometry.net/doc/readme.html">Astrometry.net Documentation</a><br />
+Useful background for what blind astrometric calibration does and why it works.</p></li>
 </ul>
 </section>
-<section id="setting-aperture-sizes">
-<h3><span class="section-number">11.6.2. </span>Setting Aperture Sizes<a class="headerlink" href="#setting-aperture-sizes" title="Link to this heading">#</a></h3>
-<p>Apertures have three radii: Object, Inner Sky, Outer Sky.</p>
-<ol class="arabic simple">
-<li><p><strong>Measure FWHM:</strong> Hover over a star or use AIJ tools to find the FWHM.</p></li>
-<li><p>In the DP window’s photometry settings:</p>
+<section id="optional-comparison-tools">
+<h3><span class="section-number">12.14.6. </span>Optional comparison tools<a class="headerlink" href="#optional-comparison-tools" title="Link to this heading">#</a></h3>
+<p>These are not required for this guide, but they show that the same photometry ideas appear in different software tools.</p>
 <ul class="simple">
-<li><p><strong>Object Aperture Radius:</strong> ~1.5 to 2.5 x FWHM.</p></li>
-<li><p><strong>Inner Sky Radius:</strong> Object Radius + (3 to 5 pixels).</p></li>
-<li><p><strong>Outer Sky Radius:</strong> Inner Sky Radius + (5 to 10 pixels).</p></li>
-</ul>
-</li>
-<li><p>Visualize and adjust. Ensure <strong>“Re-center apertures using stellar centroid”</strong> is checked.</p></li>
-</ol>
-</section>
-</section>
-<section id="running-the-photometry-and-inspecting-the-data-table">
-<h2><span class="section-number">11.7. </span>Running the Photometry and Inspecting the Data Table<a class="headerlink" href="#running-the-photometry-and-inspecting-the-data-table" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>In the DP window, click <strong>Place Apertures</strong> or <strong>Start Photometry</strong>.</p></li>
-<li><p>A <strong>“Measurements” table</strong> will be generated.</p></li>
-</ol>
-<section id="understanding-the-measurements-table">
-<h3><span class="section-number">11.7.1. </span>Understanding the “Measurements” Table<a class="headerlink" href="#understanding-the-measurements-table" title="Link to this heading">#</a></h3>
-<p>Key columns:</p>
-<ul class="simple">
-<li><p><strong>Frame, File_Name</strong></p></li>
-<li><p><strong>JD_UTC</strong> or <strong>BJD_TDB:</strong> (Barycentric Julian Date - preferred for timing accuracy). Make sure this is calculated; requires accurate FITS header times, observatory coordinates set in AIJ preferences, and WCS solution.</p></li>
-<li><p><strong>AIRMASS</strong></p></li>
-<li><p><strong>Source-Sky_T1, Source-Sky_C2, …</strong> (background-subtracted flux)</p></li>
-<li><p><strong>rel_flux_T1:</strong> (Relative flux of T1 - target flux / sum of comparison fluxes). This is crucial!</p></li>
-<li><p><strong>rel_flux_err_T1:</strong> Error in relative flux.</p></li>
-</ul>
-<p>To ensure BJD_TDB is calculated correctly:</p>
-<ul class="simple">
-<li><p>Go to <strong>File &gt; Preferences &gt; Telescope &amp; Site</strong>. Enter your observatory’s latitude, longitude, and altitude.</p></li>
-<li><p>Ensure FITS headers have correct <code class="docutils literal notranslate"><span class="pre">DATE-OBS</span></code> and <code class="docutils literal notranslate"><span class="pre">TIME-OBS</span></code> (or <code class="docutils literal notranslate"><span class="pre">UTSTART</span></code>).</p></li>
-<li><p>WCS plate solving should have been successful.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=9lyNI8ksjJw">Tutorial: Creating Measurements with AAVSO Comp Stars</a><br />
+Uses Tycho Tracker, but the comparison-star logic is relevant to AIJ differential photometry.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=OHTSHi2N7KE">Tutorial: Photometry of Variable Stars - Tycho Tracker</a><br />
+Useful for variable-star or asteroid-oriented workflows.</p></li>
 </ul>
 </section>
-</section>
-<section id="differential-photometry-creating-the-light-curve">
-<h2><span class="section-number">11.8. </span>Differential Photometry: Creating the Light Curve<a class="headerlink" href="#differential-photometry-creating-the-light-curve" title="Link to this heading">#</a></h2>
-<p>Differential photometry uses comparison stars to correct for atmospheric and instrumental effects. The <code class="docutils literal notranslate"><span class="pre">rel_flux_T1</span></code> column already represents this.</p>
-<p><strong>Plotting the Light Curve in AIJ:</strong></p>
-<ol class="arabic simple">
-<li><p>In the Measurements table window, click <strong>Plot</strong>.</p></li>
-<li><p>In the <strong>“Plot Data”</strong> window:</p>
+<section id="useful-background">
+<h3><span class="section-number">12.14.7. </span>Useful background<a class="headerlink" href="#useful-background" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>X-axis:</strong> Choose <strong>BJD_TDB</strong> (or JD_UTC if BJD_TDB is unavailable).</p></li>
-<li><p><strong>Y-axis:</strong> Choose <strong>rel_flux_T1</strong>.</p></li>
+<li><p><a class="reference external" href="https://astrometry.net/">Astrometry.net</a></p></li>
+<li><p><a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/index.html">Astropy FITS documentation</a></p></li>
 </ul>
-</li>
-<li><p>Click <strong>Update Plot</strong> or <strong>Plot</strong>.</p></li>
-</ol>
-<p>Inspect the initial light curve for eclipses, scatter, and outliers.</p>
-</section>
-<section id="normalizing-the-light-curve">
-<h2><span class="section-number">11.9. </span>Normalizing the Light Curve<a class="headerlink" href="#normalizing-the-light-curve" title="Link to this heading">#</a></h2>
-<p><strong>Normalization</strong> scales the light curve so the out-of-eclipse brightness is typically 1.0.</p>
-<p><strong>Method 1: Using AIJ’s Plotting Options</strong></p>
-<ol class="arabic simple">
-<li><p>In the <strong>Plot Data</strong> window, look for a Y-axis option like <strong>“Normalized rel_flux_T1”</strong> or a similar normalization checkbox/setting for the selected Y-axis data. This often normalizes by the median or mean of the series.</p></li>
-</ol>
-<p><strong>Method 2: Manual Normalization (for more control or if direct option is unclear)</strong></p>
-<ol class="arabic simple">
-<li><p><strong>Identify Out-of-Eclipse Data:</strong> View your <code class="docutils literal notranslate"><span class="pre">rel_flux_T1</span></code> vs. Time plot. Identify data points representing the system’s maximum, combined brightness (out of eclipse).</p></li>
-<li><p><strong>Calculate Normalization Factor (<code class="docutils literal notranslate"><span class="pre">Flux_norm</span></code>):</strong></p>
-<ul class="simple">
-<li><p>Interactively select these points in the AIJ plot if it provides statistics for selections (mean/median).</p></li>
-<li><p>Or, export the Measurements table (Section 12) and calculate the mean or median of <code class="docutils literal notranslate"><span class="pre">rel_flux_T1</span></code> for these out-of-eclipse points externally.</p></li>
-</ul>
-</li>
-<li><p><strong>Apply Normalization:</strong></p>
-<ul class="simple">
-<li><p><strong>AIJ Custom Column:</strong> If AIJ allows, create a new column (e.g., <code class="docutils literal notranslate"><span class="pre">norm_flux_T1_manual</span></code>) in the Measurements table: <code class="docutils literal notranslate"><span class="pre">rel_flux_T1</span> <span class="pre">/</span> <span class="pre">Flux_norm</span></code> (where <code class="docutils literal notranslate"><span class="pre">Flux_norm</span></code> is your calculated value).</p></li>
-<li><p><strong>External Program:</strong> Perform this division in your spreadsheet/script.</p></li>
-</ul>
-</li>
-<li><p><strong>Re-plot:</strong> Plot your new normalized flux column against Time.</p></li>
-</ol>
-<p>The normalized light curve should have its out-of-eclipse level around 1.0.</p>
-</section>
-<section id="phase-folding-your-light-curve">
-<h2><span class="section-number">11.10. </span>Phase Folding Your Light Curve<a class="headerlink" href="#phase-folding-your-light-curve" title="Link to this heading">#</a></h2>
-<p><strong>Phase folding</strong> takes your time-series data and wraps it according to a known periodic signal, like the orbit of an eclipsing binary. This overlays all observed cycles, improving the signal-to-noise ratio of the average light curve shape and making it easier to analyze the eclipse profiles.</p>
-<p><strong>Prerequisites for Phase Folding:</strong></p>
-<ul class="simple">
-<li><p><strong>Orbital Period (P):</strong> The precise orbital period of your eclipsing binary (e.g., in days). You’ll need to get this from astronomical databases (like VSX, GCVS), published literature, or previous analysis of your data (e.g., periodogram analysis).</p></li>
-<li><p><strong>Epoch (T0):</strong> A specific time of reference, usually the time of a primary eclipse minimum (e.g., in BJD_TDB). This sets the zero point for your phase (Phase = 0.0 at primary minimum).</p></li>
-<li><p><strong>Time Data:</strong> Your time measurements, preferably in BJD_TDB, from the Measurements table.</p></li>
-<li><p><strong>Flux Data:</strong> Your (ideally normalized) relative flux data (e.g., <code class="docutils literal notranslate"><span class="pre">Normalized</span> <span class="pre">rel_flux_T1</span></code> or <code class="docutils literal notranslate"><span class="pre">norm_flux_T1_manual</span></code>).</p></li>
-</ul>
-<p><strong>Method 1: Phase Folding Directly in AIJ’s Plotting Tool</strong></p>
-<p>AIJ’s “Plot Data” or “Multi-Plot Main” window often has built-in capabilities for phase folding:</p>
-<ol class="arabic simple">
-<li><p>Open the <strong>Plot Data</strong> window with your Measurements table data.</p></li>
-<li><p><strong>Y-axis:</strong> Select your desired flux data (e.g., <code class="docutils literal notranslate"><span class="pre">Normalized</span> <span class="pre">rel_flux_T1</span></code> or your manually normalized column).</p></li>
-<li><p><strong>X-axis:</strong> Look for an option that says <strong>“Phase”</strong> or similar. If you select this, AIJ will usually enable fields for <strong>Period (P)</strong> and <strong>Epoch (T0 or Zero Phase Epoch)</strong>.</p>
-<ul class="simple">
-<li><p>Enter your known <strong>Period (P)</strong> value (e.g., <code class="docutils literal notranslate"><span class="pre">0.78534</span></code> days). Make sure the units match your time data (usually days for BJD_TDB).</p></li>
-<li><p>Enter your known <strong>Epoch (T0)</strong> value (e.g., <code class="docutils literal notranslate"><span class="pre">2458765.12345</span></code> BJD_TDB). This should be a time of primary minimum.</p></li>
-</ul>
-</li>
-<li><p>Ensure the correct time column (e.g., <code class="docutils literal notranslate"><span class="pre">BJD_TDB</span></code>) is selected or implicitly used by AIJ for the phase calculation if there’s such an option.</p></li>
-<li><p>Click <strong>Update Plot</strong> or <strong>Plot</strong>.</p></li>
-</ol>
-<p>AIJ will calculate the phase for each data point using a formula like: $<span class="math notranslate nohighlight">\(Phase = \frac{Time - T0}{P} - \text{floor}\left(\frac{Time - T0}{P}\right)\)</span>$
-The plot should now show your flux data plotted against orbital phase (usually from 0 to 1, or sometimes -0.5 to 0.5 if a different T0 convention is used).</p>
-<p><strong>Method 2: Calculating Phase Manually (e.g., for external plotting or if AIJ option is not found)</strong></p>
-<p>If you prefer to calculate the phase yourself or if the direct AIJ option is tricky to find/use, you can add a phase column to your Measurements table (either within AIJ if it supports custom column formulas robustly, or after exporting the data):</p>
-<ol class="arabic simple">
-<li><p><strong>Obtain Period (P) and Epoch (T0):</strong> For example, let <span class="math notranslate nohighlight">\(P = \text{PERIOD_VALUE}\)</span> days and <span class="math notranslate nohighlight">\(T0 = \text{T0_VALUE}\)</span> BJD_TDB.</p></li>
-<li><p><strong>Export Data (if not doing in AIJ):</strong> Save your Measurements table (including the BJD_TDB and normalized flux columns) as a CSV file.</p></li>
-<li><p><strong>Calculate Phase:</strong> In your preferred software (Python with Pandas, Excel, etc.), create a new column called “Phase”. For each row with time <span class="math notranslate nohighlight">\(t_i\)</span> (from your BJD_TDB column):
-Calculate the number of cycles: <span class="math notranslate nohighlight">\(N_i = \frac{t_i - T0}{P}\)</span>
-Calculate the phase: <span class="math notranslate nohighlight">\(Phase_i = N_i - \text{floor}(N_i)\)</span>
-This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is always in the range [0, 1).
-<em>In Python/Pandas, this would be something like: <code class="docutils literal notranslate"><span class="pre">df['Phase']</span> <span class="pre">=</span> <span class="pre">((df['BJD_TDB']</span> <span class="pre">-</span> <span class="pre">T0)</span> <span class="pre">/</span> <span class="pre">P)</span> <span class="pre">%</span> <span class="pre">1.0</span></code></em></p></li>
-<li><p><strong>Plot:</strong> Plot your normalized flux column against your new “Phase” column.</p></li>
-</ol>
-<p><strong>Interpreting the Phase-Folded Light Curve:</strong></p>
-<ul class="simple">
-<li><p><strong>Phase 0.0 (and 1.0):</strong> Should correspond to the primary eclipse (the deeper one, if T0 was set to a primary minimum).</p></li>
-<li><p><strong>Phase 0.5:</strong> Should correspond to the secondary eclipse (if present and observable).</p></li>
-<li><p>The curve should show a well-defined shape, with reduced scatter compared to a single night’s observation, as data from multiple orbital cycles are overlaid.</p></li>
-<li><p>You can now clearly see the average depth, duration, and shape of the eclipses.</p></li>
-</ul>
-</section>
-<section id="refining-and-detrending-optional">
-<h2><span class="section-number">11.11. </span>Refining and Detrending (Optional)<a class="headerlink" href="#refining-and-detrending-optional" title="Link to this heading">#</a></h2>
-<p>Sometimes, even after differential photometry, your light curve might show residual trends. AIJ offers tools for detrending in the <strong>Plot Data</strong> window under a <strong>“Detrend”</strong> tab/section. You can fit and remove simple functions (linear, polynomial) from out-of-eclipse portions, often using parameters like Airmass.</p>
-<p><strong>Caution:</strong> Detrending should be done carefully. It’s generally best to apply detrending to the time-series data <em>before</em> phase folding if the trends are related to observing conditions of specific nights rather than an orbital phase-dependent phenomenon.</p>
-</section>
-<section id="saving-your-results">
-<h2><span class="section-number">11.12. </span>Saving Your Results<a class="headerlink" href="#saving-your-results" title="Link to this heading">#</a></h2>
-<section id="saving-the-measurements-table">
-<h3><span class="section-number">11.12.1. </span>Saving the Measurements Table<a class="headerlink" href="#saving-the-measurements-table" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>In the Measurements table window, go to <strong>File &gt; Save Table As…</strong>.</p></li>
-<li><p>Choose <strong>CSV</strong> or <strong>Tab-delimited Text File (.txt)</strong>. Save it in your <code class="docutils literal notranslate"><span class="pre">results</span></code> folder.
-<em>If you added a phase column manually outside AIJ, save that modified table.</em></p></li>
-</ol>
-</section>
-<section id="saving-the-light-curve-plot-time-series-and-phase-folded">
-<h3><span class="section-number">11.12.2. </span>Saving the Light Curve Plot (Time Series and Phase-Folded)<a class="headerlink" href="#saving-the-light-curve-plot-time-series-and-phase-folded" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>In AIJ’s <strong>Plot Data</strong> window:</p></li>
-<li><p>Use <strong>File &gt; Save Plot As…</strong> or <strong>Right-click &gt; Save As…</strong>.</p></li>
-<li><p>Save in <strong>PNG</strong> or <strong>PDF</strong> format in your <code class="docutils literal notranslate"><span class="pre">results</span></code> folder. Save both your time-series light curve and your phase-folded light curve.</p></li>
-</ol>
-</section>
-<section id="saving-aij-session-settings">
-<h3><span class="section-number">11.12.3. </span>Saving AIJ Session/Settings<a class="headerlink" href="#saving-aij-session-settings" title="Link to this heading">#</a></h3>
-<p>Look for options like <strong>File &gt; Save Photometry Settings…</strong> in the DP window to save aperture settings etc.</p>
+<div class="note admonition">
+<p class="admonition-title">How to use videos</p>
+<p>Do not watch a video passively and assume you understand the workflow. Pause the video, write down the settings being used, and compare them with your own data.</p>
+</div>
 </section>
 </section>
-<section id="conclusion-and-next-steps">
-<h2><span class="section-number">11.13. </span>Conclusion and Next Steps<a class="headerlink" href="#conclusion-and-next-steps" title="Link to this heading">#</a></h2>
-<p>Congratulations! You’ve successfully loaded FITS images, performed aperture photometry, created a differential light curve, normalized it, phase-folded it, and saved your results using AstroImageJ.</p>
-<p><strong>Recap of what you learned:</strong></p>
-<ul class="simple">
-<li><p>The importance of image calibration, WCS, and accurate time (BJD_TDB).</p></li>
-<li><p>How to select target and comparison stars for photometry.</p></li>
-<li><p>How to set appropriate aperture sizes.</p></li>
-<li><p>The meaning of differential photometry and normalization.</p></li>
-<li><p><strong>How to phase fold a light curve using a known period and epoch.</strong></p></li>
-<li><p>The importance of saving your data table and plots.</p></li>
-</ul>
-<p><strong>Potential Next Steps:</strong></p>
-<ul class="simple">
-<li><p><strong>Error Analysis:</strong> Delve deeper into the photometric errors.</p></li>
-<li><p><strong>Modeling the Light Curve:</strong> Use your phase-folded, normalized light curve with software (like PHOEBE, JKTEBOP, or custom scripts) to model and derive physical parameters of the binary system (star radii, inclination, temperatures, etc.).</p></li>
-<li><p><strong>Period Analysis:</strong> If the period wasn’t known precisely, you could use tools (e.g., periodograms in AIJ or Python) on your time-series data to determine it.</p></li>
-<li><p><strong>Explore More AIJ Features:</strong> AIJ is packed with many other tools.</p></li>
-</ul>
-<p><strong>Further Resources:</strong></p>
-<ul class="simple">
-<li><p><strong>AstroImageJ User Guide:</strong> The official AIJ website.</p></li>
-<li><p><strong>AstroImageJ Forum/Mailing List.</strong></p></li>
-</ul>
+<section id="final-checklist">
+<h2><span class="section-number">12.15. </span>Final Checklist<a class="headerlink" href="#final-checklist" title="Link to this heading">#</a></h2>
+<p>Before considering the reduction finished, confirm that the images were calibrated or intentionally left uncalibrated for a documented reason, the FITS times and exposure times were checked, the target and comparison stars were correctly identified, the apertures stayed centered, the sky annuli avoided contaminating stars, the measurements table was saved, the time column was documented, and any excluded frames were recorded.</p>
+<p>For eclipsing binaries and exoplanets, save both the time-series light curve and any phase-folded or modeled version. For asteroids, save notes about the asteroid path, aperture tracking, and any frames where the target crossed a star or detector artifact.</p>
+<div class="tip admonition">
+<p class="admonition-title">Final rule</p>
+<p>AIJ can produce a light curve quickly. Your job is to prove that the light curve is trustworthy.</p>
+</div>
 </section>
 </section>
 
@@ -870,13 +843,22 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="celestial-sphere.html"
+       href="photometry-basics-guide.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Celestial Sphere and Sky Coordinates</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Basics of CCD Photometry</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="archival-data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Data Reduction (archival)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -894,46 +876,35 @@ This ensures <span class="math notranslate nohighlight">\(Phase_i\)</span> is al
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">11.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-eclipsing-binary">11.1.1. What is an Eclipsing Binary?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-light-curve">11.1.2. What is a Light Curve?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-astroimagej-aij">11.1.3. What is AstroImageJ (<strong>AIJ</strong>)?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-of-this-tutorial">11.1.4. Goal of this Tutorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">11.1.5. Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-big-picture-workflow">12.1. The Big Picture Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-project-folder">12.2. Setting Up the Project Folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fits-headers-before-aij">12.3. FITS Headers Before AIJ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-images-into-aij">12.4. Loading Images into AIJ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-in-aij">12.5. Calibration in AIJ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-astrometry-net">12.6. Plate Solving and Astrometry.net</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-target-and-comparison-stars">12.7. Choosing Target and Comparison Stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-apertures-and-sky-annuli">12.8. Setting Apertures and Sky Annuli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-multi-aperture-photometry">12.9. Running Multi-Aperture Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-normalizing-and-detrending">12.10. Plotting, Normalizing, and Detrending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-specific-tips">12.11. Target-Specific Tips</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eclipsing-binary-stars">12.11.1. Eclipsing Binary Stars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exoplanet-transits">12.11.2. Exoplanet Transits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asteroids">12.11.3. Asteroids</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-workspace">11.2. Setting up Your Workspace</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-your-fits-files">11.2.1. Organizing Your FITS Files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-astroimagej">11.2.2. Launching AstroImageJ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation-in-aij-important">11.2.3. Memory Allocation in AIJ (Important!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-results-and-recording-settings">12.12. Exporting Results and Recording Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problems-and-fixes">12.13. Common Problems and Fixes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-and-further-reading">12.14. Videos and Further Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astroimagej-and-differential-photometry">12.14.1. AstroImageJ and differential photometry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astroimagej-workflow-videos">12.14.2. AstroImageJ workflow videos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aavso-photometry-and-variable-star-resources">12.14.3. AAVSO photometry and variable-star resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exoplanet-transit-background">12.14.4. Exoplanet transit background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#astrometry-plate-solving-and-target-identification">12.14.5. Astrometry, plate solving, and target identification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-comparison-tools">12.14.6. Optional comparison tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-background">12.14.7. Useful background</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-your-fits-images">11.3. Loading Your FITS Images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-navigation-and-display">11.3.1. Basic Image Navigation and Display</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-calibration-a-brief-overview">11.4. Image Calibration (A Brief Overview)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plate-solving-and-wcs-world-coordinate-system">11.5. Plate Solving and WCS (World Coordinate System)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">11.6. Performing Aperture Photometry</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-target-and-comparison-stars">11.6.1. Selecting Your Target and Comparison Stars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-aperture-sizes">11.6.2. Setting Aperture Sizes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-photometry-and-inspecting-the-data-table">11.7. Running the Photometry and Inspecting the Data Table</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-measurements-table">11.7.1. Understanding the “Measurements” Table</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-creating-the-light-curve">11.8. Differential Photometry: Creating the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-the-light-curve">11.9. Normalizing the Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-folding-your-light-curve">11.10. Phase Folding Your Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-and-detrending-optional">11.11. Refining and Detrending (Optional)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-results">11.12. Saving Your Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-measurements-table">11.12.1. Saving the Measurements Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-light-curve-plot-time-series-and-phase-folded">11.12.2. Saving the Light Curve Plot (Time Series and Phase-Folded)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-aij-session-settings">11.12.3. Saving AIJ Session/Settings</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-next-steps">11.13. Conclusion and Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">12.15. Final Checklist</a></li>
 </ul>
   </nav></div>
 

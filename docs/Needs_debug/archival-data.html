@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -215,7 +215,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Tutorials/research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Tutorials/celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Tutorials/AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
 </ul>
 
     </div>
@@ -468,6 +469,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-a-transit">Example: Finding a Transit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">Saving Your Reduced Light Curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">Conclusion and Further Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-transit-modeling-fits">Where Transit Modeling Fits</a></li>
 </ul>
             </nav>
         </div>
@@ -511,9 +513,9 @@ document.write(`
 <p>Now, let’s import <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and other useful packages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lightkurve</span> <span class="k">as</span> <span class="nn">lk</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lightkurve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1"># This ensures plots appear inline in Jupyter notebooks</span>
@@ -855,7 +857,7 @@ Length = 18279 rows
 <span class="g g-Whitespace">    </span><span class="mi">170</span><span class="sd">     Provided for backwards-compatibility with Lightkurve v1.x;</span>
 <span class="g g-Whitespace">    </span><span class="mi">171</span><span class="sd">     will be removed soon.&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="k">return</span> <span class="n">LightCurveCollection</span><span class="p">([</span><span class="n">lc</span><span class="o">.</span><span class="n">SAP_FLUX</span> <span class="k">for</span> <span class="n">lc</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
-<span class="ne">--&gt; </span><span class="mi">174</span> <span class="k">def</span> <span class="nf">stitch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corrector_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">normalize</span><span class="p">()):</span>
+<span class="ne">--&gt; </span><span class="mi">174</span> <span class="k">def</span><span class="w"> </span><span class="nf">stitch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corrector_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">normalize</span><span class="p">()):</span>
 <span class="g g-Whitespace">    </span><span class="mi">175</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Stitch all light curves in the collection into a single `LightCurve`.</span>
 <span class="g g-Whitespace">    </span><span class="mi">176</span><span class="sd"> </span>
 <span class="g g-Whitespace">    </span><span class="mi">177</span><span class="sd">     Any function passed to `corrector_func` will be applied to each light curve</span>
@@ -933,13 +935,13 @@ Length = 18279 rows
 <span class="g g-Whitespace">    </span><span class="mi">583</span> <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">if</span> <span class="n">keepdims</span> <span class="k">else</span> <span class="n">r</span><span class="p">)</span> <span class="k">if</span> <span class="n">out</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">out</span>
 
 <span class="nn">File ~/anaconda3/lib/python3.11/site-packages/astropy/units/quantity.py:1181,</span> in <span class="ni">Quantity.__iter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span> <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span> <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isscalar</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">1181</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1182</span>             <span class="s2">&quot;&#39;</span><span class="si">{cls}</span><span class="s2">&#39; object with a scalar value is not iterable&quot;</span>
 <span class="g g-Whitespace">   </span><span class="mi">1183</span>             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
 <span class="g g-Whitespace">   </span><span class="mi">1185</span>     <span class="c1"># Otherwise return a generator</span>
-<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="k">def</span> <span class="nf">quantity_iter</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="k">def</span><span class="w"> </span><span class="nf">quantity_iter</span><span class="p">():</span>
 
 <span class="ne">TypeError</span>: &#39;MaskedQuantity&#39; object with a scalar value is not iterable
 </pre></div>
@@ -1146,6 +1148,27 @@ Length = 18279 rows
 <li><p><strong>Consult Documentation:</strong> The <a class="reference external" href="https://docs.lightkurve.org">Lightkurve documentation</a> is an excellent resource with many tutorials and API references.</p></li>
 </ul>
 </section>
+<section id="where-transit-modeling-fits">
+<h2>Where Transit Modeling Fits<a class="headerlink" href="#where-transit-modeling-fits" title="Link to this heading">#</a></h2>
+<p>The tools in this guide help you find, clean, detrend, fold, and inspect archival light curves. That is the first stage of working with Kepler or TESS data.</p>
+<p>For many projects, that is enough to answer first-pass questions:</p>
+<ul class="simple">
+<li><p>Is there a periodic signal?</p></li>
+<li><p>Is the light curve dominated by stellar variability?</p></li>
+<li><p>Are there eclipses or transit-like dips?</p></li>
+<li><p>Does the signal repeat with a stable period?</p></li>
+<li><p>Is the target worth more detailed modeling?</p></li>
+</ul>
+<p>Detailed exoplanet modeling is a separate step. Once a promising transit signal has been identified and cleaned, you may want to fit a physical transit model. That requires additional tools and concepts, including limb darkening, impact parameter, planet-to-star radius ratio, orbital inclination, priors, posterior distributions, and correlated noise.</p>
+<p>Common tools include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lkreidberg.github.io/batman/docs/html/index.html"><code class="docutils literal notranslate"><span class="pre">batman</span></code></a> for generating fast exoplanet transit light-curve models. Its documentation describes it as a Python package for calculating transit light curves, including models with stellar limb darkening.</p></li>
+<li><p><a class="reference external" href="https://emcee.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">emcee</span></code></a> for Markov chain Monte Carlo parameter estimation. Its documentation describes it as a pure-Python implementation of the affine-invariant ensemble sampler.</p></li>
+<li><p><a class="reference external" href="https://celerite.readthedocs.io/en/stable/"><code class="docutils literal notranslate"><span class="pre">celerite</span></code></a> or <a class="reference external" href="https://celerite2.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">celerite2</span></code></a> for fast one-dimensional Gaussian-process modeling of time-series data. <code class="docutils literal notranslate"><span class="pre">celerite</span></code> is designed for scalable Gaussian-process regression in one dimension.</p></li>
+<li><p><a class="reference external" href="https://www.pymc.io/projects/docs/en/stable/guides/Gaussian_Processes.html"><code class="docutils literal notranslate"><span class="pre">PyMC</span></code> Gaussian processes</a> for more general probabilistic Gaussian-process modeling.</p></li>
+<li><p><a class="reference external" href="https://docs.exoplanet.codes/en/latest/"><code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a> for full probabilistic modeling of exoplanet time-series data with PyMC. Its documentation describes it as a toolkit for probabilistic modeling of astronomical time-series data with a focus on exoplanets.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1216,6 +1239,7 @@ Length = 18279 rows
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-a-transit">Example: Finding a Transit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">Saving Your Reduced Light Curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">Conclusion and Further Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-transit-modeling-fits">Where Transit Modeling Fits</a></li>
 </ul>
   </nav></div>
 

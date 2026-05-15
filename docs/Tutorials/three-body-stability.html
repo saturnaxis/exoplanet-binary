@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -217,7 +217,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">13. Data Reduction (archival)</a></li>
 </ul>
 
     </div>
@@ -566,8 +568,8 @@ document.write(`
 <p>The above parameter spaces can also be fit using the same trial function (Eq. <a class="reference internal" href="#equation-hw-formula">(3.1)</a>), but the data underlying the above figure is available in a GitHub repo <a class="reference external" href="https://github.com/saturnaxis/ThreeBody_Stability">saturnaxis:ThreeBody_Stability</a>.  Using the data file for the coplanar case and <code class="docutils literal notranslate"><span class="pre">CloughTocher2DInterpolator</span></code>, one can easily identify <span class="math notranslate nohighlight">\(\rho_{\rm cr}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">CloughTocher2DInterpolator</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloughTocher2DInterpolator</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -591,8 +593,8 @@ document.write(`
 <p>A nearly identical procedure can be applied to determine the critical semimajor axis ratio for P-Type planets using the GitHub repo <a class="reference external" href="https://github.com/saturnaxis/CBP_stability">saturnaxis:CBP_stability</a> from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018ApJ...856..150Q/abstract">Quarles et al. (2018)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">CloughTocher2DInterpolator</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloughTocher2DInterpolator</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.2937</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.2937</span><span class="p">)</span>  <span class="c1">#converting from q --&gt; mu  Doyle et al. (2011)</span>
 <span class="n">ebin</span> <span class="o">=</span> <span class="mf">0.15944</span>
@@ -643,9 +645,9 @@ document.write(`
 <p>The code below demonstrates a short simulation of only 10 years to show the orbit of the planet and central binary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">M_J</span> <span class="o">=</span> <span class="mf">9.54e-4</span> <span class="c1">#Jupiter mass in Msun</span>
 
@@ -669,7 +671,7 @@ document.write(`
 <span class="n">RA_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">0.003</span><span class="p">)</span> <span class="c1"># planetary longitude of nodes</span>
 <span class="n">MA_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">106.51</span><span class="p">)</span> <span class="o">-</span> <span class="n">omg_p</span> <span class="c1">#planetary mean anomaly from mean longitude</span>
 
-<span class="k">def</span> <span class="nf">simulation</span><span class="p">(</span><span class="n">tscale</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">out_step</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulation</span><span class="p">(</span><span class="n">tscale</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">out_step</span><span class="p">):</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s1">&#39;ias15&#39;</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;AU&#39;</span><span class="p">,</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span><span class="s1">&#39;Msun&#39;</span><span class="p">)</span>
@@ -694,11 +696,11 @@ document.write(`
 <p>The code below extracts the Cartesian coordinates from the simulation archive and creates a visualization using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
 
-<span class="k">def</span> <span class="nf">Rot</span><span class="p">(</span><span class="n">ang1</span><span class="p">,</span><span class="n">ang2</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Rot</span><span class="p">(</span><span class="n">ang1</span><span class="p">,</span><span class="n">ang2</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
     <span class="n">rot_omg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
     <span class="n">rot_inc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang2</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang2</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang2</span><span class="p">)]])</span>
     <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rot_omg</span><span class="p">,</span><span class="n">rot_inc</span><span class="p">)</span>
@@ -752,9 +754,9 @@ document.write(`
 <p>Again, the dynamics is best understood through a series of figures that show how the orbit is changing with time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
 
 <span class="c1">#plot the simulation</span>
 <span class="n">sa</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulationarchive</span><span class="p">(</span><span class="n">output_bin</span><span class="p">)</span>
@@ -838,9 +840,9 @@ document.write(`
 <p>The code below demonstrates a short simulation of only 100 years to show the orbit of the planet and binary.  The integration step <code class="docutils literal notranslate"><span class="pre">sim.dt</span></code> is now a fraction of the planetary orbit because its orbital period is much shorter than the binary orbital period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">M_J</span> <span class="o">=</span> <span class="mf">9.54e-4</span> <span class="c1">#Jupiter mass in Msun</span>
 
@@ -865,7 +867,7 @@ document.write(`
 <span class="n">MA_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">264</span><span class="p">)</span> <span class="c1">#planetary mean anomaly from posterior plot</span>
 <span class="n">M_p</span> <span class="o">=</span> <span class="mf">1.63</span><span class="o">*</span><span class="n">M_J</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">inc_p</span><span class="p">)</span> <span class="c1">#Planet mass in Msun from msini</span>
 
-<span class="k">def</span> <span class="nf">simulation</span><span class="p">(</span><span class="n">tscale</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">out_step</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulation</span><span class="p">(</span><span class="n">tscale</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">out_step</span><span class="p">):</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s1">&#39;whfast&#39;</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;AU&#39;</span><span class="p">,</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span><span class="s1">&#39;Msun&#39;</span><span class="p">)</span>
@@ -894,11 +896,11 @@ document.write(`
 <p>The code below extracts the Cartesian coordinates from the simulation archive and creates a visualization using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
 
-<span class="k">def</span> <span class="nf">Rot</span><span class="p">(</span><span class="n">ang1</span><span class="p">,</span><span class="n">ang2</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Rot</span><span class="p">(</span><span class="n">ang1</span><span class="p">,</span><span class="n">ang2</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
     <span class="n">rot_omg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang1</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
     <span class="n">rot_inc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang2</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang2</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ang2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ang2</span><span class="p">)]])</span>
     <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rot_omg</span><span class="p">,</span><span class="n">rot_inc</span><span class="p">)</span>
@@ -947,6 +949,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\satur\anaconda3\Lib\site-packages\rebound\simulationarchive.py:95: RuntimeWarning: Binary file was saved with a different version of REBOUND. Binary format might have changed.
+  else:
+c:\Users\satur\anaconda3\Lib\site-packages\rebound\simulationarchive.py:142: RuntimeWarning: Binary file was saved with a different version of REBOUND. Binary format might have changed.
+  self.setup(sim, *self.setup_args)
+c:\Users\satur\anaconda3\Lib\site-packages\rebound\simulationarchive.py:142: RuntimeWarning: Encountered unkown field in file. File might have been saved with a different version of REBOUND.
+  self.setup(sim, *self.setup_args)
+</pre></div>
+</div>
 <img alt="../_images/ed68fa45e0d07d44070a5b3c39bc643eb25e3a1573415292a392d2d5d792db68.png" src="../_images/ed68fa45e0d07d44070a5b3c39bc643eb25e3a1573415292a392d2d5d792db68.png" />
 </div>
 </div>
@@ -963,10 +973,10 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">cm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
 
 <span class="n">output_bin</span> <span class="o">=</span> <span class="s2">&quot;gammaCep_long.bin&quot;</span>
 <span class="n">t_max</span> <span class="o">=</span> <span class="mf">5e4</span>
@@ -1027,7 +1037,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a4399bbabe0987858f960ff8091b8b48a241a66ebc18648cf6f929353dea3d14.png" src="../_images/a4399bbabe0987858f960ff8091b8b48a241a66ebc18648cf6f929353dea3d14.png" />
+<img alt="../_images/0c5199c296d4dc0f517ddb831f266f433fea999f9c6cdc9a623286dd9325d90c.png" src="../_images/0c5199c296d4dc0f517ddb831f266f433fea999f9c6cdc9a623286dd9325d90c.png" />
 </div>
 </div>
 <p>These panels are color-coded with time (<span class="math notranslate nohighlight">\(t=0 \rightarrow\)</span> dark blue and <span class="math notranslate nohighlight">\(t=5\times 10^4\ {\rm yr} \rightarrow\)</span> dark red).  The eccentricity and inclination are anti-correlated due to the <a class="reference external" href="https://en.wikipedia.org/wiki/Kozai_mechanism">Lidov-Kozai mechanism</a>.  The argument of pericenter <span class="math notranslate nohighlight">\(\omega_p\)</span> and longitude of ascending node <span class="math notranslate nohighlight">\(\Omega_p\)</span> are librating (i.e., oscillating between values but not a full rotation).  For the Lidov-Kozai mechanism, we expect orbits around a fixed point using <span class="math notranslate nohighlight">\(\omega_p\)</span> and <span class="math notranslate nohighlight">\(1-e_p^2\)</span> as coordinates, specifically at <span class="math notranslate nohighlight">\(\omega_p = 90^\circ\)</span> or <span class="math notranslate nohighlight">\(\omega_p = 270^\circ\)</span> (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ARA%26A..54..441N/abstract">Naoz (2016)</a> for more details).</p>

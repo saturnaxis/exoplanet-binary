@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -217,7 +217,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">11. Data Reduction with AIJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">13. Data Reduction (archival)</a></li>
 </ul>
 
     </div>
@@ -527,8 +529,8 @@ document.write(`
 <p>Below is an example simulation that creates an instance and sets up some of the simulation parameters.  Our sample simulation will ultimately evaluate a 2 planet system consisting of Earth-mass planets orbiting a Sunlike star with orbital periods of <span class="math notranslate nohighlight">\(9\)</span> and <span class="math notranslate nohighlight">\(15\)</span> days.  The simulation uses the <code class="docutils literal notranslate"><span class="pre">whfast</span></code> integrator, which is a more efficient method for some problems (see <a class="reference external" href="https://rebound.readthedocs.io/en/latest/ipython_examples/AdvWHFast/">advanced whfast</a> for more details).  By default, the particles are added using Jacobi coordinates, where the <code class="docutils literal notranslate"><span class="pre">move_to_com()</span></code> function will convert to barycentric coordinates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">sim</span> <span class="o">=</span> <span class="n">rebound</span><span class="o">.</span><span class="n">Simulation</span><span class="p">()</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="s1">&#39;whfast&#39;</span> <span class="c1">#using the WHfast algorithm </span>
@@ -592,7 +594,7 @@ Time of first and last snapshot: 0.0, 9000.0
 <h3><span class="section-number">2.2.3. </span>Plotting a simulation<a class="headerlink" href="#plotting-a-simulation" title="Link to this heading">#</a></h3>
 <p>To plot a simulation, we can use samples from the <code class="docutils literal notranslate"><span class="pre">SimulationArchive</span></code> and create a visualization through <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.  The example below walks through the basic setup of creating a plot, where there are many ways to customize the appearance (see <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib documentation</a> for more details).</p>
 <p>First, we need to access the functions within the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library and more specificially, those in the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> sublibrary.  In python, this is done through the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and we can denote a reference label <code class="docutils literal notranslate"><span class="pre">plt</span></code>,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 <p>so that we can more easily reference the functions without using the full path to the function.</p>
@@ -628,7 +630,7 @@ Time of first and last snapshot: 0.0, 9000.0
 <p>Altogether, we can combine these statements into one code as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>
 
@@ -656,9 +658,9 @@ Time of first and last snapshot: 0.0, 9000.0
 <p>To simulate the orbit of <span class="math notranslate nohighlight">\(\alpha\)</span> Cen AB, we need to use the known orbital parameters.  The stellar masses and orbital elements are given in <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-alpha-centauri.html">Introduction to the <span class="math notranslate nohighlight">\(\alpha\)</span> Centauri System</a>, but we’ll use the binary orbital plane as a reference so that <span class="math notranslate nohighlight">\(i = \Omega = 0^\circ\)</span> and <span class="math notranslate nohighlight">\(\omega = 77.05^\circ = (232.3^\circ + 204.75^\circ) \mod 360^\circ\)</span>.  Additionally, we need to specifiy a starting position using true anomaly <span class="math notranslate nohighlight">\(f\)</span> or mean anomaly <em>MA</em>.  <a class="reference external" href="https://iopscience.iop.org/article/10.3847/0004-6256/151/5/111/pdf">Quarles &amp; Lissauer (2016)</a> calculated the binary mean anomaly for Julian date (JD) 2452276, which is <span class="math notranslate nohighlight">\(209.6901^\circ\)</span> and we’ll use it here (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016AJ....151..111Q/abstract">Quarles &amp; Lissauer 2016</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">M_A</span> <span class="o">=</span> <span class="mf">1.133</span> <span class="c1">#mass of star A in solar masses</span>
 <span class="n">M_B</span> <span class="o">=</span> <span class="mf">0.972</span> <span class="c1">#mass of star B in solar masses</span>
@@ -736,9 +738,9 @@ Time of first and last snapshot: 0.0, 9000.0
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">M_A</span> <span class="o">=</span> <span class="mf">1.133</span> <span class="c1">#mass of star A in solar masses</span>
 <span class="n">M_B</span> <span class="o">=</span> <span class="mf">0.972</span> <span class="c1">#mass of star B in solar masses</span>
@@ -843,9 +845,9 @@ Time of first and last snapshot: 0.0, 9000.0
 <p>The above example produces a stack of snapshots to visually represent the simulation.  In some cases, it can be more visually stimulating and illuminating if the data visualization is animated.  An animation is essentially a stack of images that are viewed in succession with a short delay.  To create the animation, we must first create a stack of images.  Within the API of <code class="docutils literal notranslate"><span class="pre">rebound</span></code>, there are some functions that can make this process easier.  Note that using <code class="docutils literal notranslate"><span class="pre">rebound</span></code> in this manner is not the only way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rebound</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rebound</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/Tutorials/&quot;</span>
 
@@ -911,7 +913,7 @@ Time of first and last snapshot: 0.0, 9000.0
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">convert</span> </code> can be used from the terminal, if you already have <code class="docutils literal notranslate"><span class="pre">imagemagick</span></code> installed locally.  Then you can either call it from the terminal or from python using the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="nn">sb</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sb</span> 
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">home</span><span class="o">+</span><span class="s2">&quot;Plots/&quot;</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;convert -delay 10 -loop 0 -dispose previous *.png </span><span class="si">%s</span><span class="s2">animation_example.gif&quot;</span> <span class="o">%</span> <span class="n">home</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
