@@ -213,7 +213,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. 5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
@@ -465,7 +465,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">13.3. Searching for Data on MAST</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">13.4. Understanding Data Products and Downloading Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">13.5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stitching-multiple-sectors-quarters">13.5.1. Stitching Multiple Sectors/Quarters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sector-workflow">13.5.1. Single-sector workflow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">13.5.2. Data Cleaning with Quality Flags</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">13.5.3. Normalization and Detrending</a></li>
 </ul>
@@ -475,10 +475,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">13.6.2. Performing Aperture Photometry</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-a-transit">13.7. Example: Finding a Transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-and-folding-a-transit">13.7. Example: Finding and Folding a Transit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">13.8. Saving Your Reduced Light Curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">13.9. Conclusion and Further Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-transit-modeling-fits">13.10. Where Transit Modeling Fits</a></li>
 </ul>
             </nav>
         </div>
@@ -493,6 +492,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="data-reduction-archival">
 <h1><span class="section-number">13. </span>Data Reduction (archival)<a class="headerlink" href="#data-reduction-archival" title="Link to this heading">#</a></h1>
 <p>This tutorial will guide you through the process of finding, downloading, and reducing data from the Mikulski Archive for Space Telescopes (MAST) to create science-ready light curves. We’ll primarily use the <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> Python package, a powerful tool for working with space telescope data like TESS, Kepler, and K2.</p>
+<p><strong>Goal:</strong> By the end of this tutorial, you’ll be able to search for space telescope data, download it, perform basic reduction steps (like cleaning and normalization), and generate a light curve ready for analysis (e.g., searching for exoplanet transits or stellar variability).</p>
 <p><strong>Environment:</strong> This notebook is designed to work well in online Python IDEs like Google Colab or MS Visual Studio Code with a Python kernel.</p>
 <section id="introduction-to-mast-and-lightkurve">
 <h2><span class="section-number">13.1. </span>Introduction to MAST and Lightkurve<a class="headerlink" href="#introduction-to-mast-and-lightkurve" title="Link to this heading">#</a></h2>
@@ -514,8 +514,24 @@ document.write(`
 </section>
 <section id="setting-up-your-python-environment">
 <h2><span class="section-number">13.2. </span>Setting up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Link to this heading">#</a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, you’ll need Python and several packages including <code class="docutils literal notranslate"><span class="pre">astropy</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. The easiest way to install <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and its dependencies is using <code class="docutils literal notranslate"><span class="pre">pip</span></code>. If you are in an environment like Google Colab, this command will install it into your current session.</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, you need Python and several astronomy/scientific packages, including <code class="docutils literal notranslate"><span class="pre">astropy</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. If you are using Google Colab, install <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> inside a notebook cell with:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%pip install lightkurve
+</pre></div>
+</div>
+<p>If you are working from a terminal or a local Anaconda prompt, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>lightkurve
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Recommended local environment</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">lightkurve</span></code> fails with an <code class="docutils literal notranslate"><span class="pre">autograd</span></code>, <code class="docutils literal notranslate"><span class="pre">oktopus</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> error, you are probably using a package combination that is incompatible with NumPy 2.x. A clean conda environment with NumPy pinned below 2 is usually the easiest fix:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>lightkurve-env<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span><span class="s2">&quot;numpy&lt;2&quot;</span><span class="w"> </span>lightkurve<span class="w"> </span>astropy<span class="w"> </span>astroquery<span class="w"> </span>matplotlib<span class="w"> </span>scipy<span class="w"> </span>pandas<span class="w"> </span>jupyterlab<span class="w"> </span>ipykernel
+conda<span class="w"> </span>activate<span class="w"> </span>lightkurve-env
+python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>lightkurve-env<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;Python (lightkurve-env)&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <p>Now, let’s import <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> and other useful packages.</p>
@@ -526,144 +542,15 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1"># This ensures plots appear inline in Jupyter notebooks</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lightkurve version: </span><span class="si">{</span><span class="n">lk</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NumPy version: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">lightkurve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lk</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">109</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.lightcurve</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.lightcurvefile</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="ne">--&gt; </span><span class="mi">109</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.correctors</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.targetpixelfile</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">correctors</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.pldcorrector</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.sffcorrector</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.cbvcorrector</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.regressioncorrector</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">correctors</span><span class="o">/</span><span class="n">cbvcorrector</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">30</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..lightcurve</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightCurve</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">channel_to_module_output</span><span class="p">,</span> <span class="n">validate_method</span><span class="p">,</span> <span class="n">LightkurveDeprecationWarning</span>
-<span class="ne">---&gt; </span><span class="mi">30</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..search</span><span class="w"> </span><span class="kn">import</span> <span class="n">search_lightcurve</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.regressioncorrector</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegressionCorrector</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightCurveCollection</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">search</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">PACKAGEDIR</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">config</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightCurveCollection</span><span class="p">,</span> <span class="n">TargetPixelFileCollection</span>
-<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.targetpixelfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TargetPixelFile</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">LightkurveDeprecationWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">LightkurveError</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">LightkurveWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">suppress_stdout</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">cdips</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">eleanor</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">tglc</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.detect</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.read</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># We intend the reader functions to be accessed via `LightCurve.read()`,</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="c1"># so we add them to the `astropy.io.registry`.</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">read</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">deprecated</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">lightkurve.targetpixelfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TargetPixelFile</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..lightcurve</span><span class="w"> </span><span class="kn">import</span> <span class="n">KeplerLightCurve</span><span class="p">,</span> <span class="n">TessLightCurve</span><span class="p">,</span> <span class="n">LightCurve</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightCurveCollection</span><span class="p">,</span> <span class="n">TargetPixelFileCollection</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">targetpixelfile</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">36</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">PACKAGEDIR</span><span class="p">,</span> <span class="n">MPLSTYLE</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.lightcurve</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightCurve</span><span class="p">,</span> <span class="n">KeplerLightCurve</span><span class="p">,</span> <span class="n">TessLightCurve</span>
-<span class="ne">---&gt; </span><span class="mi">36</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.prf</span><span class="w"> </span><span class="kn">import</span> <span class="n">KeplerPRF</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">KeplerQualityFlags</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">TessQualityFlags</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">finalize_notebook_url</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_filetype</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">prf</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.prfmodel</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">.tpfmodel</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="s2">&quot;Warning: the tpfmodel submodule is not available without oktopus installed, &quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="s2">&quot;which requires a current version of autograd. See #1452 for details.&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lightkurve</span><span class="o">/</span><span class="n">prf</span><span class="o">/</span><span class="n">tpfmodel</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">48</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="ne">---&gt; </span><span class="mi">48</span> <span class="kn">from</span><span class="w"> </span><span class="nn">oktopus</span><span class="w"> </span><span class="kn">import</span> <span class="n">Prior</span><span class="p">,</span> <span class="n">GaussianPrior</span><span class="p">,</span> <span class="n">UniformPrior</span><span class="p">,</span> <span class="n">PoissonPosterior</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.prfmodel</span><span class="w"> </span><span class="kn">import</span> <span class="n">KeplerPRF</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_image</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">oktopus</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.loss</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.prior</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.likelihood</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">oktopus</span><span class="o">/</span><span class="n">loss</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">abstractmethod</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">autograd.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">autograd</span><span class="w"> </span><span class="kn">import</span> <span class="n">jacobian</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span><span class="p">,</span> <span class="n">differential_evolution</span><span class="p">,</span> <span class="n">basinhopping</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">autograd</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.differential_operators</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">make_vjp</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">multigrad_dict</span><span class="p">,</span> <span class="n">elementwise_grad</span><span class="p">,</span> <span class="n">value_and_grad</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">grad_and_aux</span><span class="p">,</span> <span class="n">hessian_tensor_product</span><span class="p">,</span> <span class="n">hessian_vector_product</span><span class="p">,</span> <span class="n">hessian</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">jacobian</span><span class="p">,</span> <span class="n">tensor_jacobian_product</span><span class="p">,</span> <span class="n">vector_jacobian_product</span><span class="p">,</span> <span class="n">grad_named</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">checkpoint</span><span class="p">,</span> <span class="n">make_hvp</span><span class="p">,</span> <span class="n">make_jvp</span><span class="p">,</span> <span class="n">make_ggnvp</span><span class="p">,</span> <span class="n">deriv</span><span class="p">,</span> <span class="n">holomorphic_grad</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.builtins</span><span class="w"> </span><span class="kn">import</span> <span class="nb">isinstance</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span><span class="w"> </span><span class="nn">autograd.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">primitive_with_deprecation_warnings</span> <span class="k">as</span> <span class="n">primitive</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">autograd</span><span class="o">/</span><span class="n">differential_operators</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">16</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_vjp</span> <span class="k">as</span> <span class="n">_make_vjp</span><span class="p">,</span> <span class="n">make_jvp</span> <span class="k">as</span> <span class="n">_make_jvp</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.extend</span><span class="w"> </span><span class="kn">import</span> <span class="n">primitive</span><span class="p">,</span> <span class="n">defvjp_argnum</span><span class="p">,</span> <span class="n">vspace</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="kn">import</span><span class="w"> </span><span class="nn">autograd.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">make_vjp</span> <span class="o">=</span> <span class="n">unary_to_nary</span><span class="p">(</span><span class="n">_make_vjp</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">make_jvp</span> <span class="o">=</span> <span class="n">unary_to_nary</span><span class="p">(</span><span class="n">_make_jvp</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">autograd</span><span class="o">/</span><span class="n">numpy</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.numpy_wrapper</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_boxes</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_vspaces</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_vjps</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">autograd</span><span class="o">/</span><span class="n">numpy</span><span class="o">/</span><span class="n">numpy_boxes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">70</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">ArrayBox</span><span class="p">,</span> <span class="s1">&#39;flatten&#39;</span><span class="p">,</span> <span class="n">anp</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;ravel&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s1">&#39;1.25&#39;</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">70</span>     <span class="n">SequenceBox</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">EigResult</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="n">SequenceBox</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">EighResult</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="n">SequenceBox</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">QRResult</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: module &#39;numpy.linalg&#39; has no attribute &#39;linalg&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lightkurve version: 2.5.1
+NumPy version: 2.4.4
 </pre></div>
 </div>
 </div>
@@ -671,76 +558,99 @@ document.write(`
 </section>
 <section id="searching-for-data-on-mast">
 <h2><span class="section-number">13.3. </span>Searching for Data on MAST<a class="headerlink" href="#searching-for-data-on-mast" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> allows you to search for data programmatically. You can search by target name, mission-specific ID (like TIC for TESS, KIC for Kepler, EPIC for K2), or coordinates.</p>
-<p>Let’s search for data for the star <strong>TOI 700</strong>, a star known to host exoplanets, including one in the habitable zone (TOI 700 d), observed by TESS. Its TESS Input Catalog (TIC) ID is 150428135.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> allows you to search for data programmatically. You can search by target name, mission-specific ID, or coordinates.</p>
+<p>For the first tutorial example, we will use <strong>WASP-18</strong>, a bright star with a short-period transiting planet. This is a better first target than a long-period planet because one TESS sector contains many repeated transits. A short-period target makes the phase-folded light curve much easier to see when we intentionally limit the download to one sector/quarter.</p>
+<div class="note admonition">
+<p class="admonition-title">Why not start with TOI 700 d?</p>
+<p>TOI 700 d is scientifically interesting, but it is not a good first-sector-only tutorial target. Its orbital period is long enough that one TESS sector may contain too few useful transits for a clear folded light curve. Start with a short-period planet first, then move to longer-period targets once the workflow is familiar.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_star</span> <span class="o">=</span> <span class="s2">&quot;TOI 700&quot;</span>
-<span class="c1"># You can also use target_star = &quot;TIC 150428135&quot;</span>
-<span class="c1"># Or for Kepler: target_star = &quot;KIC 8462852&quot; (Boyajian&#39;s Star)</span>
-<span class="c1"># Or for K2: target_star = &quot;EPIC 201367065&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_star</span> <span class="o">=</span> <span class="s2">&quot;WASP-18&quot;</span>
+<span class="n">mission</span> <span class="o">=</span> <span class="s2">&quot;TESS&quot;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;SPOC&quot;</span>
 
-<span class="n">search_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">)</span>
-<span class="n">search_result</span> <span class="c1"># Display the search results as a table</span>
+<span class="c1"># Other possible examples after you understand the workflow:</span>
+<span class="c1"># target_star = &quot;TOI 700&quot;       # longer-period multi-planet system; usually needs more sectors</span>
+<span class="c1"># target_star = &quot;KIC 8462852&quot;   # Kepler/Boyajian&#39;s Star example</span>
+<span class="c1"># target_star = &quot;TIC 150428135&quot; # TIC identifier for TOI 700</span>
+
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="n">mission</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
+<span class="n">search_result</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">target_star</span> <span class="o">=</span> <span class="s2">&quot;TOI 700&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># You can also use target_star = &quot;TIC 150428135&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Or for Kepler: target_star = &quot;KIC 8462852&quot; (Boyajian&#39;s Star)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Or for K2: target_star = &quot;EPIC 201367065&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">search_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">search_result</span> <span class="c1"># Display the search results as a table</span>
+<div class="output text_html">SearchResult containing 10 data products.
 
-<span class="ne">NameError</span>: name &#39;lk&#39; is not defined
-</pre></div>
+<table id="table1710515630352">
+<thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
+<thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
+<tr><td>0</td><td>TESS Sector 02</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>1</td><td>TESS Sector 03</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>2</td><td>TESS Sector 29</td><td>2020</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>20</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>3</td><td>TESS Sector 30</td><td>2020</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>20</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>4</td><td>TESS Sector 29</td><td>2020</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>5</td><td>TESS Sector 30</td><td>2020</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>6</td><td>TESS Sector 69</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>20</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>7</td><td>TESS Sector 69</td><td>2023</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>8</td><td>TESS Sector 96</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>20</td><td>100100827</td><td>0.0</td></tr>
+<tr><td>9</td><td>TESS Sector 96</td><td>2025</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+</table></div></div>
 </div>
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">search_result</span></code> object is a table listing all available light curve products for your target. It includes information like the mission, sector/quarter/campaign, author (pipeline), and an observation ID.</p>
-<p>You can filter these results. For example, if you only want TESS data:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">search_result</span></code> object is a table listing available light curve products for the target. It includes information such as the mission, sector/quarter/campaign, author or pipeline, exposure time, and observation ID.</p>
+<p>For this tutorial, we intentionally keep only the <strong>first available sector</strong>. This keeps the page faster to build and gives students a smaller dataset to understand before they work with multi-sector light curves.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_tess</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="s2">&quot;TESS&quot;</span><span class="p">)</span>
-<span class="n">search_tess</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_tess</span> <span class="o">=</span> <span class="n">search_result</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">search_tess</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No </span><span class="si">{</span><span class="n">mission</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">author</span><span class="si">}</span><span class="s2"> light curves were found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">search_tess</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">mission</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">author</span><span class="si">}</span><span class="s2"> light curve products for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For this tutorial, we will use only the first available product:&quot;</span><span class="p">)</span>
+<span class="n">search_tess</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">search_tess</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_lightcurve</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="s2">&quot;TESS&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">search_tess</span>
-
-<span class="ne">NameError</span>: name &#39;lk&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 10 TESS SPOC light curve products for WASP-18.
+For this tutorial, we will use only the first available product:
 </pre></div>
 </div>
-</div>
+<div class="output text_html">SearchResult containing 1 data products.
+
+<table id="table1710331576784">
+<thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
+<thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
+<tr><td>0</td><td>TESS Sector 02</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+</table></div></div>
 </div>
 <p>You can also search for Target Pixel Files (TPFs), which contain the raw pixel data around your target. This is useful if you want to perform custom photometry.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_tpf_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_targetpixelfile</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="s2">&quot;TESS&quot;</span><span class="p">)</span>
-<span class="n">search_tpf_result</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_tpf_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_targetpixelfile</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="n">mission</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">search_tpf_result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No </span><span class="si">{</span><span class="n">mission</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">author</span><span class="si">}</span><span class="s2"> target pixel files were found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">search_tpf_result</span><span class="p">)</span><span class="si">}</span><span class="s2"> target pixel file products. We will use only the first one later.&quot;</span><span class="p">)</span>
+
+<span class="n">search_tpf_result</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">search_tpf_result</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">search_targetpixelfile</span><span class="p">(</span><span class="n">target_star</span><span class="p">,</span> <span class="n">mission</span><span class="o">=</span><span class="s2">&quot;TESS&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">search_tpf_result</span>
-
-<span class="ne">NameError</span>: name &#39;lk&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 10 target pixel file products. We will use only the first one later.
 </pre></div>
 </div>
-</div>
+<div class="output text_html">SearchResult containing 1 data products.
+
+<table id="table1710168632528">
+<thead><tr><th>#</th><th>mission</th><th>year</th><th>author</th><th>exptime</th><th>target_name</th><th>distance</th></tr></thead>
+<thead><tr><th></th><th></th><th></th><th></th><th>s</th><th></th><th>arcsec</th></tr></thead>
+<tr><td>0</td><td>TESS Sector 02</td><td>2018</td><td><a href='https://heasarc.gsfc.nasa.gov/docs/tess/data-handling.html'>SPOC</a></td><td>120</td><td>100100827</td><td>0.0</td></tr>
+</table></div></div>
 </div>
 </section>
 <section id="understanding-data-products-and-downloading-data">
@@ -749,81 +659,115 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Light Curve Files (LCFs):</strong> These files contain pre-processed light curves. For TESS and Kepler, common flux types include:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">SAP_FLUX</span></code> (Simple Aperture Photometry): Sum of flux in an optimal aperture. Can be affected by instrument systematics.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> (Pre-search Data Conditioning SAP Flux): SAP flux corrected for instrumental systematics. This is usually the best starting point for transit searches or stellar variability studies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAP_FLUX</span></code> (Simple Aperture Photometry): the summed flux inside a pipeline aperture. It can still contain instrumental systematics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> (Pre-search Data Conditioning SAP Flux): SAP flux corrected for many instrumental systematics. This is usually the best starting point for a first transit or variability search.</p></li>
 </ul>
 </li>
-<li><p><strong>Target Pixel Files (TPFs):</strong> These files contain the time-series of images (pixel data) centered on the target star. You can use TPFs to define your own photometric aperture and extract a light curve.</p></li>
+<li><p><strong>Target Pixel Files (TPFs):</strong> These files contain the time-series images centered on the target star. They are useful when you want to inspect contamination, apertures, or extract your own light curve.</p></li>
 </ul>
-<p>Let’s download the available TESS light curves for TOI 700. The <code class="docutils literal notranslate"><span class="pre">download_all()</span></code> method can be used on a search result to get all matching datasets. You can also download specific datasets by indexing the search result.</p>
+<p>For speed and clarity, we will download only the first available light curve product. In a real research project, you may later download many sectors or quarters and stitch them together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download all TESS light curves for TOI 700 processed by the SPOC pipeline</span>
-<span class="c1"># We select the SPOC pipeline products as they are typically the most robust for TESS</span>
-<span class="n">lc_collection</span> <span class="o">=</span> <span class="n">search_tess</span><span class="p">[</span><span class="n">search_tess</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="s2">&quot;SPOC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">download_all</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_masked_flux_to_nan</span><span class="p">(</span><span class="n">lc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert masked flux-like columns to ordinary arrays with NaNs.</span>
+
+<span class="sd">    Some TESS products can store flux columns as masked quantities. That can cause</span>
+<span class="sd">    errors later when cleaning, normalizing, or stitching. This helper replaces</span>
+<span class="sd">    masked values with NaN values, which Lightkurve can remove cleanly.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lc</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">colname</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;flux&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_err&quot;</span><span class="p">,</span> <span class="s2">&quot;sap_flux&quot;</span><span class="p">,</span> <span class="s2">&quot;sap_flux_err&quot;</span><span class="p">,</span> <span class="s2">&quot;pdcsap_flux&quot;</span><span class="p">,</span> <span class="s2">&quot;pdcsap_flux_err&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">colname</span> <span class="ow">in</span> <span class="n">lc</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
+            <span class="n">quantity</span> <span class="o">=</span> <span class="n">lc</span><span class="p">[</span><span class="n">colname</span><span class="p">]</span>
+            <span class="n">unit</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">quantity</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">quantity</span><span class="o">.</span><span class="n">value</span>
+
+            <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">lc</span><span class="p">[</span><span class="n">colname</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span> <span class="o">*</span> <span class="n">unit</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lc</span><span class="p">[</span><span class="n">colname</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span>
+
+    <span class="k">return</span> <span class="n">lc</span>
+
+<span class="c1"># Download only the first available light curve product.</span>
+<span class="c1"># The flux_column argument asks Lightkurve to use PDCSAP flux when available.</span>
+<span class="n">lc0</span> <span class="o">=</span> <span class="n">search_tess</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">flux_column</span><span class="o">=</span><span class="s2">&quot;pdcsap_flux&quot;</span><span class="p">,</span> <span class="n">quality_bitmask</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+<span class="n">lc0</span> <span class="o">=</span> <span class="n">convert_masked_flux_to_nan</span><span class="p">(</span><span class="n">lc0</span><span class="p">)</span>
+
+<span class="c1"># Keep a one-item collection so the rest of the notebook still uses collection-style logic.</span>
+<span class="n">lc_collection</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">LightCurveCollection</span><span class="p">([</span><span class="n">lc0</span><span class="p">])</span>
 <span class="n">lc_collection</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Download all TESS light curves for TOI 700 processed by the SPOC pipeline</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># We select the SPOC pipeline products as they are typically the most robust for TESS</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">lc_collection</span> <span class="o">=</span> <span class="n">search_tess</span><span class="p">[</span><span class="n">search_tess</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="s2">&quot;SPOC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">download_all</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">lc_collection</span>
-
-<span class="ne">NameError</span>: name &#39;search_tess&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LightCurveCollection of 1 objects:
+    0: &lt;TessLightCurve LABEL=&quot;TIC 100100827&quot; SECTOR=2 AUTHOR=SPOC FLUX_ORIGIN=pdcsap_flux&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">lc_collection</span></code> is a <code class="docutils literal notranslate"><span class="pre">LightCurveCollection</span></code> object, which is a list of <code class="docutils literal notranslate"><span class="pre">LightCurve</span></code> objects. Let’s inspect the first light curve in the collection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lc_collection</span></code> is a <code class="docutils literal notranslate"><span class="pre">LightCurveCollection</span></code> object. In this tutorial, it contains only one light curve because we intentionally downloaded only the first available sector. Keeping the collection structure makes it easier to extend this notebook later to multiple sectors or quarters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lc_collection</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">lc0</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">lc0</span><span class="p">)</span>
-    <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+    <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;First downloaded light curve&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No light curves found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2"> with the specified criteria.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No light curves found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="n">lc_collection</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">lc0</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="n">lc0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;lc_collection&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       time             flux      ...   pos_corr1      pos_corr2   
+                    electron / s  ...      pix            pix      
+------------------ -------------- ... -------------- --------------
+1354.1115072617192     47745.6875 ... -1.2000147e-01  7.8144908e-02
+1354.1128961919705 47782.17578125 ... -1.0294508e-01  6.7404680e-02
+1354.1142851224547 47737.03515625 ... -1.0323820e-01  6.3302755e-02
+ 1354.117062983188 47739.65234375 ... -1.0774896e-01  5.0843615e-02
+1354.1184519134392   47759.828125 ... -9.3161479e-02  8.3432972e-02
+1354.1198408439234  47727.6953125 ... -9.2094876e-02  6.8144821e-02
+1354.1212297741743  47743.8203125 ... -9.1556683e-02  6.7030065e-02
+1354.1226187044247  47756.1640625 ... -9.4503127e-02  5.9139974e-02
+1354.1240076349084 47734.61328125 ... -9.1448054e-02  6.1672445e-02
+               ...            ... ...            ...            ...
+1381.5049589636317  47716.5546875 ...  1.2310899e-02  6.2099039e-03
+1381.5063478540658        47688.5 ...  1.8280700e-02  4.9027326e-03
+1381.5077367444994 47734.99609375 ...  1.4953445e-02  7.2186007e-03
+1381.5091256349335 47757.33984375 ...  1.8104736e-02  1.0969753e-02
+ 1381.510514525368   47724.890625 ...  1.2774169e-02  5.1160059e-03
+1381.5119034158026  47665.3046875 ...  9.1379741e-03  1.9494935e-03
+1381.5132923062372 47754.12890625 ...  1.4056482e-02 -2.0336423e-03
+1381.5146811966717 47737.07421875 ...  1.8469937e-02  8.3355261e-03
+1381.5160700871054   47736.796875 ...  1.8965174e-02  3.1502221e-03
+  1381.51745897754 47728.08203125 ...  1.6774995e-02  7.3410203e-03
+Length = 18299 rows
 </pre></div>
 </div>
+<img alt="../_images/ee5fec0929e7a2922dfa86f9fa20c3664e28455e6f0e48d86e96785296b7b726.png" src="../_images/ee5fec0929e7a2922dfa86f9fa20c3664e28455e6f0e48d86e96785296b7b726.png" />
 </div>
 </div>
 <p>The plot shows time on the x-axis and flux (usually <code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> by default for <code class="docutils literal notranslate"><span class="pre">lk.LightCurve</span></code> objects from SPOC) on the y-axis. You can specify which flux column to plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lc_collection</span><span class="p">:</span>
-    <span class="c1"># lc0.plot(column=&#39;sap_flux&#39;, label=&#39;SAP Flux&#39;)</span>
-    <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;pdcsap_flux&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PDCSAP Flux&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;PDCSAP flux&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No light curve is available to plot.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="n">lc_collection</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># lc0.plot(column=&#39;sap_flux&#39;, label=&#39;SAP Flux&#39;)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">lc0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;pdcsap_flux&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PDCSAP Flux&#39;</span><span class="p">);</span>
-
-<span class="ne">NameError</span>: name &#39;lc_collection&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/74ef1448307288f6a494207604e75468ab240bd5edc8bc6fac5af4a8bdb02136.png" src="../_images/74ef1448307288f6a494207604e75468ab240bd5edc8bc6fac5af4a8bdb02136.png" />
 </div>
 </div>
 </section>
@@ -831,53 +775,29 @@ document.write(`
 <h2><span class="section-number">13.5. </span>Working with Light Curve Files (LCFs)<a class="headerlink" href="#working-with-light-curve-files-lcfs" title="Link to this heading">#</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">LightCurve</span></code> object has several useful attributes and methods.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">lc.time</span></code>: Time values (often in BJD - Barycentric Julian Date).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lc.flux</span></code>: Flux values.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lc.flux_err</span></code>: Errors on flux values.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lc.quality</span></code>: Quality flags indicating potential issues with data points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.time</span></code>: time values, often in BJD or a mission-specific barycentric time system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.flux</span></code>: flux values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.flux_err</span></code>: uncertainty estimates on flux values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lc.quality</span></code>: quality flags indicating potential issues with data points.</p></li>
 </ul>
-<section id="stitching-multiple-sectors-quarters">
-<h3><span class="section-number">13.5.1. </span>Stitching Multiple Sectors/Quarters<a class="headerlink" href="#stitching-multiple-sectors-quarters" title="Link to this heading">#</a></h3>
-<p>If your target was observed in multiple TESS sectors or Kepler quarters, <code class="docutils literal notranslate"><span class="pre">lc_collection.stitch()</span></code> can combine them. It’s often a good idea to normalize each segment before stitching to handle brightness offsets between them.</p>
+<section id="single-sector-workflow">
+<h3><span class="section-number">13.5.1. </span>Single-sector workflow<a class="headerlink" href="#single-sector-workflow" title="Link to this heading">#</a></h3>
+<p>A common research workflow combines many sectors or quarters. For this tutorial, we do the opposite: we keep one sector so the notebook runs quickly and the plots are easier to interpret. That means we do <strong>not</strong> need to stitch multiple light curves here.</p>
+<p>If you later use multiple sectors, clean and normalize each light curve first, then call <code class="docutils literal notranslate"><span class="pre">stitch(corrector_func=lambda</span> <span class="pre">lc:</span> <span class="pre">lc)</span></code> to avoid repeated normalization or masked-array errors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
-    <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
-    <span class="c1"># Applying remove_outliers and remove_nans to each segment before stitching</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">lc_item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">):</span>
-        <span class="n">lc_item</span> <span class="o">=</span> <span class="n">lc_item</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span>
-        <span class="c1">#lc_item = lc_item.normalize()</span>
-        <span class="n">lc_collection</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lc_item</span>
-    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="o">.</span><span class="n">stitch</span><span class="p">()</span>
-<span class="k">elif</span> <span class="n">lc_collection</span><span class="p">:</span> <span class="c1"># Only one sector/quarter</span>
-    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># Clean and normalize the first sector only.</span>
+    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+    <span class="n">stitched_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;First sector: cleaned and normalized&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No light curves to stitch.&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="s1">&#39;stitched_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">stitched_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">stitched_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Stitched &amp; Normalized Light Curve&quot;</span><span class="p">);</span>
-<span class="k">elif</span> <span class="n">lc_collection</span> <span class="ow">and</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Fallback if stitching failed or only one LC</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plotting first downloaded light curve (cleaned, normalized, and NaNs removed).&quot;</span><span class="p">)</span>
-    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="n">lc_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span> <span class="c1"># Ensure stitched_lc exists for next steps</span>
-    <span class="n">stitched_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Single Sector Cleaned &amp; Normalized Light Curve&quot;</span><span class="p">);</span>
+    <span class="n">stitched_lc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No light curve is available to clean.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Stitching can sometimes introduce edge effects or fail if sectors are very different.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Normalizing each light curve before stitching helps with offsets.</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># Applying remove_outliers and remove_nans to each segment before stitching</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">lc_item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lc_collection</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">lc_item</span> <span class="o">=</span> <span class="n">lc_item</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">()</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;lc_collection&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/3866eec903a50685b472194d47137bdddc2d688cf31bc975886978cdec1c0594.png" src="../_images/3866eec903a50685b472194d47137bdddc2d688cf31bc975886978cdec1c0594.png" />
 </div>
 </div>
 </section>
@@ -888,93 +808,74 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;stitched_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">stitched_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># The stitched_lc has already had remove_outliers and remove_nans applied per segment.</span>
-    <span class="c1"># We can apply it again to the stitched light curve if desired, though it might be redundant or overly aggressive.</span>
-    <span class="n">cleaned_lc</span> <span class="o">=</span> <span class="n">stitched_lc</span> <span class="c1"># Assuming previous steps were sufficient for now</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points in potentially stitched light curve: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cleaned_lc</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
-    <span class="n">cleaned_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cleaned Light Curve&quot;</span><span class="p">);</span>
+    <span class="n">cleaned_lc</span> <span class="o">=</span> <span class="n">stitched_lc</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points in the cleaned single-sector light curve: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cleaned_lc</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">cleaned_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cleaned single-sector light curve&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stitched light curve not available for cleaning.&quot;</span><span class="p">)</span>
+    <span class="n">cleaned_lc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaned light curve is not available.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stitched light curve not available for cleaning.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Points in the cleaned single-sector light curve: 18299
 </pre></div>
 </div>
+<img alt="../_images/ed927695a2fb898964fd9850887d7ae35b9828c66bbf9cf70f333aff13abeb44.png" src="../_images/ed927695a2fb898964fd9850887d7ae35b9828c66bbf9cf70f333aff13abeb44.png" />
 </div>
 </div>
 </section>
 <section id="normalization-and-detrending">
 <h3><span class="section-number">13.5.3. </span>Normalization and Detrending<a class="headerlink" href="#normalization-and-detrending" title="Link to this heading">#</a></h3>
-<p><strong>Normalization</strong> typically means dividing the flux by its median (or mean) value, so the baseline flux is around 1.0. This is useful for comparing depths of transits or variability. Our <code class="docutils literal notranslate"><span class="pre">stitched_lc</span></code> was already normalized per segment.
-<strong>Detrending</strong> aims to remove instrumental systematics or stellar activity trends that are not of primary interest (e.g., if you’re looking for transits, you might want to remove long-term stellar variability).</p>
-<p><code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> offers several detrending methods. A common one is <code class="docutils literal notranslate"><span class="pre">flatten()</span></code>, which applies a Savitzky-Golay filter to remove low-frequency variations.</p>
+<p><strong>Normalization</strong> typically means dividing the flux by a representative baseline value so the out-of-transit flux is near 1.0. This makes transit depths easier to read as fractional changes in brightness.</p>
+<p><strong>Detrending</strong> removes slow variations from instrumental systematics or stellar variability. For a first pass, <code class="docutils literal notranslate"><span class="pre">lightkurve.flatten()</span></code> is a convenient option. It applies a Savitzky-Golay filter to estimate and remove low-frequency trends.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">window_length</span></code> value is measured in cadences, not days. It should be long compared with the transit duration so the filter does not remove the transit itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;cleaned_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">cleaned_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># Our cleaned_lc is already normalized from the stitching step.</span>
-        
-    <span class="c1"># Detrending with flatten</span>
-    <span class="c1"># window_length should be chosen carefully: odd number, typically several times larger than the event of interest (e.g., transit duration)</span>
-    <span class="c1"># but smaller than long-term trends you want to remove.</span>
-    <span class="c1"># For TESS 2-minute cadence data of TOI 700 d (transit duration ~3.2 hours):</span>
-    <span class="c1"># Transit duration in points: (3.2 hours * 60 min/hour) / 2 min/point = ~96 points.</span>
-    <span class="c1"># A window_length of e.g. 5 * 96 + 1 = 481 (must be odd) might be a starting point.</span>
-    <span class="c1"># This needs to be tuned based on the specific light curve and science goal.</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">flat_lc</span> <span class="o">=</span> <span class="n">cleaned_lc</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">481</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-        <span class="n">flat_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Flattened Light Curve&quot;</span><span class="p">);</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error during flatten: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. The light curve might be too short or have issues.&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the cleaned (but not flattened) light curve for subsequent steps.&quot;</span><span class="p">)</span>
-        <span class="n">flat_lc</span> <span class="o">=</span> <span class="n">cleaned_lc</span> <span class="c1"># Fallback to unflattened if flatten fails</span>
-        <span class="n">flat_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cleaned (Unflattened) Light Curve&quot;</span><span class="p">);</span>
-
+        <span class="c1"># This is a simple first-pass detrending choice for a short-period hot Jupiter target.</span>
+        <span class="c1"># For a science analysis, test several window lengths and verify that the transit depth is not distorted.</span>
+        <span class="n">flat_lc</span> <span class="o">=</span> <span class="n">cleaned_lc</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">401</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">flat_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Flattened single-sector light curve&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flattening failed: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the cleaned but unflattened light curve for the remaining examples.&quot;</span><span class="p">)</span>
+        <span class="n">flat_lc</span> <span class="o">=</span> <span class="n">cleaned_lc</span>
+        <span class="n">flat_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cleaned light curve&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaned light curve not available for detrending.&quot;</span><span class="p">)</span>
+    <span class="n">flat_lc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaned light curve is not available for detrending.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaned light curve not available for detrending.
-</pre></div>
-</div>
+<img alt="../_images/1b0c2440ec4fca8205fe3f8a779900084399a2072d4aa52585721059193b02a2.png" src="../_images/1b0c2440ec4fca8205fe3f8a779900084399a2072d4aa52585721059193b02a2.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="working-with-target-pixel-files-tpfs-custom-photometry">
 <h2><span class="section-number">13.6. </span>Working with Target Pixel Files (TPFs) - Custom Photometry<a class="headerlink" href="#working-with-target-pixel-files-tpfs-custom-photometry" title="Link to this heading">#</a></h2>
-<p>If pre-processed light curves are not suitable (e.g., due to contamination from nearby stars, or if you want to experiment with different apertures), you can create your own light curve from TPF data.</p>
-<p>First, download a TPF. Let’s use the <code class="docutils literal notranslate"><span class="pre">search_tpf_result</span></code> from earlier and download one TPF for TOI 700.</p>
+<p>If pre-processed light curves are not suitable, you can inspect the target pixel file and create your own light curve. This can matter if the target is blended with nearby stars, if the pipeline aperture is poor, or if you need to understand where the measured flux is coming from.</p>
+<p>For this tutorial, we again use only the first available TPF so the notebook remains quick to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll select the first TPF from the TESS SPOC pipeline results</span>
-<span class="n">tpf_search_spoc</span> <span class="o">=</span> <span class="n">search_tpf_result</span><span class="p">[(</span><span class="n">search_tpf_result</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="s2">&quot;SPOC&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">search_tpf_result</span><span class="o">.</span><span class="n">mission</span> <span class="o">==</span> <span class="s2">&quot;TESS&quot;</span><span class="p">)]</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tpf_search_spoc</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tpf_search_spoc</span><span class="p">)</span><span class="si">}</span><span class="s2"> TPFs. Downloading the first one.&quot;</span><span class="p">)</span>
-    <span class="n">tpf</span> <span class="o">=</span> <span class="n">tpf_search_spoc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-    <span class="n">tpf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="c1"># Plot the first frame of the TPF</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">search_tpf_result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading the first available TPF only.&quot;</span><span class="p">)</span>
+    <span class="n">tpf</span> <span class="o">=</span> <span class="n">search_tpf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">quality_bitmask</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+    <span class="n">tpf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No TPFs found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2"> from TESS SPOC pipeline.&quot;</span><span class="p">)</span>
+    <span class="n">tpf</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No TPFs found for </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">mission</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">author</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># We&#39;ll select the first TPF from the TESS SPOC pipeline results</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tpf_search_spoc</span> <span class="o">=</span> <span class="n">search_tpf_result</span><span class="p">[(</span><span class="n">search_tpf_result</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="s2">&quot;SPOC&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">search_tpf_result</span><span class="o">.</span><span class="n">mission</span> <span class="o">==</span> <span class="s2">&quot;TESS&quot;</span><span class="p">)]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tpf_search_spoc</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tpf_search_spoc</span><span class="p">)</span><span class="si">}</span><span class="s2"> TPFs. Downloading the first one.&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;search_tpf_result&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading the first available TPF only.
 </pre></div>
 </div>
+<img alt="../_images/601ff4c63f3ab54100bf9c6c0494b50d91120ab8b62ad35570bda23b51442ebb.png" src="../_images/601ff4c63f3ab54100bf9c6c0494b50d91120ab8b62ad35570bda23b51442ebb.png" />
 </div>
 </div>
 <p>The plot shows the pixel data. The red outline is the default pipeline aperture. You can define your own aperture interactively (in a Jupyter Notebook session by enabling <code class="docutils literal notranslate"><span class="pre">tpf.interact()</span></code>) or by creating a boolean mask programmatically.</p>
@@ -999,9 +900,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TPF not available for aperture definition.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline aperture mask sum (pixels): 28
 </pre></div>
 </div>
+<img alt="../_images/86383f9be565f84f5e2717495bd24c4c4d00d6c1918205bde168cdde6fecdb8d.png" src="../_images/86383f9be565f84f5e2717495bd24c4c4d00d6c1918205bde168cdde6fecdb8d.png" />
 </div>
 </div>
 </section>
@@ -1023,49 +925,68 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TPF or suitable aperture mask not available for custom photometry.
-</pre></div>
-</div>
+<img alt="../_images/4033e6be43c69536a9b21eb84499e069ff6fb97fac05ef9b680b8f2910448651.png" src="../_images/4033e6be43c69536a9b21eb84499e069ff6fb97fac05ef9b680b8f2910448651.png" />
 </div>
 </div>
 <p>This custom light curve is essentially a SAP (Simple Aperture Photometry) light curve. It will likely contain systematics from the instrument and spacecraft. You would then need to perform systematic correction (e.g., using <code class="docutils literal notranslate"><span class="pre">Regressors</span></code> in <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, or methods like CBV, PLD if you delve deeper). For simplicity, we’ll skip advanced custom systematic correction here and revert to using the PDCSAP flux from earlier (<code class="docutils literal notranslate"><span class="pre">flat_lc</span></code>) for the transit search example, as it has already undergone some systematic correction.</p>
 </section>
 </section>
-<section id="example-finding-a-transit">
-<h2><span class="section-number">13.7. </span>Example: Finding a Transit<a class="headerlink" href="#example-finding-a-transit" title="Link to this heading">#</a></h2>
-<p>Let’s take our flattened light curve (<code class="docutils literal notranslate"><span class="pre">flat_lc</span></code>) derived from the pre-processed PDCSAP data and see if we can spot the known transit of <strong>TOI 700 d</strong> (Period ~37.4 days, Duration ~3.2 hours).</p>
-<p>First, let’s phase-fold the light curve.</p>
+<section id="example-finding-and-folding-a-transit">
+<h2><span class="section-number">13.7. </span>Example: Finding and Folding a Transit<a class="headerlink" href="#example-finding-and-folding-a-transit" title="Link to this heading">#</a></h2>
+<p>Now we will use the flattened light curve to find a repeating transit signal. Because the target is a short-period transiting planet system, one TESS sector should contain many transits. This makes it a better first tutorial example than a long-period planet.</p>
+<p>Instead of hard-coding the period, we will use a <strong>Box Least Squares</strong> periodogram. BLS is designed to find box-shaped dips in a light curve, which makes it useful for transiting exoplanets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;flat_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">flat_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">flat_lc</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="c1"># Known parameters for TOI 700 d (from NASA Exoplanet Archive / literature, e.g. Gilbert et al. 2020 or Exo.MAST)</span>
-    <span class="n">period_toi_700_d</span> <span class="o">=</span> <span class="mf">37.42483</span> <span class="c1"># days </span>
-    <span class="n">t0_toi_700_d</span> <span class="o">=</span> <span class="mf">2458734.39723</span> <span class="c1"># BJD_TDB, epoch of transit center for TOI 700 d</span>
-    
-    <span class="c1"># Phase fold the light curve</span>
-    <span class="n">folded_lc</span> <span class="o">=</span> <span class="n">flat_lc</span><span class="o">.</span><span class="n">fold</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="n">period_toi_700_d</span><span class="p">,</span> <span class="n">epoch_time</span><span class="o">=</span><span class="n">t0_toi_700_d</span><span class="p">)</span>
-    <span class="n">folded_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Folded on P=</span><span class="si">{</span><span class="n">period_toi_700_d</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> d&quot;</span><span class="p">);</span>
-    
-    <span class="c1"># To see the transit more clearly, you might want to bin the folded data</span>
-    <span class="n">binned_folded_lc</span> <span class="o">=</span> <span class="n">folded_lc</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="n">time_bin_size</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span> <span class="c1"># Bin size in phase units (e.g., 0.005 is 1/200th of the period)</span>
-    <span class="n">binned_folded_lc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Binned &amp; Folded (P=</span><span class="si">{</span><span class="n">period_toi_700_d</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> d)&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="c1"># Zoom in on the transit at phase 0</span>
-    <span class="c1"># TOI 700 d transit depth is ~4800 ppm = 0.0048 in normalized flux</span>
-    <span class="c1"># So, out-of-transit is 1.0, in-transit minimum is ~1.0 - 0.0048 = 0.9952</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.994</span><span class="p">,</span> <span class="mf">1.002</span><span class="p">)</span> <span class="c1"># Adjust y-limits based on expected transit depth for TOI 700 d</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase-folded light curve of </span><span class="si">{</span><span class="n">target_star</span><span class="si">}</span><span class="s2"> (folded on TOI 700 d)&quot;</span><span class="p">)</span>
+    <span class="n">search_lc</span> <span class="o">=</span> <span class="n">flat_lc</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">()</span>
+
+    <span class="c1"># Search for short-period transits. WASP-18 b is a short-period planet, so this range is intentionally narrow.</span>
+    <span class="n">period_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+    <span class="n">duration_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="n">bls</span> <span class="o">=</span> <span class="n">search_lc</span><span class="o">.</span><span class="n">to_periodogram</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;bls&quot;</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="n">period_grid</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">duration_grid</span><span class="p">)</span>
+
+    <span class="n">best_period</span> <span class="o">=</span> <span class="n">bls</span><span class="o">.</span><span class="n">period_at_max_power</span>
+    <span class="n">best_t0</span> <span class="o">=</span> <span class="n">bls</span><span class="o">.</span><span class="n">transit_time_at_max_power</span>
+    <span class="n">best_duration</span> <span class="o">=</span> <span class="n">bls</span><span class="o">.</span><span class="n">duration_at_max_power</span>
+
+    <span class="n">best_period_days</span> <span class="o">=</span> <span class="n">best_period</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">best_t0_value</span> <span class="o">=</span> <span class="n">best_t0</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">best_duration_days</span> <span class="o">=</span> <span class="n">best_duration</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The strongest BLS period is </span><span class="si">{</span><span class="n">best_period_days</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> d.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The estimated transit midpoint is </span><span class="si">{</span><span class="n">best_t0_value</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">best_t0</span><span class="o">.</span><span class="n">format</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The estimated transit duration is </span><span class="si">{</span><span class="n">best_duration_days</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> d.&quot;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+
+    <span class="n">bls</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Period [d]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;BLS power&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLS periodogram for </span><span class="si">{</span><span class="n">safe_target_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flattened light curve not available or is empty for folding.&quot;</span><span class="p">)</span>
+    <span class="n">folded_lc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flattened light curve is not available or is empty for BLS and folding.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flattened light curve not available or is empty for folding.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The strongest BLS period is 0.94139 d.
+The estimated transit midpoint is 1354.45951 btjd.
+The estimated transit duration is 0.07600 d.
 </pre></div>
 </div>
+<img alt="../_images/4620f8834f04ff9e9a4673527263e33098432847b0942bde088f669d020e7549.png" src="../_images/4620f8834f04ff9e9a4673527263e33098432847b0942bde088f669d020e7549.png" />
 </div>
 </div>
-<p>This plot should show the characteristic dip of an exoplanet transit (TOI 700 d) around phase 0, assuming the period, T0, and detrending were appropriate. The depth of TOI 700 d is around 4800 ppm (0.48%), which should be detectable with good data and careful processing. You might need to adjust <code class="docutils literal notranslate"><span class="pre">window_length</span></code> in <code class="docutils literal notranslate"><span class="pre">flatten</span></code> or try other detrending to see it clearly, or it may be more apparent in certain TESS sectors than others.</p>
+<p>The folded plot should show a repeated transit dip near phase zero. The unbinned points show the scatter in the data, while the binned curve shows the average transit shape more clearly.</p>
+<div class="note admonition">
+<p class="admonition-title">First-sector limitation</p>
+<p>A single sector is good for a tutorial because it runs quickly and is easier to inspect. It is not always enough for a final research result. Longer-period planets, weak transits, or systems with strong stellar variability often require multiple sectors or quarters.</p>
+</div>
 </section>
 <section id="saving-your-reduced-light-curve">
 <h2><span class="section-number">13.8. </span>Saving Your Reduced Light Curve<a class="headerlink" href="#saving-your-reduced-light-curve" title="Link to this heading">#</a></h2>
@@ -1074,29 +995,41 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;flat_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">flat_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">flat_lc</span><span class="o">.</span><span class="n">remove_nans</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="c1"># Save the time-series (flattened) light curve as CSV</span>
-    <span class="n">output_filename_csv</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target_star</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_flat_lightcurve.csv&quot;</span>
+    <span class="n">safe_target_name</span> <span class="o">=</span> <span class="n">target_star</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+
+    <span class="n">output_filename_csv</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">safe_target_name</span><span class="si">}</span><span class="s2">_single_sector_flat_lightcurve.csv&quot;</span>
     <span class="n">flat_lc</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_filename_csv</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flattened light curve saved as: </span><span class="si">{</span><span class="n">output_filename_csv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="c1"># Display the first few lines by reading it back (optional)</span>
-    <span class="c1"># import pandas as pd</span>
-    <span class="c1"># print(pd.read_csv(output_filename_csv).head())</span>
 
-    <span class="c1"># Save as FITS (Lightkurve&#39;s default format includes more metadata)</span>
-    <span class="n">output_filename_fits</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target_star</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_flat_lightcurve.fits&quot;</span>
+    <span class="n">output_filename_fits</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">safe_target_name</span><span class="si">}</span><span class="s2">_single_sector_flat_lightcurve.fits&quot;</span>
     <span class="n">flat_lc</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_filename_fits</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flattened light curve saved as: </span><span class="si">{</span><span class="n">output_filename_fits</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="c1"># If using Google Colab and want to trigger a download for the CSV:</span>
-    <span class="c1"># from google.colab import files</span>
-    <span class="c1"># files.download(output_filename_csv)</span>
+    <span class="k">if</span> <span class="s1">&#39;folded_lc&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">folded_lc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output_filename_folded_csv</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">safe_target_name</span><span class="si">}</span><span class="s2">_single_sector_folded_lightcurve.csv&quot;</span>
+        <span class="n">folded_lc</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_filename_folded_csv</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Folded light curve saved as: </span><span class="si">{</span><span class="n">output_filename_folded_csv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No processed light curve to save.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No processed light curve is available to save.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No processed light curve to save.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flattened light curve saved as: WASP-18_single_sector_flat_lightcurve.csv
+Flattened light curve saved as: WASP-18_single_sector_flat_lightcurve.fits
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The unit &#39;electron / s&#39; could not be saved in native FITS format and hence will be lost to non-astropy fits readers. Within astropy, the unit can roundtrip using QTable, though one has to enable the unit before reading. [astropy.io.fits.convenience]
+WARNING: Meta-data keyword BITPIX will be ignored since it conflicts with a FITS reserved keyword [astropy.io.fits.convenience]
+WARNING: Meta-data keyword NAXIS will be ignored since it conflicts with a FITS reserved keyword [astropy.io.fits.convenience]
+WARNING: VerifyWarning: Keyword name &#39;FLUX_ORIGIN&#39; is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created. [astropy.io.fits.card]
+WARNING: VerifyWarning: Keyword name &#39;QUALITY_BITMASK&#39; is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created. [astropy.io.fits.card]
+WARNING: VerifyWarning: Keyword name &#39;QUALITY_MASK&#39; is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created. [astropy.io.fits.card]
+WARNING: Attribute `QUALITY_MASK` of type &lt;class &#39;numpy.ndarray&#39;&gt; cannot be added to FITS Header - skipping [astropy.io.fits.convenience]
+WARNING: VerifyWarning: Keyword name &#39;NORMALIZED&#39; is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created. [astropy.io.fits.card]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Folded light curve saved as: WASP-18_single_sector_folded_lightcurve.csv
 </pre></div>
 </div>
 </div>
@@ -1107,6 +1040,7 @@ document.write(`
 <p>Congratulations! You’ve learned the basics of:</p>
 <ul class="simple">
 <li><p>Searching for data from space telescopes like TESS and Kepler using <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>.</p></li>
+<li><p>Limiting a tutorial workflow to the first sector/quarter so the analysis runs quickly and remains easy to inspect.</p></li>
 <li><p>Understanding the difference between Light Curve Files (LCFs) and Target Pixel Files (TPFs).</p></li>
 <li><p>Downloading and plotting light curves.</p></li>
 <li><p>Performing essential data reduction steps: cleaning, normalization, and detrending.</p></li>
@@ -1121,27 +1055,6 @@ document.write(`
 <li><p><strong>Transit Modeling:</strong> If you find a transit, you can model its shape to determine planetary parameters (radius, inclination, etc.) using packages like <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code>, <code class="docutils literal notranslate"><span class="pre">batman</span></code>, or <code class="docutils literal notranslate"><span class="pre">PyTransit</span></code>.</p></li>
 <li><p><strong>Systematics Mitigation:</strong> Deep dive into understanding and mitigating instrumental systematics specific to the mission you are working with.</p></li>
 <li><p><strong>Consult Documentation:</strong> The <a class="reference external" href="https://docs.lightkurve.org">Lightkurve documentation</a> is an excellent resource with many tutorials and API references.</p></li>
-</ul>
-</section>
-<section id="where-transit-modeling-fits">
-<h2><span class="section-number">13.10. </span>Where Transit Modeling Fits<a class="headerlink" href="#where-transit-modeling-fits" title="Link to this heading">#</a></h2>
-<p>The tools in this guide help you find, clean, detrend, fold, and inspect archival light curves. That is the first stage of working with Kepler or TESS data.</p>
-<p>For many projects, that is enough to answer first-pass questions:</p>
-<ul class="simple">
-<li><p>Is there a periodic signal?</p></li>
-<li><p>Is the light curve dominated by stellar variability?</p></li>
-<li><p>Are there eclipses or transit-like dips?</p></li>
-<li><p>Does the signal repeat with a stable period?</p></li>
-<li><p>Is the target worth more detailed modeling?</p></li>
-</ul>
-<p>Detailed exoplanet modeling is a separate step. Once a promising transit signal has been identified and cleaned, you may want to fit a physical transit model. That requires additional tools and concepts, including limb darkening, impact parameter, planet-to-star radius ratio, orbital inclination, priors, posterior distributions, and correlated noise.</p>
-<p>Common tools include:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lkreidberg.github.io/batman/docs/html/index.html"><code class="docutils literal notranslate"><span class="pre">batman</span></code></a> for generating fast exoplanet transit light-curve models. Its documentation describes it as a Python package for calculating transit light curves, including models with stellar limb darkening.</p></li>
-<li><p><a class="reference external" href="https://emcee.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">emcee</span></code></a> for Markov chain Monte Carlo parameter estimation. Its documentation describes it as a pure-Python implementation of the affine-invariant ensemble sampler.</p></li>
-<li><p><a class="reference external" href="https://celerite.readthedocs.io/en/stable/"><code class="docutils literal notranslate"><span class="pre">celerite</span></code></a> or <a class="reference external" href="https://celerite2.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">celerite2</span></code></a> for fast one-dimensional Gaussian-process modeling of time-series data. <code class="docutils literal notranslate"><span class="pre">celerite</span></code> is designed for scalable Gaussian-process regression in one dimension.</p></li>
-<li><p><a class="reference external" href="https://www.pymc.io/projects/docs/en/stable/guides/Gaussian_Processes.html"><code class="docutils literal notranslate"><span class="pre">PyMC</span></code> Gaussian processes</a> for more general probabilistic Gaussian-process modeling.</p></li>
-<li><p><a class="reference external" href="https://docs.exoplanet.codes/en/latest/"><code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a> for full probabilistic modeling of exoplanet time-series data with PyMC. Its documentation describes it as a toolkit for probabilistic modeling of astronomical time-series data with a focus on exoplanets.</p></li>
 </ul>
 </section>
 </section>
@@ -1219,7 +1132,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">13.3. Searching for Data on MAST</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">13.4. Understanding Data Products and Downloading Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">13.5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stitching-multiple-sectors-quarters">13.5.1. Stitching Multiple Sectors/Quarters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sector-workflow">13.5.1. Single-sector workflow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">13.5.2. Data Cleaning with Quality Flags</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">13.5.3. Normalization and Detrending</a></li>
 </ul>
@@ -1229,10 +1142,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">13.6.2. Performing Aperture Photometry</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-a-transit">13.7. Example: Finding a Transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-and-folding-a-transit">13.7. Example: Finding and Folding a Transit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">13.8. Saving Your Reduced Light Curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">13.9. Conclusion and Further Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-transit-modeling-fits">13.10. Where Transit Modeling Fits</a></li>
 </ul>
   </nav></div>
 
