@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Basic Climate Modeling &#8212; Exoplanets within Binary Systems</title>
+    <title>Obliquity Evolution &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -78,13 +78,11 @@
                 gtag('config', 'G-8VDVRMR2BH');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/intro-climlab';</script>
-    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/intro-climlab.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/obliquity-evolution_old';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/obliquity-evolution_old.html" />
     <link rel="icon" href="../_static/CBP_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. GPU-accelerated planet formation" href="intro-genga.html" />
-    <link rel="prev" title="6. Obliquity Evolution" href="obliquity-evolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -146,6 +144,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -214,11 +214,11 @@
 <li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
@@ -283,7 +283,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/intro-climlab.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/obliquity-evolution_old.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +301,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/intro-climlab.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/obliquity-evolution_old.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +365,7 @@
       
       
       
-      <li><a href="../_sources/Tutorials/intro-climlab.ipynb" target="_blank"
+      <li><a href="../_sources/Tutorials/obliquity-evolution_old.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Basic Climate Modeling</h1>
+    <h1>Obliquity Evolution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -459,10 +459,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-zero-dimensional-climate-model">7.1. A zero dimensional climate model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latitudinal-energy-balance-model">7.2. Latitudinal energy balance model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coupling-models-together">7.3. Coupling models together</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-using-climlab">7.4. A sample simulation using climlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-planetary-spin">Defining planetary spin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations-of-motion">Coupled equations of motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-an-n-body-simulation">Sampling an N-body simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation">A sample simulation</a></li>
 </ul>
             </nav>
         </div>
@@ -474,19 +474,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="basic-climate-modeling">
-<h1><span class="section-number">7. </span>Basic Climate Modeling<a class="headerlink" href="#basic-climate-modeling" title="Link to this heading">#</a></h1>
-<section id="a-zero-dimensional-climate-model">
-<h2><span class="section-number">7.1. </span>A zero dimensional climate model<a class="headerlink" href="#a-zero-dimensional-climate-model" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="obliquity-evolution">
+<h1>Obliquity Evolution<a class="headerlink" href="#obliquity-evolution" title="Link to this heading">#</a></h1>
+<section id="defining-planetary-spin">
+<h2>Defining planetary spin<a class="headerlink" href="#defining-planetary-spin" title="Link to this heading">#</a></h2>
 </section>
-<section id="latitudinal-energy-balance-model">
-<h2><span class="section-number">7.2. </span>Latitudinal energy balance model<a class="headerlink" href="#latitudinal-energy-balance-model" title="Link to this heading">#</a></h2>
+<section id="coupled-equations-of-motion">
+<h2>Coupled equations of motion<a class="headerlink" href="#coupled-equations-of-motion" title="Link to this heading">#</a></h2>
 </section>
-<section id="coupling-models-together">
-<h2><span class="section-number">7.3. </span>Coupling models together<a class="headerlink" href="#coupling-models-together" title="Link to this heading">#</a></h2>
+<section id="sampling-an-n-body-simulation">
+<h2>Sampling an N-body simulation<a class="headerlink" href="#sampling-an-n-body-simulation" title="Link to this heading">#</a></h2>
 </section>
-<section id="a-sample-simulation-using-climlab">
-<h2><span class="section-number">7.4. </span>A sample simulation using climlab<a class="headerlink" href="#a-sample-simulation-using-climlab" title="Link to this heading">#</a></h2>
+<section id="a-sample-simulation">
+<h2>A sample simulation<a class="headerlink" href="#a-sample-simulation" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -520,24 +520,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="obliquity-evolution.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Obliquity Evolution</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="intro-genga.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>GPU-accelerated planet formation</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -554,10 +536,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-zero-dimensional-climate-model">7.1. A zero dimensional climate model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latitudinal-energy-balance-model">7.2. Latitudinal energy balance model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coupling-models-together">7.3. Coupling models together</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation-using-climlab">7.4. A sample simulation using climlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-planetary-spin">Defining planetary spin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations-of-motion">Coupled equations of motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-an-n-body-simulation">Sampling an N-body simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sample-simulation">A sample simulation</a></li>
 </ul>
   </nav></div>
 

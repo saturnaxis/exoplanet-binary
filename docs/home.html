@@ -36,6 +36,8 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=20ffa6e1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_iframe.css?v=96c28b52" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=73adc326" />
     <link rel="stylesheet" type="text/css" href="_static/mycss.css?v=3589796e" />
@@ -58,6 +60,7 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/h5p-resizer.js?v=a3e8b8ed"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -369,7 +372,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -385,6 +390,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-find-here">What you will find here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-these-notes">How to use these notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-reuse">Citation and reuse</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -396,12 +411,31 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exoplanets-within-binary-systems">
 <h1>Exoplanets within Binary Systems<a class="headerlink" href="#exoplanets-within-binary-systems" title="Link to this heading">#</a></h1>
-<p>This repository (and JupyterBook) serves as an introduction to various topics in my research.  It includes many topics in planetary dynamics with some description and python-based examples.</p>
-<p>If you find any of the information useful, please cite the source material and/or literature references given in the References section of each Tutorial.</p>
+<p>This JupyterBook introduces research methods, background concepts, and computational tools used to study planets in binary star systems. The tutorials combine short explanations with Python-based examples so that students can move from reading about a topic to testing ideas directly.</p>
+<p>The main goal of these notes is to support early research training. They are written for students who are beginning work in exoplanet dynamics, binary star systems, observational astronomy, or computational astrophysics. The examples are intentionally practical: they are meant to be copied, modified, questioned, and extended as part of a research workflow.</p>
+<section id="what-you-will-find-here">
+<h2>What you will find here<a class="headerlink" href="#what-you-will-find-here" title="Link to this heading">#</a></h2>
+<p>The tutorials are organized around three connected parts of the research process:</p>
+<ul class="simple">
+<li><p><strong>Introduction</strong> — background on binary star systems, N-body simulations, and basic dynamical stability.</p></li>
+<li><p><strong>Applications</strong> — examples involving planet packing, eccentricity evolution, obliquity, climate, and GPU-accelerated simulations.</p></li>
+<li><p><strong>Observations</strong> — research logging, sky coordinates, CCD photometry, AstroImageJ, and archival light curve analysis.</p></li>
+</ul>
+<p>Some tutorials are conceptual, while others are more computational. In both cases, the emphasis is on building habits that are useful in research: documenting assumptions, checking results, comparing models, and connecting code output back to the underlying physics.</p>
+</section>
+<section id="how-to-use-these-notes">
+<h2>How to use these notes<a class="headerlink" href="#how-to-use-these-notes" title="Link to this heading">#</a></h2>
+<p>You do not need to read the tutorials strictly in order. If you are new to the project, start with the introductory material and then move to the tutorial that best matches your current task. If you are working on observations, the research logging and photometry tutorials are a good place to begin. If you are working on simulations, start with the N-body and three-body stability tutorials.</p>
+<p>When using the code examples, treat them as starting points rather than final answers. A good research workflow should include notes about what you changed, what you tested, what failed, and what you learned from the result.</p>
+</section>
+<section id="citation-and-reuse">
+<h2>Citation and reuse<a class="headerlink" href="#citation-and-reuse" title="Link to this heading">#</a></h2>
+<p>If you find any of this material useful, please cite the relevant source material and/or the literature references given in the References section of each tutorial. Many of the ideas, methods, and examples here are based on published work, and those original sources should receive proper credit.</p>
 <p>Shield: <a class="reference external" href="http://creativecommons.org/licenses/by/4.0/"><img alt="CC BY 4.0" src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" /></a></p>
 <p>This work is licensed under a
 <a class="reference external" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 <p><a class="reference external" href="http://creativecommons.org/licenses/by/4.0/"><img alt="CC BY 4.0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -457,6 +491,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-find-here">What you will find here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-these-notes">How to use these notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-reuse">Citation and reuse</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
