@@ -36,8 +36,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css?v=96c28b52" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
     <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
@@ -60,7 +60,7 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script src="../_static/h5p-resizer.js"></script>
+    <script src="../_static/h5p-resizer.js?v=a3e8b8ed"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -436,7 +436,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -452,6 +454,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#giving-credit">Giving credit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-source-material">Citing source material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reusing-code-examples">Reusing code examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#responsible-reuse">Responsible reuse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-citation-format">Suggested citation format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -463,10 +478,70 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-cite-and-reuse-this-material">
 <h1>How to cite and reuse this material<a class="headerlink" href="#how-to-cite-and-reuse-this-material" title="Link to this heading">#</a></h1>
-<p>The material is licensed for permissive re-use under the
-<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>
-license. This means you are free to share and adapt this material under the condition that
-you give appropriate credit to the original author (Billy Quarles) or source material (see the respective reference sections) as appropriate.</p>
+<p>This JupyterBook is shared under the
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>.</p>
+<p>This means that you are free to:</p>
+<ul class="simple">
+<li><p><strong>share</strong> this material by copying and redistributing it,</p></li>
+<li><p><strong>adapt</strong> this material by remixing, transforming, or building upon it,</p></li>
+<li><p>use portions of the text, figures, code examples, or tutorials in your own teaching, research, or learning materials,</p></li>
+</ul>
+<p>provided that you give appropriate credit.</p>
+<section id="giving-credit">
+<h2>Giving credit<a class="headerlink" href="#giving-credit" title="Link to this heading">#</a></h2>
+<p>If you reuse or adapt material from this book, please acknowledge the original source. A simple attribution should include:</p>
+<ul class="simple">
+<li><p>the author: <strong>Billy Quarles</strong>,</p></li>
+<li><p>the title of the resource: <strong>Exoplanets within Binary Systems</strong>,</p></li>
+<li><p>a link to the online JupyterBook,</p></li>
+<li><p>a note that the material is licensed under <strong>CC BY 4.0</strong>.</p></li>
+</ul>
+<p>For example:</p>
+<blockquote>
+<div><p>Adapted from <em>Exoplanets within Binary Systems</em> by Billy Quarles, licensed under CC BY 4.0.</p>
+</div></blockquote>
+<p>If you are using a specific tutorial, figure, code example, or explanation, please cite or link to that specific page whenever possible.</p>
+</section>
+<section id="citing-source-material">
+<h2>Citing source material<a class="headerlink" href="#citing-source-material" title="Link to this heading">#</a></h2>
+<p>Many tutorials in this book are based on published research papers, software documentation, open datasets, or other source material. When using material from a tutorial, please also check the <strong>References</strong> section of that tutorial.</p>
+<p>If a tutorial discusses a published method, result, dataset, or figure, the original publication should be cited in addition to this JupyterBook. This is especially important for research projects, presentations, reports, posters, or manuscripts.</p>
+<p>In other words:</p>
+<ul class="simple">
+<li><p>cite this JupyterBook when you use the explanation, structure, code, or tutorial design;</p></li>
+<li><p>cite the original literature when you use the scientific result, method, dataset, or published idea.</p></li>
+</ul>
+</section>
+<section id="reusing-code-examples">
+<h2>Reusing code examples<a class="headerlink" href="#reusing-code-examples" title="Link to this heading">#</a></h2>
+<p>The Python examples in this book are intended to be copied, modified, and extended. If you use the code as a starting point for a class project, research notebook, tutorial, or publication, please acknowledge the source when appropriate.</p>
+<p>You should also document any changes you make. For example, note whether you changed input parameters, modified a model, used a different dataset, or extended the analysis.</p>
+<p>Good research practice means making it clear what came from the original tutorial and what you changed.</p>
+</section>
+<section id="responsible-reuse">
+<h2>Responsible reuse<a class="headerlink" href="#responsible-reuse" title="Link to this heading">#</a></h2>
+<p>This book is meant to support learning and research training. The examples are designed to be useful, but they are not a substitute for checking assumptions, reading the literature, or validating results independently.</p>
+<p>Before using material from these notes in research or teaching, make sure that:</p>
+<ul class="simple">
+<li><p>the assumptions match your application,</p></li>
+<li><p>the code has been tested for your use case,</p></li>
+<li><p>the relevant literature has been consulted,</p></li>
+<li><p>any external data, figures, or software packages are cited properly.</p></li>
+</ul>
+</section>
+<section id="suggested-citation-format">
+<h2>Suggested citation format<a class="headerlink" href="#suggested-citation-format" title="Link to this heading">#</a></h2>
+<p>If you want to cite the JupyterBook as a whole, you may use a format like:</p>
+<blockquote>
+<div><p>Quarles, B. <em>Exoplanets within Binary Systems</em>. JupyterBook. Available at: https://saturnaxis.github.io/exoplanet-binary/</p>
+</div></blockquote>
+<p>For a specific page or tutorial, include the page title and URL if possible.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>This work is licensed under a
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -523,6 +598,26 @@ you give appropriate credit to the original author (Billy Quarles) or source mat
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#giving-credit">Giving credit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-source-material">Citing source material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reusing-code-examples">Reusing code examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#responsible-reuse">Responsible reuse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-citation-format">Suggested citation format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
