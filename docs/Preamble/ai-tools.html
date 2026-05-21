@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Using AI tools in research training &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css?v=96c28b52" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/h5p-resizer.js?v=a3e8b8ed"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Preamble/ai-tools';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Preamble/ai-tools.html" />
+    <link rel="icon" href="../_static/CBP_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Finding and following the research literature" href="nasaads-arxiv.html" />
+    <link rel="prev" title="How to cite and reuse this material" href="cite-reuse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/CBP_logo.png" class="logo__image only-light" alt="Exoplanets within Binary Systems - Home"/>
+    <script>document.write(`<img src="../_static/CBP_logo.png" class="logo__image only-dark" alt="Exoplanets within Binary Systems - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cite-reuse.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using AI tools in research training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasaads-arxiv.html">Finding and following the research literature</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/archival-data.html">13. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/modeling-exoplanet-transits.html">14. Modeling Exoplanet Transits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Preamble/ai-tools.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using AI tools in research training</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-ai-tools-are-good-for">What AI tools are good for</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#good-prompt-engineering">Good prompt engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-prompt-template">A useful prompt template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-iterate-revise">Prompt, iterate, revise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-notebooklm">Using NotebookLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-illuminate">Using Illuminate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trust-but-verify">Trust, but verify</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-vague-idea-to-a-research-plan">From a vague idea to a research plan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-and-your-research-log">AI and your research log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appropriate-use">Appropriate use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-videos-and-demonstrations">Suggested videos and demonstrations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering-basics">Prompt engineering basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooklm-for-source-based-research">NotebookLM for source-based research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illuminate-for-first-pass-paper-summaries">Illuminate for first-pass paper summaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-after-watching">Practice after watching</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="using-ai-tools-in-research-training">
+<h1>Using AI tools in research training<a class="headerlink" href="#using-ai-tools-in-research-training" title="Link to this heading">#</a></h1>
+<p>AI tools can be useful research assistants when they are used carefully. They can help you summarize difficult material, organize your thoughts, debug code, generate study questions, and turn a vague idea into a more concrete research plan.</p>
+<p>However, AI tools should not replace careful reading, source checking, or your own reasoning. A good researcher uses AI to support the research process, not to avoid the research process.</p>
+<section id="what-ai-tools-are-good-for">
+<h2>What AI tools are good for<a class="headerlink" href="#what-ai-tools-are-good-for" title="Link to this heading">#</a></h2>
+<p>AI tools are most useful when you give them a specific task and enough context to work from. In research training, they can help you:</p>
+<ul class="simple">
+<li><p>summarize a paper, textbook section, or research log,</p></li>
+<li><p>explain unfamiliar terminology,</p></li>
+<li><p>identify the main assumptions in a model,</p></li>
+<li><p>generate questions to ask while reading,</p></li>
+<li><p>organize notes into a clearer structure,</p></li>
+<li><p>suggest next steps for a project,</p></li>
+<li><p>help debug Python code,</p></li>
+<li><p>compare different interpretations of a result,</p></li>
+<li><p>create a checklist for a research task.</p></li>
+</ul>
+<p>A useful rule is this: use AI tools to make your thinking more organized, not to replace your thinking.</p>
+</section>
+<section id="good-prompt-engineering">
+<h2>Good prompt engineering<a class="headerlink" href="#good-prompt-engineering" title="Link to this heading">#</a></h2>
+<p>A prompt is the instruction you give to an AI tool. Better prompts usually produce better responses. A strong research prompt usually includes four parts:</p>
+<ol class="arabic simple">
+<li><p><strong>Context</strong> — what you are working on.</p></li>
+<li><p><strong>Task</strong> — what you want the AI to do.</p></li>
+<li><p><strong>Constraints</strong> — what the AI should or should not include.</p></li>
+<li><p><strong>Output format</strong> — how you want the answer organized.</p></li>
+</ol>
+<p>For example, instead of writing:</p>
+<blockquote>
+<div><p>Explain this paper.</p>
+</div></blockquote>
+<p>write something more specific:</p>
+<blockquote>
+<div><p>I am an undergraduate beginning a research project on planets in binary star systems. Summarize this paper in plain language. Focus on the research question, physical model, main assumptions, key results, and what I should understand before trying to reproduce the calculation. End with five questions I should ask my research advisor.</p>
+</div></blockquote>
+<p>The second prompt is better because it gives the AI a role, audience, purpose, and structure.</p>
+</section>
+<section id="a-useful-prompt-template">
+<h2>A useful prompt template<a class="headerlink" href="#a-useful-prompt-template" title="Link to this heading">#</a></h2>
+<p>When you are unsure how to begin, use a prompt like this:</p>
+<blockquote>
+<div><p>I am working on [topic or task]. My current goal is [specific goal]. I already know [background knowledge]. I am confused about [specific issue]. Please help me by [task]. Organize the response as [desired format]. Do not assume more advanced background than [level].</p>
+</div></blockquote>
+<p>For coding tasks, include the code, the error message, and what you expected to happen:</p>
+<blockquote>
+<div><p>I am running this Python code to [goal]. I expected [expected result], but I got [actual result or error message]. Explain what the error means, identify the most likely problem, and suggest a minimal fix. Do not rewrite the entire notebook unless necessary.</p>
+</div></blockquote>
+</section>
+<section id="prompt-iterate-revise">
+<h2>Prompt, iterate, revise<a class="headerlink" href="#prompt-iterate-revise" title="Link to this heading">#</a></h2>
+<p>Using AI well is usually not a one-step process. A better workflow is:</p>
+<ol class="arabic simple">
+<li><p><strong>Prompt</strong> — ask for a first explanation, summary, plan, or diagnosis.</p></li>
+<li><p><strong>Evaluate</strong> — check whether the response is useful, correct, and specific.</p></li>
+<li><p><strong>Iterate</strong> — ask follow-up questions or request a different format.</p></li>
+<li><p><strong>Revise</strong> — update your notes, code, research plan, or explanation using what you learned.</p></li>
+<li><p><strong>Verify</strong> — check the result against the original source, your data, or a reliable reference.</p></li>
+</ol>
+<p>For example, you might first ask for a summary of a paper. Then you might ask for the assumptions behind the model. Then you might ask how those assumptions relate to your own project. Finally, you should return to the paper and verify that the AI’s explanation matches what the authors actually wrote.</p>
+</section>
+<section id="using-notebooklm">
+<h2>Using NotebookLM<a class="headerlink" href="#using-notebooklm" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://notebooklm.google/">NotebookLM</a> is especially useful when you want to work with a specific set of sources. You can upload papers, notes, reports, or other documents, then ask questions about those sources.</p>
+<p>This makes NotebookLM useful for:</p>
+<ul class="simple">
+<li><p>summarizing a research paper,</p></li>
+<li><p>comparing several papers,</p></li>
+<li><p>asking questions about a textbook chapter,</p></li>
+<li><p>generating a study guide from uploaded notes,</p></li>
+<li><p>creating a briefing document for a new research topic,</p></li>
+<li><p>finding where a concept appears in your uploaded sources.</p></li>
+</ul>
+<p>One of the most useful features is the ability to ask source-grounded questions. For example:</p>
+<blockquote>
+<div><p>Based only on the uploaded sources, what are the main assumptions used in this model?</p>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><p>Which source discusses the stability boundary for circumbinary planets? Give the answer with citations to the uploaded material.</p>
+</div></blockquote>
+<p>NotebookLM can also generate audio overviews. These can be useful before reading a difficult paper because they give you a first-pass explanation of the main ideas. However, an audio overview should be treated as a starting point, not as a replacement for reading the paper.</p>
+<p>A good workflow is:</p>
+<ol class="arabic simple">
+<li><p>Upload the paper or notes.</p></li>
+<li><p>Generate a short summary or audio overview.</p></li>
+<li><p>Ask for the main research question, methods, assumptions, and conclusions.</p></li>
+<li><p>Read the original source yourself.</p></li>
+<li><p>Ask follow-up questions about confusing sections.</p></li>
+<li><p>Write your own summary in your research log.</p></li>
+</ol>
+</section>
+<section id="using-illuminate">
+<h2>Using Illuminate<a class="headerlink" href="#using-illuminate" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://illuminate.google.com/">Illuminate</a> is another AI tool that can help flatten the learning curve for complex research papers. It is designed to turn research papers into AI-generated audio summaries.</p>
+<p>This can be useful when you are encountering a paper for the first time. Listening to an AI-generated discussion can help you identify the topic, main result, and important vocabulary before doing a careful reading.</p>
+<p>Illuminate is most useful for:</p>
+<ul class="simple">
+<li><p>getting a first-pass overview of a paper,</p></li>
+<li><p>preparing to read a dense technical article,</p></li>
+<li><p>reviewing a paper while commuting or doing routine tasks,</p></li>
+<li><p>identifying which parts of a paper deserve closer attention.</p></li>
+</ul>
+<p>However, it should not be used as your only interaction with a paper. Audio summaries can miss details, simplify assumptions, or overemphasize some parts of the paper. After using Illuminate, you should still read the abstract, introduction, figures, methods, and conclusions yourself.</p>
+</section>
+<section id="trust-but-verify">
+<h2>Trust, but verify<a class="headerlink" href="#trust-but-verify" title="Link to this heading">#</a></h2>
+<p>AI tools can sound confident even when they are wrong. They can misunderstand a source, invent details, give incomplete explanations, or produce code that runs but does not answer the right question.</p>
+<p>For that reason, every AI-assisted result should be checked.</p>
+<p>When using AI in research, verify:</p>
+<ul class="simple">
+<li><p><strong>claims</strong> against the original paper or textbook,</p></li>
+<li><p><strong>citations</strong> by opening the actual source,</p></li>
+<li><p><strong>equations</strong> by checking units, limits, and assumptions,</p></li>
+<li><p><strong>code</strong> by running simple test cases,</p></li>
+<li><p><strong>summaries</strong> by comparing them to the original source,</p></li>
+<li><p><strong>research plans</strong> by discussing them with your advisor or instructor.</p></li>
+</ul>
+<p>A good habit is to ask:</p>
+<blockquote>
+<div><p>What would I need to check before trusting this answer?</p>
+</div></blockquote>
+<p>You can also ask the AI tool itself:</p>
+<blockquote>
+<div><p>List the parts of your answer that I should verify against the original source.</p>
+</div></blockquote>
+<p>This does not guarantee correctness, but it helps you identify what needs checking.</p>
+</section>
+<section id="from-a-vague-idea-to-a-research-plan">
+<h2>From a vague idea to a research plan<a class="headerlink" href="#from-a-vague-idea-to-a-research-plan" title="Link to this heading">#</a></h2>
+<p>AI tools can be especially helpful when you have a vague research idea but do not yet know how to turn it into a project.</p>
+<p>For example, you might begin with:</p>
+<blockquote>
+<div><p>I am interested in whether planets can survive in binary star systems. Help me turn this broad idea into several possible undergraduate research questions. For each one, suggest the required background, possible methods, data or simulations needed, and a realistic first step.</p>
+</div></blockquote>
+<p>The AI might help you organize the idea into categories such as:</p>
+<ul class="simple">
+<li><p>a literature review question,</p></li>
+<li><p>a numerical simulation project,</p></li>
+<li><p>an observational data project,</p></li>
+<li><p>a comparison between analytic theory and simulations,</p></li>
+<li><p>a visualization or teaching-focused project.</p></li>
+</ul>
+<p>From there, you can ask for a more concrete plan:</p>
+<blockquote>
+<div><p>Turn this idea into a four-week research plan. Include weekly goals, skills to learn, code or data needed, expected outputs, and possible problems.</p>
+</div></blockquote>
+<p>This kind of prompt can help you move from curiosity to action. The plan will still need to be checked and revised, but it gives you a starting structure.</p>
+</section>
+<section id="ai-and-your-research-log">
+<h2>AI and your research log<a class="headerlink" href="#ai-and-your-research-log" title="Link to this heading">#</a></h2>
+<p>Your research log is one of the best places to use AI productively. You can paste your notes into an AI tool and ask it to help you organize them.</p>
+<p>Useful prompts include:</p>
+<blockquote>
+<div><p>Summarize today’s research log into goals, actions taken, results, problems, and next steps.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Identify the unresolved questions in this research log.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Turn these notes into a short update I can discuss with my research advisor.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Based on this log, what should I try first in my next research session?</p>
+</div></blockquote>
+<p>This works best when your research log is specific. Record what you tried, what changed, what failed, and what you think it means.</p>
+</section>
+<section id="appropriate-use">
+<h2>Appropriate use<a class="headerlink" href="#appropriate-use" title="Link to this heading">#</a></h2>
+<p>Using AI tools is appropriate when they help you learn, organize, test, or communicate your own work. It is not appropriate to present AI-generated text, code, or analysis as if it were work you fully understand and verified.</p>
+<p>Before using AI-generated material in a report, presentation, notebook, or manuscript, make sure you can explain it yourself.</p>
+<p>A useful standard is:</p>
+<blockquote>
+<div><p>If I cannot explain it, I should not present it as my result.</p>
+</div></blockquote>
+<p>AI tools can make research more accessible, but the responsibility for understanding and verifying the work remains with the researcher.</p>
+</section>
+<section id="suggested-videos-and-demonstrations">
+<h2>Suggested videos and demonstrations<a class="headerlink" href="#suggested-videos-and-demonstrations" title="Link to this heading">#</a></h2>
+<p>Videos can be useful for seeing how AI tools work in practice. However, they should be treated as demonstrations rather than complete instructions. The best way to learn these tools is to watch briefly, then try the workflow yourself using a real paper, textbook chapter, or research log.</p>
+<section id="prompt-engineering-basics">
+<h3>Prompt engineering basics<a class="headerlink" href="#prompt-engineering-basics" title="Link to this heading">#</a></h3>
+<p>The first skill to practice is writing clear prompts. A good prompt gives the AI tool context, a task, constraints, and an expected format.</p>
+<div class="video_wrapper align-center" style="text-align: center">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/jNNatjruXx8" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>After watching, try writing a prompt that includes:</p>
+<ul class="simple">
+<li><p>what you are working on,</p></li>
+<li><p>what background level the response should assume,</p></li>
+<li><p>what task you want completed,</p></li>
+<li><p>what format you want the answer in.</p></li>
+</ul>
+</section>
+<section id="notebooklm-for-source-based-research">
+<h3>NotebookLM for source-based research<a class="headerlink" href="#notebooklm-for-source-based-research" title="Link to this heading">#</a></h3>
+<p>NotebookLM is useful when you want AI help grounded in specific sources that you provide, such as papers, notes, PDFs, textbook sections, or research logs.</p>
+<div class="video_wrapper align-center" style="text-align: center">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/EOmgC3-hznM" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>After watching, practice with one paper or one chapter. Upload the source, ask for the main research question, ask for the assumptions, then ask for a list of sections you should read carefully.</p>
+</section>
+<section id="illuminate-for-first-pass-paper-summaries">
+<h3>Illuminate for first-pass paper summaries<a class="headerlink" href="#illuminate-for-first-pass-paper-summaries" title="Link to this heading">#</a></h3>
+<p>Illuminate can help turn complex papers into AI-generated audio summaries. This can be useful before a careful reading, especially when you are trying to understand the big picture of a dense paper.</p>
+<div class="video_wrapper align-center" style="text-align: center">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/59bU5zrgPkc" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>After listening to an AI-generated summary, return to the original paper. Check the abstract, figures, methods, and conclusions yourself. Audio summaries can help you get oriented, but they should not replace reading the paper.</p>
+</section>
+<section id="practice-after-watching">
+<h3>Practice after watching<a class="headerlink" href="#practice-after-watching" title="Link to this heading">#</a></h3>
+<p>Choose one research paper and try this workflow:</p>
+<ol class="arabic simple">
+<li><p>Search for the paper in NASA ADS.</p></li>
+<li><p>Open the arXiv or published version.</p></li>
+<li><p>Upload the paper to NotebookLM.</p></li>
+<li><p>Ask NotebookLM for the research question, methods, assumptions, and main result.</p></li>
+<li><p>Use Illuminate or a similar audio-summary tool for a first-pass overview.</p></li>
+<li><p>Return to the original paper and verify the summary.</p></li>
+<li><p>Write your own short explanation in your research log.</p></li>
+</ol>
+<p>The goal is not to let AI read the paper for you. The goal is to use AI to lower the barrier to your own careful reading.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Preamble"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cite-reuse.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">How to cite and reuse this material</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nasaads-arxiv.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Finding and following the research literature</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-ai-tools-are-good-for">What AI tools are good for</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#good-prompt-engineering">Good prompt engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-prompt-template">A useful prompt template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-iterate-revise">Prompt, iterate, revise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-notebooklm">Using NotebookLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-illuminate">Using Illuminate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trust-but-verify">Trust, but verify</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-vague-idea-to-a-research-plan">From a vague idea to a research plan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-and-your-research-log">AI and your research log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appropriate-use">Appropriate use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-videos-and-demonstrations">Suggested videos and demonstrations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering-basics">Prompt engineering basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooklm-for-source-based-research">NotebookLM for source-based research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illuminate-for-first-pass-paper-summaries">Illuminate for first-pass paper summaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-after-watching">Practice after watching</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

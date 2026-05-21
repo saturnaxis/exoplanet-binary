@@ -6,8 +6,10 @@ root: home
 parts:
 - caption: Preamble
   chapters:
-  - file: Preamble/who-for
-  - file: Preamble/cite-reuse
+  - file: Preamble/who-for.ipynb
+  - file: Preamble/cite-reuse.ipynb
+  - file: Preamble/ai-tools.md
+  - file: Preamble/nasaads-arxiv.md
 - caption: Introduction
   numbered: true
   chapters:
