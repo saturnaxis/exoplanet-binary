@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14. Modeling Exoplanet Transits &#8212; Exoplanets within Binary Systems</title>
+    <title>15. Modeling Exoplanet Transits &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -36,8 +36,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css?v=96c28b52" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
     <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
@@ -60,7 +60,7 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script src="../_static/h5p-resizer.js"></script>
+    <script src="../_static/h5p-resizer.js?v=a3e8b8ed"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -85,7 +85,7 @@
     <link rel="icon" href="../_static/CBP_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="13. Data Reduction (archival)" href="archival-data.html" />
+    <link rel="prev" title="14. Data Reduction (archival)" href="archival-data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -207,6 +207,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/ai-tools.html">Using AI tools in research training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/nasaads-arxiv.html">Finding and following the research literature</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -222,14 +224,18 @@
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
-<ul class="current nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observation Basics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archival-data.html">13. Data Reduction (archival)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Modeling Exoplanet Transits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reu_observation_planning.html">11. Planning Observations for Transits and Eclipses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">12. Basics of CCD Photometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduction Analysis and Modeling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">13. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">14. Data Reduction (archival)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Modeling Exoplanet Transits</a></li>
 </ul>
 
     </div>
@@ -460,68 +466,68 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-transit-modeling-adds">14.1. What Transit Modeling Adds</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-geometry-and-parameters">14.2. Transit Geometry and Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period">14.2.1. Period</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-midpoint">14.2.2. Transit midpoint</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planet-to-star-radius-ratio">14.2.3. Planet-to-star radius ratio</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-parameter">14.2.4. Impact parameter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-semimajor-axis">14.2.5. Scaled semimajor axis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclination">14.2.6. Inclination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limb-darkening">14.2.7. Limb darkening</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-transit-modeling-adds">15.1. What Transit Modeling Adds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-geometry-and-parameters">15.2. Transit Geometry and Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period">15.2.1. Period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-midpoint">15.2.2. Transit midpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planet-to-star-radius-ratio">15.2.3. Planet-to-star radius ratio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-parameter">15.2.4. Impact parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-semimajor-axis">15.2.5. Scaled semimajor axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclination">15.2.6. Inclination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limb-darkening">15.2.7. Limb darkening</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-light-curve-for-modeling">14.3. Preparing a Light Curve for Modeling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-from-a-cleaned-lightkurve-light-curve">14.3.1. Start from a cleaned Lightkurve light curve</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-bad-cadences">14.3.2. Mask bad cadences</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalize-flux">14.3.3. Normalize flux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-time-window-around-each-transit">14.3.4. Choose a time window around each transit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-over-detrending-the-transit">14.3.5. Avoid over-detrending the transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-light-curve-for-modeling">15.3. Preparing a Light Curve for Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-from-a-cleaned-lightkurve-light-curve">15.3.1. Start from a cleaned Lightkurve light curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-bad-cadences">15.3.2. Mask bad cadences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalize-flux">15.3.3. Normalize flux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-time-window-around-each-transit">15.3.4. Choose a time window around each transit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-over-detrending-the-transit">15.3.5. Avoid over-detrending the transit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-modeling-with-batman">14.4. Forward Modeling with <code class="docutils literal notranslate"><span class="pre">batman</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-simple-transit-model">14.4.1. Generate a simple transit model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-planet-radius-inclination-and-limb-darkening">14.4.2. Change planet radius, inclination, and limb darkening</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-model-and-data-visually">14.4.3. Compare model and data visually</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-modeling-with-batman">15.4. Forward Modeling with <code class="docutils literal notranslate"><span class="pre">batman</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-simple-transit-model">15.4.1. Generate a simple transit model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-planet-radius-inclination-and-limb-darkening">15.4.2. Change planet radius, inclination, and limb darkening</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-model-and-data-visually">15.4.3. Compare model and data visually</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-transit-model">14.5. Fitting a Transit Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-residuals">14.5.1. Define residuals</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-least-squares-fitting-as-a-first-pass">14.5.2. Use least-squares fitting as a first pass</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-residuals">14.5.3. Inspect residuals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-transit-model">15.5. Fitting a Transit Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-residuals">15.5.1. Define residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-least-squares-fitting-as-a-first-pass">15.5.2. Use least-squares fitting as a first pass</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-residuals">15.5.3. Inspect residuals</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-uncertainty-with-emcee">14.6. Parameter Uncertainty with <code class="docutils literal notranslate"><span class="pre">emcee</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-priors-and-likelihood">14.6.1. Define priors and likelihood</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-walkers">14.6.2. Run walkers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-chains">14.6.3. Check chains</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-posterior-medians-and-credible-intervals">14.6.4. Report posterior medians and credible intervals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-uncertainty-with-emcee">15.6. Parameter Uncertainty with <code class="docutils literal notranslate"><span class="pre">emcee</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-priors-and-likelihood">15.6.1. Define priors and likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-walkers">15.6.2. Run walkers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-chains">15.6.3. Check chains</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-posterior-medians-and-credible-intervals">15.6.4. Report posterior medians and credible intervals</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlated-noise-and-gaussian-processes">14.7. Correlated Noise and Gaussian Processes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-white-noise-assumptions-fail">14.7.1. Why white-noise assumptions fail</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-variability">14.7.2. Stellar variability</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-trends">14.7.3. Instrumental trends</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gp-cautions">14.7.4. GP cautions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlated-noise-and-gaussian-processes">15.7. Correlated Noise and Gaussian Processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-white-noise-assumptions-fail">15.7.1. Why white-noise assumptions fail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-variability">15.7.2. Stellar variability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-trends">15.7.3. Instrumental trends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gp-cautions">15.7.4. GP cautions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-probabilistic-modeling-with-exoplanet">14.8. Full Probabilistic Modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-exoplanet-is-worth-the-complexity">14.8.1. When <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> is worth the complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pymc-model-structure">14.8.2. PyMC model structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-model-plus-noise-model">14.8.3. Transit model plus noise model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-sampling">14.8.4. Posterior sampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-checks">14.8.5. Posterior predictive checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-probabilistic-modeling-with-exoplanet">15.8. Full Probabilistic Modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-exoplanet-is-worth-the-complexity">15.8.1. When <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> is worth the complexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pymc-model-structure">15.8.2. PyMC model structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-model-plus-noise-model">15.8.3. Transit model plus noise model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-sampling">15.8.4. Posterior sampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-checks">15.8.5. Posterior predictive checks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">14.9. Common Mistakes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-log-template-for-transit-modeling">14.10. Research Log Template for Transit Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplemental-videos-and-documentation">14.11. Supplemental Videos and Documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-method-background">14.11.1. Transit method background</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-transit-work-and-exoplanet-watch">14.11.2. Applied transit work and Exoplanet Watch</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-documentation">14.11.3. Package documentation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mcmc-and-emcee-videos">14.11.4. MCMC and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> videos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes-and-correlated-noise">14.11.5. Gaussian processes and correlated noise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.11.6. Full probabilistic modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">15.9. Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-log-template-for-transit-modeling">15.10. Research Log Template for Transit Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplemental-videos-and-documentation">15.11. Supplemental Videos and Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-method-background">15.11.1. Transit method background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-transit-work-and-exoplanet-watch">15.11.2. Applied transit work and Exoplanet Watch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-documentation">15.11.3. Package documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mcmc-and-emcee-videos">15.11.4. MCMC and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> videos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes-and-correlated-noise">15.11.5. Gaussian processes and correlated noise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.11.6. Full probabilistic modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -536,7 +542,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modeling-exoplanet-transits">
-<h1><span class="section-number">14. </span>Modeling Exoplanet Transits<a class="headerlink" href="#modeling-exoplanet-transits" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Modeling Exoplanet Transits<a class="headerlink" href="#modeling-exoplanet-transits" title="Link to this heading">#</a></h1>
 <p>This guide introduces the next step after finding, cleaning, detrending, folding, and inspecting an archival light curve. The goal is to move from a visible transit-like dip to a <strong>physical model</strong> with parameters that can be interpreted.</p>
 <p>This guide is written for students who already have some experience with Lightkurve, Wotan, or AstroImageJ. You do not need to be an expert, but you should already understand what a light curve is, what a transit looks like, and why bad data points and long-term trends must be handled carefully.</p>
 <div class="note admonition">
@@ -545,7 +551,7 @@ document.write(`
 </div>
 <p>The examples below use simulated data first. That is intentional. Simulated data lets us know the true answer, which makes it easier to learn what each model parameter does.</p>
 <section id="what-transit-modeling-adds">
-<h2><span class="section-number">14.1. </span>What Transit Modeling Adds<a class="headerlink" href="#what-transit-modeling-adds" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>What Transit Modeling Adds<a class="headerlink" href="#what-transit-modeling-adds" title="Link to this heading">#</a></h2>
 <p>A cleaned and folded light curve can answer first-pass questions: Is there a dip? Does it repeat? Is the period stable? Does the signal look more like a transit, eclipsing binary, stellar rotation, or instrumental systematics?</p>
 <p>Transit modeling goes further. It tries to estimate physical or geometric parameters such as the planet-to-star radius ratio, transit midpoint, orbital inclination, scaled semimajor axis, impact parameter, and limb-darkening behavior.</p>
 <p>A transit model can help answer questions such as whether the observed depth is consistent with a planet-sized object, whether the transit time is shifted relative to a prediction, whether the event is V-shaped or U-shaped, and whether the residuals suggest stellar variability or systematics that are not captured by the simple model.</p>
@@ -563,7 +569,7 @@ document.write(`
 </ol>
 </section>
 <section id="transit-geometry-and-parameters">
-<h2><span class="section-number">14.2. </span>Transit Geometry and Parameters<a class="headerlink" href="#transit-geometry-and-parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Transit Geometry and Parameters<a class="headerlink" href="#transit-geometry-and-parameters" title="Link to this heading">#</a></h2>
 <p>A transit happens when a planet passes in front of its host star from our point of view. During the transit, the planet blocks a small fraction of the star’s light, causing a dip in the light curve.</p>
 <p>The simplest estimate of the transit depth is</p>
 <div class="math notranslate nohighlight">
@@ -575,7 +581,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/Transit_geometry_overview.png"><img alt="../_images/Transit_geometry_overview.png" src="../_images/Transit_geometry_overview.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">A schematic overview of transit geometry. This figure highlights the stellar radius <span class="math notranslate nohighlight">\(R_\star\)</span>, the planet radius <span class="math notranslate nohighlight">\(R_p\)</span>, the impact parameter <span class="math notranslate nohighlight">\(b\)</span>, the semimajor axis <span class="math notranslate nohighlight">\(a\)</span>, the scaled semimajor axis <span class="math notranslate nohighlight">\(a/R_\star\)</span>, and the orbital inclination <span class="math notranslate nohighlight">\(i\)</span>.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 15.1 </span><span class="caption-text">A schematic overview of transit geometry. This figure highlights the stellar radius <span class="math notranslate nohighlight">\(R_\star\)</span>, the planet radius <span class="math notranslate nohighlight">\(R_p\)</span>, the impact parameter <span class="math notranslate nohighlight">\(b\)</span>, the semimajor axis <span class="math notranslate nohighlight">\(a\)</span>, the scaled semimajor axis <span class="math notranslate nohighlight">\(a/R_\star\)</span>, and the orbital inclination <span class="math notranslate nohighlight">\(i\)</span>.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="note admonition">
@@ -583,44 +589,44 @@ document.write(`
 <p>The light curve directly constrains ratios and geometry more easily than absolute sizes. To convert a fitted planet-to-star radius ratio into a planet radius, you need an estimate of the stellar radius from somewhere else.</p>
 </div>
 <section id="period">
-<h3><span class="section-number">14.2.1. </span>Period<a class="headerlink" href="#period" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.1. </span>Period<a class="headerlink" href="#period" title="Link to this heading">#</a></h3>
 <p>The <strong>period</strong>, usually written <span class="math notranslate nohighlight">\(P\)</span>, is the time between repeated transits. For a planet on a stable orbit, the transit events should occur at nearly regular intervals. The period is usually found before detailed modeling by using a period search, a catalog ephemeris, or a folded light curve.</p>
 </section>
 <section id="transit-midpoint">
-<h3><span class="section-number">14.2.2. </span>Transit midpoint<a class="headerlink" href="#transit-midpoint" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.2. </span>Transit midpoint<a class="headerlink" href="#transit-midpoint" title="Link to this heading">#</a></h3>
 <p>The <strong>transit midpoint</strong>, often written <span class="math notranslate nohighlight">\(t_0\)</span>, is the central time of a transit. This parameter matters because transit timing can be used to compare observations with a predicted ephemeris. A shifted midpoint can indicate an incorrect period, a timing-system problem, or in some cases transit timing variations.</p>
 </section>
 <section id="planet-to-star-radius-ratio">
-<h3><span class="section-number">14.2.3. </span>Planet-to-star radius ratio<a class="headerlink" href="#planet-to-star-radius-ratio" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.3. </span>Planet-to-star radius ratio<a class="headerlink" href="#planet-to-star-radius-ratio" title="Link to this heading">#</a></h3>
 <p>The <strong>planet-to-star radius ratio</strong>, written <span class="math notranslate nohighlight">\(R_p/R_\star\)</span>, controls the depth of the transit. Larger planets block more light. If the transit depth is about <span class="math notranslate nohighlight">\(1\%\)</span>, then the rough radius ratio is <span class="math notranslate nohighlight">\(\sqrt{0.01}=0.1\)</span>.</p>
 </section>
 <section id="impact-parameter">
-<h3><span class="section-number">14.2.4. </span>Impact parameter<a class="headerlink" href="#impact-parameter" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.4. </span>Impact parameter<a class="headerlink" href="#impact-parameter" title="Link to this heading">#</a></h3>
 <p>The <strong>impact parameter</strong>, usually written <span class="math notranslate nohighlight">\(b\)</span>, describes how far from the center of the stellar disk the planet crosses, measured in units of the stellar radius. A central transit has <span class="math notranslate nohighlight">\(b\approx 0\)</span>. A grazing transit has <span class="math notranslate nohighlight">\(b\)</span> close to 1. Larger impact parameters usually make the transit shorter and more V-shaped.</p>
 </section>
 <section id="scaled-semimajor-axis">
-<h3><span class="section-number">14.2.5. </span>Scaled semimajor axis<a class="headerlink" href="#scaled-semimajor-axis" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.5. </span>Scaled semimajor axis<a class="headerlink" href="#scaled-semimajor-axis" title="Link to this heading">#</a></h3>
 <p>The <strong>scaled semimajor axis</strong>, written <span class="math notranslate nohighlight">\(a/R_\star\)</span>, compares the orbital size to the stellar radius. It affects the transit duration. A planet farther from the star usually moves more slowly across the stellar disk and has a different duration for a given period and inclination.</p>
 </section>
 <section id="inclination">
-<h3><span class="section-number">14.2.6. </span>Inclination<a class="headerlink" href="#inclination" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.6. </span>Inclination<a class="headerlink" href="#inclination" title="Link to this heading">#</a></h3>
 <p>The <strong>inclination</strong>, written <span class="math notranslate nohighlight">\(i\)</span>, is the tilt of the orbit relative to the sky plane. A perfectly edge-on orbit has <span class="math notranslate nohighlight">\(i=90^\circ\)</span>. Transits only occur when the inclination is close enough to edge-on for the planet to cross the stellar disk.</p>
 <figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/Impact_parameter.png"><img alt="../_images/Impact_parameter.png" src="../_images/Impact_parameter.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">The impact parameter <span class="math notranslate nohighlight">\(b\)</span> and inclination <span class="math notranslate nohighlight">\(i\)</span> are closely related. As the inclination moves away from <span class="math notranslate nohighlight">\(90^\circ\)</span>, the projected transit chord shifts farther from the center of the stellar disk, increasing <span class="math notranslate nohighlight">\(b\)</span>. If the inclination becomes too low, no transit occurs.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 15.2 </span><span class="caption-text">The impact parameter <span class="math notranslate nohighlight">\(b\)</span> and inclination <span class="math notranslate nohighlight">\(i\)</span> are closely related. As the inclination moves away from <span class="math notranslate nohighlight">\(90^\circ\)</span>, the projected transit chord shifts farther from the center of the stellar disk, increasing <span class="math notranslate nohighlight">\(b\)</span>. If the inclination becomes too low, no transit occurs.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="limb-darkening">
-<h3><span class="section-number">14.2.7. </span>Limb darkening<a class="headerlink" href="#limb-darkening" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.7. </span>Limb darkening<a class="headerlink" href="#limb-darkening" title="Link to this heading">#</a></h3>
 <p>Stars are not uniformly bright disks. The center of a star usually appears brighter than the edge, or limb. <strong>Limb darkening</strong> affects the detailed curvature of the ingress, bottom, and egress of the transit. If the data are not high precision, limb darkening may be difficult to fit freely.</p>
 <figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/Transit_anatomy.png"><img alt="../_images/Transit_anatomy.png" src="../_images/Transit_anatomy.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">The anatomy of a transit light curve. This figure highlights the orbital period <span class="math notranslate nohighlight">\(P\)</span>, the transit midpoint <span class="math notranslate nohighlight">\(t_0\)</span>, the transit depth <span class="math notranslate nohighlight">\(\delta\)</span>, the total transit duration <span class="math notranslate nohighlight">\(T_{14}\)</span>, ingress, egress, and the role of limb darkening in shaping the rounded transit profile.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 15.3 </span><span class="caption-text">The anatomy of a transit light curve. This figure highlights the orbital period <span class="math notranslate nohighlight">\(P\)</span>, the transit midpoint <span class="math notranslate nohighlight">\(t_0\)</span>, the transit depth <span class="math notranslate nohighlight">\(\delta\)</span>, the total transit duration <span class="math notranslate nohighlight">\(T_{14}\)</span>, ingress, egress, and the role of limb darkening in shaping the rounded transit profile.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The figure above connects the light-curve shape to the geometric parameters. The <strong>period</strong> determines the spacing between repeated transits, the <strong>midpoint</strong> sets the central transit time, the <strong>radius ratio</strong> controls the depth, and the combination of <strong>impact parameter</strong>, <strong>scaled semimajor axis</strong>, and <strong>inclination</strong> affects the duration and overall shape. <strong>Limb darkening</strong> mainly changes the detailed curvature of ingress, egress, and the bottom of the transit.</p>
@@ -631,27 +637,27 @@ document.write(`
 </section>
 </section>
 <section id="preparing-a-light-curve-for-modeling">
-<h2><span class="section-number">14.3. </span>Preparing a Light Curve for Modeling<a class="headerlink" href="#preparing-a-light-curve-for-modeling" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Preparing a Light Curve for Modeling<a class="headerlink" href="#preparing-a-light-curve-for-modeling" title="Link to this heading">#</a></h2>
 <p>Transit modeling only works as well as the light curve you give it. Before fitting a physical model, make sure the light curve has been cleaned, normalized, and restricted to the time region relevant to the transit.</p>
 <section id="start-from-a-cleaned-lightkurve-light-curve">
-<h3><span class="section-number">14.3.1. </span>Start from a cleaned Lightkurve light curve<a class="headerlink" href="#start-from-a-cleaned-lightkurve-light-curve" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.3.1. </span>Start from a cleaned Lightkurve light curve<a class="headerlink" href="#start-from-a-cleaned-lightkurve-light-curve" title="Link to this heading">#</a></h3>
 <p>The modeling stage should usually begin after quality flags, obvious outliers, and problematic cadences have been handled. If you start from a raw or poorly cleaned light curve, the fitting code may spend its effort trying to model data problems instead of the transit.</p>
 <p>A typical preparation workflow is: download the light curve, select the flux column, remove invalid values, apply a quality mask if needed, detrend carefully, normalize the flux, and then extract a time window around the transit.</p>
 </section>
 <section id="mask-bad-cadences">
-<h3><span class="section-number">14.3.2. </span>Mask bad cadences<a class="headerlink" href="#mask-bad-cadences" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.3.2. </span>Mask bad cadences<a class="headerlink" href="#mask-bad-cadences" title="Link to this heading">#</a></h3>
 <p>Bad cadences can come from spacecraft events, scattered light, momentum dumps, saturation, cosmic rays, or processing artifacts. Do not assume that every point in a downloaded light curve is equally trustworthy.</p>
 </section>
 <section id="normalize-flux">
-<h3><span class="section-number">14.3.3. </span>Normalize flux<a class="headerlink" href="#normalize-flux" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.3.3. </span>Normalize flux<a class="headerlink" href="#normalize-flux" title="Link to this heading">#</a></h3>
 <p>Most transit models assume the out-of-transit flux is near 1.0. If the light curve is in electrons per second or another flux unit, normalize it before fitting.</p>
 </section>
 <section id="choose-a-time-window-around-each-transit">
-<h3><span class="section-number">14.3.4. </span>Choose a time window around each transit<a class="headerlink" href="#choose-a-time-window-around-each-transit" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.3.4. </span>Choose a time window around each transit<a class="headerlink" href="#choose-a-time-window-around-each-transit" title="Link to this heading">#</a></h3>
 <p>For detailed fitting, it is often better to model a window around one transit or a stacked/folded transit instead of the full time series. The window should include enough out-of-transit baseline to define the local continuum.</p>
 </section>
 <section id="avoid-over-detrending-the-transit">
-<h3><span class="section-number">14.3.5. </span>Avoid over-detrending the transit<a class="headerlink" href="#avoid-over-detrending-the-transit" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.3.5. </span>Avoid over-detrending the transit<a class="headerlink" href="#avoid-over-detrending-the-transit" title="Link to this heading">#</a></h3>
 <p>Detrending is dangerous if the trend model is allowed to remove part of the transit. If you use Wotan, Lightkurve flattening, or another detrending method, mask the transit before estimating the trend.</p>
 <div class="warning admonition">
 <p class="admonition-title">Common failure mode</p>
@@ -676,7 +682,7 @@ document.write(`
 </section>
 </section>
 <section id="forward-modeling-with-batman">
-<h2><span class="section-number">14.4. </span>Forward Modeling with <code class="docutils literal notranslate"><span class="pre">batman</span></code><a class="headerlink" href="#forward-modeling-with-batman" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Forward Modeling with <code class="docutils literal notranslate"><span class="pre">batman</span></code><a class="headerlink" href="#forward-modeling-with-batman" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">batman</span></code> package calculates exoplanet transit light curves from a set of transit parameters. It is a good first modeling tool because students can change one parameter at a time and immediately see how the transit shape changes.</p>
 <div class="note admonition">
 <p class="admonition-title">Package note</p>
@@ -686,7 +692,7 @@ document.write(`
 </div>
 </div>
 <section id="generate-a-simple-transit-model">
-<h3><span class="section-number">14.4.1. </span>Generate a simple transit model<a class="headerlink" href="#generate-a-simple-transit-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.4.1. </span>Generate a simple transit model<a class="headerlink" href="#generate-a-simple-transit-model" title="Link to this heading">#</a></h3>
 <p>The code below generates a simple transit model. The values are not meant to describe a specific real system. They are chosen to produce a clear transit signal for learning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -725,7 +731,7 @@ document.write(`
 </div>
 </section>
 <section id="change-planet-radius-inclination-and-limb-darkening">
-<h3><span class="section-number">14.4.2. </span>Change planet radius, inclination, and limb darkening<a class="headerlink" href="#change-planet-radius-inclination-and-limb-darkening" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.4.2. </span>Change planet radius, inclination, and limb darkening<a class="headerlink" href="#change-planet-radius-inclination-and-limb-darkening" title="Link to this heading">#</a></h3>
 <p>Changing one parameter at a time is one of the best ways to learn what the model is doing. In the next example, we change the planet-to-star radius ratio, which mainly changes the transit depth.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -778,7 +784,7 @@ document.write(`
 </div>
 </section>
 <section id="compare-model-and-data-visually">
-<h3><span class="section-number">14.4.3. </span>Compare model and data visually<a class="headerlink" href="#compare-model-and-data-visually" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.4.3. </span>Compare model and data visually<a class="headerlink" href="#compare-model-and-data-visually" title="Link to this heading">#</a></h3>
 <p>A visual comparison is not a final fit, but it is an important first diagnostic. If the model is obviously too shallow, too deep, too narrow, too wide, or shifted in time, the initial parameter guesses should be improved before running a more expensive fitting procedure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,11 +817,11 @@ document.write(`
 </section>
 </section>
 <section id="fitting-a-transit-model">
-<h2><span class="section-number">14.5. </span>Fitting a Transit Model<a class="headerlink" href="#fitting-a-transit-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Fitting a Transit Model<a class="headerlink" href="#fitting-a-transit-model" title="Link to this heading">#</a></h2>
 <p>Fitting means finding parameter values that make the model match the data as well as possible. The simplest approach is to define residuals and use a least-squares optimizer.</p>
 <p>Least-squares fitting is useful for getting a good first estimate, but it does not fully describe parameter uncertainties or correlations. It also assumes that the residuals are independent and roughly Gaussian.</p>
 <section id="define-residuals">
-<h3><span class="section-number">14.5.1. </span>Define residuals<a class="headerlink" href="#define-residuals" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.5.1. </span>Define residuals<a class="headerlink" href="#define-residuals" title="Link to this heading">#</a></h3>
 <p>The residual is the difference between the observed flux and the model flux. If uncertainties are available, use normalized residuals:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -849,7 +855,7 @@ r_i = \frac{f_i - m_i}{\sigma_i},
 </div>
 </section>
 <section id="use-least-squares-fitting-as-a-first-pass">
-<h3><span class="section-number">14.5.2. </span>Use least-squares fitting as a first pass<a class="headerlink" href="#use-least-squares-fitting-as-a-first-pass" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.5.2. </span>Use least-squares fitting as a first pass<a class="headerlink" href="#use-least-squares-fitting-as-a-first-pass" title="Link to this heading">#</a></h3>
 <p>In this example, we fit only three parameters: <span class="math notranslate nohighlight">\(R_p/R_\star\)</span>, inclination, and transit midpoint. We keep the period, eccentricity, scaled semimajor axis, and limb darkening fixed. That is not because they are unimportant. It is because beginner models should start with a small number of free parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -878,7 +884,7 @@ Best-fit transit midpoint: 0.00001 days
 </div>
 </section>
 <section id="inspect-residuals">
-<h3><span class="section-number">14.5.3. </span>Inspect residuals<a class="headerlink" href="#inspect-residuals" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.5.3. </span>Inspect residuals<a class="headerlink" href="#inspect-residuals" title="Link to this heading">#</a></h3>
 <p>After fitting, always inspect the residuals. A good fit should leave residuals that look like noise. Structured residuals can indicate an incorrect model, stellar variability, instrumental systematics, over-detrending, underestimated uncertainties, or a missing companion signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -909,7 +915,7 @@ Best-fit transit midpoint: 0.00001 days
 </section>
 </section>
 <section id="parameter-uncertainty-with-emcee">
-<h2><span class="section-number">14.6. </span>Parameter Uncertainty with <code class="docutils literal notranslate"><span class="pre">emcee</span></code><a class="headerlink" href="#parameter-uncertainty-with-emcee" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Parameter Uncertainty with <code class="docutils literal notranslate"><span class="pre">emcee</span></code><a class="headerlink" href="#parameter-uncertainty-with-emcee" title="Link to this heading">#</a></h2>
 <p>A least-squares fit gives one best-fitting answer. Research usually needs uncertainty estimates. MCMC methods estimate a distribution of plausible parameter values instead of only one best value.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">emcee</span></code> package is a common MCMC tool in astronomy. It uses an ensemble of walkers that explore parameter space. The output is a chain of samples from the posterior distribution.</p>
 <div class="note admonition">
@@ -917,7 +923,7 @@ Best-fit transit midpoint: 0.00001 days
 <p>MCMC does not magically prove that the model is correct. It estimates parameter uncertainty under the assumptions of the model, priors, likelihood, and noise model.</p>
 </div>
 <section id="define-priors-and-likelihood">
-<h3><span class="section-number">14.6.1. </span>Define priors and likelihood<a class="headerlink" href="#define-priors-and-likelihood" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.6.1. </span>Define priors and likelihood<a class="headerlink" href="#define-priors-and-likelihood" title="Link to this heading">#</a></h3>
 <p>For this example, we fit only <span class="math notranslate nohighlight">\(R_p/R_\star\)</span> and <span class="math notranslate nohighlight">\(t_0\)</span> while keeping inclination fixed at the least-squares value. This keeps the MCMC example short enough for beginners.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -959,7 +965,7 @@ Best-fit transit midpoint: 0.00001 days
 </div>
 </section>
 <section id="run-walkers">
-<h3><span class="section-number">14.6.2. </span>Run walkers<a class="headerlink" href="#run-walkers" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.6.2. </span>Run walkers<a class="headerlink" href="#run-walkers" title="Link to this heading">#</a></h3>
 <p>The walkers start near the least-squares result. In a real project, run longer chains and check convergence more carefully. This short run is only a teaching example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -980,40 +986,43 @@ Best-fit transit midpoint: 0.00001 days
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                          | 0/1000 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|██████▉                                                                         | 87/1000 [00:00&lt;00:01, 869.80it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|██████▍                                                                         | 81/1000 [00:00&lt;00:01, 809.21it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|█████████████▋                                                                 | 174/1000 [00:00&lt;00:00, 854.86it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|████████████▉                                                                  | 164/1000 [00:00&lt;00:01, 817.37it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|████████████████████▌                                                          | 260/1000 [00:00&lt;00:00, 855.50it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|███████████████████▍                                                           | 246/1000 [00:00&lt;00:00, 814.98it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|███████████████████████████▍                                                   | 348/1000 [00:00&lt;00:00, 863.19it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████████▉                                                     | 329/1000 [00:00&lt;00:00, 817.92it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|██████████████████████████████████▎                                            | 435/1000 [00:00&lt;00:00, 851.25it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|████████████████████████████████▋                                              | 413/1000 [00:00&lt;00:00, 822.07it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|█████████████████████████████████████████▏                                     | 521/1000 [00:00&lt;00:00, 814.51it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|███████████████████████████████████████▏                                       | 496/1000 [00:00&lt;00:00, 806.32it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|████████████████████████████████████████████████                               | 608/1000 [00:00&lt;00:00, 831.39it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|█████████████████████████████████████████████▌                                 | 577/1000 [00:00&lt;00:00, 796.73it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|██████████████████████████████████████████████████████▋                        | 692/1000 [00:00&lt;00:00, 829.37it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|███████████████████████████████████████████████████▉                           | 657/1000 [00:00&lt;00:00, 783.31it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|█████████████████████████████████████████████████████████████▎                 | 776/1000 [00:00&lt;00:00, 832.13it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|██████████████████████████████████████████████████████████▏                    | 736/1000 [00:00&lt;00:00, 770.99it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|████████████████████████████████████████████████████████████████████           | 862/1000 [00:01&lt;00:00, 838.35it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|████████████████████████████████████████████████████████████████▌              | 817/1000 [00:01&lt;00:00, 781.43it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|███████████████████████████████████████████████████████████████████████████    | 950/1000 [00:01&lt;00:00, 849.33it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|██████████████████████████████████████████████████████████████████████▉        | 898/1000 [00:01&lt;00:00, 788.11it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:01&lt;00:00, 844.00it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|█████████████████████████████████████████████████████████████████████████████▎ | 978/1000 [00:01&lt;00:00, 791.09it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:01&lt;00:00, 795.62it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chain shape: (1000, 32, 2)
@@ -1026,7 +1035,7 @@ Best-fit transit midpoint: 0.00001 days
 </div>
 </section>
 <section id="check-chains">
-<h3><span class="section-number">14.6.3. </span>Check chains<a class="headerlink" href="#check-chains" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.6.3. </span>Check chains<a class="headerlink" href="#check-chains" title="Link to this heading">#</a></h3>
 <p>A chain plot shows the parameter values sampled by each walker as a function of step number. The early part of the chain may depend strongly on the starting position. This early part is often discarded as burn-in.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1045,12 +1054,12 @@ Best-fit transit midpoint: 0.00001 days
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2c2322c1018570aab8b6b5f9f0d06e8eaa52c9c029855fcf5dd394c6b60a47f1.png" src="../_images/2c2322c1018570aab8b6b5f9f0d06e8eaa52c9c029855fcf5dd394c6b60a47f1.png" />
+<img alt="../_images/7a963e279d50c077c33d014c2fd7c206b826fbd2f1e1d5b23333ceab2e4bc5b9.png" src="../_images/7a963e279d50c077c33d014c2fd7c206b826fbd2f1e1d5b23333ceab2e4bc5b9.png" />
 </div>
 </div>
 </section>
 <section id="report-posterior-medians-and-credible-intervals">
-<h3><span class="section-number">14.6.4. </span>Report posterior medians and credible intervals<a class="headerlink" href="#report-posterior-medians-and-credible-intervals" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.6.4. </span>Report posterior medians and credible intervals<a class="headerlink" href="#report-posterior-medians-and-credible-intervals" title="Link to this heading">#</a></h3>
 <p>After discarding burn-in, flatten the chain and compute summary statistics. A common summary is the median with the 16th and 84th percentiles, which correspond roughly to a 1-sigma credible interval for a Gaussian-like posterior.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1066,8 +1075,8 @@ Best-fit transit midpoint: 0.00001 days
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rp/Rstar: 0.100028 -0.000328 +0.000324
-t0: 0.000007 -0.000135 +0.000134
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rp/Rstar: 0.100004 -0.000310 +0.000322
+t0: 0.000025 -0.000132 +0.000128
 </pre></div>
 </div>
 </div>
@@ -1079,23 +1088,23 @@ t0: 0.000007 -0.000135 +0.000134
 </section>
 </section>
 <section id="correlated-noise-and-gaussian-processes">
-<h2><span class="section-number">14.7. </span>Correlated Noise and Gaussian Processes<a class="headerlink" href="#correlated-noise-and-gaussian-processes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.7. </span>Correlated Noise and Gaussian Processes<a class="headerlink" href="#correlated-noise-and-gaussian-processes" title="Link to this heading">#</a></h2>
 <p>The examples above assume white noise, meaning the scatter from one point to the next is independent. Real light curves often violate that assumption.</p>
 <section id="why-white-noise-assumptions-fail">
-<h3><span class="section-number">14.7.1. </span>Why white-noise assumptions fail<a class="headerlink" href="#why-white-noise-assumptions-fail" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.7.1. </span>Why white-noise assumptions fail<a class="headerlink" href="#why-white-noise-assumptions-fail" title="Link to this heading">#</a></h3>
 <p>White noise is random point-to-point scatter. Correlated noise has structure across time. In a transit light curve, correlated noise can come from stellar rotation, star spots, pulsations, spacecraft systematics, changing background, imperfect detrending, or atmospheric effects in ground-based data.</p>
 <p>If correlated noise is ignored, the fitted parameters can look more precise than they really are. The model may also try to change transit parameters to compensate for long-term trends.</p>
 </section>
 <section id="stellar-variability">
-<h3><span class="section-number">14.7.2. </span>Stellar variability<a class="headerlink" href="#stellar-variability" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.7.2. </span>Stellar variability<a class="headerlink" href="#stellar-variability" title="Link to this heading">#</a></h3>
 <p>Stellar variability can change the out-of-transit baseline and distort the apparent transit depth. This matters especially for active stars, young stars, spotted stars, and stars with pulsations.</p>
 </section>
 <section id="instrumental-trends">
-<h3><span class="section-number">14.7.3. </span>Instrumental trends<a class="headerlink" href="#instrumental-trends" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.7.3. </span>Instrumental trends<a class="headerlink" href="#instrumental-trends" title="Link to this heading">#</a></h3>
 <p>Instrumental trends can come from spacecraft pointing changes, detector sensitivity variations, scattered light, or local background changes. For TESS and Kepler, some instrumental trends are already handled in pipeline products, but not all systematics are removed perfectly.</p>
 </section>
 <section id="gp-cautions">
-<h3><span class="section-number">14.7.4. </span>GP cautions<a class="headerlink" href="#gp-cautions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.7.4. </span>GP cautions<a class="headerlink" href="#gp-cautions" title="Link to this heading">#</a></h3>
 <p>Gaussian processes can model correlated noise, but they are not magic. A GP can also absorb real astrophysical signals if it is too flexible or if the transit is not protected. Use GPs carefully and inspect posterior predictive checks.</p>
 <div class="warning admonition">
 <p class="admonition-title">Practical GP rule</p>
@@ -1116,19 +1125,19 @@ t0: 0.000007 -0.000135 +0.000134
 </section>
 </section>
 <section id="full-probabilistic-modeling-with-exoplanet">
-<h2><span class="section-number">14.8. </span>Full Probabilistic Modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code><a class="headerlink" href="#full-probabilistic-modeling-with-exoplanet" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.8. </span>Full Probabilistic Modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code><a class="headerlink" href="#full-probabilistic-modeling-with-exoplanet" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> package is designed for probabilistic modeling of astronomical time-series data with a focus on exoplanets. It builds on PyMC, so it is a different level of complexity from the simple <code class="docutils literal notranslate"><span class="pre">batman</span></code> and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> examples above.</p>
 <section id="when-exoplanet-is-worth-the-complexity">
-<h3><span class="section-number">14.8.1. </span>When <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> is worth the complexity<a class="headerlink" href="#when-exoplanet-is-worth-the-complexity" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.8.1. </span>When <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> is worth the complexity<a class="headerlink" href="#when-exoplanet-is-worth-the-complexity" title="Link to this heading">#</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> when the project needs a more complete probabilistic model, such as a joint transit and radial-velocity fit, multiple planets, Gaussian-process stellar variability, transit timing variations, or careful posterior inference with physically motivated priors.</p>
 <p>Do not start here if you are still unsure how to clean the light curve, mask bad cadences, normalize flux, protect the transit during detrending, or interpret the basic transit parameters.</p>
 </section>
 <section id="pymc-model-structure">
-<h3><span class="section-number">14.8.2. </span>PyMC model structure<a class="headerlink" href="#pymc-model-structure" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.8.2. </span>PyMC model structure<a class="headerlink" href="#pymc-model-structure" title="Link to this heading">#</a></h3>
 <p>A PyMC model defines priors, deterministic relationships, a likelihood, and sampling instructions. The key idea is that the model is written as a probability model, not just as a function that returns a curve.</p>
 </section>
 <section id="transit-model-plus-noise-model">
-<h3><span class="section-number">14.8.3. </span>Transit model plus noise model<a class="headerlink" href="#transit-model-plus-noise-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.8.3. </span>Transit model plus noise model<a class="headerlink" href="#transit-model-plus-noise-model" title="Link to this heading">#</a></h3>
 <p>A full model usually contains a transit component and a noise component. The transit component describes the astrophysical signal. The noise component describes measurement uncertainty, stellar variability, and instrumental systematics.</p>
 <p>A conceptual structure is:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>with probabilistic_model:
@@ -1142,11 +1151,11 @@ t0: 0.000007 -0.000135 +0.000134
 </div>
 </section>
 <section id="posterior-sampling">
-<h3><span class="section-number">14.8.4. </span>Posterior sampling<a class="headerlink" href="#posterior-sampling" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.8.4. </span>Posterior sampling<a class="headerlink" href="#posterior-sampling" title="Link to this heading">#</a></h3>
 <p>Posterior sampling explores the range of parameter values that are consistent with the data and model assumptions. In modern PyMC workflows, this often uses gradient-based samplers rather than the ensemble sampler used by <code class="docutils literal notranslate"><span class="pre">emcee</span></code>.</p>
 </section>
 <section id="posterior-predictive-checks">
-<h3><span class="section-number">14.8.5. </span>Posterior predictive checks<a class="headerlink" href="#posterior-predictive-checks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.8.5. </span>Posterior predictive checks<a class="headerlink" href="#posterior-predictive-checks" title="Link to this heading">#</a></h3>
 <p>A posterior predictive check asks whether simulated data from the fitted model look like the observed data. This is one of the best ways to catch models that technically sample but do not actually describe the data well.</p>
 <div class="tip admonition">
 <p class="admonition-title">Recommended path</p>
@@ -1155,7 +1164,7 @@ t0: 0.000007 -0.000135 +0.000134
 </section>
 </section>
 <section id="common-mistakes">
-<h2><span class="section-number">14.9. </span>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.9. </span>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
 <p>Students often make similar mistakes when moving from light-curve inspection to transit modeling.</p>
 <ul class="simple">
 <li><p><strong>Fitting before cleaning:</strong> A model cannot rescue a bad light curve. Remove bad cadences, inspect quality flags, and check the baseline first.</p></li>
@@ -1170,7 +1179,7 @@ t0: 0.000007 -0.000135 +0.000134
 </ul>
 </section>
 <section id="research-log-template-for-transit-modeling">
-<h2><span class="section-number">14.10. </span>Research Log Template for Transit Modeling<a class="headerlink" href="#research-log-template-for-transit-modeling" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.10. </span>Research Log Template for Transit Modeling<a class="headerlink" href="#research-log-template-for-transit-modeling" title="Link to this heading">#</a></h2>
 <p>Use this template when modeling a transit. It is more detailed than a normal daily log because transit modeling has many choices that can affect the result.</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Transit Modeling Log: YYYY-MM-DD</span>
 
@@ -1241,10 +1250,10 @@ t0: 0.000007 -0.000135 +0.000134
 </div>
 </section>
 <section id="supplemental-videos-and-documentation">
-<h2><span class="section-number">14.11. </span>Supplemental Videos and Documentation<a class="headerlink" href="#supplemental-videos-and-documentation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.11. </span>Supplemental Videos and Documentation<a class="headerlink" href="#supplemental-videos-and-documentation" title="Link to this heading">#</a></h2>
 <p>Use these resources when you need a slower explanation, an official package reference, or examples of applied transit work. The first resources are about the transit method itself. The later resources are more advanced and are most useful after you already have a clean light curve and a simple transit model.</p>
 <section id="transit-method-background">
-<h3><span class="section-number">14.11.1. </span>Transit method background<a class="headerlink" href="#transit-method-background" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.11.1. </span>Transit method background<a class="headerlink" href="#transit-method-background" title="Link to this heading">#</a></h3>
 <p>Use these resources when you need the physical idea behind a transit light curve.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://science.nasa.gov/resource/exoplanet-detection-transit-method/">NASA: Exoplanet Detection, Transit Method</a><br />
@@ -1256,7 +1265,7 @@ A short visual explanation of how a planet passing in front of a star produces a
 </ul>
 </section>
 <section id="applied-transit-work-and-exoplanet-watch">
-<h3><span class="section-number">14.11.2. </span>Applied transit work and Exoplanet Watch<a class="headerlink" href="#applied-transit-work-and-exoplanet-watch" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.11.2. </span>Applied transit work and Exoplanet Watch<a class="headerlink" href="#applied-transit-work-and-exoplanet-watch" title="Link to this heading">#</a></h3>
 <p>Use these resources when you want to connect transit modeling to real observations and student-accessible observing projects.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://science.nasa.gov/citizen-science/exoplanet-watch/how-to-contribute/how-to-analyze-your-data/">NASA Exoplanet Watch: How to Analyze Your Data</a><br />
@@ -1268,7 +1277,7 @@ Recorded talks and tutorials related to exoplanet transit observing and analysis
 </ul>
 </section>
 <section id="package-documentation">
-<h3><span class="section-number">14.11.3. </span>Package documentation<a class="headerlink" href="#package-documentation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.11.3. </span>Package documentation<a class="headerlink" href="#package-documentation" title="Link to this heading">#</a></h3>
 <p>Use the official documentation when you need syntax, examples, or details about package behavior.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://lkreidberg.github.io/batman/docs/html/index.html"><code class="docutils literal notranslate"><span class="pre">batman</span></code> documentation</a><br />
@@ -1292,7 +1301,7 @@ Useful background for understanding Gaussian-process models in PyMC.</p></li>
 </div>
 </section>
 <section id="mcmc-and-emcee-videos">
-<h3><span class="section-number">14.11.4. </span>MCMC and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> videos<a class="headerlink" href="#mcmc-and-emcee-videos" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.11.4. </span>MCMC and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> videos<a class="headerlink" href="#mcmc-and-emcee-videos" title="Link to this heading">#</a></h3>
 <p>Use these resources when you want a slower explanation of what MCMC is doing before using <code class="docutils literal notranslate"><span class="pre">emcee</span></code>.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=vTUwEu53uzs">A Beginner’s Guide to Markov Chain Monte Carlo MCMC Analysis</a><br />
@@ -1304,7 +1313,7 @@ A longer lecture-style introduction to MCMC and Bayesian sampling.</p></li>
 </ul>
 </section>
 <section id="gaussian-processes-and-correlated-noise">
-<h3><span class="section-number">14.11.5. </span>Gaussian processes and correlated noise<a class="headerlink" href="#gaussian-processes-and-correlated-noise" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.11.5. </span>Gaussian processes and correlated noise<a class="headerlink" href="#gaussian-processes-and-correlated-noise" title="Link to this heading">#</a></h3>
 <p>Use these resources when the residuals show correlated structure that is not captured by independent error bars.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=GkyygB4flWY">Daniel Foreman-Mackey: Introduction to Gaussian Processes in Astronomy</a><br />
@@ -1316,7 +1325,7 @@ A practical example of using Gaussian processes to model stellar variability in 
 </ul>
 </section>
 <section id="id1">
-<h3><span class="section-number">14.11.6. </span>Full probabilistic modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.11.6. </span>Full probabilistic modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Use these only after you understand the simpler <code class="docutils literal notranslate"><span class="pre">batman</span></code> and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> examples. The <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> workflow introduces PyMC, priors, posterior sampling, and model checking all at once.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://discourse.pymc.io/t/the-why-and-how-of-one-domain-specific-pymc3-extension-by-dan-foreman-mackey/5983">The why and how of one domain-specific PyMC extension</a><br />
@@ -1370,7 +1379,7 @@ Complete examples of probabilistic modeling workflows.</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Data Reduction (archival)</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Data Reduction (archival)</p>
       </div>
     </a>
 </div>
@@ -1389,68 +1398,68 @@ Complete examples of probabilistic modeling workflows.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-transit-modeling-adds">14.1. What Transit Modeling Adds</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-geometry-and-parameters">14.2. Transit Geometry and Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period">14.2.1. Period</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-midpoint">14.2.2. Transit midpoint</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planet-to-star-radius-ratio">14.2.3. Planet-to-star radius ratio</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-parameter">14.2.4. Impact parameter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-semimajor-axis">14.2.5. Scaled semimajor axis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclination">14.2.6. Inclination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limb-darkening">14.2.7. Limb darkening</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-transit-modeling-adds">15.1. What Transit Modeling Adds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-geometry-and-parameters">15.2. Transit Geometry and Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period">15.2.1. Period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-midpoint">15.2.2. Transit midpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planet-to-star-radius-ratio">15.2.3. Planet-to-star radius ratio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-parameter">15.2.4. Impact parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-semimajor-axis">15.2.5. Scaled semimajor axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclination">15.2.6. Inclination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limb-darkening">15.2.7. Limb darkening</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-light-curve-for-modeling">14.3. Preparing a Light Curve for Modeling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-from-a-cleaned-lightkurve-light-curve">14.3.1. Start from a cleaned Lightkurve light curve</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-bad-cadences">14.3.2. Mask bad cadences</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalize-flux">14.3.3. Normalize flux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-time-window-around-each-transit">14.3.4. Choose a time window around each transit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-over-detrending-the-transit">14.3.5. Avoid over-detrending the transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-light-curve-for-modeling">15.3. Preparing a Light Curve for Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-from-a-cleaned-lightkurve-light-curve">15.3.1. Start from a cleaned Lightkurve light curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-bad-cadences">15.3.2. Mask bad cadences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalize-flux">15.3.3. Normalize flux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-time-window-around-each-transit">15.3.4. Choose a time window around each transit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-over-detrending-the-transit">15.3.5. Avoid over-detrending the transit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-modeling-with-batman">14.4. Forward Modeling with <code class="docutils literal notranslate"><span class="pre">batman</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-simple-transit-model">14.4.1. Generate a simple transit model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-planet-radius-inclination-and-limb-darkening">14.4.2. Change planet radius, inclination, and limb darkening</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-model-and-data-visually">14.4.3. Compare model and data visually</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-modeling-with-batman">15.4. Forward Modeling with <code class="docutils literal notranslate"><span class="pre">batman</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-simple-transit-model">15.4.1. Generate a simple transit model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-planet-radius-inclination-and-limb-darkening">15.4.2. Change planet radius, inclination, and limb darkening</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-model-and-data-visually">15.4.3. Compare model and data visually</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-transit-model">14.5. Fitting a Transit Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-residuals">14.5.1. Define residuals</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-least-squares-fitting-as-a-first-pass">14.5.2. Use least-squares fitting as a first pass</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-residuals">14.5.3. Inspect residuals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-transit-model">15.5. Fitting a Transit Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-residuals">15.5.1. Define residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-least-squares-fitting-as-a-first-pass">15.5.2. Use least-squares fitting as a first pass</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-residuals">15.5.3. Inspect residuals</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-uncertainty-with-emcee">14.6. Parameter Uncertainty with <code class="docutils literal notranslate"><span class="pre">emcee</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-priors-and-likelihood">14.6.1. Define priors and likelihood</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-walkers">14.6.2. Run walkers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-chains">14.6.3. Check chains</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-posterior-medians-and-credible-intervals">14.6.4. Report posterior medians and credible intervals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-uncertainty-with-emcee">15.6. Parameter Uncertainty with <code class="docutils literal notranslate"><span class="pre">emcee</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-priors-and-likelihood">15.6.1. Define priors and likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-walkers">15.6.2. Run walkers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-chains">15.6.3. Check chains</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-posterior-medians-and-credible-intervals">15.6.4. Report posterior medians and credible intervals</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlated-noise-and-gaussian-processes">14.7. Correlated Noise and Gaussian Processes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-white-noise-assumptions-fail">14.7.1. Why white-noise assumptions fail</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-variability">14.7.2. Stellar variability</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-trends">14.7.3. Instrumental trends</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gp-cautions">14.7.4. GP cautions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlated-noise-and-gaussian-processes">15.7. Correlated Noise and Gaussian Processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-white-noise-assumptions-fail">15.7.1. Why white-noise assumptions fail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-variability">15.7.2. Stellar variability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-trends">15.7.3. Instrumental trends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gp-cautions">15.7.4. GP cautions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-probabilistic-modeling-with-exoplanet">14.8. Full Probabilistic Modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-exoplanet-is-worth-the-complexity">14.8.1. When <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> is worth the complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pymc-model-structure">14.8.2. PyMC model structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-model-plus-noise-model">14.8.3. Transit model plus noise model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-sampling">14.8.4. Posterior sampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-checks">14.8.5. Posterior predictive checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-probabilistic-modeling-with-exoplanet">15.8. Full Probabilistic Modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-exoplanet-is-worth-the-complexity">15.8.1. When <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code> is worth the complexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pymc-model-structure">15.8.2. PyMC model structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-model-plus-noise-model">15.8.3. Transit model plus noise model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-sampling">15.8.4. Posterior sampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-checks">15.8.5. Posterior predictive checks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">14.9. Common Mistakes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-log-template-for-transit-modeling">14.10. Research Log Template for Transit Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplemental-videos-and-documentation">14.11. Supplemental Videos and Documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-method-background">14.11.1. Transit method background</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-transit-work-and-exoplanet-watch">14.11.2. Applied transit work and Exoplanet Watch</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-documentation">14.11.3. Package documentation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mcmc-and-emcee-videos">14.11.4. MCMC and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> videos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes-and-correlated-noise">14.11.5. Gaussian processes and correlated noise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.11.6. Full probabilistic modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">15.9. Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-log-template-for-transit-modeling">15.10. Research Log Template for Transit Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplemental-videos-and-documentation">15.11. Supplemental Videos and Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transit-method-background">15.11.1. Transit method background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-transit-work-and-exoplanet-watch">15.11.2. Applied transit work and Exoplanet Watch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-documentation">15.11.3. Package documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mcmc-and-emcee-videos">15.11.4. MCMC and <code class="docutils literal notranslate"><span class="pre">emcee</span></code> videos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes-and-correlated-noise">15.11.5. Gaussian processes and correlated noise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.11.6. Full probabilistic modeling with <code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a></li>
 </ul>
 </li>
 </ul>

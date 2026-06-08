@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. Data Reduction (archival) &#8212; Exoplanets within Binary Systems</title>
+    <title>14. Data Reduction (archival) &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -36,8 +36,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css?v=96c28b52" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
     <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
@@ -60,7 +60,7 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script src="../_static/h5p-resizer.js"></script>
+    <script src="../_static/h5p-resizer.js?v=a3e8b8ed"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -83,8 +83,8 @@
     <link rel="icon" href="../_static/CBP_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="14. Modeling Exoplanet Transits" href="modeling-exoplanet-transits.html" />
-    <link rel="prev" title="12. Reducing Light Curves with AstroImageJ" href="AIJ-lightcurve.html" />
+    <link rel="next" title="15. Modeling Exoplanet Transits" href="modeling-exoplanet-transits.html" />
+    <link rel="prev" title="13. Reducing Light Curves with AstroImageJ" href="AIJ-lightcurve.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -206,6 +206,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/ai-tools.html">Using AI tools in research training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/nasaads-arxiv.html">Finding and following the research literature</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -221,14 +223,18 @@
 <li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observations</span></p>
-<ul class="current nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observation Basics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">11. Basics of CCD Photometry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">12. Reducing Light Curves with AstroImageJ</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Data Reduction (archival)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">14. Modeling Exoplanet Transits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reu_observation_planning.html">11. Planning Observations for Transits and Eclipses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">12. Basics of CCD Photometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduction Analysis and Modeling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">13. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">15. Modeling Exoplanet Transits</a></li>
 </ul>
 
     </div>
@@ -459,28 +465,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-mast-and-lightkurve">13.1. Introduction to MAST and Lightkurve</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mast">13.1.1. What is MAST?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-lightkurve">13.1.2. What is Lightkurve?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-mast-and-lightkurve">14.1. Introduction to MAST and Lightkurve</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mast">14.1.1. What is MAST?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-lightkurve">14.1.2. What is Lightkurve?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">13.2. Setting up Your Python Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">13.3. Searching for Data on MAST</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">13.4. Understanding Data Products and Downloading Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">13.5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sector-workflow">13.5.1. Single-sector workflow</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">13.5.2. Data Cleaning with Quality Flags</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">13.5.3. Normalization and Detrending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">14.2. Setting up Your Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">14.3. Searching for Data on MAST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">14.4. Understanding Data Products and Downloading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">14.5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sector-workflow">14.5.1. Single-sector workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">14.5.2. Data Cleaning with Quality Flags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">14.5.3. Normalization and Detrending</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-target-pixel-files-tpfs-custom-photometry">13.6. Working with Target Pixel Files (TPFs) - Custom Photometry</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-aperture-mask">13.6.1. Creating a Custom Aperture Mask</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">13.6.2. Performing Aperture Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-target-pixel-files-tpfs-custom-photometry">14.6. Working with Target Pixel Files (TPFs) - Custom Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-aperture-mask">14.6.1. Creating a Custom Aperture Mask</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">14.6.2. Performing Aperture Photometry</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-and-folding-a-transit">13.7. Example: Finding and Folding a Transit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">13.8. Saving Your Reduced Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">13.9. Conclusion and Further Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-and-folding-a-transit">14.7. Example: Finding and Folding a Transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">14.8. Saving Your Reduced Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">14.9. Conclusion and Further Steps</a></li>
 </ul>
             </nav>
         </div>
@@ -493,14 +499,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-reduction-archival">
-<h1><span class="section-number">13. </span>Data Reduction (archival)<a class="headerlink" href="#data-reduction-archival" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">14. </span>Data Reduction (archival)<a class="headerlink" href="#data-reduction-archival" title="Link to this heading">#</a></h1>
 <p>This tutorial will guide you through the process of finding, downloading, and reducing data from the Mikulski Archive for Space Telescopes (MAST) to create science-ready light curves. We’ll primarily use the <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> Python package, a powerful tool for working with space telescope data like TESS, Kepler, and K2.</p>
 <p><strong>Goal:</strong> By the end of this tutorial, you’ll be able to search for space telescope data, download it, perform basic reduction steps (like cleaning and normalization), and generate a light curve ready for analysis (e.g., searching for exoplanet transits or stellar variability).</p>
 <p><strong>Environment:</strong> This notebook is designed to work well in online Python IDEs like Google Colab or MS Visual Studio Code with a Python kernel.</p>
 <section id="introduction-to-mast-and-lightkurve">
-<h2><span class="section-number">13.1. </span>Introduction to MAST and Lightkurve<a class="headerlink" href="#introduction-to-mast-and-lightkurve" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>Introduction to MAST and Lightkurve<a class="headerlink" href="#introduction-to-mast-and-lightkurve" title="Link to this heading">#</a></h2>
 <section id="what-is-mast">
-<h3><span class="section-number">13.1.1. </span>What is MAST?<a class="headerlink" href="#what-is-mast" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.1. </span>What is MAST?<a class="headerlink" href="#what-is-mast" title="Link to this heading">#</a></h3>
 <p>The <strong>Mikulski Archive for Space Telescopes (MAST)</strong> is NASA’s primary archive for optical and ultraviolet astronomical data, with a strong focus on exoplanet-finding missions. It hosts data from missions like:</p>
 <ul class="simple">
 <li><p><strong>TESS (Transiting Exoplanet Survey Satellite):</strong> Currently surveying most of the sky for nearby transiting exoplanets.</p></li>
@@ -510,13 +516,13 @@ document.write(`
 <p>You can explore MAST visually via its portal: <a class="reference external" href="https://mast.stsci.edu">https://mast.stsci.edu</a></p>
 </section>
 <section id="what-is-lightkurve">
-<h3><span class="section-number">13.1.2. </span>What is Lightkurve?<a class="headerlink" href="#what-is-lightkurve" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.2. </span>What is Lightkurve?<a class="headerlink" href="#what-is-lightkurve" title="Link to this heading">#</a></h3>
 <p><strong>Lightkurve</strong> is an open-source Python package designed to simplify the analysis of time-series astronomical data, especially from NASA’s TESS, Kepler, and K2 missions. It provides tools for searching, downloading, processing, and plotting light curves and target pixel files (TPFs).</p>
 <p>Official documentation: <a class="reference external" href="https://docs.lightkurve.org">https://docs.lightkurve.org</a></p>
 </section>
 </section>
 <section id="setting-up-your-python-environment">
-<h2><span class="section-number">13.2. </span>Setting up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>Setting up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Link to this heading">#</a></h2>
 <p>To use <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>, you need Python and several astronomy/scientific packages, including <code class="docutils literal notranslate"><span class="pre">astropy</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. If you are using Google Colab, install <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> inside a notebook cell with:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%pip install lightkurve
 </pre></div>
@@ -560,7 +566,7 @@ NumPy version: 2.4.4
 </div>
 </section>
 <section id="searching-for-data-on-mast">
-<h2><span class="section-number">13.3. </span>Searching for Data on MAST<a class="headerlink" href="#searching-for-data-on-mast" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>Searching for Data on MAST<a class="headerlink" href="#searching-for-data-on-mast" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> allows you to search for data programmatically. You can search by target name, mission-specific ID, or coordinates.</p>
 <p>For the first tutorial example, we will use <strong>WASP-18</strong>, a bright star with a short-period transiting planet. This is a better first target than a long-period planet because one TESS sector contains many repeated transits. A short-period target makes the phase-folded light curve much easier to see when we intentionally limit the download to one sector/quarter.</p>
 <div class="note admonition">
@@ -657,7 +663,7 @@ For this tutorial, we will use only the first available product:
 </div>
 </section>
 <section id="understanding-data-products-and-downloading-data">
-<h2><span class="section-number">13.4. </span>Understanding Data Products and Downloading Data<a class="headerlink" href="#understanding-data-products-and-downloading-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.4. </span>Understanding Data Products and Downloading Data<a class="headerlink" href="#understanding-data-products-and-downloading-data" title="Link to this heading">#</a></h2>
 <p>MAST provides several types of data products:</p>
 <ul class="simple">
 <li><p><strong>Light Curve Files (LCFs):</strong> These files contain pre-processed light curves. For TESS and Kepler, common flux types include:</p>
@@ -775,7 +781,7 @@ Length = 18299 rows
 </div>
 </section>
 <section id="working-with-light-curve-files-lcfs">
-<h2><span class="section-number">13.5. </span>Working with Light Curve Files (LCFs)<a class="headerlink" href="#working-with-light-curve-files-lcfs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.5. </span>Working with Light Curve Files (LCFs)<a class="headerlink" href="#working-with-light-curve-files-lcfs" title="Link to this heading">#</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">LightCurve</span></code> object has several useful attributes and methods.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">lc.time</span></code>: time values, often in BJD or a mission-specific barycentric time system.</p></li>
@@ -784,7 +790,7 @@ Length = 18299 rows
 <li><p><code class="docutils literal notranslate"><span class="pre">lc.quality</span></code>: quality flags indicating potential issues with data points.</p></li>
 </ul>
 <section id="single-sector-workflow">
-<h3><span class="section-number">13.5.1. </span>Single-sector workflow<a class="headerlink" href="#single-sector-workflow" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.5.1. </span>Single-sector workflow<a class="headerlink" href="#single-sector-workflow" title="Link to this heading">#</a></h3>
 <p>A common research workflow combines many sectors or quarters. For this tutorial, we do the opposite: we keep one sector so the notebook runs quickly and the plots are easier to interpret. That means we do <strong>not</strong> need to stitch multiple light curves here.</p>
 <p>If you later use multiple sectors, clean and normalize each light curve first, then call <code class="docutils literal notranslate"><span class="pre">stitch(corrector_func=lambda</span> <span class="pre">lc:</span> <span class="pre">lc)</span></code> to avoid repeated normalization or masked-array errors.</p>
 <div class="cell docutils container">
@@ -805,7 +811,7 @@ Length = 18299 rows
 </div>
 </section>
 <section id="data-cleaning-with-quality-flags">
-<h3><span class="section-number">13.5.2. </span>Data Cleaning with Quality Flags<a class="headerlink" href="#data-cleaning-with-quality-flags" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.5.2. </span>Data Cleaning with Quality Flags<a class="headerlink" href="#data-cleaning-with-quality-flags" title="Link to this heading">#</a></h3>
 <p>Space telescope data often have quality flags indicating issues like cosmic ray hits, spacecraft manoeuvres, or bad pixels. <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> attempts to handle standard quality masking when loading data (especially for <code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code> which often has NaNs where corrections failed).</p>
 <p>We’ve already used <code class="docutils literal notranslate"><span class="pre">remove_nans()</span></code> which is crucial for <code class="docutils literal notranslate"><span class="pre">PDCSAP_FLUX</span></code>. <code class="docutils literal notranslate"><span class="pre">remove_outliers()</span></code> was also applied above. These are good first steps in cleaning.</p>
 <div class="cell docutils container">
@@ -829,7 +835,7 @@ Length = 18299 rows
 </div>
 </section>
 <section id="normalization-and-detrending">
-<h3><span class="section-number">13.5.3. </span>Normalization and Detrending<a class="headerlink" href="#normalization-and-detrending" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.5.3. </span>Normalization and Detrending<a class="headerlink" href="#normalization-and-detrending" title="Link to this heading">#</a></h3>
 <p><strong>Normalization</strong> typically means dividing the flux by a representative baseline value so the out-of-transit flux is near 1.0. This makes transit depths easier to read as fractional changes in brightness.</p>
 <p><strong>Detrending</strong> removes slow variations from instrumental systematics or stellar variability. For a first pass, <code class="docutils literal notranslate"><span class="pre">lightkurve.flatten()</span></code> is a convenient option. It applies a Savitzky-Golay filter to estimate and remove low-frequency trends.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">window_length</span></code> value is measured in cadences, not days. It should be long compared with the transit duration so the filter does not remove the transit itself.</p>
@@ -859,7 +865,7 @@ Length = 18299 rows
 </section>
 </section>
 <section id="working-with-target-pixel-files-tpfs-custom-photometry">
-<h2><span class="section-number">13.6. </span>Working with Target Pixel Files (TPFs) - Custom Photometry<a class="headerlink" href="#working-with-target-pixel-files-tpfs-custom-photometry" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.6. </span>Working with Target Pixel Files (TPFs) - Custom Photometry<a class="headerlink" href="#working-with-target-pixel-files-tpfs-custom-photometry" title="Link to this heading">#</a></h2>
 <p>If pre-processed light curves are not suitable, you can inspect the target pixel file and create your own light curve. This can matter if the target is blended with nearby stars, if the pipeline aperture is poor, or if you need to understand where the measured flux is coming from.</p>
 <p>For this tutorial, we again use only the first available TPF so the notebook remains quick to run.</p>
 <div class="cell docutils container">
@@ -883,7 +889,7 @@ Length = 18299 rows
 </div>
 <p>The plot shows the pixel data. The red outline is the default pipeline aperture. You can define your own aperture interactively (in a Jupyter Notebook session by enabling <code class="docutils literal notranslate"><span class="pre">tpf.interact()</span></code>) or by creating a boolean mask programmatically.</p>
 <section id="creating-a-custom-aperture-mask">
-<h3><span class="section-number">13.6.1. </span>Creating a Custom Aperture Mask<a class="headerlink" href="#creating-a-custom-aperture-mask" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.6.1. </span>Creating a Custom Aperture Mask<a class="headerlink" href="#creating-a-custom-aperture-mask" title="Link to this heading">#</a></h3>
 <p>Let’s try to define a simple circular aperture or use a threshold mask. For this example, we’ll use the pipeline’s default aperture, which is often a good choice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,7 +917,7 @@ Length = 18299 rows
 </div>
 </section>
 <section id="performing-aperture-photometry">
-<h3><span class="section-number">13.6.2. </span>Performing Aperture Photometry<a class="headerlink" href="#performing-aperture-photometry" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.6.2. </span>Performing Aperture Photometry<a class="headerlink" href="#performing-aperture-photometry" title="Link to this heading">#</a></h3>
 <p>Once you have an aperture mask, you can extract the light curve using the <code class="docutils literal notranslate"><span class="pre">to_lightcurve()</span></code> method. This method will sum the flux within the aperture for each cadence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -935,7 +941,7 @@ Length = 18299 rows
 </section>
 </section>
 <section id="example-finding-and-folding-a-transit">
-<h2><span class="section-number">13.7. </span>Example: Finding and Folding a Transit<a class="headerlink" href="#example-finding-and-folding-a-transit" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.7. </span>Example: Finding and Folding a Transit<a class="headerlink" href="#example-finding-and-folding-a-transit" title="Link to this heading">#</a></h2>
 <p>Now we will use the flattened light curve to find a repeating transit signal. Because the target is a short-period transiting planet system, one TESS sector should contain many transits. This makes it a better first tutorial example than a long-period planet.</p>
 <p>Instead of hard-coding the period, we will use a <strong>Box Least Squares</strong> periodogram. BLS is designed to find box-shaped dips in a light curve, which makes it useful for transiting exoplanets.</p>
 <div class="cell docutils container">
@@ -992,7 +998,7 @@ The estimated transit duration is 0.07600 d.
 </div>
 </section>
 <section id="saving-your-reduced-light-curve">
-<h2><span class="section-number">13.8. </span>Saving Your Reduced Light Curve<a class="headerlink" href="#saving-your-reduced-light-curve" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.8. </span>Saving Your Reduced Light Curve<a class="headerlink" href="#saving-your-reduced-light-curve" title="Link to this heading">#</a></h2>
 <p>Once you have a processed light curve that you’re happy with (e.g., <code class="docutils literal notranslate"><span class="pre">flat_lc</span></code> or <code class="docutils literal notranslate"><span class="pre">folded_lc</span></code>), you can save it to a file. Common formats include CSV or FITS.</p>
 <p><strong>Note for Google Colab users:</strong> Files saved this way will be stored in the temporary Colab environment. To save them permanently, you’ll need to download them to your local machine or mount your Google Drive and save them there. You can find downloaded files in the file browser panel in Colab (usually on the left sidebar) and right-click to download.</p>
 <div class="cell docutils container">
@@ -1039,7 +1045,7 @@ WARNING: VerifyWarning: Keyword name &#39;NORMALIZED&#39; is greater than 8 char
 </div>
 </section>
 <section id="conclusion-and-further-steps">
-<h2><span class="section-number">13.9. </span>Conclusion and Further Steps<a class="headerlink" href="#conclusion-and-further-steps" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.9. </span>Conclusion and Further Steps<a class="headerlink" href="#conclusion-and-further-steps" title="Link to this heading">#</a></h2>
 <p>Congratulations! You’ve learned the basics of:</p>
 <ul class="simple">
 <li><p>Searching for data from space telescopes like TESS and Kepler using <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code>.</p></li>
@@ -1098,7 +1104,7 @@ WARNING: VerifyWarning: Keyword name &#39;NORMALIZED&#39; is greater than 8 char
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Reducing Light Curves with AstroImageJ</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Reducing Light Curves with AstroImageJ</p>
       </div>
     </a>
     <a class="right-next"
@@ -1106,7 +1112,7 @@ WARNING: VerifyWarning: Keyword name &#39;NORMALIZED&#39; is greater than 8 char
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Modeling Exoplanet Transits</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Modeling Exoplanet Transits</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1126,28 +1132,28 @@ WARNING: VerifyWarning: Keyword name &#39;NORMALIZED&#39; is greater than 8 char
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-mast-and-lightkurve">13.1. Introduction to MAST and Lightkurve</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mast">13.1.1. What is MAST?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-lightkurve">13.1.2. What is Lightkurve?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-mast-and-lightkurve">14.1. Introduction to MAST and Lightkurve</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mast">14.1.1. What is MAST?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-lightkurve">14.1.2. What is Lightkurve?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">13.2. Setting up Your Python Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">13.3. Searching for Data on MAST</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">13.4. Understanding Data Products and Downloading Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">13.5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sector-workflow">13.5.1. Single-sector workflow</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">13.5.2. Data Cleaning with Quality Flags</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">13.5.3. Normalization and Detrending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-python-environment">14.2. Setting up Your Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-on-mast">14.3. Searching for Data on MAST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-products-and-downloading-data">14.4. Understanding Data Products and Downloading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-light-curve-files-lcfs">14.5. Working with Light Curve Files (LCFs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sector-workflow">14.5.1. Single-sector workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-quality-flags">14.5.2. Data Cleaning with Quality Flags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-and-detrending">14.5.3. Normalization and Detrending</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-target-pixel-files-tpfs-custom-photometry">13.6. Working with Target Pixel Files (TPFs) - Custom Photometry</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-aperture-mask">13.6.1. Creating a Custom Aperture Mask</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">13.6.2. Performing Aperture Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-target-pixel-files-tpfs-custom-photometry">14.6. Working with Target Pixel Files (TPFs) - Custom Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-aperture-mask">14.6.1. Creating a Custom Aperture Mask</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-aperture-photometry">14.6.2. Performing Aperture Photometry</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-and-folding-a-transit">13.7. Example: Finding and Folding a Transit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">13.8. Saving Your Reduced Light Curve</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">13.9. Conclusion and Further Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-and-folding-a-transit">14.7. Example: Finding and Folding a Transit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-reduced-light-curve">14.8. Saving Your Reduced Light Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-further-steps">14.9. Conclusion and Further Steps</a></li>
 </ul>
   </nav></div>
 

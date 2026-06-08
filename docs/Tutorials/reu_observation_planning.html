@@ -1,0 +1,1827 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11. Planning Observations for Transits and Eclipses &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css?v=96c28b52" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/h5p-resizer.js?v=a3e8b8ed"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"a56d37545dca43aa9d99410ecbd684de": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "450px", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "700px"}}, "34b8ab24548046a78c98b344f1018126": {"model_name": "AnyModel", "model_module": "anywidget", "model_module_version": "~0.11.*", "state": {"_anywidget_id": "ipyaladin.widget.Aladin", "_base_layer_last_view": "https://alaskybis.unistra.fr/DSS/DSSColor", "_css": ".cell-output-ipywidget-background{background:transparent}.jp-OutputArea-output,.aladin-widget{background-color:transparent}.aladin-widget .aladin-measurement-div{max-height:100px}.lm-Widget.aladin-lite-lm-container{height:100%}\n", "_dom_classes": [], "_esm": "function y(o){o.charAt(0)===\"_\"&&(o=o.slice(1));let t=o.split(\"_\");for(let i=1;i<t.length;i++)t[i]=t[i].charAt(0).toUpperCase()+t[i].slice(1);return t.join(\"\")}function c(o){let t={};for(let i in o)t[y(i)]=o[i];return t}var u=class{locked=!1;unlock(){this.locked=!1}lock(){this.locked=!0}},p=-1;function v(o){p=o}function _(o,t){o==-1?t.style.height=\"100%\":t.style.height=`${o}px`}import C from\"https://esm.sh/aladin-lite@3.7.3-beta\";var r=C;var A=0,g=class{constructor(t,i){this.aladin=t,this.model=i}handleAddMarker(t){let i=c(t.options||{});i.name||(i.name=\"markers\");let n=r.catalog(i);this.aladin.addCatalog(n);let e=t.markers,a=[];for(let s of e)a.push(r.marker(s.lon,s.lat,{useMarkerDefaultIcon:i.useMarkerDefaultIcon|!1,popupTitle:s.title,popupDesc:s.description}));n.addSources(a)}async handleSaveViewAsImage(t){let i=t.path,n=t.format,e=t.with_logo,a=await this.aladin.getViewData(\"arraybuffer\",`image/${n}`,e);this.model.send({event_type:\"save_view_as_image\",path:i},null,[a])}handleAddFits(t,i){let n=c(t.options||{});n.name||(n.name=`image_${String(++A).padStart(3,\"0\")}`);let e=i[0],a=new Blob([e],{type:\"application/octet-stream\"}),s=URL.createObjectURL(a),h=this.aladin.createImageFITS(s,n,(d,m)=>{this.aladin.gotoRaDec(d,m),console.info(`FITS located at ra: ${d}, dec: ${m}`),URL.revokeObjectURL(s)});this.aladin.setOverlayImageLayer(h,n.name)}handleAddCatalogFromURL(t){let i=c(t.options||{});this.aladin.addCatalog(r.catalogFromURL(t.votable_URL,i))}handleAddMOCFromURL(t){let i=c(t.options||{});this.aladin.addMOC(r.MOCFromURL(t.moc_URL,i))}handleAddMOCFromDict(t){let i=c(t.options||{});this.aladin.addMOC(r.MOCFromJSON(t.moc_dict,i))}handleAddOverlay(t){let i=t.regions_infos,n=c(t.graphic_options||{});n.color||(n.color=\"red\");let e=r.graphicOverlay(n);this.aladin.addOverlay(e);for(let a of i){let s=a.infos;switch(a.region_type){case\"stcs\":e.addFootprints(r.footprintsFromSTCS(s.stcs,a.options));break;case\"circle\":e.add(r.circle(s.ra,s.dec,s.radius,a.options));break;case\"ellipse\":e.add(r.ellipse(s.ra,s.dec,s.a,s.b,s.theta,a.options));break;case\"line\":a.options.lineWidth=a.options.lineWidth||3,e.add(r.vector(s.ra1,s.dec1,s.ra2,s.dec2,a.options));break;case\"polygon\":e.add(r.polygon(s.vertices,a.options));break}}}handleChangeColormap(t){this.aladin.getBaseImageLayer().setColormap(t.colormap)}handleGetJPGThumbnail(){this.aladin.exportAsPNG()}handleTriggerSelection(t){let i=t.selection_type;i===\"rectangle\"?i=\"rect\":i===\"polygon\"&&(i=\"poly\"),this.aladin.select(i)}handleAddTable(t,i){let n=c(t.options||{}),e=c(n.circleError||{}),a=c(n.ellipseError||{}),s=i[0].buffer,h=new TextDecoder(\"utf-8\"),d=new Blob([h.decode(s)]),m=URL.createObjectURL(d);n.onClick=\"showTable\";let b=n.shape||\"cross\";Object.keys(e).length!=0&&(n.shape=l=>l.data[e.radius]?r.circle(l.ra,l.dec,l.data[e.radius]*e.conversionRadius):b),Object.keys(a).length!=0&&(n.shape=l=>l.data[a.majAxis]&l.data[a.minAxis]?r.ellipse(l.ra,l.dec,l.data[a.majAxis]*a.conversionMajAxis,l.data[a.minAxis]*a.conversionMinAxis,l.data[a.angle]*a.conversionAngle):b),r.catalogFromURL(m,n,l=>{this.aladin.addCatalog(l)},!1),URL.revokeObjectURL(m)}};var f=class{constructor(t,i,n){this.aladin=t,this.aladinDiv=i,this.model=n,this.messageHandler=new g(t,n),this.currentDivNumber=parseInt(i.id.split(\"-\").pop())}isLastDiv(){if(this.currentDivNumber===p)return!0;let t=p;for(let i=t;i>=0;i--){let n=document.getElementById(`aladin-lite-div-${i}`);if(n&&n.style.display!==\"none\"){t=i;break}}return v(t),this.currentDivNumber===t}updateWCS(){this.isLastDiv()&&this.model.set(\"_wcs\",this.aladin.getViewWCS())}updateRotation(){this.isLastDiv()&&this.model.set(\"_rotation\",this.aladin.getRotation())}update2AxisFoV(){if(!this.isLastDiv())return;let t=this.aladin.getFov();this.model.set(\"_fov_xy\",{x:t[0],y:t[1]})}subscribeAll(){this.aladin.on(\"positionChanged\",e=>{if(i.locked){i.unlock();return}t.lock();let a=[e.ra,e.dec];this.updateWCS(),this.updateRotation(),this.model.set(\"_target\",`${a[0]} ${a[1]}`),this.model.save_changes()}),this.aladin.on(\"zoomChanged\",e=>{this.model.set(\"_fov\",parseFloat(e.toFixed(5))),this.updateWCS(),this.update2AxisFoV(),this.isLastDiv()&&this.model.save_changes()}),this.aladin.on(\"cooFrameChanged\",()=>{this.updateWCS(),this.model.save_changes()}),this.aladin.on(\"projectionChanged\",()=>{this.updateWCS(),this.model.save_changes()}),this.aladin.on(\"layerChanged\",(e,a,s)=>{a===\"base\"&&this.model.set(\"_survey_body\",e.hipsBody||\"sky\"),!(a!==\"base\"||s!==\"ADDED\")&&(this.updateWCS(),this.model.set(\"_base_layer_last_view\",e.id),this.model.save_changes())}),this.aladin.on(\"resizeChanged\",(e,a)=>{if(e===1&&a===1){this.model.set(\"_is_reduced\",!0),this.model.save_changes();return}else this.model.set(\"_is_reduced\",!1);this.updateWCS(),this.update2AxisFoV(),this.model.set(\"_height\",a),this.model.save_changes()}),this.aladin.on(\"objectHovered\",e=>{e.data!==void 0&&this.model.send({event_type:\"object_hovered\",content:{ra:e.ra,dec:e.dec}})}),this.aladin.on(\"rotationChanged\",e=>{this.updateRotation(),this.isLastDiv()&&this.model.save_changes()}),this.aladin.on(\"objectClicked\",e=>{if(e){let a={ra:e.ra||e.source.ra,dec:e.dec||e.source.dec};e.data!==void 0&&(a.data=e.data),e.source!==void 0&&(a.data=e.source.data),this.model.set(\"clicked_object\",a),this.model.send({event_type:\"object_clicked\",content:a}),this.model.save_changes()}}),this.aladin.on(\"click\",e=>{this.model.send({event_type:\"click\",content:e})}),this.aladin.on(\"select\",e=>{let a=e.map(h=>h.map(d=>({ra:d.ra,dec:d.dec,data:d.data,x:d.x,y:d.y})));this.model.set(\"_selected_objects\",a),this.model.save_changes();let s=[];e.forEach(h=>{h.forEach(d=>{s.push({ra:d.ra,dec:d.dec,data:d.data,x:d.x,y:d.y})})}),this.model.send({event_type:\"select\",content:s})}),this.aladin.view.catalogCanvas.addEventListener(\"dblclick\",e=>{this.updateRotation(),this.model.save_changes()});let t=new u,i=new u;this.traitHandlers={_target:e=>{if(t.locked){t.unlock();return}i.lock();let a=e.split(\" \");this.aladin.gotoRaDec(a[0],a[1])},_fov:e=>{this.aladin.setFoV(e),this.updateWCS(),this.update2AxisFoV(),this.model.save_changes()},_rotation:e=>{this.aladin.setRotation(e),this.updateWCS(),this.update2AxisFoV(),this.model.save_changes()},_height:e=>{_(e,this.aladinDiv),this.updateWCS(),this.update2AxisFoV(),this.model.save_changes()},coo_frame:e=>{this.aladin.setFrame(e)},survey:e=>{this.aladin.setImageSurvey(e)},overlay_survey:e=>{e!==\"\"&&this.aladin.setOverlayImageLayer(e)},overlay_survey_opacity:e=>{let a=this.aladin.getOverlayImageLayer();a&&a.setAlpha(e)}};for(var n in this.traitHandlers){let e=this.traitHandlers[n];this.model.on(\"change:\"+n,(a,s)=>e(s))}this.eventHandlers={add_marker:this.messageHandler.handleAddMarker,save_view_as_image:this.messageHandler.handleSaveViewAsImage,add_fits:this.messageHandler.handleAddFits,add_catalog_from_URL:this.messageHandler.handleAddCatalogFromURL,add_MOC_from_URL:this.messageHandler.handleAddMOCFromURL,add_MOC_from_dict:this.messageHandler.handleAddMOCFromDict,add_overlay:this.messageHandler.handleAddOverlay,change_colormap:this.messageHandler.handleChangeColormap,get_JPG_thumbnail:this.messageHandler.handleGetJPGThumbnail,trigger_selection:this.messageHandler.handleTriggerSelection,add_table:this.messageHandler.handleAddTable},this.model.on(\"msg:custom\",(e,a)=>{let s=e.event_name,h=this.eventHandlers[s];if(h)h.call(this,e,a);else throw new Error(`Unknown event name: ${s}`)})}unsubscribeAll(){for(var t in this.traitHandlers)this.model.off(\"change:\"+t);this.model.off(\"msg:custom\")}};function w(o,t){t.classList.add(\"aladin-lite-lm-container\"),v(p+1);let i=o.get(\"_init_options\"),n={};for(let s in i)n[y(s)]=i[s];let e=document.createElement(\"div\");e.classList.add(\"aladin-widget\"),_(o.get(\"_height\"),e),e.id=`aladin-lite-div-${p}`;let a=new r.aladin(e,n);return t.appendChild(e),{aladin:a,aladinDiv:e}}async function k({model:o}){await r.init}function x({model:o,el:t}){let{aladin:i,aladinDiv:n}=w(o,t),e=new f(i,n,o);e.subscribeAll();let a=e.traitHandlers;for(let d in a){let m=o.get(d);m!==null&&a[d](m)}let s={...i.getFov()};o.set(\"_fov_xy\",{x:s[0],y:s[1]});let h={...i.getViewWCS()};return o.set(\"_wcs\",h),o.set(\"_is_loaded\",!0),o.save_changes(),()=>{e.unsubscribeAll()}}var $={initialize:k,render:x};export{$ as default};\n", "_fov": 0.16666666666666666, "_fov_xy": {}, "_height": 400, "_init_options": {"show_simbad_pointer_control": true, "show_coo_grid_control": true, "show_settings_control": true, "show_context_menu": true, "_target": "280.47693 47.65504", "_fov": 0.16666666666666666, "survey": "P/DSS2/color", "reticle_color": "red", "reticle_size": 24}, "_is_loaded": false, "_is_reduced": false, "_model_module": "anywidget", "_model_module_version": "~0.11.*", "_model_name": "AnyModel", "_ready": false, "_rotation": 0.0, "_selected_objects": [], "_survey_body": "sky", "_target": "280.47693 47.65504", "_view_count": null, "_view_module": "anywidget", "_view_module_version": "~0.11.*", "_view_name": "AnyView", "_wcs": {}, "clicked_object": {}, "coo_frame": "ICRS", "layout": "IPY_MODEL_a56d37545dca43aa9d99410ecbd684de", "overlay_survey": "", "overlay_survey_opacity": 0.0, "projection": "SIN", "survey": "P/DSS2/color", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/reu_observation_planning';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/reu_observation_planning.html" />
+    <link rel="icon" href="../_static/CBP_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. Basics of CCD Photometry" href="photometry-basics-guide.html" />
+    <link rel="prev" title="10. Celestial Sphere and Sky Coordinates" href="celestial-sphere.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/CBP_logo.png" class="logo__image only-light" alt="Exoplanets within Binary Systems - Home"/>
+    <script>document.write(`<img src="../_static/CBP_logo.png" class="logo__image only-dark" alt="Exoplanets within Binary Systems - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/ai-tools.html">Using AI tools in research training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/nasaads-arxiv.html">Finding and following the research literature</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observation Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Planning Observations for Transits and Eclipses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">12. Basics of CCD Photometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduction Analysis and Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">13. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">14. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">15. Modeling Exoplanet Transits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/reu_observation_planning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/reu_observation_planning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/reu_observation_planning.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Planning Observations for Transits and Eclipses</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-stage-observing-workflow">11.1. 1. The two-stage observing workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-python-packages">11.2. 2. Required Python packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-observing-sites">11.3. 3. Define the observing sites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-observable-events-over-1-2-weeks">11.4. 4. Search for observable events over 1–2 weeks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-date-range-and-selection-limits">11.4.1. 4.1 Choose the date range and selection limits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-candidate-systems">11.4.2. 4.2 Download candidate systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-ephemerides-and-compute-primary-secondary-events">11.4.3. 4.3 Convert ephemerides and compute primary/secondary events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-observing-constraints">11.4.4. 4.4 Apply observing constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-save-the-1-2-week-event-table">11.4.5. 4.5 Build and save the 1–2 week event table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-targets-for-a-night">11.5. 5. Select targets for a night</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-detailed-nightly-plan">11.6. 6. Make a detailed nightly plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-for-local-and-utc-time">11.6.1. 6.1 Helper functions for local and UTC time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-one-target-for-one-night">11.6.2. 6.2 Plot one target for one night</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-sky-field-with-ipyaladin">11.6.3. 6.3 Inspect the sky field with <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-external-planning-tools">11.7. 7. Use external planning tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-airmass-org-for-moon-aware-altitude-checks">11.7.1. 7.1 Use airmass.org for Moon-aware altitude checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-exoclock-for-exoplanet-transit-checks">11.7.2. 7.2 Use ExoClock for exoplanet transit checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-swarthmore-college-transit-finder">11.7.3. 7.3 Use the Swarthmore College Transit Finder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-combine-python-exoclock-and-transit-finder">11.7.4. 7.4 How to combine Python, ExoClock, and Transit Finder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-clear-sky-chart-for-etamu-weather-checks">11.7.5. 7.5 Use Clear Sky Chart for ETAMU weather checks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-observation-log-format">11.8. 8. Structured observation log format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-completed-observing-log">11.9. 9. Example: completed observing log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-everything-together-a-student-workflow">11.10. 10. Putting everything together: a student workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-weeks-before-observing">11.10.1. Two weeks before observing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-or-two-days-before-observing">11.10.2. One or two days before observing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#during-observing">11.10.3. During observing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#morning-after-observing">11.10.4. Morning after observing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">11.11. 11. Common mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-observing-checklist">11.12. 12. Final observing checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-links">11.13. 13. Useful links</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="planning-observations-for-transits-and-eclipses">
+<h1><span class="section-number">11. </span>Planning Observations for Transits and Eclipses<a class="headerlink" href="#planning-observations-for-transits-and-eclipses" title="Link to this heading">#</a></h1>
+<p>This tutorial shows how to plan time-series observations of transiting exoplanets and eclipsing binaries. The workflow is designed for REU students who will mostly observe from the ETAMU observatory, but the same tools also work for SARA sites such as CTIO, KPNO, and Roque de los Muchachos.</p>
+<p>The basic idea is simple:</p>
+<ol class="arabic simple">
+<li><p>Search for observable events over the next 1–2 weeks.</p></li>
+<li><p>Select 1–2 targets for a specific night.</p></li>
+<li><p>Make a detailed nightly plan with an airmass diagram, event window, twilight times, and sky field.</p></li>
+<li><p>Check the Moon and weather.</p></li>
+<li><p>Keep an observation log that records what was planned, what actually happened, and where the data went.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">What you should already know</p>
+<p>Before using this tutorial, review the companion material on <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/celestial-sphere.html#">celestial sphere and sky coordinates</a>. You should be comfortable with right ascension, declination, altitude, azimuth, meridian transit, and why targets are best observed when they are high in the sky.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Main planning rule</p>
+<p>Always record the time system. Observing schedules are usually written in UTC, while observers naturally think in local civil dates. A target observed on the local night of July 10 may have a mid-eclipse time on July 11 in UTC.</p>
+</div>
+<section id="the-two-stage-observing-workflow">
+<h2><span class="section-number">11.1. </span>1. The two-stage observing workflow<a class="headerlink" href="#the-two-stage-observing-workflow" title="Link to this heading">#</a></h2>
+<p>Observation planning has two different jobs.</p>
+<ul class="simple">
+<li><p>The first job is <strong>event discovery</strong>: find all transits or eclipses that occur during a future date range and are observable from one or more sites.</p></li>
+<li><p>The second job is <strong>nightly planning</strong>: once you know the target and date, make a detailed plan for that specific night.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Main question</p></th>
+<th class="head"><p>Main tool</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1–2 week search</p></td>
+<td><p>What events are observable soon?</p></td>
+<td><p>weekly event-search notebook</p></td>
+<td><p>CSV table of candidate events</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nightly plan</p></td>
+<td><p>What should we observe tonight and when?</p></td>
+<td><p>nightly planning notebook</p></td>
+<td><p>Airmass plot, finder chart, observing blocks</p></td>
+</tr>
+<tr class="row-even"><td><p>Weather check</p></td>
+<td><p>Is it worth opening?</p></td>
+<td><p>Clear Sky Chart, local weather, observer judgment</p></td>
+<td><p>Go / no-go / backup decision</p></td>
+</tr>
+<tr class="row-odd"><td><p>Observation log</p></td>
+<td><p>What actually happened?</p></td>
+<td><p>Markdown log</p></td>
+<td><p>Reproducible record for reduction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="required-python-packages">
+<h2><span class="section-number">11.2. </span>2. Required Python packages<a class="headerlink" href="#required-python-packages" title="Link to this heading">#</a></h2>
+<p>Run this at the beginning of a fresh Colab or Jupyter session.</p>
+<blockquote>
+<div><p>!pip install astroplan astroquery ipyaladin</p>
+</div></blockquote>
+<p>Then import the standard planning packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytz</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarthLocation</span><span class="p">,</span> <span class="n">SkyCoord</span><span class="p">,</span> <span class="n">get_sun</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">unique</span><span class="p">,</span> <span class="n">vstack</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroplan</span><span class="w"> </span><span class="kn">import</span> <span class="n">EclipsingSystem</span><span class="p">,</span> <span class="n">FixedTarget</span><span class="p">,</span> <span class="n">Observer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroplan.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_airmass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.ipac.nexsci.nasa_exoplanet_archive</span><span class="w"> </span><span class="kn">import</span> <span class="n">NasaExoplanetArchive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.vizier</span><span class="w"> </span><span class="kn">import</span> <span class="n">Vizier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">astroplan</span></code> is the key planning package. It handles observers, targets, twilight times, airmass plots, and periodic events such as transits and eclipses. <code class="docutils literal notranslate"><span class="pre">astropy</span></code> handles coordinates, times, and site locations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">astroquery</span></code> downloads catalog information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code> is optional but very useful for inspecting the sky field around a target.</p></li>
+</ul>
+</section>
+<section id="define-the-observing-sites">
+<h2><span class="section-number">11.3. </span>3. Define the observing sites<a class="headerlink" href="#define-the-observing-sites" title="Link to this heading">#</a></h2>
+<p>The students will usually plan for ETAMU first. The other sites are included so that the same functions can be used for SARA runs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SITE_INFO</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ETAMU&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">95.923078</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">33.183389</span><span class="p">,</span> <span class="s2">&quot;height_m&quot;</span><span class="p">:</span> <span class="mi">158</span><span class="p">,</span> <span class="s2">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;US/Central&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;KPNO&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">111.5983</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">31.9582</span><span class="p">,</span> <span class="s2">&quot;height_m&quot;</span><span class="p">:</span> <span class="mi">2090</span><span class="p">,</span> <span class="s2">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;US/Arizona&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;CTIO&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">70.8062</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">30.1690</span><span class="p">,</span> <span class="s2">&quot;height_m&quot;</span><span class="p">:</span> <span class="mi">2215</span><span class="p">,</span> <span class="s2">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;America/Santiago&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;Roque de los Muchachos&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">17.8917</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">28.7561</span><span class="p">,</span> <span class="s2">&quot;height_m&quot;</span><span class="p">:</span> <span class="mi">2396</span><span class="p">,</span> <span class="s2">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;Atlantic/Canary&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">SITE_ORDER</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ETAMU&quot;</span><span class="p">,</span> <span class="s2">&quot;Roque de los Muchachos&quot;</span><span class="p">,</span> <span class="s2">&quot;KPNO&quot;</span><span class="p">,</span> <span class="s2">&quot;CTIO&quot;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_observer</span><span class="p">(</span><span class="n">site_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an astroplan Observer and timezone string for a named site.&quot;&quot;&quot;</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">SITE_INFO</span><span class="p">[</span><span class="n">site_name</span><span class="p">]</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">EarthLocation</span><span class="o">.</span><span class="n">from_geodetic</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;height_m&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">observer</span> <span class="o">=</span> <span class="n">Observer</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">site_name</span><span class="p">,</span> <span class="n">timezone</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">observer</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Why define the sites manually?</p>
+<p><code class="docutils literal notranslate"><span class="pre">Observer.at_site()</span></code> is convenient, but local site lists can change between computers and package versions. Defining the sites manually makes student notebooks more reproducible. It also lets us attach the correct local time zone to each site.</p>
+</div>
+</section>
+<section id="search-for-observable-events-over-1-2-weeks">
+<h2><span class="section-number">11.4. </span>4. Search for observable events over 1–2 weeks<a class="headerlink" href="#search-for-observable-events-over-1-2-weeks" title="Link to this heading">#</a></h2>
+<p>The weekly search should answer this question:</p>
+<blockquote>
+<div><p>Which primary or secondary eclipses occur soon, are high enough in the sky, happen during darkness, and have reasonable magnitudes?</p>
+</div></blockquote>
+<p>For REU observing, do not start by building a semester-long schedule. Start with the next 7–14 local nights. A short window is easier to verify against the weather, the Moon, student availability, and telescope constraints.</p>
+<section id="choose-the-date-range-and-selection-limits">
+<h3><span class="section-number">11.4.1. </span>4.1 Choose the date range and selection limits<a class="headerlink" href="#choose-the-date-range-and-selection-limits" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">START_DATE</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># YYYY, MM, DD</span>
+<span class="n">END_DATE</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">SITES_TO_CHECK</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ETAMU&quot;</span><span class="p">]</span> <span class="c1">#add &quot;KPNO&quot;, &quot;CTIO&quot;, &quot;Roque de los Muchachos&quot; as needed</span>
+<span class="n">UTC_HOUR_START</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">UTC_HOUR_END</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">MAG_MIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">MAG_MAX</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">MIN_ALTITUDE_DEG</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">MAX_MORPHOLOGY</span> <span class="o">=</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use a short date range when students are planning actual observations. Increase the range only when building a campaign schedule.</p>
+</section>
+<section id="download-candidate-systems">
+<h3><span class="section-number">11.4.2. </span>4.2 Download candidate systems<a class="headerlink" href="#download-candidate-systems" title="Link to this heading">#</a></h3>
+<p>The example campaign notebook merges three useful sources:</p>
+<ul class="simple">
+<li><p>TESS eclipsing binaries from VizieR catalog <code class="docutils literal notranslate"><span class="pre">J/ApJS/258/16</span></code>.</p></li>
+<li><p>Kepler eclipsing binaries from VizieR catalog <code class="docutils literal notranslate"><span class="pre">J/AJ/151/68</span></code>.</p></li>
+<li><p>Known transiting hot Jupiters from the NASA Exoplanet Archive.</p></li>
+</ul>
+<p>The TESS and Kepler catalogs store epoch values differently, so the code later converts each catalog into a common Julian Date system before computing eclipse times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_all_potential_targets</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">mag_min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mag_max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">max_morphology</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download a merged table of TESS EBs, Kepler EBs, and hot Jupiters near the seasonally useful RA range.&quot;&quot;&quot;</span>
+    <span class="n">midpoint_date</span> <span class="o">=</span> <span class="n">start_date</span> <span class="o">+</span> <span class="p">(</span><span class="n">end_date</span> <span class="o">-</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">sun_ra_deg</span> <span class="o">=</span> <span class="n">get_sun</span><span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="n">midpoint_date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()))</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">deg</span>
+    <span class="n">optimal_ra_deg</span> <span class="o">=</span> <span class="p">(</span><span class="n">sun_ra_deg</span> <span class="o">+</span> <span class="mi">180</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="n">ra_window_deg</span> <span class="o">=</span> <span class="mi">180</span>
+    <span class="n">ra_min</span> <span class="o">=</span> <span class="p">(</span><span class="n">optimal_ra_deg</span> <span class="o">-</span> <span class="n">ra_window_deg</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="n">ra_max</span> <span class="o">=</span> <span class="p">(</span><span class="n">optimal_ra_deg</span> <span class="o">+</span> <span class="n">ra_window_deg</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="n">ra_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&gt;=</span><span class="si">{</span><span class="n">ra_min</span><span class="si">}</span><span class="s2">|&lt;=</span><span class="si">{</span><span class="n">ra_max</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">ra_max</span> <span class="o">&lt;</span> <span class="n">ra_min</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;&gt;=</span><span class="si">{</span><span class="n">ra_min</span><span class="si">}</span><span class="s2">&amp;&lt;=</span><span class="si">{</span><span class="n">ra_max</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Searching near seasonally useful RA. Optimal RA ≈ </span><span class="si">{</span><span class="n">optimal_ra_deg</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg; query range </span><span class="si">{</span><span class="n">ra_min</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">--</span><span class="si">{</span><span class="n">ra_max</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg.&quot;</span><span class="p">)</span>
+
+    <span class="n">Vizier</span><span class="o">.</span><span class="n">ROW_LIMIT</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">tess_result</span> <span class="o">=</span> <span class="n">Vizier</span><span class="o">.</span><span class="n">query_constraints</span><span class="p">(</span><span class="n">catalog</span><span class="o">=</span><span class="s2">&quot;J/ApJS/258/16&quot;</span><span class="p">,</span> <span class="n">Morph</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&lt;=</span><span class="si">{</span><span class="n">max_morphology</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Tmag</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&gt;=</span><span class="si">{</span><span class="n">mag_min</span><span class="si">}</span><span class="s2"> &amp; &lt;=</span><span class="si">{</span><span class="n">mag_max</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">RAJ2000</span><span class="o">=</span><span class="n">ra_query</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tess_result</span><span class="p">:</span>
+        <span class="n">tess_table</span> <span class="o">=</span> <span class="n">tess_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">tess_table</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s2">&quot;TIC&quot;</span><span class="p">,</span> <span class="s2">&quot;ID&quot;</span><span class="p">)</span>
+        <span class="n">tess_table</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tess_table</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">tess_table</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TESS&quot;</span>
+        <span class="n">tess_table</span><span class="p">[</span><span class="s2">&quot;Tmag&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mag&quot;</span>
+        <span class="n">tess_table</span><span class="o">.</span><span class="n">keep_columns</span><span class="p">([</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Per&quot;</span><span class="p">,</span> <span class="s2">&quot;BJD0&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tess_table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Per&quot;</span><span class="p">,</span> <span class="s2">&quot;BJD0&quot;</span><span class="p">])</span>
+
+    <span class="n">kepler_result</span> <span class="o">=</span> <span class="n">Vizier</span><span class="o">.</span><span class="n">query_constraints</span><span class="p">(</span><span class="n">catalog</span><span class="o">=</span><span class="s2">&quot;J/AJ/151/68&quot;</span><span class="p">,</span> <span class="n">Kpmag</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&gt;=</span><span class="si">{</span><span class="n">mag_min</span><span class="si">}</span><span class="s2"> &amp; &lt;=</span><span class="si">{</span><span class="n">mag_max</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kepler_result</span><span class="p">:</span>
+        <span class="n">kepler_table</span> <span class="o">=</span> <span class="n">kepler_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ra_max</span> <span class="o">&lt;</span> <span class="n">ra_min</span><span class="p">:</span>
+            <span class="n">kepler_table</span> <span class="o">=</span> <span class="n">kepler_table</span><span class="p">[(</span><span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;_RA&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">ra_min</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;_RA&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">ra_max</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kepler_table</span> <span class="o">=</span> <span class="n">kepler_table</span><span class="p">[(</span><span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;_RA&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">ra_min</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;_RA&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">ra_max</span><span class="p">)]</span>
+        <span class="n">kepler_table</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">([</span><span class="s2">&quot;KIC&quot;</span><span class="p">,</span> <span class="s2">&quot;_RA&quot;</span><span class="p">,</span> <span class="s2">&quot;_DE&quot;</span><span class="p">,</span> <span class="s2">&quot;Kpmag&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">])</span>
+        <span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">kepler_table</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Kepler&quot;</span>
+        <span class="n">kepler_table</span><span class="o">.</span><span class="n">keep_columns</span><span class="p">([</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Per&quot;</span><span class="p">,</span> <span class="s2">&quot;BJD0&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">kepler_table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Per&quot;</span><span class="p">,</span> <span class="s2">&quot;BJD0&quot;</span><span class="p">])</span>
+
+    <span class="n">hj_ra_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(ra &gt; </span><span class="si">{</span><span class="n">ra_min</span><span class="si">}</span><span class="s2"> or ra &lt; </span><span class="si">{</span><span class="n">ra_max</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">if</span> <span class="n">ra_max</span> <span class="o">&lt;</span> <span class="n">ra_min</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;(ra &gt; </span><span class="si">{</span><span class="n">ra_min</span><span class="si">}</span><span class="s2"> and ra &lt; </span><span class="si">{</span><span class="n">ra_max</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="n">hj_table</span> <span class="o">=</span> <span class="n">NasaExoplanetArchive</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s2">&quot;ps&quot;</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s2">&quot;pl_name, ra, dec, sy_vmag, pl_orbper, pl_tranmid, default_flag&quot;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;sy_vmag &lt;= </span><span class="si">{</span><span class="n">mag_max</span><span class="si">}</span><span class="s2"> AND pl_orbper &lt; 10 AND pl_radj &gt; 0.8 AND discoverymethod = &#39;Transit&#39; AND </span><span class="si">{</span><span class="n">hj_ra_query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">hj_table</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;pl_name&quot;</span><span class="p">,</span> <span class="s2">&quot;default_flag&quot;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hj_table</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">hj_table</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="s2">&quot;pl_name&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
+    <span class="n">hj_table</span> <span class="o">=</span> <span class="n">hj_table</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">hj_table</span><span class="p">[</span><span class="s2">&quot;pl_tranmid&quot;</span><span class="p">])]</span>
+    <span class="n">hj_table</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">([</span><span class="s2">&quot;pl_name&quot;</span><span class="p">,</span> <span class="s2">&quot;ra&quot;</span><span class="p">,</span> <span class="s2">&quot;dec&quot;</span><span class="p">,</span> <span class="s2">&quot;sy_vmag&quot;</span><span class="p">,</span> <span class="s2">&quot;pl_orbper&quot;</span><span class="p">,</span> <span class="s2">&quot;pl_tranmid&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Per&quot;</span><span class="p">,</span> <span class="s2">&quot;BJD0&quot;</span><span class="p">])</span>
+    <span class="n">hj_table</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;HotJupiter&quot;</span>
+    <span class="n">hj_table</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">hj_table</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]]</span>
+    <span class="n">hj_table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">([</span><span class="n">Column</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hj_table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="n">Column</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hj_table</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Per&quot;</span><span class="p">,</span> <span class="s2">&quot;BJD0&quot;</span><span class="p">]])</span>
+
+    <span class="n">all_targets</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">([</span><span class="n">tess_table</span><span class="p">,</span> <span class="n">kepler_table</span><span class="p">,</span> <span class="n">hj_table</span><span class="p">],</span> <span class="n">metadata_conflicts</span><span class="o">=</span><span class="s2">&quot;silent&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total candidate systems: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_targets</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">all_targets</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-ephemerides-and-compute-primary-secondary-events">
+<h3><span class="section-number">11.4.3. </span>4.3 Convert ephemerides and compute primary/secondary events<a class="headerlink" href="#convert-ephemerides-and-compute-primary-secondary-events" title="Link to this heading">#</a></h3>
+<p>An ephemeris predicts when the eclipse or transit happens. The key pieces are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BJD0</span></code>: a reference eclipse or transit time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Per</span></code>: the orbital period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Type</span></code>: primary or secondary event.</p></li>
+</ul>
+<p>The campaign notebook uses <code class="docutils literal notranslate"><span class="pre">astroplan.EclipsingSystem</span></code> to compute upcoming primary and secondary events.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">catalog_epoch_to_jd</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert catalog-specific epoch conventions into Julian Date.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TESS&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;BJD0&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2457000</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Kepler&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;BJD0&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2400000</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;HotJupiter&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;BJD0&quot;</span><span class="p">]</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown catalog: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Catalog&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">catalog_name</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a clean display name.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TESS&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;TIC </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Kepler&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;KIC </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;HotJupiter&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;HJ </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pre_calculate_events_for_target</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate all primary and secondary events for one target in a date range.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;BJD0&quot;</span><span class="p">])</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;Per&quot;</span><span class="p">])</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Per&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">bjd0</span> <span class="o">=</span> <span class="n">catalog_epoch_to_jd</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">catalog_name</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="n">EclipsingSystem</span><span class="p">(</span><span class="n">primary_eclipse_time</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="n">bjd0</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;jd&quot;</span><span class="p">),</span> <span class="n">orbital_period</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;Per&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">n_eclipses</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span> <span class="o">/</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Per&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">event_type</span><span class="p">,</span> <span class="n">event_times</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;Primary&quot;</span><span class="p">,</span> <span class="n">system</span><span class="o">.</span><span class="n">next_primary_eclipse_time</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">n_eclipses</span><span class="o">=</span><span class="n">n_eclipses</span><span class="p">)),</span> <span class="p">(</span><span class="s2">&quot;Secondary&quot;</span><span class="p">,</span> <span class="n">system</span><span class="o">.</span><span class="n">next_secondary_eclipse_time</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">n_eclipses</span><span class="o">=</span><span class="n">n_eclipses</span><span class="p">))]:</span>
+        <span class="k">for</span> <span class="n">event_time</span> <span class="ow">in</span> <span class="n">event_times</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event_time</span> <span class="o">&gt;</span> <span class="n">end_time</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">],</span> <span class="s2">&quot;BJD0_JD&quot;</span><span class="p">:</span> <span class="n">bjd0</span><span class="p">,</span> <span class="s2">&quot;Eclipse_Time&quot;</span><span class="p">:</span> <span class="n">event_time</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="n">event_type</span><span class="p">,</span> <span class="s2">&quot;RAJ2000&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;RAJ2000&quot;</span><span class="p">],</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;DEJ2000&quot;</span><span class="p">],</span> <span class="s2">&quot;Mag&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Mag&quot;</span><span class="p">],</span> <span class="s2">&quot;Period_days&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Per&quot;</span><span class="p">]})</span>
+    <span class="k">return</span> <span class="n">events</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="apply-observing-constraints">
+<h3><span class="section-number">11.4.4. </span>4.4 Apply observing constraints<a class="headerlink" href="#apply-observing-constraints" title="Link to this heading">#</a></h3>
+<p>A target is not useful just because an eclipse occurs. It must be observable from the site at the right time. The minimum checks are:</p>
+<ul class="simple">
+<li><p>the target is above the altitude limit;</p></li>
+<li><p>the Sun is below the twilight limit;</p></li>
+<li><p>the event happens in a useful part of the night;</p></li>
+<li><p>the target is not too bright or too faint for the observing setup.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">local_civil_date</span><span class="p">(</span><span class="n">event_time</span><span class="p">,</span> <span class="n">observer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the local civil date for an event time and observer.&quot;&quot;&quot;</span>
+    <span class="n">utc_dt</span> <span class="o">=</span> <span class="n">event_time</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">timezone</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">local_dt</span> <span class="o">=</span> <span class="n">utc_dt</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">observer</span><span class="o">.</span><span class="n">timezone</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">local_dt</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_event_observability</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">observer</span><span class="p">,</span> <span class="n">utc_hour_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">utc_hour_end</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">min_altitude_deg</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an output dictionary if the event is observable; otherwise return None.&quot;&quot;&quot;</span>
+    <span class="n">event_time</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;Eclipse_Time&quot;</span><span class="p">]</span>
+    <span class="n">utc_hour</span> <span class="o">=</span> <span class="n">event_time</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span><span class="o">.</span><span class="n">hour</span> <span class="o">+</span> <span class="n">event_time</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span><span class="o">.</span><span class="n">minute</span><span class="o">/</span><span class="mi">60</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">utc_hour_start</span> <span class="o">&lt;=</span> <span class="n">utc_hour</span> <span class="o">&lt;=</span> <span class="n">utc_hour_end</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;RAJ2000&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;DEJ2000&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+    <span class="n">altaz</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">altaz</span><span class="p">(</span><span class="n">event_time</span><span class="p">,</span> <span class="n">coord</span><span class="p">)</span>
+    <span class="n">sun_alt</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">sun_altaz</span><span class="p">(</span><span class="n">event_time</span><span class="p">)</span><span class="o">.</span><span class="n">alt</span><span class="o">.</span><span class="n">degree</span>
+    <span class="k">if</span> <span class="n">altaz</span><span class="o">.</span><span class="n">alt</span><span class="o">.</span><span class="n">degree</span> <span class="o">&lt;=</span> <span class="n">min_altitude_deg</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">sun_alt</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">12</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Obs_Date_Local&quot;</span><span class="p">:</span> <span class="n">local_civil_date</span><span class="p">(</span><span class="n">event_time</span><span class="p">,</span> <span class="n">observer</span><span class="p">),</span> <span class="s2">&quot;Observatory&quot;</span><span class="p">:</span> <span class="n">observer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">],</span> 
+            <span class="s2">&quot;Catalog&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">],</span> <span class="s2">&quot;BJD0_JD&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;BJD0_JD&quot;</span><span class="p">],</span> <span class="s2">&quot;Eclipse_Time_UTC&quot;</span><span class="p">:</span> <span class="n">event_time</span><span class="o">.</span><span class="n">iso</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">],</span> 
+            <span class="s2">&quot;Altitude_deg&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">altaz</span><span class="o">.</span><span class="n">alt</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;Period_days&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;Period_days&quot;</span><span class="p">],</span> 
+            <span class="s2">&quot;RAJ2000&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;RAJ2000&quot;</span><span class="p">],</span> <span class="s2">&quot;DEJ2000&quot;</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;DEJ2000&quot;</span><span class="p">],</span> <span class="s2">&quot;Mag&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;Mag&quot;</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;Mag&quot;</span><span class="p">])</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-and-save-the-1-2-week-event-table">
+<h3><span class="section-number">11.4.5. </span>4.5 Build and save the 1–2 week event table<a class="headerlink" href="#build-and-save-the-1-2-week-event-table" title="Link to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Build time</p>
+<p>The initial search may turn up a few thousand events or systems.  If this is the case, then building the table can take several (<span class="math notranslate nohighlight">\({\sim}10\)</span>) minutes.  Take this an opportunity to get a cup of coffee :coffee: or tea :tea:!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">chunk_list</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Split a list into chunks.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">),</span> <span class="n">chunk_size</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">chunk_size</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_event_chunk</span><span class="p">(</span><span class="n">site_name</span><span class="p">,</span> <span class="n">events_chunk</span><span class="p">,</span> <span class="n">utc_hour_start</span><span class="p">,</span> <span class="n">utc_hour_end</span><span class="p">,</span> <span class="n">min_altitude_deg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check observability for a chunk of events at one site.&quot;&quot;&quot;</span>
+    <span class="n">observer</span><span class="p">,</span> <span class="n">timezone_str</span> <span class="o">=</span> <span class="n">make_observer</span><span class="p">(</span><span class="n">site_name</span><span class="p">)</span>
+    <span class="n">observable_events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events_chunk</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">check_event_observability</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">observer</span><span class="p">,</span> <span class="n">utc_hour_start</span><span class="o">=</span><span class="n">utc_hour_start</span><span class="p">,</span> <span class="n">utc_hour_end</span><span class="o">=</span><span class="n">utc_hour_end</span><span class="p">,</span> <span class="n">min_altitude_deg</span><span class="o">=</span><span class="n">min_altitude_deg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">observable_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">observable_events</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">build_observable_event_table_parallel</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">sites_to_check</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a table of observable primary and secondary events over a date range using parallel workers.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">max_workers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">max_workers</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">targets</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">get_all_potential_targets</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">mag_min</span><span class="o">=</span><span class="n">MAG_MIN</span><span class="p">,</span> <span class="n">mag_max</span><span class="o">=</span><span class="n">MAG_MAX</span><span class="p">,</span> <span class="n">max_morphology</span><span class="o">=</span><span class="n">MAX_MORPHOLOGY</span><span class="p">))</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">start_date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">((</span><span class="n">end_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+
+    <span class="n">all_events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">pre_calculate_events_for_target</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">targets</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">):</span>
+            <span class="n">all_events</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+
+    <span class="n">observable_events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">site_name</span> <span class="ow">in</span> <span class="n">sites_to_check</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">events_chunk</span> <span class="ow">in</span> <span class="n">chunk_list</span><span class="p">(</span><span class="n">all_events</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">):</span>
+            <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">site_name</span><span class="p">,</span> <span class="n">events_chunk</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">check_event_chunk</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">events_chunk</span><span class="p">,</span> <span class="n">UTC_HOUR_START</span><span class="p">,</span> <span class="n">UTC_HOUR_END</span><span class="p">,</span> <span class="n">MIN_ALTITUDE_DEG</span><span class="p">)</span> <span class="k">for</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">events_chunk</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">):</span>
+            <span class="n">observable_events</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+
+    <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">observable_events</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;Obs_Date_Local&quot;</span><span class="p">,</span> <span class="s2">&quot;Observatory&quot;</span><span class="p">,</span> <span class="s2">&quot;Eclipse_Time_UTC&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">table</span>
+
+<span class="n">master_table</span> <span class="o">=</span> <span class="n">build_observable_event_table_parallel</span><span class="p">(</span><span class="n">START_DATE</span><span class="p">,</span> <span class="n">END_DATE</span><span class="p">,</span> <span class="n">SITES_TO_CHECK</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">master_table</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;observable_events_next_two_weeks.csv&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">master_table</span><span class="p">[[</span><span class="s2">&quot;Obs_Date_Local&quot;</span><span class="p">,</span> <span class="s2">&quot;Observatory&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="s2">&quot;Eclipse_Time_UTC&quot;</span><span class="p">,</span> <span class="s2">&quot;Altitude_deg&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Period_days&quot;</span><span class="p">]][:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">pprint_all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Searching near seasonally useful RA. Optimal RA ≈ 258.8 deg; query range 168.8--348.8 deg.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total candidate systems: 2526
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obs_Date_Local Observatory     Name        Type       Eclipse_Time_UTC    Altitude_deg  Mag  Period_days
+-------------- ----------- ------------ --------- ----------------------- ------------ ----- -----------
+    2026-06-07       ETAMU HJ Qatar-10b   Primary 2026-06-08 02:43:12.058         33.3 12.87    1.645321
+    2026-06-07       ETAMU KIC 10447902   Primary 2026-06-08 02:54:36.335         32.5 14.92   0.3374641
+    2026-06-07       ETAMU KIC 10255110 Secondary 2026-06-08 02:57:35.844         31.6 13.49   0.3367025
+    2026-06-07       ETAMU KIC 12350008   Primary 2026-06-08 03:00:47.423         30.2  14.6   0.1845296
+    2026-06-07       ETAMU HJ KELT-23Ab Secondary 2026-06-08 03:03:08.482         53.5 10.31    2.255251
+    2026-06-07       ETAMU KIC 09004380   Primary 2026-06-08 03:09:26.160         31.8 14.24   0.2503325
+    2026-06-07       ETAMU KIC 10389809 Secondary 2026-06-08 03:10:37.436         32.4 14.64   0.3973971
+    2026-06-07       ETAMU KIC 09071104 Secondary 2026-06-08 03:13:27.406         33.3 13.65   0.3852134
+    2026-06-07       ETAMU KIC 10855535 Secondary 2026-06-08 03:14:31.835         30.2 13.87   0.1127824
+    2026-06-07       ETAMU KIC 04904304 Secondary 2026-06-08 03:19:14.242         31.6  13.0    0.389474
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Student checkpoint</p>
+<p>Before selecting targets, confirm that the table is sorted by local observing date, not only by UTC date. Then check whether the same target has both a primary and secondary event in the planning window. Paired primary+secondary coverage is often more valuable than isolated events.</p>
+</div>
+</section>
+</section>
+<section id="select-targets-for-a-night">
+<h2><span class="section-number">11.5. </span>5. Select targets for a night<a class="headerlink" href="#select-targets-for-a-night" title="Link to this heading">#</a></h2>
+<p>For each local night, choose 1–2 targets. In most cases, use this priority order:</p>
+<ol class="arabic simple">
+<li><p>Targets needed for a larger campaign, such as a paired primary/secondary eclipse.</p></li>
+<li><p>TESS eclipsing binaries with good altitude and useful brightness.</p></li>
+<li><p>Targets that stay above the altitude limit for the full observing block.</p></li>
+<li><p>Targets with clean fields and comparison stars.</p></li>
+<li><p>Backup targets in case the primary target is blocked by clouds, trees, Moon proximity, or technical issues.</p></li>
+</ol>
+<p>A simple selection score is useful but should not replace judgment. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_simple_merit_score</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a simple score that rewards high altitude and brighter targets within the useful magnitude range.&quot;&quot;&quot;</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">table</span><span class="p">[</span><span class="s2">&quot;Merit_Score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s2">&quot;Altitude_deg&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">table</span><span class="p">[</span><span class="s2">&quot;Mag&quot;</span><span class="p">])</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;Obs_Date_Local&quot;</span><span class="p">,</span> <span class="s2">&quot;Observatory&quot;</span><span class="p">,</span> <span class="s2">&quot;Merit_Score&quot;</span><span class="p">])</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">table</span>
+
+<span class="n">ranked_table</span> <span class="o">=</span> <span class="n">add_simple_merit_score</span><span class="p">(</span><span class="n">master_table</span><span class="p">)</span>
+<span class="n">ranked_table</span><span class="p">[[</span><span class="s2">&quot;Obs_Date_Local&quot;</span><span class="p">,</span> <span class="s2">&quot;Observatory&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="s2">&quot;Altitude_deg&quot;</span><span class="p">,</span> <span class="s2">&quot;Mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Merit_Score&quot;</span><span class="p">]][:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=20</i>
+<table id="table131225797699984" class="table-striped table-bordered table-condensed">
+<thead><tr><th>Obs_Date_Local</th><th>Observatory</th><th>Name</th><th>Type</th><th>Altitude_deg</th><th>Mag</th><th>Merit_Score</th></tr></thead>
+<thead><tr><th>str10</th><th>str5</th><th>str16</th><th>str9</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 01161345</td><td>Secondary</td><td>85.3</td><td>11.63</td><td>88.67</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03443519</td><td>Secondary</td><td>84.0</td><td>11.48</td><td>87.52</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 02556127</td><td>Secondary</td><td>85.3</td><td>12.9</td><td>87.39999999999999</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>HJ HAT-P-2b</td><td>Secondary</td><td>80.6</td><td>8.72</td><td>86.88</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 02309587</td><td>Primary</td><td>85.3</td><td>13.93</td><td>86.37</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 04074532</td><td>Primary</td><td>83.8</td><td>13.27</td><td>85.53</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03956545</td><td>Primary</td><td>84.0</td><td>13.99</td><td>85.01</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03954798</td><td>Primary</td><td>83.6</td><td>13.61</td><td>84.99</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 02447893</td><td>Primary</td><td>84.4</td><td>14.49</td><td>84.91000000000001</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03973549</td><td>Secondary</td><td>84.1</td><td>14.29</td><td>84.81</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 02854752</td><td>Secondary</td><td>83.7</td><td>13.99</td><td>84.71000000000001</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03545476</td><td>Secondary</td><td>84.5</td><td>14.82</td><td>84.68</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>HJ WASP-188b</td><td>Primary</td><td>81.8</td><td>12.16</td><td>84.64</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 04569923</td><td>Primary</td><td>83.5</td><td>13.87</td><td>84.63</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 05286221</td><td>Secondary</td><td>81.5</td><td>11.91</td><td>84.59</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 02720354</td><td>Secondary</td><td>82.6</td><td>13.12</td><td>84.47999999999999</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03833859</td><td>Secondary</td><td>81.4</td><td>11.99</td><td>84.41000000000001</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 04367544</td><td>Primary</td><td>83.6</td><td>14.33</td><td>84.27</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>KIC 03119295</td><td>Primary</td><td>83.5</td><td>14.27</td><td>84.23</td></tr>
+<tr><td>2026-06-15</td><td>ETAMU</td><td>TIC 0159573299</td><td>Secondary</td><td>80.8</td><td>11.59</td><td>84.21</td></tr>
+</table></div></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A merit score is only a first pass. Do not select a target without checking the full airmass curve, Moon, field quality, and weather.</p>
+</div>
+</section>
+<section id="make-a-detailed-nightly-plan">
+<h2><span class="section-number">11.6. </span>6. Make a detailed nightly plan<a class="headerlink" href="#make-a-detailed-nightly-plan" title="Link to this heading">#</a></h2>
+<p>Once targets are chosen, switch from the event-search table to the nightly planning notebook. This is where the nightly planning notebook is most useful.</p>
+<p>A good nightly plan should include:</p>
+<ul class="simple">
+<li><p>site, local date, and time zone;</p></li>
+<li><p>sunset, sunrise, nautical twilight, and astronomical twilight;</p></li>
+<li><p>airmass/altitude curve for each target;</p></li>
+<li><p>a visible mark for the mid-eclipse or mid-transit time;</p></li>
+<li><p>a shaded observing block around the event;</p></li>
+<li><p>a finder chart or sky field;</p></li>
+<li><p>primary and backup target choices;</p></li>
+<li><p>exposure strategy and filter choice;</p></li>
+<li><p>weather and Moon notes.</p></li>
+</ul>
+<section id="helper-functions-for-local-and-utc-time">
+<h3><span class="section-number">11.6.1. </span>6.1 Helper functions for local and UTC time<a class="headerlink" href="#helper-functions-for-local-and-utc-time" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">time_from_local_evening</span><span class="p">(</span><span class="n">obs_day</span><span class="p">,</span> <span class="n">timezone_str</span><span class="p">,</span> <span class="n">local_hour</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an astropy Time corresponding to local_hour on the local civil observing date.&quot;&quot;&quot;</span>
+    <span class="n">local_tz</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">timezone_str</span><span class="p">)</span>
+    <span class="n">local_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obs_day</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">local_hour</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">:00:00&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="n">utc_dt</span> <span class="o">=</span> <span class="n">local_tz</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">local_dt</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Time</span><span class="p">(</span><span class="n">utc_dt</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_utc_and_local</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">time_obj</span><span class="p">,</span> <span class="n">timezone_str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print one event time in both UTC and local time.&quot;&quot;&quot;</span>
+    <span class="n">local_tz</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">timezone_str</span><span class="p">)</span>
+    <span class="n">utc_dt</span> <span class="o">=</span> <span class="n">time_obj</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">timezone</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">local_dt</span> <span class="o">=</span> <span class="n">utc_dt</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">local_tz</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s2">&lt;32</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">utc_dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M UTC&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;24</span><span class="si">}</span><span class="s2">   </span><span class="si">{</span><span class="n">local_dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %I:%M %p&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;24</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_localtime_top_axis</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">timezone_str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a top x-axis with local time labels to a Matplotlib date plot whose bottom axis is UTC.&quot;&quot;&quot;</span>
+    <span class="n">top_ax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+    <span class="n">top_ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">())</span>
+    <span class="n">ticklocs</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
+    <span class="n">local_tz</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">timezone_str</span><span class="p">)</span>
+    <span class="n">local_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">mdates</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">local_tz</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">ticklocs</span><span class="p">]</span>
+    <span class="n">top_ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticklocs</span><span class="p">)</span>
+    <span class="n">top_ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">local_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">top_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Local Time (</span><span class="si">{</span><span class="n">timezone_str</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">top_ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-one-target-for-one-night">
+<h3><span class="section-number">11.6.2. </span>6.2 Plot one target for one night<a class="headerlink" href="#plot-one-target-for-one-night" title="Link to this heading">#</a></h3>
+<p>This function looks up the target coordinates and event time from the event table. It then makes the airmass plot and marks the event window.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_event_row</span><span class="p">(</span><span class="n">event_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the first matching event row for one target on one local observing date.&quot;&quot;&quot;</span>
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">event_table</span><span class="p">[(</span><span class="n">event_table</span><span class="p">[</span><span class="s2">&quot;Obs_Date_Local&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">obs_day</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">event_table</span><span class="p">[</span><span class="s2">&quot;Observatory&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">site_name</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">event_table</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">target_name</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No event found for </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">obs_day</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">site_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_night_target_plan</span><span class="p">(</span><span class="n">event_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">,</span> <span class="n">event_duration_hr</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_airmass</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make an airmass plot for a selected event and mark the eclipse/transit window.&quot;&quot;&quot;</span>
+    <span class="n">observer</span><span class="p">,</span> <span class="n">timezone_str</span> <span class="o">=</span> <span class="n">make_observer</span><span class="p">(</span><span class="n">site_name</span><span class="p">)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">get_event_row</span><span class="p">(</span><span class="n">event_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">time_from_local_evening</span><span class="p">(</span><span class="n">obs_day</span><span class="p">,</span> <span class="n">timezone_str</span><span class="p">,</span> <span class="n">local_hour</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">sunset</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">sun_set_time</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">sunrise</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">sun_rise_time</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;next&quot;</span><span class="p">)</span>
+    <span class="n">evening_nautical</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">twilight_evening_nautical</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">evening_astronomical</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">twilight_evening_astronomical</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">morning_astronomical</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">twilight_morning_astronomical</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;next&quot;</span><span class="p">)</span>
+    <span class="n">morning_nautical</span> <span class="o">=</span> <span class="n">observer</span><span class="o">.</span><span class="n">twilight_morning_nautical</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;next&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Observatory: </span><span class="si">{</span><span class="n">site_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target: </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Event type: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Magnitude: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Mag&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Event&#39;</span><span class="si">:</span><span class="s2">&lt;32</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;UTC&#39;</span><span class="si">:</span><span class="s2">&gt;24</span><span class="si">}</span><span class="s2">   </span><span class="si">{</span><span class="s1">&#39;Local Time&#39;</span><span class="si">:</span><span class="s2">&gt;24</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">86</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">time_obj</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;Sunset&quot;</span><span class="p">,</span> <span class="n">sunset</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;End nautical twilight&quot;</span><span class="p">,</span> <span class="n">evening_nautical</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;End astronomical twilight&quot;</span><span class="p">,</span> <span class="n">evening_astronomical</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Start astronomical twilight&quot;</span><span class="p">,</span> <span class="n">morning_astronomical</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Start nautical twilight&quot;</span><span class="p">,</span> <span class="n">morning_nautical</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Sunrise&quot;</span><span class="p">,</span> <span class="n">sunrise</span><span class="p">)]:</span>
+        <span class="n">print_utc_and_local</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">time_obj</span><span class="p">,</span> <span class="n">timezone_str</span><span class="p">)</span>
+
+    <span class="n">coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;RAJ2000&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;DEJ2000&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s2">&quot;icrs&quot;</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">FixedTarget</span><span class="p">(</span><span class="n">coord</span><span class="o">=</span><span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">target_name</span><span class="p">)</span>
+    <span class="n">event_mid</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;Eclipse_Time_UTC&quot;</span><span class="p">])</span>
+    <span class="n">time_range</span> <span class="o">=</span> <span class="n">sunset</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">sunrise</span> <span class="o">-</span> <span class="n">sunset</span><span class="p">)</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">hour</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+    <span class="n">plot_airmass</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">observer</span><span class="p">,</span> <span class="n">time_range</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">max_airmass</span><span class="o">=</span><span class="n">max_airmass</span><span class="p">,</span> <span class="n">brightness_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">altitude_yaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">evening_nautical</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nautical twilight&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">evening_astronomical</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Astronomical twilight&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">morning_astronomical</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">morning_nautical</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">event_mid</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> mid-event&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">((</span><span class="n">event_mid</span> <span class="o">-</span> <span class="p">(</span><span class="n">event_duration_hr</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="p">(</span><span class="n">event_mid</span> <span class="o">+</span> <span class="p">(</span><span class="n">event_duration_hr</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">event_duration_hr</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> hr event window&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">site_name</span><span class="si">}</span><span class="s2"> on local night </span><span class="si">{</span><span class="n">obs_day</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;UTC Time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">HourLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+    <span class="n">add_localtime_top_axis</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">timezone_str</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change these values after inspecting the event table.</span>
+<span class="n">obs_day</span> <span class="o">=</span> <span class="s2">&quot;2026-06-07&quot;</span>
+<span class="n">site_name</span> <span class="o">=</span> <span class="s2">&quot;ETAMU&quot;</span>
+<span class="n">target_name</span> <span class="o">=</span> <span class="s2">&quot;KIC 10447902&quot;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_night_target_plan</span><span class="p">(</span><span class="n">master_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">,</span> <span class="n">event_duration_hr</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observatory: ETAMU
+Target: KIC 10447902
+Event type: Primary
+Magnitude: 14.92
+Event                                                 UTC                 Local Time
+--------------------------------------------------------------------------------------
+Sunset                               2026-06-08 01:26 UTC        2026-06-07 08:26 PM
+End nautical twilight                2026-06-08 02:34 UTC        2026-06-07 09:34 PM
+End astronomical twilight            2026-06-08 03:12 UTC        2026-06-07 10:12 PM
+Start astronomical twilight          2026-06-08 09:32 UTC        2026-06-08 04:32 AM
+Start nautical twilight              2026-06-08 10:10 UTC        2026-06-08 05:10 AM
+Sunrise                              2026-06-08 11:18 UTC        2026-06-08 06:18 AM
+</pre></div>
+</div>
+<img alt="../_images/b8db6a47d10b08530d600026afff8fac36b993dee9c5953cc2809d283dc7eebd.png" src="../_images/b8db6a47d10b08530d600026afff8fac36b993dee9c5953cc2809d283dc7eebd.png" />
+</div>
+</div>
+</section>
+<section id="inspect-the-sky-field-with-ipyaladin">
+<h3><span class="section-number">11.6.3. </span>6.3 Inspect the sky field with <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code><a class="headerlink" href="#inspect-the-sky-field-with-ipyaladin" title="Link to this heading">#</a></h3>
+<p>The airmass plot tells you <strong>when</strong> the target is observable. The sky field tells you <strong>what is around it</strong>. This matters for differential photometry because you need comparison stars and a field that is not too crowded or contaminated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_finder_chart</span><span class="p">(</span><span class="n">event_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">,</span> <span class="n">fov_deg</span><span class="o">=</span><span class="mi">10</span><span class="o">/</span><span class="mi">60</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Open an interactive Aladin finder chart centered on the target coordinates.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">ipyaladin</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Install ipyaladin to use the interactive finder chart: pip install ipyaladin&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">get_event_row</span><span class="p">(</span><span class="n">event_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span>
+    <span class="n">target_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;RAJ2000&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;DEJ2000&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">viewer</span> <span class="o">=</span> <span class="n">ipyaladin</span><span class="o">.</span><span class="n">Aladin</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">target_string</span><span class="p">,</span> <span class="n">fov</span><span class="o">=</span><span class="n">fov_deg</span><span class="p">,</span> <span class="n">survey</span><span class="o">=</span><span class="s2">&quot;P/DSS2/color&quot;</span><span class="p">,</span> <span class="n">reticle_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">reticle_size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="s2">&quot;700px&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="s2">&quot;450px&quot;</span><span class="p">})</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">viewer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">viewer</span>
+
+<span class="n">viewer</span> <span class="o">=</span> <span class="n">show_finder_chart</span><span class="p">(</span><span class="n">master_table</span><span class="p">,</span> <span class="n">obs_day</span><span class="p">,</span> <span class="n">site_name</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 1, "model_id": "34b8ab24548046a78c98b344f1018126"}</script></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Finder-chart checks</p>
+<p>Before observing, inspect the target field. Look for nearby stars of similar brightness, obvious blends, saturation risks, bad crowding, and whether the target is near the edge of the detector for the planned pointing.</p>
+</div>
+</section>
+</section>
+<section id="use-external-planning-tools">
+<h2><span class="section-number">11.7. </span>7. Use external planning tools<a class="headerlink" href="#use-external-planning-tools" title="Link to this heading">#</a></h2>
+<p>Python planning gives a reproducible record, but external web tools are still useful. Use them as <strong>cross-checks</strong> and <strong>quick-look planning aids</strong>, not as replacements for the planning notebook and observation log.</p>
+<p>The best habit is to keep a short record of every external tool setting that affected the observing decision: site, date window, time zone, elevation limit, baseline requirement, magnitude/depth cut, Moon check, and weather source.</p>
+<section id="use-airmass-org-for-moon-aware-altitude-checks">
+<h3><span class="section-number">11.7.1. </span>7.1 Use airmass.org for Moon-aware altitude checks<a class="headerlink" href="#use-airmass-org-for-moon-aware-altitude-checks" title="Link to this heading">#</a></h3>
+<p>Use <a class="reference external" href="https://airmass.org/">airmass.org</a> when you want a quick altitude diagram that also includes the Moon. Enter the target name or coordinates, choose the observing site, and set the date. Record the Moon illumination, Moon altitude, and Moon-target separation in the log.</p>
+<p>This is especially useful when the target is technically observable but the Moon is bright or nearby.</p>
+</section>
+<section id="use-exoclock-for-exoplanet-transit-checks">
+<h3><span class="section-number">11.7.2. </span>7.2 Use ExoClock for exoplanet transit checks<a class="headerlink" href="#use-exoclock-for-exoplanet-transit-checks" title="Link to this heading">#</a></h3>
+<p>Use <a class="reference external" href="https://www.exoclock.space/">ExoClock</a> when the target is a <strong>known transiting exoplanet</strong>. ExoClock is designed for monitoring and improving exoplanet transit ephemerides, so it is especially useful when the goal is to obtain a clean transit light curve that could support a larger timing campaign.</p>
+<p>ExoClock is not the main tool for eclipsing binaries. For EBs, the catalog search and <code class="docutils literal notranslate"><span class="pre">astroplan</span></code> workflow should remain the primary planning path.</p>
+<p>A practical ExoClock workflow is:</p>
+<ol class="arabic simple">
+<li><p>Open <a class="reference external" href="https://www.exoclock.space/">ExoClock</a> and check the planet’s entry under the database or ephemeris tools.</p></li>
+<li><p>Confirm the target name, coordinates, period, duration, predicted mid-transit time, and any timing uncertainty listed for the planet.</p></li>
+<li><p>If using an ExoClock account, make sure the observatory profile has the correct telescope, camera, and site coordinates.</p></li>
+<li><p>Compare the ExoClock prediction with the event time from the Python notebook.</p></li>
+<li><p>If the predicted mid-transit times disagree, do not average them casually. Check the ephemeris source, time standard, and target name. If the uncertainty is large, widen the observing block.</p></li>
+<li><p>Record the ExoClock check in the observation log, including the date you checked it.</p></li>
+</ol>
+<div class="warning admonition">
+<p class="admonition-title">Exoplanet timing rule</p>
+<p>For exoplanet transits, always include enough out-of-transit baseline. A good default is at least one hour before ingress and one hour after egress when the target altitude and weather allow it. If the ephemeris uncertainty is large, start earlier and continue later.</p>
+</div>
+<p>Use ExoClock most often for these questions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Question</p></th>
+<th class="head"><p>Why ExoClock helps</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Is this exoplanet transit still worth observing?</p></td>
+<td><p>Ephemerides can drift, especially when older timings are uncertain.</p></td>
+</tr>
+<tr class="row-odd"><td><p>What mid-transit time should I expect?</p></td>
+<td><p>ExoClock focuses on transit timing predictions and updates.</p></td>
+</tr>
+<tr class="row-even"><td><p>Could our observation contribute to a larger timing effort?</p></td>
+<td><p>The project is built around coordinated follow-up of exoplanet transits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>What should I record for a possible submission?</p></td>
+<td><p>ExoClock emphasizes observatory setup, timing, and complete light curves.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="use-the-swarthmore-college-transit-finder">
+<h3><span class="section-number">11.7.3. </span>7.3 Use the Swarthmore College Transit Finder<a class="headerlink" href="#use-the-swarthmore-college-transit-finder" title="Link to this heading">#</a></h3>
+<p>Use the <a class="reference external" href="https://astro.swarthmore.edu/transits/">Swarthmore College Transit Finder</a> when you want a fast, web-based list of <strong>observable exoplanet transits</strong> for a date range and site. It is especially useful as an independent check on the Python event table.</p>
+<p>For ETAMU, use manual site entry unless the site has been added to the observatory menu:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>ETAMU value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Latitude</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">33.246666</span></code> degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>Longitude</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-95.899722</span></code> degrees, because west longitude is negative</p></td>
+</tr>
+<tr class="row-even"><td><p>Time zone</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U.S.</span> <span class="pre">-</span> <span class="pre">Central</span> <span class="pre">Time</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For SARA sites, use the observatory menu when possible. The Transit Finder list includes common professional observatories such as Kitt Peak National Observatory, Cerro Tololo Inter-American Observatory, and Roque de los Muchachos. If a site is missing or ambiguous, enter the latitude, longitude, and time zone manually.</p>
+<p>A practical Transit Finder workflow is:</p>
+<ol class="arabic simple">
+<li><p>Choose the target list. Use the <strong>NASA Exoplanet Archive</strong> list for confirmed exoplanets. Use the <strong>TOI</strong> list only when you intentionally want TESS Objects of Interest.</p></li>
+<li><p>Enter the observing site. For ETAMU, use the manual latitude/longitude/time-zone fields.</p></li>
+<li><p>Set the base date and search length. For this REU workflow, use the next 7–14 nights.</p></li>
+<li><p>Set an elevation limit. A good starting value is 25–30 degrees at ingress and egress. Raise this if the target is faint or the weather is poor.</p></li>
+<li><p>Require out-of-transit baseline. Start with at least 1 hour before ingress and 1 hour after egress.</p></li>
+<li><p>Set useful target filters. Brightness and transit depth cuts can keep the output from being too long.</p></li>
+<li><p>Choose the day/night definition. Astronomical twilight is strict; nautical twilight may be useful when you need a longer baseline and the target is bright.</p></li>
+<li><p>View the HTML table for browsing, or export a CSV to compare the results with the Python table.</p></li>
+<li><p>Open the linked airmass plots and finder charts for promising targets, but still make a complete nightly plan and log.</p></li>
+</ol>
+<div class="warning admonition">
+<p class="admonition-title">Time-zone check</p>
+<p>Transit Finder can display results in UTC or local time depending on the selected option. Before copying any time into the observation log, label it as UTC or local time. Do not mix the two in the same table without labels.</p>
+</div>
+<p>Use Transit Finder most often for these questions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Question</p></th>
+<th class="head"><p>Why Transit Finder helps</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>What exoplanet transits are observable from ETAMU this week?</p></td>
+<td><p>It quickly filters events by site, date, elevation, and baseline.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Does the Python search miss an obvious exoplanet target?</p></td>
+<td><p>It provides an independent catalog-based check.</p></td>
+</tr>
+<tr class="row-even"><td><p>Can I get a quick finder chart or airmass plot?</p></td>
+<td><p>The output links to finding charts and airmass plots.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Can I export the result?</p></td>
+<td><p>CSV output makes it easy to compare against the notebook table.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="how-to-combine-python-exoclock-and-transit-finder">
+<h3><span class="section-number">11.7.4. </span>7.4 How to combine Python, ExoClock, and Transit Finder<a class="headerlink" href="#how-to-combine-python-exoclock-and-transit-finder" title="Link to this heading">#</a></h3>
+<p>Use this priority order:</p>
+<ol class="arabic simple">
+<li><p><strong>Python notebook:</strong> the main reproducible search and nightly planning record.</p></li>
+<li><p><strong>ExoClock:</strong> exoplanet ephemeris and timing cross-check for known planets.</p></li>
+<li><p><strong>Transit Finder:</strong> independent web-based search for observable exoplanet transits.</p></li>
+<li><p><strong>airmass.org:</strong> Moon-aware altitude check.</p></li>
+<li><p><strong>Clear Sky Chart and local weather:</strong> go/no-go decision.</p></li>
+</ol>
+<p>For exoplanets, a good target should survive all checks: the Python table says it is observable, ExoClock or Transit Finder gives a consistent transit window, the airmass/Moon situation is acceptable, and the weather forecast is good enough to justify opening.</p>
+<p>For eclipsing binaries, ExoClock and Transit Finder are usually not relevant. Use the EB catalog search, the nightly <code class="docutils literal notranslate"><span class="pre">astroplan</span></code> plot, the finder chart, and the weather checks.</p>
+<div class="warning admonition">
+<p class="admonition-title">Do not outsource the decision</p>
+<p>A web tool can suggest a target, but it does not know the full observing plan. The observer is responsible for checking target altitude, event timing, baseline coverage, field crowding, Moon separation, weather, instrument setup, and whether the data will answer the science question.</p>
+</div>
+</section>
+<section id="use-clear-sky-chart-for-etamu-weather-checks">
+<h3><span class="section-number">11.7.5. </span>7.5 Use Clear Sky Chart for ETAMU weather checks<a class="headerlink" href="#use-clear-sky-chart-for-etamu-weather-checks" title="Link to this heading">#</a></h3>
+<p>For the ETAMU observatory, check both nearby Clear Sky Chart pages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cleardarksky.com/c/GrnvllTXkey.html?1=">Greenville Clear Sky Chart</a></p></li>
+<li><p><a class="reference external" href="https://www.cleardarksky.com/c/SSprgTXkey.html?1=">Sulphur Springs Clear Sky Chart</a></p></li>
+</ul>
+<p>Record cloud cover, transparency, seeing, humidity/dew risk, wind, and any local notes. Treat these as forecasts, not guarantees. If Greenville and Sulphur Springs disagree, say so in the log and make a conservative plan.</p>
+<div class="warning admonition">
+<p class="admonition-title">Weather decision rule</p>
+<p>Do not rely on a single weather source. For student observing, the safest approach is to check Clear Sky Chart, a standard weather forecast, satellite/radar if relevant, and the sky conditions at the observatory before opening.</p>
+</div>
+</section>
+</section>
+<section id="structured-observation-log-format">
+<h2><span class="section-number">11.8. </span>8. Structured observation log format<a class="headerlink" href="#structured-observation-log-format" title="Link to this heading">#</a></h2>
+<p>Use a structured observation log rather than a loose list of notes. The format below is based on the <a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/research-log.html#logging-observations">research logging tutorial</a>, with additional fields that are useful for time-series photometry.</p>
+<p>Copy this template into a dated file such as <code class="docutils literal notranslate"><span class="pre">logs/2026-06-08_observation-log.md</span></code>.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Observation Log: YYYY-MM-DD Local Night</span>
+
+<span class="gu">## 1. Planning summary</span>
+
+Date prepared:
+<span class="k">-</span><span class="w"> </span>YYYY-MM-DD
+
+<span class="gu">Observer(s):</span>
+<span class="gu">-</span>
+
+Observing site:
+<span class="k">-</span><span class="w"> </span>Site:
+<span class="k">-</span><span class="w"> </span>Telescope/instrument:
+<span class="k">-</span><span class="w"> </span>Time zone:
+
+<span class="gu">Science goal:</span>
+<span class="gu">-</span>
+
+Priority targets:
+| Priority | Target | Event | Mid-event UTC | Planned block UTC | Filter | Exposure | Notes |
+|---:|---|---|---|---|---|---:|---|
+| 1 |  |  |  |  |  |  |  |
+| 2 |  |  |  |  |  |  |  |
+| Backup |  |  |  |  |  |  |  |
+
+<span class="gu">## 2. Target information</span>
+
+| Target | RA | Dec | Mag | Period | Catalog | Reason selected |
+|---|---:|---:|---:|---:|---|---|
+|  |  |  |  |  |  |  |
+
+<span class="gu">## 3. Night boundaries</span>
+
+| Event | UTC | Local time |
+|---|---|---|
+| Sunset |  |  |
+| End nautical twilight |  |  |
+| End astronomical twilight |  |  |
+| Start astronomical twilight |  |  |
+| Start nautical twilight |  |  |
+| Sunrise |  |  |
+
+<span class="gu">## 4. Moon and weather</span>
+
+Moon:
+<span class="k">-</span><span class="w"> </span>Illumination:
+<span class="k">-</span><span class="w"> </span>Moon altitude during science block:
+<span class="k">-</span><span class="w"> </span>Moon-target separation:
+<span class="k">-</span><span class="w"> </span>Source checked: airmass.org / other
+
+Weather forecast:
+<span class="k">-</span><span class="w"> </span>Clear Sky Chart location(s): Greenville / Sulphur Springs / other
+<span class="k">-</span><span class="w"> </span>Cloud cover:
+<span class="k">-</span><span class="w"> </span>Transparency:
+<span class="k">-</span><span class="w"> </span>Seeing:
+<span class="k">-</span><span class="w"> </span>Wind:
+<span class="k">-</span><span class="w"> </span>Humidity/dew risk:
+<span class="k">-</span><span class="w"> </span>Go/no-go decision:
+
+<span class="gu">## 5. Calibration plan</span>
+
+<span class="gu">Bias:</span>
+<span class="gu">-</span>
+
+<span class="gu">Darks:</span>
+<span class="gu">-</span>
+
+<span class="gu">Flats:</span>
+<span class="gu">-</span>
+
+<span class="gu">Filter(s):</span>
+<span class="gu">-</span>
+
+<span class="gu">## 6. Actual observing notes</span>
+
+| UTC time | Action | Target/filter/exposure | Conditions | Notes |
+|---|---|---|---|---|
+|  |  |  |  |  |
+
+Focus:
+<span class="k">-</span><span class="w"> </span>Initial focus:
+<span class="k">-</span><span class="w"> </span>Focus changes:
+<span class="k">-</span><span class="w"> </span>FWHM estimates:
+
+Photometry setup notes:
+<span class="k">-</span><span class="w"> </span>Aperture radius:
+<span class="k">-</span><span class="w"> </span>Gap:
+<span class="k">-</span><span class="w"> </span>Annulus:
+<span class="k">-</span><span class="w"> </span>Comparison-star notes:
+
+<span class="gu">## 7. Data record</span>
+
+<span class="gu">Raw data location:</span>
+<span class="gu">-</span>
+
+<span class="gu">File pattern(s):</span>
+<span class="gu">-</span>
+
+<span class="gu">Number of science frames:</span>
+<span class="gu">-</span>
+
+<span class="gu">Calibration files:</span>
+<span class="gu">-</span>
+
+<span class="gu">Known problems:</span>
+<span class="gu">-</span>
+
+<span class="gu">## 8. End-of-night summary</span>
+
+<span class="gu">What was successfully observed?</span>
+<span class="gu">-</span>
+
+<span class="gu">What changed from the plan?</span>
+<span class="gu">-</span>
+
+<span class="gu">What should be checked in reduction?</span>
+<span class="gu">-</span>
+
+<span class="gu">Next steps:</span>
+<span class="gu">-</span>
+</pre></div>
+</div>
+</section>
+<section id="example-completed-observing-log">
+<h2><span class="section-number">11.9. </span>9. Example: completed observing log<a class="headerlink" href="#example-completed-observing-log" title="Link to this heading">#</a></h2>
+<p>The example below shows how a completed observing log should look after a night at CTIO. The goal is for another student to be able to understand the plan, recover the observing sequence, find the data, and identify any issues that need to be checked during reduction.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Observation Log: 2026-03-30 Local Night</span>
+
+<span class="gu">## 1. Planning summary</span>
+
+Date prepared:
+<span class="k">-</span><span class="w"> </span>2026-03-30
+
+Observer(s):
+<span class="k">-</span><span class="w"> </span>[fill in]
+
+Observing site:
+<span class="k">-</span><span class="w"> </span>Site: CTIO
+<span class="k">-</span><span class="w"> </span>Telescope/instrument: SARA South / CCD imager
+<span class="k">-</span><span class="w"> </span>Time zone: America/Santiago
+
+Science goal:
+<span class="k">-</span><span class="w"> </span>Observe two TESS eclipsing binaries. TIC 0220029715 completes a primary+secondary pair begun on 2026-03-06. TIC 0403757320 is a high-altitude earlier primary eclipse.
+
+Priority targets:
+| Priority | Target | Event | Mid-event UTC | Planned block UTC | Filter | Exposure | Notes |
+|---:|---|---|---|---|---|---:|---|
+| 1 | TIC 0220029715 | Secondary | 2026-03-31 05:36:34 | 2026-03-31 04:06--07:06 | Bessell V | 45 s used | Completes pair |
+| 2 | TIC 0403757320 | Primary | 2026-03-31 03:16:18 | 2026-03-31 01:46--04:46 | Bessell V | 30 s used | Earlier block |
+| Backup | TIC 0415528958 | Secondary | [fill in] | [fill in] | Bessell V | [fill in] | Good altitude backup |
+| Backup | TIC 0306580215 | Secondary | [fill in] | [fill in] | Bessell V | [fill in] | Lower altitude backup |
+
+<span class="gu">## 2. Target information</span>
+
+| Target | RA | Dec | Mag | Period | Catalog | Reason selected |
+|---|---:|---:|---:|---:|---|---|
+| TIC 0220029715 | [fill in] | [fill in] | 12.43 | 3.1874984 d | TESS EB | Completes primary+secondary coverage |
+| TIC 0403757320 | [fill in] | [fill in] | 11.19 | 1.0025046 d | TESS EB | High altitude and useful brightness |
+
+<span class="gu">## 3. Moon and weather</span>
+
+Weather notes:
+<span class="k">-</span><span class="w"> </span>Clear skies at start.
+<span class="k">-</span><span class="w"> </span>Humidity approximately 30% at start.
+<span class="k">-</span><span class="w"> </span>Humidity dropped to approximately 20% later in the night.
+
+Moon:
+<span class="k">-</span><span class="w"> </span>[fill in from airmass.org or ephemeris check]
+
+<span class="gu">## 4. Calibration and setup</span>
+
+Filter:
+<span class="k">-</span><span class="w"> </span>Bessell V
+
+Flats:
+<span class="k">-</span><span class="w"> </span>23:00 UTC: 20 × 5 s
+<span class="k">-</span><span class="w"> </span>23:00 UTC: 10 × 10 s
+<span class="k">-</span><span class="w"> </span>23:00 UTC: 5 × 20 s
+<span class="k">-</span><span class="w"> </span>23:00 UTC: 5 × 30 s
+
+Focus:
+<span class="k">-</span><span class="w"> </span>23:30 UTC: focus found at 130210, FWHM approximately 1.5 arcsec.
+<span class="k">-</span><span class="w"> </span>Later focus changed to 129300, FWHM approximately 1.1 arcsec.
+
+<span class="gu">## 5. Actual observing notes</span>
+
+| UTC time | Action | Target/filter/exposure | Conditions | Notes |
+|---|---|---|---|---|
+| 23:00 | Took flats | Bessell V, 5--30 s | Clear | See calibration list above |
+| 23:30 | Found focus | Focus 130210 | Clear, humidity ~30% | FWHM ~1.5 arcsec |
+| 23:30 | Moved to target | TIC 0403757320 | Clear | Begin first science target |
+| 23:30 | Started science images | TIC 0403757320, Bessell V, 30 s, set of 180 | Clear | Photometry aperture 12, gap 10, annulus 10 |
+| 03:19 | Took darks and moved target | TIC 0220029715 next | Humidity falling | Verify exact order from FITS headers |
+| 03:02 | Started/continued science images | TIC 0220029715, Bessell V, 45 s, set of 2400 | Humidity ~20% | Time appears out of order relative to 03:19 note; verify from FITS headers |
+| 07:00 | Took darks/biases | Calibration frames | End of night |  |
+
+<span class="gu">## 6. Data record</span>
+
+Raw data location:
+<span class="k">-</span><span class="w"> </span>[fill in]
+
+File pattern(s):
+<span class="k">-</span><span class="w"> </span>TIC 0403757320: [fill in]
+<span class="k">-</span><span class="w"> </span>TIC 0220029715: [fill in]
+
+Calibration files:
+<span class="k">-</span><span class="w"> </span>Flats: Bessell V flats from 23:00 UTC.
+<span class="k">-</span><span class="w"> </span>Darks: taken around 03:19 UTC and/or end of night.
+<span class="k">-</span><span class="w"> </span>Biases: taken around 07:00 UTC.
+
+Known problems:
+<span class="k">-</span><span class="w"> </span>The log contains a possible time-order conflict: 03:02 UTC and 03:19 UTC entries should be checked against FITS timestamps.
+
+<span class="gu">## 7. End-of-night summary</span>
+
+What was successfully observed?
+<span class="k">-</span><span class="w"> </span>TIC 0403757320 primary eclipse block.
+<span class="k">-</span><span class="w"> </span>TIC 0220029715 secondary eclipse block.
+
+What should be checked in reduction?
+<span class="k">-</span><span class="w"> </span>Confirm exact start and end times from FITS headers.
+<span class="k">-</span><span class="w"> </span>Check whether the 30 s and 45 s exposure times kept the targets below saturation.
+<span class="k">-</span><span class="w"> </span>Inspect whether focus changes or humidity changes affected the light curves.
+<span class="k">-</span><span class="w"> </span>Confirm comparison stars and aperture choices in AstroImageJ.
+
+Next steps:
+<span class="k">-</span><span class="w"> </span>Copy raw data into the project <span class="sb">`data/raw/`</span> folder.
+<span class="k">-</span><span class="w"> </span>Save the final observation log in <span class="sb">`logs/`</span>.
+<span class="k">-</span><span class="w"> </span>Begin image inspection and differential photometry.
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Why structured logs are better</p>
+<p>A short list of observing notes may tell you what happened, but a structured log makes the data reproducible. It separates the plan from the actual observing sequence, records the time system, preserves calibration details, and flags inconsistencies that must be checked against the FITS headers.</p>
+</div>
+</section>
+<section id="putting-everything-together-a-student-workflow">
+<h2><span class="section-number">11.10. </span>10. Putting everything together: a student workflow<a class="headerlink" href="#putting-everything-together-a-student-workflow" title="Link to this heading">#</a></h2>
+<p>Use this workflow for a normal REU observing cycle.</p>
+<section id="two-weeks-before-observing">
+<h3><span class="section-number">11.10.1. </span>Two weeks before observing<a class="headerlink" href="#two-weeks-before-observing" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">START_DATE</span></code> and <code class="docutils literal notranslate"><span class="pre">END_DATE</span></code> for the next 7–14 nights.</p></li>
+<li><p>Run the event-search notebook.</p></li>
+<li><p>Save <code class="docutils literal notranslate"><span class="pre">observable_events_next_two_weeks.csv</span></code>.</p></li>
+<li><p>Look for nights with good TESS EB events at ETAMU.</p></li>
+<li><p>For exoplanet nights, cross-check promising targets with ExoClock and/or the Swarthmore College Transit Finder.</p></li>
+<li><p>Identify possible primary+secondary pair opportunities for EBs, or full-transit plus baseline opportunities for exoplanets.</p></li>
+<li><p>Save a short planning log.</p></li>
+</ol>
+</section>
+<section id="one-or-two-days-before-observing">
+<h3><span class="section-number">11.10.2. </span>One or two days before observing<a class="headerlink" href="#one-or-two-days-before-observing" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select 1–2 science targets and at least one backup.</p></li>
+<li><p>Run the nightly planning notebook for the chosen site and date.</p></li>
+<li><p>Save the airmass plot.</p></li>
+<li><p>Open the finder chart and inspect the field.</p></li>
+<li><p>For exoplanets, verify the event window against ExoClock or Transit Finder and record which source was checked.</p></li>
+<li><p>Check the Moon with airmass.org.</p></li>
+<li><p>Check weather using Clear Sky Chart and local forecasts.</p></li>
+<li><p>Create the observation log file before the night starts.</p></li>
+</ol>
+</section>
+<section id="during-observing">
+<h3><span class="section-number">11.10.3. </span>During observing<a class="headerlink" href="#during-observing" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Record actual times in UTC.</p></li>
+<li><p>Record focus values and FWHM estimates.</p></li>
+<li><p>Record exposure times, filter, number of frames, and any changes.</p></li>
+<li><p>Record weather changes, clouds, humidity, wind, and dew risk.</p></li>
+<li><p>Record problems immediately. Do not wait until the next day.</p></li>
+</ol>
+</section>
+<section id="morning-after-observing">
+<h3><span class="section-number">11.10.4. </span>Morning after observing<a class="headerlink" href="#morning-after-observing" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Confirm file locations and file patterns.</p></li>
+<li><p>Check FITS headers for actual start/end times.</p></li>
+<li><p>Fill in missing log fields.</p></li>
+<li><p>Note which frames may be bad.</p></li>
+<li><p>Start the reduction notebook or AstroImageJ workflow.</p></li>
+<li><p>Write the next step at the bottom of the log.</p></li>
+</ol>
+</section>
+</section>
+<section id="common-mistakes">
+<h2><span class="section-number">11.11. </span>11. Common mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mistake</p></th>
+<th class="head"><p>Why it causes problems</p></th>
+<th class="head"><p>Fix</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Planning by UTC date only</p></td>
+<td><p>Local night and UTC date can differ</p></td>
+<td><p>Always record both local date and UTC time</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trusting one plot</p></td>
+<td><p>Airmass, Moon, field crowding, and weather are separate checks</p></td>
+<td><p>Use Python, airmass.org, finder chart, and weather tools</p></td>
+</tr>
+<tr class="row-even"><td><p>Using only target name resolution</p></td>
+<td><p>TIC names may fail or resolve inconsistently</p></td>
+<td><p>Use RA/Dec from the event table when possible</p></td>
+</tr>
+<tr class="row-odd"><td><p>Not saving the event table</p></td>
+<td><p>You cannot reconstruct why a target was chosen</p></td>
+<td><p>Save the CSV and log the filename</p></td>
+</tr>
+<tr class="row-even"><td><p>Not recording exposure changes</p></td>
+<td><p>Reduction becomes confusing</p></td>
+<td><p>Record every exposure-time or filter change</p></td>
+</tr>
+<tr class="row-odd"><td><p>Not recording failed attempts</p></td>
+<td><p>The same problem gets rediscovered later</p></td>
+<td><p>Log errors, false starts, and bad frames</p></td>
+</tr>
+<tr class="row-even"><td><p>Forgetting Moon information</p></td>
+<td><p>Bright Moon can ruin otherwise good photometry</p></td>
+<td><p>Record Moon illumination, altitude, and separation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Copying web-tool times without labels</p></td>
+<td><p>UTC and local times can be confused</p></td>
+<td><p>Label every time and record the tool setting</p></td>
+</tr>
+<tr class="row-even"><td><p>Trusting web-tool output without saving settings</p></td>
+<td><p>You cannot reproduce the decision later</p></td>
+<td><p>Record site, date range, elevation cuts, baseline, and filters</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="final-observing-checklist">
+<h2><span class="section-number">11.12. </span>12. Final observing checklist<a class="headerlink" href="#final-observing-checklist" title="Link to this heading">#</a></h2>
+<p>Before starting the night, every student should be able to answer these questions:</p>
+<ul class="simple">
+<li><p>What target is highest priority?</p></li>
+<li><p>What is the event type?</p></li>
+<li><p>What is the mid-event time in UTC?</p></li>
+<li><p>What local time does that correspond to?</p></li>
+<li><p>What is the planned observing block?</p></li>
+<li><p>What filter and exposure time will be used first?</p></li>
+<li><p>What is the backup target?</p></li>
+<li><p>Is the Moon a problem?</p></li>
+<li><p>For exoplanets, did ExoClock or Transit Finder agree with the planned event window?</p></li>
+<li><p>Is the weather good enough to observe?</p></li>
+<li><p>Where will the raw data be saved?</p></li>
+<li><p>Where is the observation log?</p></li>
+</ul>
+<p>If you cannot answer one of these questions, the plan is not ready yet.</p>
+</section>
+<section id="useful-links">
+<h2><span class="section-number">11.13. </span>13. Useful links<a class="headerlink" href="#useful-links" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/research-log.html#logging-observations">Research Logging: Logging Observations</a></p></li>
+<li><p><a class="reference external" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/celestial-sphere.html#">Celestial Sphere and Sky Coordinates</a></p></li>
+<li><p><a class="reference external" href="https://astroplan.readthedocs.io/en/latest/tutorials/periodic.html">astroplan: Observing Transiting Exoplanets and Eclipsing Binaries</a></p></li>
+<li><p><a class="reference external" href="https://astroplan.readthedocs.io/en/stable/tutorials/plots.html">astroplan: Plotting with Astroplan</a></p></li>
+<li><p><a class="reference external" href="https://airmass.org/">airmass.org</a></p></li>
+<li><p><a class="reference external" href="https://www.exoclock.space/">ExoClock</a></p></li>
+<li><p><a class="reference external" href="https://astro.swarthmore.edu/transits/">Swarthmore College Transit Finder</a></p></li>
+<li><p><a class="reference external" href="https://www.cleardarksky.com/c/GrnvllTXkey.html?1=">Greenville Clear Sky Chart</a></p></li>
+<li><p><a class="reference external" href="https://www.cleardarksky.com/c/SSprgTXkey.html?1=">Sulphur Springs Clear Sky Chart</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="celestial-sphere.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Celestial Sphere and Sky Coordinates</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="photometry-basics-guide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Basics of CCD Photometry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-stage-observing-workflow">11.1. 1. The two-stage observing workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-python-packages">11.2. 2. Required Python packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-observing-sites">11.3. 3. Define the observing sites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-observable-events-over-1-2-weeks">11.4. 4. Search for observable events over 1–2 weeks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-date-range-and-selection-limits">11.4.1. 4.1 Choose the date range and selection limits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-candidate-systems">11.4.2. 4.2 Download candidate systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-ephemerides-and-compute-primary-secondary-events">11.4.3. 4.3 Convert ephemerides and compute primary/secondary events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-observing-constraints">11.4.4. 4.4 Apply observing constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-save-the-1-2-week-event-table">11.4.5. 4.5 Build and save the 1–2 week event table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-targets-for-a-night">11.5. 5. Select targets for a night</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-detailed-nightly-plan">11.6. 6. Make a detailed nightly plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-for-local-and-utc-time">11.6.1. 6.1 Helper functions for local and UTC time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-one-target-for-one-night">11.6.2. 6.2 Plot one target for one night</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-sky-field-with-ipyaladin">11.6.3. 6.3 Inspect the sky field with <code class="docutils literal notranslate"><span class="pre">ipyaladin</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-external-planning-tools">11.7. 7. Use external planning tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-airmass-org-for-moon-aware-altitude-checks">11.7.1. 7.1 Use airmass.org for Moon-aware altitude checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-exoclock-for-exoplanet-transit-checks">11.7.2. 7.2 Use ExoClock for exoplanet transit checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-swarthmore-college-transit-finder">11.7.3. 7.3 Use the Swarthmore College Transit Finder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-combine-python-exoclock-and-transit-finder">11.7.4. 7.4 How to combine Python, ExoClock, and Transit Finder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-clear-sky-chart-for-etamu-weather-checks">11.7.5. 7.5 Use Clear Sky Chart for ETAMU weather checks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-observation-log-format">11.8. 8. Structured observation log format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-completed-observing-log">11.9. 9. Example: completed observing log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-everything-together-a-student-workflow">11.10. 10. Putting everything together: a student workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-weeks-before-observing">11.10.1. Two weeks before observing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-or-two-days-before-observing">11.10.2. One or two days before observing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#during-observing">11.10.3. During observing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#morning-after-observing">11.10.4. Morning after observing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">11.11. 11. Common mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-observing-checklist">11.12. 12. Final observing checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-links">11.13. 13. Useful links</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

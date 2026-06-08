@@ -24,13 +24,16 @@ parts:
   - file: Tutorials/obliquity-evolution.ipynb
   - file: Tutorials/intro-climlab.ipynb
   - file: Tutorials/intro-genga.ipynb
-- caption: Observations
+- caption: Observation Basics
   numbered: true
   chapters:
   - file: Tutorials/research-log.ipynb
   - file: Tutorials/celestial-sphere.ipynb
+  - file: Tutorials/reu_observation_planning.ipynb
   - file: Tutorials/photometry-basics-guide.ipynb
+- caption: Reduction Analysis and Modeling
+  numbered: true
+  chapters:
   - file: Tutorials/AIJ-lightcurve.ipynb
   - file: Tutorials/archival-data.ipynb
   - file: Tutorials/modeling-exoplanet-transits.ipynb
-
