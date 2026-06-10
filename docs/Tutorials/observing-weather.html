@@ -1,0 +1,1237 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. Watching the Weather for Observing &#8212; Exoplanets within Binary Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=20ffa6e1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/metadata_figure.css?v=2463d4a7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_iframe.css?v=96c28b52" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=73adc326" />
+    <link rel="stylesheet" type="text/css" href="../_static/mycss.css?v=3589796e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/h5p-resizer.js?v=a3e8b8ed"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8VDVRMR2BH"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-8VDVRMR2BH');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorials/observing-weather';</script>
+    <link rel="canonical" href="https://saturnaxis.github.io/exoplanet-binary/Tutorials/observing-weather.html" />
+    <link rel="icon" href="../_static/CBP_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="13. Basics of CCD Photometry" href="photometry-basics-guide.html" />
+    <link rel="prev" title="11. Planning Observations for Transits and Eclipses" href="reu_observation_planning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/CBP_logo.png" class="logo__image only-light" alt="Exoplanets within Binary Systems - Home"/>
+    <script>document.write(`<img src="../_static/CBP_logo.png" class="logo__image only-dark" alt="Exoplanets within Binary Systems - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    Exoplanets within Binary Systems
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/who-for.html">Who are these notes for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/cite-reuse.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/ai-tools.html">Using AI tools in research training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preamble/nasaads-arxiv.html">Finding and following the research literature</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-alpha-centauri.html">1. Introduction to the α Centauri System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody-integration.html">2. N-body Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three-body-stability.html">3. Three-body Stability</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planet-packing-stability.html">4. Planet Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forced-eccentricity.html">5. Free and Forced Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obliquity-evolution.html">6. Obliquity Evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-climlab.html">7. Basic Climate Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-genga.html">8. GPU-accelerated planet formation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Observation Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reu_observation_planning.html">11. Planning Observations for Transits and Eclipses</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Watching the Weather for Observing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photometry-basics-guide.html">13. Basics of CCD Photometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduction Analysis and Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">14. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">15. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">16. Modeling Exoplanet Transits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saturnaxis/exoplanet-binary/main?urlpath=tree/Tutorials/observing-weather.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/saturnaxis/exoplanet-binary/blob/main/Tutorials/observing-weather.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/saturnaxis/exoplanet-binary" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Tutorials/observing-weather.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Watching the Weather for Observing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weather-forecasts-and-real-conditions">12.1. Weather Forecasts and Real Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-weather-resources">12.2. Useful Weather Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clouds-after-sunset">12.3. Clouds After Sunset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transparency-clouds-smoke-and-haze">12.4. Transparency, Clouds, Smoke, and Haze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#humidity-dew-and-telescope-safety">12.5. Humidity, Dew, and Telescope Safety</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-dew-point-spread-during-the-night">12.6. Code Example: Dew Point Spread During the Night</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-code-estimating-dew-point-from-temperature-and-humidity">12.7. Optional Code: Estimating Dew Point from Temperature and Humidity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-and-changing-conditions">12.8. Wind and Changing Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-a-local-weather-station-matters">12.9. Why a Local Weather Station Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-observing-weather-checklist">12.10. A Basic Observing-Weather Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-in-an-observing-weather-log">12.11. What to Record in an Observing-Weather Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-and-diffraction">12.12. Seeing and Diffraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffraction-limit">12.13. Diffraction Limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-diffraction-limit-versus-telescope-diameter">12.14. Code Example: Diffraction Limit versus Telescope Diameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atmospheric-seeing">12.15. Atmospheric Seeing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fried-parameter">12.16. The Fried Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-seeing-versus-fried-parameter">12.17. Code Example: Seeing versus Fried Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-limited-versus-diffraction-limited-observing">12.18. Seeing-Limited versus Diffraction-Limited Observing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-seeing-worse">12.19. What Makes Seeing Worse?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-seeing-better">12.20. What Makes Seeing Better?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-and-airmass">12.21. Seeing and Airmass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-and-photometry">12.22. Seeing and Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-a-simple-observing-condition-flag">12.23. Code Example: A Simple Observing-Condition Flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-together">12.24. Putting It Together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-questions">12.25. Checkpoint Questions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="watching-the-weather-for-observing">
+<h1><span class="section-number">12. </span>Watching the Weather for Observing<a class="headerlink" href="#watching-the-weather-for-observing" title="Link to this heading">#</a></h1>
+<p>Good observing requires more than a clear forecast. A night can begin with clouds and later become useful, or it can begin clear and become unsafe as humidity rises, wind increases, or dew forms on the telescope. Learning to watch the weather is part of learning how to observe responsibly.</p>
+<p>This page has two goals. The first is practical: how to decide whether conditions are safe and useful for observing. The second is physical: how seeing and diffraction limit the sharpness of astronomical images.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key idea</p>
+<p>Forecasts help you plan. Local sensors help you decide. Images from the telescope help you verify.</p>
+</div>
+<section id="weather-forecasts-and-real-conditions">
+<h2><span class="section-number">12.1. </span>Weather Forecasts and Real Conditions<a class="headerlink" href="#weather-forecasts-and-real-conditions" title="Link to this heading">#</a></h2>
+<p>Before an observing night, check several kinds of information:</p>
+<ul class="simple">
+<li><p>cloud cover,</p></li>
+<li><p>precipitation risk,</p></li>
+<li><p>wind speed and gusts,</p></li>
+<li><p>relative humidity,</p></li>
+<li><p>dew point,</p></li>
+<li><p>temperature trend,</p></li>
+<li><p>pressure trend,</p></li>
+<li><p>smoke, haze, or dust,</p></li>
+<li><p>seeing forecasts if available,</p></li>
+<li><p>satellite or radar loops.</p></li>
+</ul>
+<p>A forecast tells you what may happen over a broad area. A telescope, however, sits at one specific location. Conditions at that location can differ from the forecast, especially near sunset, near mountains, near coastlines, or during rapidly changing weather.</p>
+<p>For serious observing, do not make the decision from a single weather app. Compare at least one general forecast, one astronomy-specific forecast, and local site measurements.</p>
+</section>
+<section id="useful-weather-resources">
+<h2><span class="section-number">12.2. </span>Useful Weather Resources<a class="headerlink" href="#useful-weather-resources" title="Link to this heading">#</a></h2>
+<p>The resources below are not interchangeable. Each one answers a different kind of question.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>What it is useful for</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.weather.gov/">National Weather Service</a></p></td>
+<td><p>Local forecast, hourly weather, alerts, wind, humidity, dew point, precipitation</p></td>
+<td><p>Is there precipitation, lightning, high wind, fog, or dangerous weather nearby?</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.star.nesdis.noaa.gov/goes/index.php">NOAA GOES Image Viewer</a></p></td>
+<td><p>Satellite loops for clouds and storm development</p></td>
+<td><p>Are clouds moving toward the site, away from the site, forming locally, or dissipating?</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://worldview.earthdata.nasa.gov/">NASA Worldview</a></p></td>
+<td><p>Global satellite imagery, smoke, dust, aerosols, large-scale cloud structure</p></td>
+<td><p>Is there smoke, haze, dust, or a regional cloud pattern affecting transparency?</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.cleardarksky.com/">ClearDarkSky</a></p></td>
+<td><p>Astronomy-focused cloud, transparency, and seeing forecasts</p></td>
+<td><p>Is the astronomical forecast consistent with the general weather forecast?</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.meteoblue.com/en/weather/outdoorsports/seeing/">meteoblue Astronomy Seeing</a></p></td>
+<td><p>Seeing, cloud layers, jet stream, humidity, and astronomy-specific conditions</p></td>
+<td><p>Are seeing and cloud-layer predictions acceptable for the project?</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://clearoutside.com/">Clear Outside</a></p></td>
+<td><p>Hourly cloud layers, darkness, Moon, humidity, and observing forecast</p></td>
+<td><p>Are low, medium, or high cloud layers expected during the observing window?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practical advice</p>
+<p>Do not only check whether the forecast says “clear.” For observing, a better question is: <em>clear, dry, stable, safe, and clear enough for this science goal?</em></p>
+</div>
+</section>
+<section id="clouds-after-sunset">
+<h2><span class="section-number">12.3. </span>Clouds After Sunset<a class="headerlink" href="#clouds-after-sunset" title="Link to this heading">#</a></h2>
+<p>Not all clouds behave the same way.</p>
+<p>Some clouds are driven by daytime heating. For example, fair-weather cumulus clouds can form as the ground warms during the afternoon. After sunset, the surface cools, convection weakens, and these clouds may dissipate. In that case, a partly cloudy afternoon does not always mean the night will be unusable.</p>
+<p>Other clouds are less likely to disappear quickly. High cirrus clouds can persist through the night. Low stratus clouds or fog may form or thicken after sunset, especially when the temperature approaches the dew point. Storm clouds, rain clouds, or rapidly growing clouds are warning signs that observing should not begin.</p>
+<p>Thin clouds can also be misleading. A night may look clear enough by eye but still be poor for photometry because thin cirrus changes the amount of light reaching the telescope. This is especially important if you are trying to measure precise brightness changes.</p>
+<figure class="align-default" id="cloud-types-weather">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/97/Cloud_types.svg"><img alt="Diagram of common cloud types by altitude and structure" src="https://upload.wikimedia.org/wikipedia/commons/9/97/Cloud_types.svg" style="width: 750px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">Cloud type matters for observing. Fair-weather cumulus may fade after sunset, while cirrus, stratus, fog, or storm-related clouds can remain a serious problem for transparency and safety. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Cloud_types.svg">Wikimedia Commons, <em>Cloud types.svg</em></a>.</span><a class="headerlink" href="#cloud-types-weather" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="transparency-clouds-smoke-and-haze">
+<h2><span class="section-number">12.4. </span>Transparency, Clouds, Smoke, and Haze<a class="headerlink" href="#transparency-clouds-smoke-and-haze" title="Link to this heading">#</a></h2>
+<p>Two different ideas often get mixed together:</p>
+<ul class="simple">
+<li><p><strong>Transparency</strong> describes how much light gets through the atmosphere.</p></li>
+<li><p><strong>Seeing</strong> describes how much the atmosphere blurs the image.</p></li>
+</ul>
+<p>A night with excellent transparency has dark, clear skies with little cloud, haze, smoke, or dust. This is good for detecting faint objects and for measuring reliable brightness changes.</p>
+<p>A night with excellent seeing has steady air and small, sharp stellar images. This is good for resolving fine detail and obtaining precise photometry.</p>
+<p>These do not always occur together. A night can be very transparent but have poor seeing. A night can also have steady seeing but poor transparency because of thin clouds or haze.</p>
+<div class="warning admonition">
+<p class="admonition-title">Photometry warning</p>
+<p>Thin cirrus can be worse than it looks. Your eye may see stars, but a CCD light curve may show changing extinction as the cloud layer moves across the field.</p>
+</div>
+</section>
+<section id="humidity-dew-and-telescope-safety">
+<h2><span class="section-number">12.5. </span>Humidity, Dew, and Telescope Safety<a class="headerlink" href="#humidity-dew-and-telescope-safety" title="Link to this heading">#</a></h2>
+<p>Humidity is one of the most important weather variables for observing.</p>
+<p>As the air cools during the night, the temperature may approach the dew point. When the temperature and dew point become close, water can condense on exposed surfaces. This can fog optics, damage equipment, reduce image quality, or force the telescope to close.</p>
+<p>A useful quantity is the <strong>dew point spread</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+T - T_{\rm dew}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the air temperature and <span class="math notranslate nohighlight">\(T_{\rm dew}\)</span> is the dew point. A small dew point spread means the air is close to saturation. If the spread continues to shrink during the night, conditions may become unsafe even if the sky is currently clear.</p>
+<p>High humidity can also be associated with poorer transparency, fog, frost, or condensation inside the dome or enclosure.</p>
+<div class="warning admonition">
+<p class="admonition-title">Practical warning</p>
+<p>A clear sky is not enough. If humidity is high, the dew point spread is small, or condensation is forming on surfaces, the telescope may need to close even if there are no clouds.</p>
+</div>
+</section>
+<section id="code-example-dew-point-spread-during-the-night">
+<h2><span class="section-number">12.6. </span>Code Example: Dew Point Spread During the Night<a class="headerlink" href="#code-example-dew-point-spread-during-the-night" title="Link to this heading">#</a></h2>
+<p>The exact safety limits depend on the observatory and instrument. The example below is not a replacement for a site rule. It shows how to think about the trend.</p>
+<p>The dangerous pattern is not only “humidity is high.” A more useful pattern is:</p>
+<ul class="simple">
+<li><p>temperature is falling,</p></li>
+<li><p>dew point is steady or rising,</p></li>
+<li><p>the dew point spread is shrinking,</p></li>
+<li><p>condensation is starting to appear on exposed surfaces.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Example time axis in local hours after sunset.</span>
+<span class="n">hours_after_sunset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+
+<span class="c1"># Synthetic weather trend for demonstration.</span>
+<span class="n">temperature_c</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">-</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">hours_after_sunset</span>
+<span class="n">dew_point_c</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">hours_after_sunset</span>
+<span class="n">dew_point_spread_c</span> <span class="o">=</span> <span class="n">temperature_c</span> <span class="o">-</span> <span class="n">dew_point_c</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hours_after_sunset</span><span class="p">,</span> <span class="n">temperature_c</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Air temperature&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hours_after_sunset</span><span class="p">,</span> <span class="n">dew_point_c</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Dew point&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hours_after_sunset</span><span class="p">,</span> <span class="n">dew_point_spread_c</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Dew point spread&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Example caution threshold&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Hours after sunset&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature or spread (°C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Example of a shrinking dew point spread&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ebd6379caad2930843fe814542aff02bd651ee7fcf2813118489aff7c13e1652.png" src="../_images/ebd6379caad2930843fe814542aff02bd651ee7fcf2813118489aff7c13e1652.png" />
+</div>
+</div>
+<p>In a research log, this kind of plot should be paired with notes about what you actually saw at the telescope. For example: Did the guide star FWHM increase? Did the sky background change? Did condensation appear on the tube, cables, dome slit, or nearby metal surfaces?</p>
+<p>The plot is not the decision by itself. It is a way to organize the evidence.</p>
+</section>
+<section id="optional-code-estimating-dew-point-from-temperature-and-humidity">
+<h2><span class="section-number">12.7. </span>Optional Code: Estimating Dew Point from Temperature and Humidity<a class="headerlink" href="#optional-code-estimating-dew-point-from-temperature-and-humidity" title="Link to this heading">#</a></h2>
+<p>A local weather station should ideally report dew point directly. If it only reports temperature and relative humidity, you can estimate dew point using an approximate formula.</p>
+<p>This example uses temperature in Celsius. It is meant for quick planning and visualization, not for writing observatory safety software.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dewpoint_celsius</span><span class="p">(</span><span class="n">temp_c</span><span class="p">,</span> <span class="n">rh_percent</span><span class="p">):</span>
+    <span class="c1"># Estimate dew point in Celsius from air temperature and relative humidity.</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">17.625</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">243.04</span>
+    <span class="n">rh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">rh_percent</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rh</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">temp_c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">temp_c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span>
+
+<span class="n">temp_c</span> <span class="o">=</span> <span class="mf">12.0</span> <span class="c1"># air temperature in degrees Celsius</span>
+<span class="n">rh_percent</span> <span class="o">=</span> <span class="mf">85.0</span> <span class="c1"># relative humidity in percent</span>
+<span class="n">dew_c</span> <span class="o">=</span> <span class="n">dewpoint_celsius</span><span class="p">(</span><span class="n">temp_c</span><span class="p">,</span> <span class="n">rh_percent</span><span class="p">)</span>
+<span class="n">spread_c</span> <span class="o">=</span> <span class="n">temp_c</span> <span class="o">-</span> <span class="n">dew_c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Air temperature: </span><span class="si">{</span><span class="n">temp_c</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relative humidity: </span><span class="si">{</span><span class="n">rh_percent</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimated dew point: </span><span class="si">{</span><span class="n">dew_c</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dew point spread: </span><span class="si">{</span><span class="n">spread_c</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Air temperature: 12.0 °C
+Relative humidity: 85%
+Estimated dew point: 9.6 °C
+Dew point spread: 2.4 °C
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="wind-and-changing-conditions">
+<h2><span class="section-number">12.8. </span>Wind and Changing Conditions<a class="headerlink" href="#wind-and-changing-conditions" title="Link to this heading">#</a></h2>
+<p>Wind affects both safety and image quality.</p>
+<p>Strong winds can shake the telescope, broaden stellar images, make guiding worse, and increase the risk of damage. Gusts are often more important than the average wind speed because a sudden gust can move the telescope or dome unexpectedly.</p>
+<p>Wind direction also matters. A site may be protected from one direction but exposed from another. Wind blowing over warm buildings, pavement, trees, or dome structures can create local turbulence that worsens image quality.</p>
+<p>A night with light, steady wind can be excellent. A night with strong gusts, rapidly changing wind direction, or wind-driven dust may be unusable.</p>
+<div class="warning admonition">
+<p class="admonition-title">Safety rule</p>
+<p>Always follow the local telescope operating limits. If the observatory has a wind, humidity, precipitation, or lightning closure rule, that rule overrides your observing plan.</p>
+</div>
+</section>
+<section id="why-a-local-weather-station-matters">
+<h2><span class="section-number">12.9. </span>Why a Local Weather Station Matters<a class="headerlink" href="#why-a-local-weather-station-matters" title="Link to this heading">#</a></h2>
+<p>A local weather station is essential because observing decisions depend on the conditions at the telescope, not just the regional forecast.</p>
+<p>A useful observing-site weather station should measure:</p>
+<ul class="simple">
+<li><p>air temperature,</p></li>
+<li><p>relative humidity,</p></li>
+<li><p>dew point,</p></li>
+<li><p>wind speed,</p></li>
+<li><p>wind gusts,</p></li>
+<li><p>wind direction,</p></li>
+<li><p>pressure,</p></li>
+<li><p>rainfall or precipitation,</p></li>
+<li><p>sky temperature or cloud sensor data if available.</p></li>
+</ul>
+<p>Additional tools can also help:</p>
+<ul class="simple">
+<li><p>an all-sky camera,</p></li>
+<li><p>satellite cloud loops,</p></li>
+<li><p>radar,</p></li>
+<li><p>lightning maps,</p></li>
+<li><p>a seeing monitor,</p></li>
+<li><p>a sky brightness meter,</p></li>
+<li><p>a dome or enclosure sensor,</p></li>
+<li><p>temperature sensors inside and outside the telescope structure.</p></li>
+</ul>
+<p>The most important part is not just the current value. The trend matters. Rising humidity, falling temperature, increasing wind gusts, or a shrinking dew point spread can turn a usable night into an unsafe one.</p>
+<p>A local weather station helps answer questions such as:</p>
+<ul class="simple">
+<li><p>Is the humidity rising or falling?</p></li>
+<li><p>Is the temperature approaching the dew point?</p></li>
+<li><p>Are wind gusts increasing?</p></li>
+<li><p>Are clouds forming locally?</p></li>
+<li><p>Is rain nearby even if it is not currently raining?</p></li>
+<li><p>Are conditions improving after sunset or getting worse?</p></li>
+</ul>
+<p>For remote or semi-automated observing, these measurements become even more important. The telescope should not depend only on a human looking outside.</p>
+</section>
+<section id="a-basic-observing-weather-checklist">
+<h2><span class="section-number">12.10. </span>A Basic Observing-Weather Checklist<a class="headerlink" href="#a-basic-observing-weather-checklist" title="Link to this heading">#</a></h2>
+<p>Before opening the telescope, ask:</p>
+<ol class="arabic simple">
+<li><p>Is there any precipitation nearby?</p></li>
+<li><p>Is lightning possible?</p></li>
+<li><p>Are wind speeds and gusts within the safe operating range?</p></li>
+<li><p>Is the humidity below the site safety limit?</p></li>
+<li><p>Is the temperature safely above the dew point?</p></li>
+<li><p>Are clouds decreasing, stable, or increasing?</p></li>
+<li><p>Is the sky transparent enough for the science goal?</p></li>
+<li><p>Are seeing conditions good enough for the science goal?</p></li>
+<li><p>Are local sensors consistent with the forecast?</p></li>
+<li><p>Are conditions expected to remain safe long enough to observe?</p></li>
+</ol>
+<p>During the night, keep checking:</p>
+<ol class="arabic simple">
+<li><p>humidity,</p></li>
+<li><p>dew point spread,</p></li>
+<li><p>wind gusts,</p></li>
+<li><p>cloud cover,</p></li>
+<li><p>image quality,</p></li>
+<li><p>guiding quality,</p></li>
+<li><p>stellar FWHM,</p></li>
+<li><p>sky background.</p></li>
+</ol>
+<p>Observing is not a one-time decision. It is a continuous decision made throughout the night.</p>
+</section>
+<section id="what-to-record-in-an-observing-weather-log">
+<h2><span class="section-number">12.11. </span>What to Record in an Observing-Weather Log<a class="headerlink" href="#what-to-record-in-an-observing-weather-log" title="Link to this heading">#</a></h2>
+<p>A weather note should be specific enough that you can understand later why you opened, waited, or closed.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Observing-weather log</span>
+
+Date:
+<span class="k">-</span><span class="w"> </span>2026-07-15
+
+Site:
+<span class="k">-</span><span class="w"> </span>KPNO 0.9m
+
+Before opening:
+<span class="k">-</span><span class="w"> </span>Forecast checked:
+<span class="k">-</span><span class="w"> </span>Satellite loop checked:
+<span class="k">-</span><span class="w"> </span>Radar checked:
+<span class="k">-</span><span class="w"> </span>Local weather station checked:
+<span class="k">-</span><span class="w"> </span>All-sky camera checked:
+
+Current conditions:
+<span class="k">-</span><span class="w"> </span>Temperature:
+<span class="k">-</span><span class="w"> </span>Dew point:
+<span class="k">-</span><span class="w"> </span>Dew point spread:
+<span class="k">-</span><span class="w"> </span>Relative humidity:
+<span class="k">-</span><span class="w"> </span>Wind speed:
+<span class="k">-</span><span class="w"> </span>Wind gust:
+<span class="k">-</span><span class="w"> </span>Cloud estimate:
+<span class="k">-</span><span class="w"> </span>Transparency estimate:
+<span class="k">-</span><span class="w"> </span>Seeing estimate or FWHM:
+
+Decision:
+<span class="k">-</span><span class="w"> </span>Open / wait / close
+
+Reason:
+<span class="k">-</span><span class="w"> </span>Conditions are safe and improving.
+<span class="k">-</span><span class="w"> </span>Conditions are unsafe because humidity is rising and dew point spread is small.
+<span class="k">-</span><span class="w"> </span>Conditions are scientifically poor because thin clouds are crossing the field.
+
+Next check:
+<span class="k">-</span><span class="w"> </span>Reassess in 20 minutes.
+</pre></div>
+</div>
+<p>The most common beginner mistake is to write “weather was fine” without recording the evidence. A useful observing log should explain the decision.</p>
+</section>
+<section id="seeing-and-diffraction">
+<h2><span class="section-number">12.12. </span>Seeing and Diffraction<a class="headerlink" href="#seeing-and-diffraction" title="Link to this heading">#</a></h2>
+<p>Image sharpness is limited by several effects. Two of the most important are <strong>atmospheric seeing</strong> and <strong>diffraction</strong>.</p>
+<p>Diffraction is a fundamental limit caused by the wave nature of light. Seeing is caused by turbulence in Earth’s atmosphere. For most ground-based telescopes, seeing is usually the dominant limitation.</p>
+<figure class="align-default" id="airy-disk-figure">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/4/40/Airy_disk_D65.png"><img alt="Airy disk diffraction pattern with central bright spot and rings" src="https://upload.wikimedia.org/wikipedia/commons/4/40/Airy_disk_D65.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 12.2 </span><span class="caption-text">A circular telescope aperture produces an Airy pattern rather than a perfect point. The bright central spot and surrounding rings are the diffraction pattern of a point source. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Airy_disk_D65.png">Wikimedia Commons, <em>Airy disk D65.png</em></a>.</span><a class="headerlink" href="#airy-disk-figure" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="diffraction-limit">
+<h2><span class="section-number">12.13. </span>Diffraction Limit<a class="headerlink" href="#diffraction-limit" title="Link to this heading">#</a></h2>
+<p>Even a perfect telescope cannot focus light into an infinitely small point. Because light behaves as a wave, a circular telescope aperture produces an Airy pattern: a bright central spot surrounded by faint rings.</p>
+<p>The angular size of the central diffraction pattern is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{\rm diff} \approx 1.22 \frac{\lambda}{D},
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta_{\rm diff}\)</span> is the angular resolution in radians,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength of light,</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span> is the telescope diameter.</p></li>
+</ul>
+<p>Converting to arcseconds gives</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{\rm diff} \approx 0.138''
+\left(\frac{\lambda}{550\,{\rm nm}}\right)
+\left(\frac{1\,{\rm m}}{D}\right).
+\]</div>
+<p>This means that larger telescopes have smaller diffraction limits. At visible wavelengths, a 1-meter telescope has a diffraction limit of roughly <span class="math notranslate nohighlight">\(0.14''\)</span>. A 0.5-meter telescope has a diffraction limit of roughly <span class="math notranslate nohighlight">\(0.28''\)</span>.</p>
+<p>In space, diffraction can be the main limit because there is no atmosphere. On the ground, the atmosphere usually blurs the image more than diffraction does.</p>
+</section>
+<section id="code-example-diffraction-limit-versus-telescope-diameter">
+<h2><span class="section-number">12.14. </span>Code Example: Diffraction Limit versus Telescope Diameter<a class="headerlink" href="#code-example-diffraction-limit-versus-telescope-diameter" title="Link to this heading">#</a></h2>
+<p>This example shows why a larger telescope has a smaller diffraction limit. The calculation assumes visible light with wavelength <span class="math notranslate nohighlight">\(\lambda = 550\,{\rm nm}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">wavelength_m</span> <span class="o">=</span> <span class="mf">550e-9</span> <span class="c1"># wavelength in meters</span>
+<span class="n">diameter_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1"># telescope diameter in meters</span>
+<span class="n">theta_rad</span> <span class="o">=</span> <span class="mf">1.22</span> <span class="o">*</span> <span class="n">wavelength_m</span> <span class="o">/</span> <span class="n">diameter_m</span> <span class="c1"># diffraction limit in radians</span>
+<span class="n">theta_arcsec</span> <span class="o">=</span> <span class="n">theta_rad</span> <span class="o">*</span> <span class="mi">206265</span> <span class="c1"># convert radians to arcseconds</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diameter_m</span><span class="p">,</span> <span class="n">theta_arcsec</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Telescope diameter (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Diffraction limit (arcsec)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Diffraction limit at 550 nm&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e80ccf0d8040cff5a27bf29491e7ab426aac64b9bea978eb413a3c322f21507b.png" src="../_images/e80ccf0d8040cff5a27bf29491e7ab426aac64b9bea978eb413a3c322f21507b.png" />
+</div>
+</div>
+<p>For ordinary ground-based imaging, the plotted diffraction limit is often much smaller than the actual observed stellar FWHM. That difference is usually caused by atmospheric seeing, tracking, focus, wind shake, thermal effects, or a combination of these.</p>
+</section>
+<section id="atmospheric-seeing">
+<h2><span class="section-number">12.15. </span>Atmospheric Seeing<a class="headerlink" href="#atmospheric-seeing" title="Link to this heading">#</a></h2>
+<p>Atmospheric seeing is caused by turbulent air with changing temperature and density. These variations change the index of refraction of the air. As starlight passes through the atmosphere, the wavefront becomes distorted.</p>
+<p>Instead of forming a tiny diffraction-limited image, a star becomes a blurred, moving spot. Long exposures average over this motion and produce a broadened stellar image.</p>
+<p>Seeing is often measured using the full width at half maximum, or <strong>FWHM</strong>, of stellar images. A smaller FWHM means sharper images.</p>
+<p>Typical seeing values might be:</p>
+<ul class="simple">
+<li><p>excellent: less than <span class="math notranslate nohighlight">\(1''\)</span>,</p></li>
+<li><p>moderate: <span class="math notranslate nohighlight">\(1''\)</span> to <span class="math notranslate nohighlight">\(2''\)</span>,</p></li>
+<li><p>poor: greater than <span class="math notranslate nohighlight">\(2''\)</span>.</p></li>
+</ul>
+<p>These values depend strongly on the site, weather, telescope environment, and altitude above the horizon.</p>
+</section>
+<section id="the-fried-parameter">
+<h2><span class="section-number">12.16. </span>The Fried Parameter<a class="headerlink" href="#the-fried-parameter" title="Link to this heading">#</a></h2>
+<p>A useful way to describe seeing is with the <strong>Fried parameter</strong>, usually written <span class="math notranslate nohighlight">\(r_0\)</span>. This is the approximate diameter of a patch of atmosphere over which the wavefront remains fairly coherent.</p>
+<p>The seeing angle is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{\rm seeing} \approx 0.98 \frac{\lambda}{r_0}.
+\]</div>
+<p>A larger <span class="math notranslate nohighlight">\(r_0\)</span> means better seeing. A smaller <span class="math notranslate nohighlight">\(r_0\)</span> means stronger atmospheric distortion.</p>
+<p>For example, if <span class="math notranslate nohighlight">\(r_0\)</span> is small compared with the telescope diameter, then the telescope is not operating at its diffraction limit. Instead, the image is broken into many turbulent patches and the final image is seeing-limited.</p>
+<p>This is why a larger telescope does not automatically produce sharper images from the ground. If the seeing is <span class="math notranslate nohighlight">\(2''\)</span>, then both a small telescope and a large telescope may produce stellar images that are much broader than their diffraction limits.</p>
+</section>
+<section id="code-example-seeing-versus-fried-parameter">
+<h2><span class="section-number">12.17. </span>Code Example: Seeing versus Fried Parameter<a class="headerlink" href="#code-example-seeing-versus-fried-parameter" title="Link to this heading">#</a></h2>
+<p>This example converts Fried parameter <span class="math notranslate nohighlight">\(r_0\)</span> into an approximate seeing angle at <span class="math notranslate nohighlight">\(\lambda = 550\,{\rm nm}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">wavelength_m</span> <span class="o">=</span> <span class="mf">550e-9</span> <span class="c1"># wavelength in meters</span>
+<span class="n">r0_cm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1"># Fried parameter in centimeters</span>
+<span class="n">r0_m</span> <span class="o">=</span> <span class="n">r0_cm</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">seeing_rad</span> <span class="o">=</span> <span class="mf">0.98</span> <span class="o">*</span> <span class="n">wavelength_m</span> <span class="o">/</span> <span class="n">r0_m</span>
+<span class="n">seeing_arcsec</span> <span class="o">=</span> <span class="n">seeing_rad</span> <span class="o">*</span> <span class="mi">206265</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r0_cm</span><span class="p">,</span> <span class="n">seeing_arcsec</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;1 arcsec&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;2 arcsec&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fried parameter r0 (cm)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Seeing angle (arcsec)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Better seeing corresponds to larger r0&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/272618e84f457588e9502f60de9993ef8395994868e5722be31b7311430dc985.png" src="../_images/272618e84f457588e9502f60de9993ef8395994868e5722be31b7311430dc985.png" />
+</div>
+</div>
+</section>
+<section id="seeing-limited-versus-diffraction-limited-observing">
+<h2><span class="section-number">12.18. </span>Seeing-Limited versus Diffraction-Limited Observing<a class="headerlink" href="#seeing-limited-versus-diffraction-limited-observing" title="Link to this heading">#</a></h2>
+<p>A telescope is <strong>diffraction-limited</strong> when the image sharpness is set mainly by the telescope aperture and the wavelength of light.</p>
+<p>A telescope is <strong>seeing-limited</strong> when the image sharpness is set mainly by atmospheric turbulence.</p>
+<p>For most ordinary ground-based imaging without adaptive optics,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{\rm seeing} &gt; \theta_{\rm diff}.
+\]</div>
+<p>In that case, the atmosphere dominates.</p>
+<p>The observed image size can be thought of approximately as a combination of several blurring effects:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{\rm obs}^2 \approx
+\theta_{\rm seeing}^2 +
+\theta_{\rm diff}^2 +
+\theta_{\rm tracking}^2 +
+\theta_{\rm focus}^2.
+\]</div>
+<p>This is only an approximate way to think about the problem, but it is useful. Poor tracking, poor focus, wind shake, dome turbulence, and bad seeing can all broaden the final stellar image.</p>
+</section>
+<section id="what-makes-seeing-worse">
+<h2><span class="section-number">12.19. </span>What Makes Seeing Worse?<a class="headerlink" href="#what-makes-seeing-worse" title="Link to this heading">#</a></h2>
+<p>Seeing can become worse when there is strong turbulence along the line of sight. Common causes include:</p>
+<ul class="simple">
+<li><p>strong upper-level winds,</p></li>
+<li><p>jet stream overhead,</p></li>
+<li><p>rapidly changing temperatures,</p></li>
+<li><p>warm ground releasing heat after sunset,</p></li>
+<li><p>wind blowing over buildings or rough terrain,</p></li>
+<li><p>telescope or dome warmer than the outside air,</p></li>
+<li><p>observing too low above the horizon,</p></li>
+<li><p>unstable air after a weather front,</p></li>
+<li><p>local heat sources near the telescope.</p></li>
+</ul>
+<p>Some seeing problems are atmospheric. Others are local. A telescope looking over a warm roof or parking lot can have poor seeing even when the larger atmosphere is stable.</p>
+<div class="warning admonition">
+<p class="admonition-title">Local seeing</p>
+<p>Bad seeing is not always caused by the upper atmosphere. Heat from a building, dome floor, telescope mirror, road, or nearby equipment can blur images before the light even reaches the telescope optics.</p>
+</div>
+</section>
+<section id="what-makes-seeing-better">
+<h2><span class="section-number">12.20. </span>What Makes Seeing Better?<a class="headerlink" href="#what-makes-seeing-better" title="Link to this heading">#</a></h2>
+<p>Seeing often improves when the air is stable and temperature gradients are small.</p>
+<p>Good seeing is more likely when:</p>
+<ul class="simple">
+<li><p>winds are light or steady,</p></li>
+<li><p>the telescope and dome are close to ambient temperature,</p></li>
+<li><p>the target is high above the horizon,</p></li>
+<li><p>the ground is not releasing strong heat,</p></li>
+<li><p>there are no nearby heat sources,</p></li>
+<li><p>the atmosphere is stable,</p></li>
+<li><p>the jet stream is weak or displaced from the site.</p></li>
+</ul>
+<p>The best seeing often occurs when the telescope, dome, and surrounding air have reached thermal equilibrium. This is why opening the dome early, cooling the telescope, and avoiding local heat sources can matter.</p>
+</section>
+<section id="seeing-and-airmass">
+<h2><span class="section-number">12.21. </span>Seeing and Airmass<a class="headerlink" href="#seeing-and-airmass" title="Link to this heading">#</a></h2>
+<p>Seeing usually gets worse when observing targets close to the horizon. At low altitude, starlight passes through more atmosphere. This increases extinction, refraction, and turbulence along the line of sight.</p>
+<p>A target near the zenith passes through the least atmosphere. A target near the horizon passes through much more.</p>
+<p>This is one reason observing plans often prioritize targets when they are high in the sky.</p>
+<div class="tip admonition">
+<p class="admonition-title">Observing rule</p>
+<p>If two targets are equally important, observe the one that is higher in the sky first. High-altitude targets usually have lower airmass, less extinction, and better image quality.</p>
+</div>
+</section>
+<section id="seeing-and-photometry">
+<h2><span class="section-number">12.22. </span>Seeing and Photometry<a class="headerlink" href="#seeing-and-photometry" title="Link to this heading">#</a></h2>
+<p>For photometry, seeing matters because it changes the shape and size of the stellar image.</p>
+<p>If seeing gets worse, the star’s light spreads over more pixels. This can affect:</p>
+<ul class="simple">
+<li><p>aperture size,</p></li>
+<li><p>sky background contribution,</p></li>
+<li><p>signal-to-noise ratio,</p></li>
+<li><p>blending with nearby stars,</p></li>
+<li><p>guiding quality,</p></li>
+<li><p>differential photometry precision.</p></li>
+</ul>
+<p>For time-series photometry, changes in seeing during the night can introduce trends or scatter in the light curve. This is especially important for transits, eclipses, and other events where small brightness changes matter.</p>
+<p>Good photometry does not always require perfect seeing, but it does require stable and well-understood observing conditions.</p>
+</section>
+<section id="code-example-a-simple-observing-condition-flag">
+<h2><span class="section-number">12.23. </span>Code Example: A Simple Observing-Condition Flag<a class="headerlink" href="#code-example-a-simple-observing-condition-flag" title="Link to this heading">#</a></h2>
+<p>This example is intentionally simple. Real observatories use site-specific safety rules. The goal here is to show how multiple conditions can be combined into a first-pass decision.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">observing_condition_flag</span><span class="p">(</span><span class="n">cloud_fraction</span><span class="p">,</span> <span class="n">humidity_percent</span><span class="p">,</span> <span class="n">wind_gust_mph</span><span class="p">,</span> <span class="n">dew_point_spread_c</span><span class="p">,</span> <span class="n">seeing_arcsec</span><span class="p">):</span>
+    <span class="c1"># Return a simple text flag for observing conditions.</span>
+    <span class="k">if</span> <span class="n">cloud_fraction</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Do not open: too cloudy&quot;</span>
+    <span class="k">if</span> <span class="n">humidity_percent</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Do not open: humidity too high&quot;</span>
+    <span class="k">if</span> <span class="n">wind_gust_mph</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Do not open: wind gusts too strong&quot;</span>
+    <span class="k">if</span> <span class="n">dew_point_spread_c</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Caution: dew point spread is small&quot;</span>
+    <span class="k">if</span> <span class="n">seeing_arcsec</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Science caution: seeing is poor&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;Conditions may be usable, but keep monitoring&quot;</span>
+
+<span class="n">cloud_fraction</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># fraction of sky covered by cloud</span>
+<span class="n">humidity_percent</span> <span class="o">=</span> <span class="mi">78</span> <span class="c1"># relative humidity</span>
+<span class="n">wind_gust_mph</span> <span class="o">=</span> <span class="mi">18</span> <span class="c1"># maximum recent wind gust</span>
+<span class="n">dew_point_spread_c</span> <span class="o">=</span> <span class="mf">5.5</span> <span class="c1"># air temperature minus dew point</span>
+<span class="n">seeing_arcsec</span> <span class="o">=</span> <span class="mf">1.8</span> <span class="c1"># approximate stellar FWHM or forecast seeing</span>
+
+<span class="n">flag</span> <span class="o">=</span> <span class="n">observing_condition_flag</span><span class="p">(</span><span class="n">cloud_fraction</span><span class="p">,</span> <span class="n">humidity_percent</span><span class="p">,</span> <span class="n">wind_gust_mph</span><span class="p">,</span> <span class="n">dew_point_spread_c</span><span class="p">,</span> <span class="n">seeing_arcsec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Conditions may be usable, but keep monitoring
+</pre></div>
+</div>
+</div>
+</div>
+<p>This kind of code is useful for teaching, but it should not be used as automated telescope-control software. A real closure system needs tested sensors, site-specific thresholds, failure handling, and conservative rules.</p>
+</section>
+<section id="putting-it-together">
+<h2><span class="section-number">12.24. </span>Putting It Together<a class="headerlink" href="#putting-it-together" title="Link to this heading">#</a></h2>
+<p>A good observing decision combines weather, safety, and image-quality information.</p>
+<p>Clear skies are necessary, but they are not sufficient. You also need safe humidity, safe wind, acceptable transparency, and seeing that matches the science goal.</p>
+<p>During an observing night, keep comparing three things:</p>
+<ol class="arabic simple">
+<li><p>what the forecast predicted,</p></li>
+<li><p>what the local weather station reports,</p></li>
+<li><p>what the images actually look like.</p></li>
+</ol>
+<p>That comparison is how you learn to judge observing conditions like an observer rather than just a weather app user.</p>
+</section>
+<section id="checkpoint-questions">
+<h2><span class="section-number">12.25. </span>Checkpoint Questions<a class="headerlink" href="#checkpoint-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why is a clear sky not always enough to open a telescope?</p></li>
+<li><p>Why can fair-weather cumulus clouds disappear after sunset?</p></li>
+<li><p>Why can thin cirrus be a problem for photometry?</p></li>
+<li><p>What does a shrinking dew point spread tell you?</p></li>
+<li><p>Why is a local weather station better than relying only on a regional forecast?</p></li>
+<li><p>What is the difference between transparency and seeing?</p></li>
+<li><p>Why does a larger telescope not always produce sharper images from the ground?</p></li>
+<li><p>What does the Fried parameter <span class="math notranslate nohighlight">\(r_0\)</span> describe?</p></li>
+<li><p>Why do targets near the horizon usually have worse image quality?</p></li>
+<li><p>What weather and image-quality quantities should be recorded in an observing log?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "saturnaxis/exoplanet-binary",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reu_observation_planning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Planning Observations for Transits and Eclipses</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="photometry-basics-guide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Basics of CCD Photometry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weather-forecasts-and-real-conditions">12.1. Weather Forecasts and Real Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-weather-resources">12.2. Useful Weather Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clouds-after-sunset">12.3. Clouds After Sunset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transparency-clouds-smoke-and-haze">12.4. Transparency, Clouds, Smoke, and Haze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#humidity-dew-and-telescope-safety">12.5. Humidity, Dew, and Telescope Safety</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-dew-point-spread-during-the-night">12.6. Code Example: Dew Point Spread During the Night</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-code-estimating-dew-point-from-temperature-and-humidity">12.7. Optional Code: Estimating Dew Point from Temperature and Humidity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-and-changing-conditions">12.8. Wind and Changing Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-a-local-weather-station-matters">12.9. Why a Local Weather Station Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-observing-weather-checklist">12.10. A Basic Observing-Weather Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-record-in-an-observing-weather-log">12.11. What to Record in an Observing-Weather Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-and-diffraction">12.12. Seeing and Diffraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffraction-limit">12.13. Diffraction Limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-diffraction-limit-versus-telescope-diameter">12.14. Code Example: Diffraction Limit versus Telescope Diameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atmospheric-seeing">12.15. Atmospheric Seeing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fried-parameter">12.16. The Fried Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-seeing-versus-fried-parameter">12.17. Code Example: Seeing versus Fried Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-limited-versus-diffraction-limited-observing">12.18. Seeing-Limited versus Diffraction-Limited Observing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-seeing-worse">12.19. What Makes Seeing Worse?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-seeing-better">12.20. What Makes Seeing Better?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-and-airmass">12.21. Seeing and Airmass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-and-photometry">12.22. Seeing and Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example-a-simple-observing-condition-flag">12.23. Code Example: A Simple Observing-Condition Flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-together">12.24. Putting It Together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-questions">12.25. Checkpoint Questions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Billy Quarles
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -30,6 +30,7 @@ parts:
   - file: Tutorials/research-log.ipynb
   - file: Tutorials/celestial-sphere.ipynb
   - file: Tutorials/reu_observation_planning.ipynb
+  - file: Tutorials/observing-weather.ipynb
   - file: Tutorials/photometry-basics-guide.ipynb
 - caption: Reduction Analysis and Modeling
   numbered: true

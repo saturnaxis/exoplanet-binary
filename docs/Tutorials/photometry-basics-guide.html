@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Basics of CCD Photometry &#8212; Exoplanets within Binary Systems</title>
+    <title>13. Basics of CCD Photometry &#8212; Exoplanets within Binary Systems</title>
   
   
   
@@ -85,8 +85,8 @@
     <link rel="icon" href="../_static/CBP_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Reducing Light Curves with AstroImageJ" href="AIJ-lightcurve.html" />
-    <link rel="prev" title="11. Planning Observations for Transits and Eclipses" href="reu_observation_planning.html" />
+    <link rel="next" title="14. Reducing Light Curves with AstroImageJ" href="AIJ-lightcurve.html" />
+    <link rel="prev" title="12. Watching the Weather for Observing" href="observing-weather.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -230,13 +230,14 @@
 <li class="toctree-l1"><a class="reference internal" href="research-log.html">9. Research Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="celestial-sphere.html">10. Celestial Sphere and Sky Coordinates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reu_observation_planning.html">11. Planning Observations for Transits and Eclipses</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Basics of CCD Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observing-weather.html">12. Watching the Weather for Observing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Basics of CCD Photometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduction Analysis and Modeling</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">13. Reducing Light Curves with AstroImageJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archival-data.html">14. Data Reduction (archival)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">15. Modeling Exoplanet Transits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AIJ-lightcurve.html">14. Reducing Light Curves with AstroImageJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archival-data.html">15. Data Reduction (archival)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling-exoplanet-transits.html">16. Modeling Exoplanet Transits</a></li>
 </ul>
 
     </div>
@@ -467,46 +468,46 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-photometry-measures">12.1. What Photometry Measures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-digital-photometer-works">12.2. How a Digital Photometer Works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-counts-to-instrumental-magnitudes">12.3. From Counts to Instrumental Magnitudes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aperture-photometry">12.4. Aperture Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-width-at-half-maximum">12.5. Full Width at Half Maximum</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changes-the-fwhm">12.5.1. What changes the FWHM?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-fwhm-with-python">12.5.2. Estimating FWHM with Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-fwhm-to-choose-an-aperture">12.5.3. Using FWHM to choose an aperture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-photometry-measures">13.1. What Photometry Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-digital-photometer-works">13.2. How a Digital Photometer Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-counts-to-instrumental-magnitudes">13.3. From Counts to Instrumental Magnitudes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aperture-photometry">13.4. Aperture Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-width-at-half-maximum">13.5. Full Width at Half Maximum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changes-the-fwhm">13.5.1. What changes the FWHM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-fwhm-with-python">13.5.2. Estimating FWHM with Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-fwhm-to-choose-an-aperture">13.5.3. Using FWHM to choose an aperture</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry">12.6. Differential Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-sources-in-photometry">12.7. Noise Sources in Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-to-noise-ratio">12.8. Signal-to-Noise Ratio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-frames">12.9. Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-take-calibration-frames">12.10. How to Take Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fits-file-format-and-image-headers">12.11. The FITS File Format and Image Headers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-example-fits-file">12.11.1. Public Example FITS File</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-fits-file-structure">12.11.2. Inspecting the FITS File Structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-header-and-image-data">12.11.3. Reading the Header and Image Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-important-header-keywords">12.11.4. Reading Important Header Keywords</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-full-header">12.11.5. Checking the Full Header</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-the-fits-image">12.11.6. Displaying the FITS Image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-a-folder-of-fits-files">12.11.7. Summarizing a Folder of FITS Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry">13.6. Differential Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-sources-in-photometry">13.7. Noise Sources in Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-to-noise-ratio">13.8. Signal-to-Noise Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-frames">13.9. Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-take-calibration-frames">13.10. How to Take Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fits-file-format-and-image-headers">13.11. The FITS File Format and Image Headers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-example-fits-file">13.11.1. Public Example FITS File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-fits-file-structure">13.11.2. Inspecting the FITS File Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-header-and-image-data">13.11.3. Reading the Header and Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-important-header-keywords">13.11.4. Reading Important Header Keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-full-header">13.11.5. Checking the Full Header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-the-fits-image">13.11.6. Displaying the FITS Image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-a-folder-of-fits-files">13.11.7. Summarizing a Folder of FITS Files</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-setup">12.12. Python Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulate-raw-lights-and-calibration-frames">12.13. Example 1: Simulate Raw Lights and Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-build-master-calibration-frames">12.14. Example 2: Build Master Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-calibrate-a-light-image">12.15. Example 3: Calibrate a Light Image</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-calibrating-real-fits-images-with-astropy">12.16. Example 4: Calibrating Real FITS Images with Astropy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-checks-after-calibration">12.17. Quality Checks After Calibration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-calibrated-images-to-differential-light-curves">12.18. From Calibrated Images to Differential Light Curves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problems-in-beginner-photometry">12.19. Common Problems in Beginner Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-and-further-reading">12.20. Videos and Further Reading</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-and-aperture-photometry">12.20.1. Differential photometry and aperture photometry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitudes-and-light-curves">12.20.2. Magnitudes and light curves</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-documentation">12.20.3. Python documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-setup">13.12. Python Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulate-raw-lights-and-calibration-frames">13.13. Example 1: Simulate Raw Lights and Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-build-master-calibration-frames">13.14. Example 2: Build Master Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-calibrate-a-light-image">13.15. Example 3: Calibrate a Light Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-calibrating-real-fits-images-with-astropy">13.16. Example 4: Calibrating Real FITS Images with Astropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-checks-after-calibration">13.17. Quality Checks After Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-calibrated-images-to-differential-light-curves">13.18. From Calibrated Images to Differential Light Curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problems-in-beginner-photometry">13.19. Common Problems in Beginner Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-and-further-reading">13.20. Videos and Further Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-and-aperture-photometry">13.20.1. Differential photometry and aperture photometry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitudes-and-light-curves">13.20.2. Magnitudes and light curves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-documentation">13.20.3. Python documentation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">12.21. Final Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">13.21. Final Checklist</a></li>
 </ul>
             </nav>
         </div>
@@ -519,10 +520,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="basics-of-ccd-photometry">
-<h1><span class="section-number">12. </span>Basics of CCD Photometry<a class="headerlink" href="#basics-of-ccd-photometry" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Basics of CCD Photometry<a class="headerlink" href="#basics-of-ccd-photometry" title="Link to this heading">#</a></h1>
 <p>This guide introduces the practical ideas needed to turn astronomical images into brightness measurements. The goal is not to cover every advanced reduction method. The goal is to help you understand what the detector records, what can go wrong, how calibration frames help, and how a calibrated image becomes a differential light curve.</p>
 <section id="what-photometry-measures">
-<h2><span class="section-number">12.1. </span>What Photometry Measures<a class="headerlink" href="#what-photometry-measures" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>What Photometry Measures<a class="headerlink" href="#what-photometry-measures" title="Link to this heading">#</a></h2>
 <p>Photometry means measuring the brightness of an object. In time-series photometry, we measure brightness repeatedly so that we can make a light curve. A light curve is a graph of brightness versus time. Eclipsing binaries, transiting exoplanets, pulsating stars, rotating asteroids, and cataclysmic variables can all produce measurable changes in brightness.</p>
 <p>The key point is that an astronomical image is not just a picture. It is a numerical dataset. Each pixel stores a number related to the amount of light detected during the exposure.</p>
 <div class="note admonition">
@@ -531,7 +532,7 @@ document.write(`
 </div>
 </section>
 <section id="how-a-digital-photometer-works">
-<h2><span class="section-number">12.2. </span>How a Digital Photometer Works<a class="headerlink" href="#how-a-digital-photometer-works" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>How a Digital Photometer Works<a class="headerlink" href="#how-a-digital-photometer-works" title="Link to this heading">#</a></h2>
 <p>A traditional photoelectric photometer measured one star at a time through a filter and aperture. Modern CCD/CMOS photometry usually works differently: the camera records a full image, and software defines the aperture afterward. In that sense, the image plus software becomes the photometer.</p>
 <p>The basic chain is:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>photons from star
@@ -551,7 +552,7 @@ document.write(`
 </div>
 </section>
 <section id="from-counts-to-instrumental-magnitudes">
-<h2><span class="section-number">12.3. </span>From Counts to Instrumental Magnitudes<a class="headerlink" href="#from-counts-to-instrumental-magnitudes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>From Counts to Instrumental Magnitudes<a class="headerlink" href="#from-counts-to-instrumental-magnitudes" title="Link to this heading">#</a></h2>
 <p>After the sky background has been subtracted, the total source counts inside the aperture are proportional to the flux from the star. A common instrumental magnitude is</p>
 <div class="math notranslate nohighlight">
 \[m_{\rm inst} = -2.5\log_{10}\left(\frac{F}{t_{\rm exp}}\right),\]</div>
@@ -563,7 +564,7 @@ document.write(`
 </div>
 </section>
 <section id="aperture-photometry">
-<h2><span class="section-number">12.4. </span>Aperture Photometry<a class="headerlink" href="#aperture-photometry" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>Aperture Photometry<a class="headerlink" href="#aperture-photometry" title="Link to this heading">#</a></h2>
 <p>Aperture photometry measures the light from a source by summing pixel values inside a region centered on the star. A surrounding sky annulus estimates the local sky background. The sky contribution inside the aperture is then subtracted.</p>
 <p>The essential measurement is</p>
 <div class="math notranslate nohighlight">
@@ -648,7 +649,7 @@ The instrumental magnitude is -11.479.
 </div>
 </section>
 <section id="full-width-at-half-maximum">
-<h2><span class="section-number">12.5. </span>Full Width at Half Maximum<a class="headerlink" href="#full-width-at-half-maximum" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span>Full Width at Half Maximum<a class="headerlink" href="#full-width-at-half-maximum" title="Link to this heading">#</a></h2>
 <p>The <strong>full width at half maximum</strong>, usually abbreviated <strong>FWHM</strong>, is a practical way to describe how wide a star appears in an image. Stars are so far away that they should appear as points, but the telescope, atmosphere, focus, tracking, and camera spread the light over several pixels. The result is a small bright spot rather than a perfect point.</p>
 <p>The FWHM is the width of the star profile measured at half of the star’s peak brightness above the local background. If a star image is narrow and sharp, the FWHM is small. If the star image is blurry, out of focus, affected by poor seeing, or slightly trailed, the FWHM is larger.</p>
 <div class="note admonition">
@@ -668,12 +669,12 @@ r_{\rm aperture} \approx 1.5 \times {\rm FWHM} \approx 6\ {\rm pixels}.
 <p>Do not choose the aperture only by how large the star looks on the screen. Display stretch can make faint stars look small and bright stars look large, even when their FWHM is similar.</p>
 </div>
 <section id="what-changes-the-fwhm">
-<h3><span class="section-number">12.5.1. </span>What changes the FWHM?<a class="headerlink" href="#what-changes-the-fwhm" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.5.1. </span>What changes the FWHM?<a class="headerlink" href="#what-changes-the-fwhm" title="Link to this heading">#</a></h3>
 <p>Several effects can make the FWHM larger or smaller. Atmospheric seeing spreads starlight over a larger area when the air is turbulent. Poor focus makes all stars wider. Guiding or tracking errors can stretch stars in one direction. Wind shake can blur images. Saturated stars can also have unreliable FWHM measurements because the peak of the star profile has been clipped.</p>
 <p>For good differential photometry, the target, comparison stars, and check stars should usually have similar FWHM values in the same image. If one star has a very different FWHM, it may be blended with another star, affected by a bad pixel, saturated, or poorly measured.</p>
 </section>
 <section id="estimating-fwhm-with-python">
-<h3><span class="section-number">12.5.2. </span>Estimating FWHM with Python<a class="headerlink" href="#estimating-fwhm-with-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.5.2. </span>Estimating FWHM with Python<a class="headerlink" href="#estimating-fwhm-with-python" title="Link to this heading">#</a></h3>
 <p>The example below shows one simple way to estimate the FWHM of a star from an image. It fits a two-dimensional Gaussian model to a small cutout around the star. This is not the only way to measure FWHM, but it gives a useful first estimate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -787,7 +788,7 @@ Average FWHM: 5.16 pixels
 <p>A reasonable first aperture radius is often about <span class="math notranslate nohighlight">\(1.5\)</span> to <span class="math notranslate nohighlight">\(2.0\)</span> times the average FWHM.</p>
 </section>
 <section id="using-fwhm-to-choose-an-aperture">
-<h3><span class="section-number">12.5.3. </span>Using FWHM to choose an aperture<a class="headerlink" href="#using-fwhm-to-choose-an-aperture" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.5.3. </span>Using FWHM to choose an aperture<a class="headerlink" href="#using-fwhm-to-choose-an-aperture" title="Link to this heading">#</a></h3>
 <p>The code below uses the measured FWHM to suggest a starting aperture radius and sky annulus. These values should still be checked by inspecting the image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -817,7 +818,7 @@ Suggested outer sky-annulus radius: 25.8 pixels
 </section>
 </section>
 <section id="differential-photometry">
-<h2><span class="section-number">12.6. </span>Differential Photometry<a class="headerlink" href="#differential-photometry" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.6. </span>Differential Photometry<a class="headerlink" href="#differential-photometry" title="Link to this heading">#</a></h2>
 <p>Differential photometry compares a target star to one or more comparison stars in the same image. This is powerful because the target and comparison stars pass through nearly the same atmosphere, are recorded by the same detector, and are affected by many of the same observing conditions.</p>
 <p>The basic differential magnitude is</p>
 <div class="math notranslate nohighlight">
@@ -861,7 +862,7 @@ Suggested outer sky-annulus radius: 25.8 pixels
 </div>
 </section>
 <section id="noise-sources-in-photometry">
-<h2><span class="section-number">12.7. </span>Noise Sources in Photometry<a class="headerlink" href="#noise-sources-in-photometry" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.7. </span>Noise Sources in Photometry<a class="headerlink" href="#noise-sources-in-photometry" title="Link to this heading">#</a></h2>
 <p>Noise is any variation that makes the measured brightness differ from the true brightness. Some noise is random and can be reduced by collecting more photons or averaging repeated measurements. Other errors are systematic and must be avoided, calibrated, modeled, or flagged.</p>
 <p>Random noise includes photon <code class="docutils literal notranslate"><span class="pre">shot</span> <span class="pre">noise</span></code> from the target, photon shot noise from the sky background, dark-current noise, read noise, and scintillation. Systematic effects include saturation, nonlinearity, poor flat-field correction, bad pixels, cosmic rays, tracking errors, changing focus, clouds, color-dependent extinction, and variable comparison stars.</p>
 <div class="note admonition">
@@ -871,7 +872,7 @@ Suggested outer sky-annulus radius: 25.8 pixels
 <p>The ideal way to reduce random photon noise is to collect more photons without saturating the detector. That can mean longer exposures, more images, a larger telescope, or a brighter target. The practical limit is that long exposures can saturate bright comparison stars, trail moving targets, blur under poor guiding, or average over short-timescale variability.</p>
 </section>
 <section id="signal-to-noise-ratio">
-<h2><span class="section-number">12.8. </span>Signal-to-Noise Ratio<a class="headerlink" href="#signal-to-noise-ratio" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.8. </span>Signal-to-Noise Ratio<a class="headerlink" href="#signal-to-noise-ratio" title="Link to this heading">#</a></h2>
 <p>The signal-to-noise ratio, or SNR, compares the useful source signal to the uncertainty in that signal. A simplified CCD SNR expression is</p>
 <div class="math notranslate nohighlight">
 \[ {\rm SNR} = \frac{N_{\star}}{\sqrt{N_{\star} + n_{\rm pix}(N_{\rm sky} + N_{\rm dark} + R^2)}}. \]</div>
@@ -916,7 +917,7 @@ SNR = 500 gives an approximate magnitude uncertainty of 0.0022 mag.
 </div>
 </section>
 <section id="calibration-frames">
-<h2><span class="section-number">12.9. </span>Calibration Frames<a class="headerlink" href="#calibration-frames" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.9. </span>Calibration Frames<a class="headerlink" href="#calibration-frames" title="Link to this heading">#</a></h2>
 <p>Calibration frames are images taken to measure detector and optical-system effects that are not part of the astronomical target. The three main calibration frames are bias, dark, and flat-field images.</p>
 <p>A <strong>bias frame</strong> measures the electronic offset added during readout. It is taken with the shutter closed and the shortest possible exposure time. A <strong>dark frame</strong> measures thermal signal and hot pixels. It is taken with the shutter closed, usually at the same detector temperature, exposure time, binning, and readout mode as the science images. A <strong>flat field</strong> measures pixel-to-pixel sensitivity variations, dust shadows, and vignetting. It is taken through each filter using an evenly illuminated source.</p>
 <div class="tip admonition">
@@ -933,7 +934,7 @@ SNR = 500 gives an approximate magnitude uncertainty of 0.0022 mag.
 </div>
 </section>
 <section id="how-to-take-calibration-frames">
-<h2><span class="section-number">12.10. </span>How to Take Calibration Frames<a class="headerlink" href="#how-to-take-calibration-frames" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.10. </span>How to Take Calibration Frames<a class="headerlink" href="#how-to-take-calibration-frames" title="Link to this heading">#</a></h2>
 <p>Take multiple calibration frames and combine them into master frames. Combining many frames reduces random noise in the master calibration image.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -979,7 +980,7 @@ SNR = 500 gives an approximate magnitude uncertainty of 0.0022 mag.
 </div>
 </section>
 <section id="the-fits-file-format-and-image-headers">
-<h2><span class="section-number">12.11. </span>The FITS File Format and Image Headers<a class="headerlink" href="#the-fits-file-format-and-image-headers" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.11. </span>The FITS File Format and Image Headers<a class="headerlink" href="#the-fits-file-format-and-image-headers" title="Link to this heading">#</a></h2>
 <p>Astronomical images are usually stored as <strong>FITS files</strong>, short for Flexible Image Transport System. A FITS file stores the image data and the metadata needed to understand the image. The image data are the pixel values. The metadata are stored in a <strong>header</strong> made of keyword-value-comment records. In Astropy, each header record is represented as a header card with a keyword, a value, and sometimes a comment.</p>
 <p>For photometry, the header matters because the image by itself is not enough. You need to know when the exposure was taken, how long the exposure lasted, which filter was used, what type of frame it is, where the telescope was pointed, and sometimes whether calibration or plate-solving information has already been applied. A FITS header will not make bad data good, but it can prevent you from making avoidable mistakes.</p>
 <div class="tip admonition">
@@ -987,7 +988,7 @@ SNR = 500 gives an approximate magnitude uncertainty of 0.0022 mag.
 <p>Before calibrating or measuring images, check a few headers. Many beginner mistakes come from mixing filters, using the wrong exposure time, calibrating already-calibrated images, or assuming the observation time is correct without checking it.</p>
 </div>
 <section id="public-example-fits-file">
-<h3><span class="section-number">12.11.1. </span>Public Example FITS File<a class="headerlink" href="#public-example-fits-file" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.1. </span>Public Example FITS File<a class="headerlink" href="#public-example-fits-file" title="Link to this heading">#</a></h3>
 <p>The examples below use a public archival DSS image centered on Sirius. The image is useful for learning FITS structure and headers, but it is <strong>not</strong> a good precision-photometry example. Sirius is extremely bright, so the image may include saturation, halos, diffraction spikes, or other artifacts.</p>
 <p>The example below downloads a public DSS2 Red FITS image centered on HD 209458, a well-known exoplanet-host star. This gives us a real archival FITS image without using unpublished observing data. The goal here is to practice reading the FITS file, inspecting the header, and displaying the image data.</p>
 <p>The code uses <a class="reference external" href="https://astroquery.readthedocs.io/en/latest/skyview/skyview.html"><code class="docutils literal notranslate"><span class="pre">astroquery.skyview</span></code></a> to download a public FITS image from SkyView and <a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/index.html"><code class="docutils literal notranslate"><span class="pre">astropy.io.fits</span></code></a> to read the FITS file.</p>
@@ -1033,7 +1034,7 @@ SNR = 500 gives an approximate magnitude uncertainty of 0.0022 mag.
 </div>
 </section>
 <section id="inspecting-the-fits-file-structure">
-<h3><span class="section-number">12.11.2. </span>Inspecting the FITS File Structure<a class="headerlink" href="#inspecting-the-fits-file-structure" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.2. </span>Inspecting the FITS File Structure<a class="headerlink" href="#inspecting-the-fits-file-structure" title="Link to this heading">#</a></h3>
 <p>A FITS file is organized into one or more <strong>Header Data Units</strong>, usually called <strong>HDUs</strong>. Each HDU has a header, and many HDUs also contain data. For a simple image file, the data are usually stored as a two-dimensional array of pixel values.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">fits.info()</span></code> to see what is inside the file. This does not read the entire image into a variable for analysis. It prints a compact summary of the HDUs in the file.</p>
 <div class="cell docutils container">
@@ -1053,7 +1054,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <p>For a simple image, you will usually see one primary HDU. More complicated FITS files may contain multiple extensions, such as science images, error arrays, data-quality masks, or tables. Space-telescope files often have several extensions, so do not assume that every FITS file stores the image in exactly the same place.</p>
 </section>
 <section id="reading-the-header-and-image-data">
-<h3><span class="section-number">12.11.3. </span>Reading the Header and Image Data<a class="headerlink" href="#reading-the-header-and-image-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.3. </span>Reading the Header and Image Data<a class="headerlink" href="#reading-the-header-and-image-data" title="Link to this heading">#</a></h3>
 <p>The header stores metadata about the image. The data array stores the pixel values. The most common beginner mistake is to forget that NumPy arrays are indexed as <code class="docutils literal notranslate"><span class="pre">[y,</span> <span class="pre">x]</span></code>, not <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1089,7 +1090,7 @@ Data type: float64
 </div>
 </section>
 <section id="reading-important-header-keywords">
-<h3><span class="section-number">12.11.4. </span>Reading Important Header Keywords<a class="headerlink" href="#reading-important-header-keywords" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.4. </span>Reading Important Header Keywords<a class="headerlink" href="#reading-important-header-keywords" title="Link to this heading">#</a></h3>
 <p>A FITS header is made of keyword-value pairs. Some keywords describe the file structure. Others describe the telescope, instrument, filter, exposure time, observation date, or sky coordinates. Different surveys and telescopes do not always use exactly the same keywords, so not every keyword will appear in every file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1192,7 +1193,7 @@ CDELT2   =    0.0003333333333333334    Y scale
 <p>The WCS-related keywords, such as <code class="docutils literal notranslate"><span class="pre">CTYPE1</span></code>, <code class="docutils literal notranslate"><span class="pre">CTYPE2</span></code>, <code class="docutils literal notranslate"><span class="pre">CRVAL1</span></code>, <code class="docutils literal notranslate"><span class="pre">CRVAL2</span></code>, <code class="docutils literal notranslate"><span class="pre">CRPIX1</span></code>, and <code class="docutils literal notranslate"><span class="pre">CRPIX2</span></code>, help map pixel positions to sky coordinates. If those keywords are missing or unreliable, software may not know where the image is on the sky. That is one reason plate solving with tools such as Astrometry.net can be useful in a real observing workflow.</p>
 </section>
 <section id="checking-the-full-header">
-<h3><span class="section-number">12.11.5. </span>Checking the Full Header<a class="headerlink" href="#checking-the-full-header" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.5. </span>Checking the Full Header<a class="headerlink" href="#checking-the-full-header" title="Link to this heading">#</a></h3>
 <p>Sometimes you need to inspect the full header because the keyword you need is not in a short list. Printing the full header is useful, but it can be long.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1250,7 +1251,7 @@ COMMENT Coordinates: Equatorial
 <p>A <strong>header card</strong> is one line of FITS metadata. It usually contains a keyword, a value, and sometimes a comment. A header can also contain history or comment cards that describe how the file was created or processed.</p>
 </section>
 <section id="displaying-the-fits-image">
-<h3><span class="section-number">12.11.6. </span>Displaying the FITS Image<a class="headerlink" href="#displaying-the-fits-image" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.6. </span>Displaying the FITS Image<a class="headerlink" href="#displaying-the-fits-image" title="Link to this heading">#</a></h3>
 <p>Raw FITS images often have a large range of pixel values. If you display the image with a simple linear scale, faint stars may be hard to see. A display stretch changes how the image is shown on the screen without changing the stored data values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1287,7 +1288,7 @@ COMMENT Coordinates: Equatorial
 </div>
 </section>
 <section id="summarizing-a-folder-of-fits-files">
-<h3><span class="section-number">12.11.7. </span>Summarizing a Folder of FITS Files<a class="headerlink" href="#summarizing-a-folder-of-fits-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.11.7. </span>Summarizing a Folder of FITS Files<a class="headerlink" href="#summarizing-a-folder-of-fits-files" title="Link to this heading">#</a></h3>
 <p>For a folder of FITS files, it is often helpful to build a small summary table before calibration. This lets you catch mismatched filters, exposure times, image types, or camera temperatures before the reduction goes too far.</p>
 <p>The example below is a template for your own observing data. It assumes your files are stored in <code class="docutils literal notranslate"><span class="pre">data/raw/</span></code>.</p>
 <div class="cell docutils container">
@@ -1340,7 +1341,7 @@ COMMENT Coordinates: Equatorial
 </section>
 </section>
 <section id="python-setup">
-<h2><span class="section-number">12.12. </span>Python Setup<a class="headerlink" href="#python-setup" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.12. </span>Python Setup<a class="headerlink" href="#python-setup" title="Link to this heading">#</a></h2>
 <p>The examples below use NumPy, Matplotlib, and Astropy. The first example simulates data so that the notebook can run without real FITS images. The later examples show the same ideas for actual FITS files.</p>
 <div class="note admonition">
 <p class="admonition-title">Optional packages</p>
@@ -1360,7 +1361,7 @@ COMMENT Coordinates: Equatorial
 </div>
 </section>
 <section id="example-1-simulate-raw-lights-and-calibration-frames">
-<h2><span class="section-number">12.13. </span>Example 1: Simulate Raw Lights and Calibration Frames<a class="headerlink" href="#example-1-simulate-raw-lights-and-calibration-frames" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.13. </span>Example 1: Simulate Raw Lights and Calibration Frames<a class="headerlink" href="#example-1-simulate-raw-lights-and-calibration-frames" title="Link to this heading">#</a></h2>
 <p>The next cell creates a simplified fake dataset. The simulated science image contains stars, sky background, a bias pattern, dark current, hot pixels, pixel-response variations, and noise. This is not meant to be a perfect detector model. It is meant to show why calibration frames are needed.</p>
 <p>The fake dataset includes raw light images, raw bias frames, raw dark frames, raw flat frames, and the hidden “true” star image used for comparison.</p>
 <div class="cell docutils container">
@@ -1427,7 +1428,7 @@ Raw flat stack shape: (20, 120, 120)
 </div>
 </section>
 <section id="example-2-build-master-calibration-frames">
-<h2><span class="section-number">12.14. </span>Example 2: Build Master Calibration Frames<a class="headerlink" href="#example-2-build-master-calibration-frames" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.14. </span>Example 2: Build Master Calibration Frames<a class="headerlink" href="#example-2-build-master-calibration-frames" title="Link to this heading">#</a></h2>
 <p>The standard beginner approach is to combine many frames using a median. A median is robust against cosmic rays and occasional bad frames. In real work, inspect the frames before combining them.</p>
 <p>The master dark below is bias-subtracted, so it represents dark current plus hot pixels. The master flat is corrected by subtracting the master bias and a scaled version of the master dark. Then it is normalized by its median so that a typical pixel has a flat value near 1.</p>
 <div class="cell docutils container">
@@ -1472,7 +1473,7 @@ Normalized flat median: 1.000
 </div>
 </section>
 <section id="example-3-calibrate-a-light-image">
-<h2><span class="section-number">12.15. </span>Example 3: Calibrate a Light Image<a class="headerlink" href="#example-3-calibrate-a-light-image" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.15. </span>Example 3: Calibrate a Light Image<a class="headerlink" href="#example-3-calibrate-a-light-image" title="Link to this heading">#</a></h2>
 <p>Now apply the calibration formula to one light image. Because the simulated master dark was bias-subtracted, the code subtracts the master bias separately and scales the master dark by exposure time.</p>
 <div class="note admonition">
 <p class="admonition-title">Calibration formula</p>
@@ -1518,7 +1519,7 @@ Calibrated image residual scatter relative to hidden true image: 36.45 counts
 </div>
 </section>
 <section id="example-4-calibrating-real-fits-images-with-astropy">
-<h2><span class="section-number">12.16. </span>Example 4: Calibrating Real FITS Images with Astropy<a class="headerlink" href="#example-4-calibrating-real-fits-images-with-astropy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.16. </span>Example 4: Calibrating Real FITS Images with Astropy<a class="headerlink" href="#example-4-calibrating-real-fits-images-with-astropy" title="Link to this heading">#</a></h2>
 <p>The next example is a template for real data. It assumes a project directory with folders like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>photometry-project/
 ├── data/
@@ -1617,7 +1618,7 @@ Found 0 light frames.
 </div>
 </section>
 <section id="quality-checks-after-calibration">
-<h2><span class="section-number">12.17. </span>Quality Checks After Calibration<a class="headerlink" href="#quality-checks-after-calibration" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.17. </span>Quality Checks After Calibration<a class="headerlink" href="#quality-checks-after-calibration" title="Link to this heading">#</a></h2>
 <p>Do not assume that calibration worked just because the code ran. Inspect the master frames and several calibrated science images. A master bias should show the electronic offset and readout structure but should not contain stars. A master dark should show thermal structure and hot pixels but should not contain sky signal. A normalized flat should have a median near 1 and should reveal dust shadows, vignetting, and pixel-response structure.</p>
 <p>A calibrated light frame should have a flatter background than the raw image, but it does not need to look pretty. Negative background pixels can occur after calibration and sky subtraction. Do not automatically clip them to zero unless you have a specific reason.</p>
 <div class="tip admonition">
@@ -1647,7 +1648,7 @@ Found 0 light frames.
 </div>
 </section>
 <section id="from-calibrated-images-to-differential-light-curves">
-<h2><span class="section-number">12.18. </span>From Calibrated Images to Differential Light Curves<a class="headerlink" href="#from-calibrated-images-to-differential-light-curves" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.18. </span>From Calibrated Images to Differential Light Curves<a class="headerlink" href="#from-calibrated-images-to-differential-light-curves" title="Link to this heading">#</a></h2>
 <p>Once the light frames are calibrated, the next steps are measuring the target and comparison stars, computing instrumental magnitudes, computing differential magnitudes, and plotting the result against time. This is where aperture choice, sky annulus choice, comparison-star choice, and time stamps become critical.</p>
 <p>For a beginner workflow:</p>
 <ol class="arabic simple">
@@ -1665,7 +1666,7 @@ Found 0 light frames.
 </div>
 </section>
 <section id="common-problems-in-beginner-photometry">
-<h2><span class="section-number">12.19. </span>Common Problems in Beginner Photometry<a class="headerlink" href="#common-problems-in-beginner-photometry" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.19. </span>Common Problems in Beginner Photometry<a class="headerlink" href="#common-problems-in-beginner-photometry" title="Link to this heading">#</a></h2>
 <p>Many beginner photometry problems are not caused by complicated astrophysics. They come from ordinary reduction and measurement choices. Common issues include saturated target or comparison stars, using comparison stars that are variable or much different in color from the target, using an aperture that is too small, including a nearby star in the aperture or sky annulus, using flats from the wrong filter, failing to match dark exposure time or temperature, using images taken too low in the sky, and trusting a light curve before checking the raw images.</p>
 <div class="tip admonition">
 <p class="admonition-title">Rule of thumb</p>
@@ -1673,10 +1674,10 @@ Found 0 light frames.
 </div>
 </section>
 <section id="videos-and-further-reading">
-<h2><span class="section-number">12.20. </span>Videos and Further Reading<a class="headerlink" href="#videos-and-further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.20. </span>Videos and Further Reading<a class="headerlink" href="#videos-and-further-reading" title="Link to this heading">#</a></h2>
 <p>Use these resources when you need a slower explanation or a software demonstration.</p>
 <section id="differential-photometry-and-aperture-photometry">
-<h3><span class="section-number">12.20.1. </span>Differential photometry and aperture photometry<a class="headerlink" href="#differential-photometry-and-aperture-photometry" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.20.1. </span>Differential photometry and aperture photometry<a class="headerlink" href="#differential-photometry-and-aperture-photometry" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://boyce-astro.org/differential-photometry/">Boyce Astro: Differential Photometry</a> — start here for the target/comparison-star idea.</p></li>
 <li><p><a class="reference external" href="https://boyce-astro.org/videos/photometry/">Boyce Astro Videos: Photometry</a> — includes aperture photometry, photometry overview, differential photometry, standard stars, Landolt standards, and extinction.</p></li>
@@ -1687,7 +1688,7 @@ Found 0 light frames.
 </ul>
 </section>
 <section id="magnitudes-and-light-curves">
-<h3><span class="section-number">12.20.2. </span>Magnitudes and light curves<a class="headerlink" href="#magnitudes-and-light-curves" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.20.2. </span>Magnitudes and light curves<a class="headerlink" href="#magnitudes-and-light-curves" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=PcRLQ_QYbfM">Launch Pad Astronomy: Stellar Magnitudes</a> — useful review of the magnitude scale.</p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLrAnGxL8nxOH8Ye0IaioX67uv1ZvaOwaw">Launch Pad Astronomy: Light playlist</a> — background on light and how it behaves.</p></li>
@@ -1696,7 +1697,7 @@ Found 0 light frames.
 </ul>
 </section>
 <section id="python-documentation">
-<h3><span class="section-number">12.20.3. </span>Python documentation<a class="headerlink" href="#python-documentation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.20.3. </span>Python documentation<a class="headerlink" href="#python-documentation" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.astropy.org/ccd-reduction-and-photometry-guide/">Astropy CCD Data Reduction and Photometry Guide</a></p></li>
 <li><p><a class="reference external" href="https://ccdproc.readthedocs.io/">ccdproc documentation</a></p></li>
@@ -1705,7 +1706,7 @@ Found 0 light frames.
 </section>
 </section>
 <section id="final-checklist">
-<h2><span class="section-number">12.21. </span>Final Checklist<a class="headerlink" href="#final-checklist" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.21. </span>Final Checklist<a class="headerlink" href="#final-checklist" title="Link to this heading">#</a></h2>
 <p>Before trusting a photometric measurement, make sure the data pass the basic checks below.</p>
 <div class="tip admonition">
 <p class="admonition-title">Photometry checklist</p>
@@ -1755,12 +1756,12 @@ Found 0 light frames.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="reu_observation_planning.html"
+       href="observing-weather.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Planning Observations for Transits and Eclipses</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Watching the Weather for Observing</p>
       </div>
     </a>
     <a class="right-next"
@@ -1768,7 +1769,7 @@ Found 0 light frames.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Reducing Light Curves with AstroImageJ</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Reducing Light Curves with AstroImageJ</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1788,46 +1789,46 @@ Found 0 light frames.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-photometry-measures">12.1. What Photometry Measures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-digital-photometer-works">12.2. How a Digital Photometer Works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-counts-to-instrumental-magnitudes">12.3. From Counts to Instrumental Magnitudes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aperture-photometry">12.4. Aperture Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-width-at-half-maximum">12.5. Full Width at Half Maximum</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changes-the-fwhm">12.5.1. What changes the FWHM?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-fwhm-with-python">12.5.2. Estimating FWHM with Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-fwhm-to-choose-an-aperture">12.5.3. Using FWHM to choose an aperture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-photometry-measures">13.1. What Photometry Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-digital-photometer-works">13.2. How a Digital Photometer Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-counts-to-instrumental-magnitudes">13.3. From Counts to Instrumental Magnitudes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aperture-photometry">13.4. Aperture Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-width-at-half-maximum">13.5. Full Width at Half Maximum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changes-the-fwhm">13.5.1. What changes the FWHM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-fwhm-with-python">13.5.2. Estimating FWHM with Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-fwhm-to-choose-an-aperture">13.5.3. Using FWHM to choose an aperture</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry">12.6. Differential Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-sources-in-photometry">12.7. Noise Sources in Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-to-noise-ratio">12.8. Signal-to-Noise Ratio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-frames">12.9. Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-take-calibration-frames">12.10. How to Take Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fits-file-format-and-image-headers">12.11. The FITS File Format and Image Headers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-example-fits-file">12.11.1. Public Example FITS File</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-fits-file-structure">12.11.2. Inspecting the FITS File Structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-header-and-image-data">12.11.3. Reading the Header and Image Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-important-header-keywords">12.11.4. Reading Important Header Keywords</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-full-header">12.11.5. Checking the Full Header</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-the-fits-image">12.11.6. Displaying the FITS Image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-a-folder-of-fits-files">12.11.7. Summarizing a Folder of FITS Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry">13.6. Differential Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-sources-in-photometry">13.7. Noise Sources in Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-to-noise-ratio">13.8. Signal-to-Noise Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-frames">13.9. Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-take-calibration-frames">13.10. How to Take Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fits-file-format-and-image-headers">13.11. The FITS File Format and Image Headers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-example-fits-file">13.11.1. Public Example FITS File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-fits-file-structure">13.11.2. Inspecting the FITS File Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-header-and-image-data">13.11.3. Reading the Header and Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-important-header-keywords">13.11.4. Reading Important Header Keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-full-header">13.11.5. Checking the Full Header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-the-fits-image">13.11.6. Displaying the FITS Image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing-a-folder-of-fits-files">13.11.7. Summarizing a Folder of FITS Files</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-setup">12.12. Python Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulate-raw-lights-and-calibration-frames">12.13. Example 1: Simulate Raw Lights and Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-build-master-calibration-frames">12.14. Example 2: Build Master Calibration Frames</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-calibrate-a-light-image">12.15. Example 3: Calibrate a Light Image</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-calibrating-real-fits-images-with-astropy">12.16. Example 4: Calibrating Real FITS Images with Astropy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-checks-after-calibration">12.17. Quality Checks After Calibration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-calibrated-images-to-differential-light-curves">12.18. From Calibrated Images to Differential Light Curves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problems-in-beginner-photometry">12.19. Common Problems in Beginner Photometry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-and-further-reading">12.20. Videos and Further Reading</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-and-aperture-photometry">12.20.1. Differential photometry and aperture photometry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitudes-and-light-curves">12.20.2. Magnitudes and light curves</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-documentation">12.20.3. Python documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-setup">13.12. Python Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulate-raw-lights-and-calibration-frames">13.13. Example 1: Simulate Raw Lights and Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-build-master-calibration-frames">13.14. Example 2: Build Master Calibration Frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-calibrate-a-light-image">13.15. Example 3: Calibrate a Light Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-calibrating-real-fits-images-with-astropy">13.16. Example 4: Calibrating Real FITS Images with Astropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-checks-after-calibration">13.17. Quality Checks After Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-calibrated-images-to-differential-light-curves">13.18. From Calibrated Images to Differential Light Curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problems-in-beginner-photometry">13.19. Common Problems in Beginner Photometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-and-further-reading">13.20. Videos and Further Reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-photometry-and-aperture-photometry">13.20.1. Differential photometry and aperture photometry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitudes-and-light-curves">13.20.2. Magnitudes and light curves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-documentation">13.20.3. Python documentation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">12.21. Final Checklist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">13.21. Final Checklist</a></li>
 </ul>
   </nav></div>
 
